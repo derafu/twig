@@ -127,7 +127,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://raw.githubusercontent.com/derafu/twig/refs/heads/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/derafu/twig/blob/main/LICENSE) file for details.
 
 ---
 
