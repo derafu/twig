@@ -1,0 +1,45 @@
+{# templates/components/block-team.html.twig #}
+<section class="block-team theme-{{ this.theme }} block-team--cols-{{ this.cols }} block-team--align-{{ this.align }}">
+    <div class="container">
+        <div class="row g-4">
+            {% for member in this.members %}
+                {% set cols = this.cols %}
+                <div class="col-sm-6 {% if cols == 1 %}col-lg-12
+                    {% elseif cols == 2 %}col-lg-6
+                    {% elseif cols == 3 %}col-lg-4
+                    {% elseif cols == 4 %}col-lg-3
+                    {% else %}col-lg-2{% endif %}">
+                    <div class="block-team__member">
+                        {# Imagen #}
+                        <div class="block-team__image">
+                            <img src="{{ member.image }}" alt="{{ member.name }}" class="img-fluid">
+                        </div>
+
+                        {# Info #}
+                        <div class="block-team__info">
+                            <h3 class="block-team__name">{{ member.name }}</h3>
+                            <div class="block-team__role">{{ member.role }}</div>
+
+                            {% if member.bio is defined and member.bio %}
+                                <div class="block-team__bio">{{ member.bio }}</div>
+                            {% endif %}
+
+                            {% if member.links is defined and member.links|length > 0 %}
+                                <div class="block-team__links">
+                                    {% for link in member.links %}
+                                        <a href="{{ link.url }}" class="block-team__link">
+                                            {% if link.icon is defined and link.icon %}
+                                                <i class="{{ link.icon }}"></i>
+                                            {% endif %}
+                                            <span>{{ link.text }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

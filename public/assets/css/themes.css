@@ -1,0 +1,197 @@
+/* Tema bootstrap */
+.theme-default {
+    --color-primary: #0d6efd;
+    --color-primary-light: #3d8bfd;
+    --color-primary-dark: #0a58ca;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #6c757d;
+    --color-secondary-light: #a0a8b1;
+    --color-secondary-dark: #565e64;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #198754;
+    --color-tertiary-light: #25a56a;
+    --color-tertiary-dark: #146c43;
+    --color-tertiary-contrast: #FFFFFF;
+}
+
+/* Tema derafu */
+.theme-amber-elegance {
+    --color-primary: #F7A713;
+    --color-primary-light: #fbb642;
+    --color-primary-dark: #d68c02;
+    --color-primary-contrast: #000000;
+
+    --color-secondary: #1D1D1B;
+    --color-secondary-light: #2d2d2a;
+    --color-secondary-dark: #000000;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #FFFFFF;
+    --color-tertiary-light: #FFFFFF;
+    --color-tertiary-dark: #f0f0f0;
+    --color-tertiary-contrast: #1D1D1B;
+}
+
+/* Tema libredte */
+.theme-royal-sunset {
+    --color-primary: #194B97;
+    --color-primary-light: #2C63C0;
+    --color-primary-dark: #123A75;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #777777;
+    --color-secondary-light: #8C8C8C;
+    --color-secondary-dark: #5C5C5C;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #F7A713;
+    --color-tertiary-light: #FFBA3A;
+    --color-tertiary-dark: #C77F0D;
+    --color-tertiary-contrast: #3F4242;
+}
+
+/* Tema billmysales */
+.theme-sky-pro {
+    --color-primary: #0075F2;
+    --color-primary-light: #1a8aff;
+    --color-primary-dark: #0060c4;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #3F4242;
+    --color-secondary-light: #4f5252;
+    --color-secondary-dark: #2f3232;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #FFFFFF;
+    --color-tertiary-light: #FFFFFF;
+    --color-tertiary-dark: #f5f5f5;
+    --color-tertiary-contrast: #212529;
+}
+
+/* Tema apigateway */
+.theme-sky-energy {
+    --color-primary: #0075F2;
+    --color-primary-light: #1a8aff;
+    --color-primary-dark: #0060c4;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #3F4242;
+    --color-secondary-light: #4f5252;
+    --color-secondary-dark: #2f3232;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #F7A713;
+    --color-tertiary-light: #ffba3a;
+    --color-tertiary-dark: #c77f0d;
+    --color-tertiary-contrast: #3F4242;
+}
+
+/* Tema bhexpress y contafi */
+.theme-sunrise-blue {
+    --color-primary: #194B97;
+    --color-primary-light: #2C63C0;
+    --color-primary-dark: #123A75;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #F7A713;
+    --color-secondary-light: #FFBA3A;
+    --color-secondary-dark: #C77F0D;
+    --color-secondary-contrast: #194B97;
+
+    --color-tertiary: #FFFFFF;
+    --color-tertiary-light: #FFFFFF;
+    --color-tertiary-dark: #E6E6E6;
+    --color-tertiary-contrast: #194B97;
+}
+
+/* Tema dinncode */
+.theme-earthstone {
+    --color-primary: #3F4242;
+    --color-primary-light: #555858;
+    --color-primary-dark: #2A2C2C;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #D99008;
+    --color-secondary-light: #E8A82E;
+    --color-secondary-dark: #A56F06;
+    --color-secondary-contrast: #3F4242;
+
+    --color-tertiary: #FFFFFF;
+    --color-tertiary-light: #FFFFFF;
+    --color-tertiary-dark: #E6E6E6;
+    --color-tertiary-contrast: #3F4242;
+}
+
+/* Tema dinnodoo */
+.theme-ocean-mystic {
+    --color-primary: #00969A;
+    --color-primary-light: #33B2B5;
+    --color-primary-dark: #007478;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #865E7F;
+    --color-secondary-light: #A07D99;
+    --color-secondary-dark: #684965;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #FFFFFF;
+    --color-tertiary-light: #FFFFFF;
+    --color-tertiary-dark: #E6E6E6;
+    --color-tertiary-contrast: #00969A;
+}
+
+/* Tema dinnopay */
+.theme-deep-blue {
+    --color-primary: #194B97;
+    --color-primary-light: #2C63C0;
+    --color-primary-dark: #123A75;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #0076F3;
+    --color-secondary-light: #1A8BFF;
+    --color-secondary-dark: #005AC1;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #FFFFFF;
+    --color-tertiary-light: #FFFFFF;
+    --color-tertiary-dark: #E6E6E6;
+    --color-tertiary-contrast: #194B97;
+}
+
+/* Tema mk11 */
+.theme-neo-crimson {
+    --color-primary: #000000;
+    --color-primary-light: #333333;
+    --color-primary-dark: #000000;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #ED0027;
+    --color-secondary-light: #FF334D;
+    --color-secondary-dark: #B5001D;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #00C4C7;
+    --color-tertiary-light: #33D6D9;
+    --color-tertiary-dark: #009A9D;
+    --color-tertiary-contrast: #000000;
+}
+
+/* Tema guarida */
+.theme-crimson-dark {
+    --color-primary: #000000;
+    --color-primary-light: #333333;
+    --color-primary-dark: #000000;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #650709;
+    --color-secondary-light: #8C0A0D;
+    --color-secondary-dark: #4A0507;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #A3161A;
+    --color-tertiary-light: #C81F24;
+    --color-tertiary-dark: #7D1015;
+    --color-tertiary-contrast: #FFFFFF;
+}

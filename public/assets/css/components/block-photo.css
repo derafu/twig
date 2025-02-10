@@ -1,0 +1,87 @@
+/* Variables estructurales */
+:root {
+    --photo-spacing: 2rem;
+    --photo-width-small: 400px;
+    --photo-width-medium: 800px;
+    --photo-width-large: 1200px;
+}
+
+/* Estilos del componente */
+.block-photo {
+    padding: var(--photo-spacing) 0;
+}
+
+.block-photo__wrapper {
+    margin: 0 auto;
+    max-width: var(--photo-width-medium);
+}
+
+.block-photo--small .block-photo__wrapper {
+    max-width: var(--photo-width-small);
+}
+
+.block-photo--large .block-photo__wrapper {
+    max-width: var(--photo-width-large);
+}
+
+.block-photo--left {
+    text-align: left;
+}
+
+.block-photo--center {
+    text-align: center;
+}
+
+.block-photo--right {
+    text-align: right;
+}
+
+.block-photo__title {
+    color: var(--photo-title);
+    margin-bottom: var(--photo-spacing);
+}
+
+.block-photo__image {
+    margin-bottom: var(--photo-spacing);
+}
+
+.block-photo__image img {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px var(--photo-shadow);
+}
+
+.block-photo__description {
+    color: var(--photo-text);
+    margin-bottom: var(--photo-spacing);
+}
+
+.block-photo__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.block-photo--left .block-photo__buttons {
+    justify-content: flex-start;
+}
+
+.block-photo--right .block-photo__buttons {
+    justify-content: flex-end;
+}
+
+.block-photo__button {
+    display: inline-block;
+    background-color: var(--photo-button-bg);
+    color: var(--photo-button-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.block-photo__button:hover {
+    background-color: var(--photo-button-hover);
+    color: var(--photo-button-hover-text);
+    text-decoration: none;
+}

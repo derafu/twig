@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-image-grid
+    :images="[
+        {
+            image: '../../../assets/img/block-image-grid.png',
+            url: 'https://example1.com',
+            tooltip: 'Empresa 1'
+        },
+        {
+            image: '../../../assets/img/block-image-grid.png',
+            tooltip: 'Empresa 2'
+        },
+        {
+            image: '../../../assets/img/block-image-grid.png',
+        },
+        {
+            image: '../../../assets/img/block-image-grid.png',
+        }
+    ]"
+    :cols="4"
+/>
+{% endblock %}

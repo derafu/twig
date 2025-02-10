@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-boxes
+    :boxes="[
+        {
+            icon: 'fa-solid fa-search',
+            title: 'Integración mediante API',
+            description: 'Si tienes un software propio y deseas hacer una integración, conecta tu sistema con el Servicio Plus de LibreDTE mediante nuestros servicios web.',
+            button_text: 'Revisa la documentación',
+            button_url: '#'
+        },
+        {
+            icon: 'fa-solid fa-file',
+            title: 'Automatización de facturación',
+            description: 'Si tienes una tienda electrónica (ecommerce), puedes automatizar tu facturación utilizando nuestro proyecto BillMySales y te olvidas de emitir tus DTE.',
+            button_text: 'Ver precios de BillMySales',
+            button_url: '#'
+        }
+    ]"
+/>
+{% endblock %}

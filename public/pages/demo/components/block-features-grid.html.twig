@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-features-grid
+   :blocks="[
+       {
+           title: 'Si actualmente emites por el SII',
+           subtitle: 'Usando el sistema de facturación gratuito del SII',
+           features: [
+               {
+                   icon: 'fa-solid fa-check-circle',
+                   title: 'Sin situaciones pendientes',
+                   description: 'Verificación de actividad y domicilio. Representante sin problemas.'
+               },
+               {
+                   icon: 'fa-solid fa-file-lines',
+                   title: 'Documentos a certificar',
+                   description: 'Debemos certificar todos los documentos que uses en SII.'
+               }
+           ]
+       },
+       {
+           title: 'Si actualmente emites con otro proveedor',
+           subtitle: 'Usando software de mercado (tienes certificación de DTE realizada)',
+           features: [
+               {
+                   icon: 'fa-solid fa-check-circle',
+                   title: 'Sin restricción de timbraje de folios',
+                   description: 'Si tenías folios antiguos sin usar, debes anularlos en SII.'
+               },
+               {
+                   icon: 'fa-solid fa-file-lines',
+                   title: 'Documentos a habilitar',
+                   description: 'Además deberás indicar si necesitamos certificar algún nuevo.'
+               }
+           ]
+       }
+   ]"
+/>
+
+{# Caso adicional con más características por bloque #}
+<twig:block-features-grid
+   :blocks="[
+       {
+           title: 'Primer Bloque',
+           subtitle: 'Descripción del primer bloque',
+           features: [
+               {
+                   icon: 'fa-solid fa-cloud',
+                   title: 'Característica 1',
+                   description: 'Descripción de la característica 1.'
+               },
+               {
+                   icon: 'fa-solid fa-cog',
+                   title: 'Característica 2',
+                   description: 'Descripción de la característica 2.'
+               },
+               {
+                   icon: 'fa-solid fa-users',
+                   title: 'Característica 3',
+                   description: 'Descripción de la característica 3.'
+               }
+           ]
+       },
+       {
+           title: 'Segundo Bloque',
+           subtitle: 'Descripción del segundo bloque',
+           features: [
+               {
+                   icon: 'fa-solid fa-star',
+                   title: 'Característica 1',
+                   description: 'Descripción de la característica 1.'
+               },
+               {
+                   icon: 'fa-solid fa-heart',
+                   title: 'Característica 2',
+                   description: 'Descripción de la característica 2.'
+               },
+               {
+                   icon: 'fa-solid fa-bell',
+                   title: 'Característica 3',
+                   description: 'Descripción de la característica 3.'
+               }
+           ]
+       }
+   ]"
+   theme="ocean-mystic"
+/>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-features-list
+    :features_left="[
+        {
+            icon: 'fa-solid fa-laptop',
+            title: 'Aplicación Web',
+            description: 'Con emisión de documentos en forma individual y masiva.'
+        },
+        {
+            icon: 'fa-solid fa-chart-line',
+            title: 'Reportes',
+            description: 'Gráficos y estadísticas para visualizar tus datos de manera sencilla.'
+        }
+    ]"
+    :features_right="[
+        {
+            icon: 'fa-solid fa-cubes',
+            title: 'Productos y Servicios',
+            description: 'Codifica tus productos y servicios para emitir rápidamente y sin errores.'
+        },
+        {
+            icon: 'fa-solid fa-cloud-download',
+            title: 'Respaldo',
+            description: 'Descarga tus datos cada vez que los requieras.'
+        }
+    ]"
+/>
+
+{# Caso con más elementos para verificar el espaciado #}
+<twig:block-features-list
+    :features_left="[
+        {
+            icon: 'fa-solid fa-laptop',
+            title: 'Aplicación Web',
+            description: 'Con emisión de documentos en forma individual y masiva.'
+        },
+        {
+            icon: 'fa-solid fa-chart-line',
+            title: 'Reportes',
+            description: 'Gráficos y estadísticas para visualizar tus datos de manera sencilla.'
+        },
+        {
+            icon: 'fa-solid fa-cogs',
+            title: 'Configuración',
+            description: 'Personaliza la aplicación según tus necesidades específicas.'
+        }
+    ]"
+    :features_right="[
+        {
+            icon: 'fa-solid fa-cubes',
+            title: 'Productos y Servicios',
+            description: 'Codifica tus productos y servicios para emitir rápidamente y sin errores.'
+        },
+        {
+            icon: 'fa-solid fa-cloud-download',
+            title: 'Respaldo',
+            description: 'Descarga tus datos cada vez que los requieras.'
+        },
+        {
+            icon: 'fa-solid fa-shield',
+            title: 'Seguridad',
+            description: 'Tus datos están protegidos con los más altos estándares de seguridad.'
+        }
+    ]"
+    theme="ocean-mystic"
+/>
+{% endblock %}

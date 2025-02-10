@@ -1,0 +1,152 @@
+:root {
+    /* Team component sizes - el ancho determina el tamaño cuadrado */
+    --team-image-size-1: 300px; /* una columna */
+    --team-image-size-2: 250px; /* dos columnas */
+    --team-image-size-3: 200px; /* tres columnas */
+    --team-image-size-4: 180px; /* cuatro columnas */
+    --team-image-size-6: 150px; /* seis columnas */
+}
+
+/* Estilos del componente */
+.block-team {
+    padding: var(--spacing-y, 2rem) 0;
+    background-color: var(--team-bg);
+}
+
+.block-team__member {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--team-image-shadow);
+    transition: transform 0.3s ease;
+    text-align: center; /* default */
+}
+
+.block-team--align-left .block-team__member {
+    text-align: left;
+}
+
+.block-team--align-right .block-team__member {
+    text-align: right;
+}
+
+.block-team__member:hover {
+    transform: translateY(-5px);
+}
+
+.block-team__image {
+    position: relative;
+    padding: 2rem 2rem 0;
+    display: flex;
+}
+
+.block-team--align-left .block-team__image {
+    justify-content: flex-start;
+}
+
+.block-team--align-center .block-team__image {
+    justify-content: center;
+}
+
+.block-team--align-right .block-team__image {
+    justify-content: flex-end;
+}
+
+.block-team__image img {
+    width: var(--team-image-size-4); /* default */
+    height: var(--team-image-size-4);
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* Ajustes según número de columnas */
+.block-team--cols-1 .block-team__image img {
+    width: var(--team-image-size-1);
+    height: var(--team-image-size-1);
+}
+.block-team--cols-2 .block-team__image img {
+    width: var(--team-image-size-2);
+    height: var(--team-image-size-2);
+}
+.block-team--cols-3 .block-team__image img {
+    width: var(--team-image-size-3);
+    height: var(--team-image-size-3);
+}
+.block-team--cols-4 .block-team__image img {
+    width: var(--team-image-size-4);
+    height: var(--team-image-size-4);
+}
+.block-team--cols-6 .block-team__image img {
+    width: var(--team-image-size-6);
+    height: var(--team-image-size-6);
+}
+
+.block-team__info {
+    padding: 2rem;
+    background: white;
+}
+
+.block-team__name {
+    color: var(--team-name-color);
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.block-team__role {
+    color: var(--team-role-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.block-team__bio {
+    color: var(--team-bio-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--team-border-color);
+}
+
+.block-team__links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.block-team--align-left .block-team__links {
+    justify-content: flex-start;
+}
+
+.block-team--align-center .block-team__links {
+    justify-content: center;
+}
+
+.block-team--align-right .block-team__links {
+    justify-content: flex-end;
+}
+
+.block-team__link {
+    color: var(--team-link-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background: var(--team-link-bg);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.block-team__link:hover {
+    color: var(--team-link-hover-text);
+    background: var(--team-link-hover-bg);
+    transform: translateY(-2px);
+}
+
+.block-team__link i {
+    font-size: 1.1em;
+}

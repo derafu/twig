@@ -1,0 +1,30 @@
+{# templates/components/block-photo.html.twig #}
+<section class="block-photo theme-{{ this.theme }} block-photo--{{ this.align }} block-photo--{{ this.size }}">
+    <div class="container">
+        <div class="block-photo__wrapper">
+            {% if this.title %}
+                <h2 class="block-photo__title">{{ this.title }}</h2>
+            {% endif %}
+
+            <div class="block-photo__image">
+                <img src="{{ this.image }}" alt="{{ this.title }}" class="img-fluid">
+            </div>
+
+            {% if this.description %}
+                <div class="block-photo__description">
+                    {{ this.description|raw }}
+                </div>
+            {% endif %}
+
+            {% if this.buttons|length > 0 %}
+                <div class="block-photo__buttons">
+                    {% for button in this.buttons %}
+                        <a href="{{ button.url }}" class="block-photo__button">
+                            {{ button.text }}
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

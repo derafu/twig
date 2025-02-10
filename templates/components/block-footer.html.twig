@@ -1,0 +1,181 @@
+{# templates/components/block-footer.html.twig #}
+<footer class="block-footer theme-{{ this.theme }}">
+    <div class="container">
+        <div class="row">
+            {# Columna 1 #}
+            {% if this.col1Title or this.col1Html or this.col1Links is not empty or this.col1SocialIcons is not empty %}
+                <div class="col">
+                    {% if this.col1Title %}
+                        <h5 class="block-footer__title mb-4">{{ this.col1Title }}</h5>
+                    {% endif %}
+                    {% if this.col1Html %}
+                        <div class="block-footer__text mb-4">{{ this.col1Html|raw }}</div>
+                    {% endif %}
+                    {% if this.col1Links is not empty %}
+                        <ul class="block-footer__links list-unstyled">
+                            {% for link in this.col1Links %}
+                                <li>
+                                    <a href="{{ link.url }}" {% if link.targetBlank %}target="_blank" rel="noopener"{% endif %}>
+                                        {% if link.icon is defined %}
+                                            <i class="{{ link.icon }} me-2"></i>
+                                        {% endif %}
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if this.col1SocialIcons is not empty %}
+                        <div class="block-footer__social mt-4">
+                            {% for icon in this.col1SocialIcons %}
+                                <a href="{{ icon.url }}"
+                                   {% if icon.targetBlank %}target="_blank" rel="noopener"{% endif %}
+                                   class="block-footer__social-icon {% if this.socialIconsCircular %}block-footer__social-icon--circular{% endif %}"
+                                   {% if icon.color is defined %}style="--social-icon-color: {{ icon.color }};"{% endif %}>
+                                    <i class="{{ icon.icon }} {% if icon.size is defined %}{{ icon.size }}{% endif %}"></i>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {# Columna 2 #}
+            {% if this.col2Title or this.col2Html or this.col2Links is not empty or this.col2SocialIcons is not empty %}
+                <div class="col">
+                    {# Similar structure to column 1 #}
+                    {% if this.col2Title %}
+                        <h5 class="block-footer__title mb-4">{{ this.col2Title }}</h5>
+                    {% endif %}
+                    {% if this.col2Html %}
+                        <div class="block-footer__text mb-4">{{ this.col2Html|raw }}</div>
+                    {% endif %}
+                    {% if this.col2Links is not empty %}
+                        <ul class="block-footer__links list-unstyled">
+                            {% for link in this.col2Links %}
+                                <li>
+                                    <a href="{{ link.url }}" {% if link.targetBlank %}target="_blank" rel="noopener"{% endif %}>
+                                        {% if link.icon is defined %}
+                                            <i class="{{ link.icon }} me-2"></i>
+                                        {% endif %}
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if this.col2SocialIcons is not empty %}
+                        <div class="block-footer__social mt-4">
+                            {% for icon in this.col2SocialIcons %}
+                                <a href="{{ icon.url }}"
+                                   {% if icon.targetBlank %}target="_blank" rel="noopener"{% endif %}
+                                   class="block-footer__social-icon {% if this.socialIconsCircular %}block-footer__social-icon--circular{% endif %}"
+                                   {% if icon.color is defined %}style="--social-icon-color: {{ icon.color }};"{% endif %}>
+                                    <i class="{{ icon.icon }} {% if icon.size is defined %}{{ icon.size }}{% endif %}"></i>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {# Columna 3 #}
+            {% if this.col3Title or this.col3Html or this.col3Links is not empty or this.col3SocialIcons is not empty %}
+                <div class="col">
+                    {# Similar structure to column 1 #}
+                    {% if this.col3Title %}
+                        <h5 class="block-footer__title mb-4">{{ this.col3Title }}</h5>
+                    {% endif %}
+                    {% if this.col3Html %}
+                        <div class="block-footer__text mb-4">{{ this.col3Html|raw }}</div>
+                    {% endif %}
+                    {% if this.col3Links is not empty %}
+                        <ul class="block-footer__links list-unstyled">
+                            {% for link in this.col3Links %}
+                                <li>
+                                    <a href="{{ link.url }}" {% if link.targetBlank %}target="_blank" rel="noopener"{% endif %}>
+                                        {% if link.icon is defined %}
+                                            <i class="{{ link.icon }} me-2"></i>
+                                        {% endif %}
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if this.col3SocialIcons is not empty %}
+                        <div class="block-footer__social mt-4">
+                            {% for icon in this.col3SocialIcons %}
+                                <a href="{{ icon.url }}"
+                                   {% if icon.targetBlank %}target="_blank" rel="noopener"{% endif %}
+                                   class="block-footer__social-icon {% if this.socialIconsCircular %}block-footer__social-icon--circular{% endif %}"
+                                   {% if icon.color is defined %}style="--social-icon-color: {{ icon.color }};"{% endif %}>
+                                    <i class="{{ icon.icon }} {% if icon.size is defined %}{{ icon.size }}{% endif %}"></i>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {# Columna 4 #}
+            {% if this.col4Title or this.col4Html or this.col4Links is not empty or this.col4SocialIcons is not empty %}
+                <div class="col">
+                    {# Similar structure to column 1 #}
+                    {% if this.col4Title %}
+                        <h5 class="block-footer__title mb-4">{{ this.col4Title }}</h5>
+                    {% endif %}
+                    {% if this.col4Html %}
+                        <div class="block-footer__text mb-4">{{ this.col4Html|raw }}</div>
+                    {% endif %}
+                    {% if this.col4Links is not empty %}
+                        <ul class="block-footer__links list-unstyled">
+                            {% for link in this.col4Links %}
+                                <li>
+                                    <a href="{{ link.url }}" {% if link.targetBlank %}target="_blank" rel="noopener"{% endif %}>
+                                        {% if link.icon is defined %}
+                                            <i class="{{ link.icon }} me-2"></i>
+                                        {% endif %}
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if this.col4SocialIcons is not empty %}
+                        <div class="block-footer__social mt-4">
+                            {% for icon in this.col4SocialIcons %}
+                                <a href="{{ icon.url }}"
+                                   {% if icon.targetBlank %}target="_blank" rel="noopener"{% endif %}
+                                   class="block-footer__social-icon {% if this.socialIconsCircular %}block-footer__social-icon--circular{% endif %}"
+                                   {% if icon.color is defined %}style="--social-icon-color: {{ icon.color }};"{% endif %}>
+                                    <i class="{{ icon.icon }} {% if icon.size is defined %}{{ icon.size }}{% endif %}"></i>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {# Footer Bottom #}
+    {% if this.leftText or this.rightText %}
+        <div class="block-footer__bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        {% if this.leftText %}
+                            <div class="block-footer__bottom-text">{{ this.leftText|raw }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md text-md-end">
+                        {% if this.rightText %}
+                            <div class="block-footer__bottom-text">{{ this.rightText|raw }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</footer>

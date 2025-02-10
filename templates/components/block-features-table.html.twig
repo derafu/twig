@@ -1,0 +1,46 @@
+{# templates/components/block-features-table.html.twig #}
+<div class="block-features-table theme-{{ this.theme }}">
+    <div class="container table-responsive">
+        <table class="block-features-table__table">
+            <thead>
+                <tr>
+                    <th class="block-features-table__header block-features-table__header--feature">{{ this.title }}</th>
+                    {% for plan in this.features[0].values|keys %}
+                        <th class="block-features-table__header">{{ plan }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for feature in this.features %}
+                    <tr class="block-features-table__row">
+                        <td class="block-features-table__cell block-features-table__cell--feature">
+                            <div class="block-features-table__feature">
+                                <span class="block-features-table__icon">
+                                    <i class="{{ feature.icon }}"></i>
+                                </span>
+                                <div class="block-features-table__feature-content">
+                                    <span class="block-features-table__feature-name">{{ feature.name }}</span>
+                                    {% if feature.description %}
+                                        <small class="block-features-table__feature-description">{{ feature.description|raw }}</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </td>
+                        {% for plan in this.features[0].values|keys %}
+                            <td class="block-features-table__cell">
+                                {% set value = feature.values[plan] %}
+                                {% if value is same as(true) %}
+                                    <i class="fa-solid fa-check block-features-table__check"></i>
+                                {% elseif value is same as(false) %}
+                                    <i class="fa-solid fa-xmark block-features-table__cross"></i>
+                                {% else %}
+                                    {{ value|raw }}
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

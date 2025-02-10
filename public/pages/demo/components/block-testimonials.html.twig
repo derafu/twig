@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-testimonials
+    :testimonials="[
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            quote: 'Muy buena plataforma, lo tengo integrado con mi página web www.chupilca.com en Jumpseller, así genera las boletas de manera automática y le llegan al cliente sin tener que complicarme.',
+            author: 'Lance Espinoza',
+            avatar: '../../../assets/img/avatar.png',
+            company: 'Chupilca Juega',
+            url: 'https://chupilca.com'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            quote: 'Excelente servicio, gracias a LibreDTE hemos automatizado nuestro sistema de facturación y ahorramos tiempo y esfuerzo en cada venta.',
+            author: 'Camila Rojas',
+            company: 'Empresa X',
+            position: 'left'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            quote: 'Gracias a LibreDTE podemos emitir nuestras boletas electrónicas de forma masiva y sin errores. ¡Recomendado al 100%!',
+            author: 'Pedro Gómez',
+            avatar: '../../../assets/img/avatar.png',
+            url: 'http://www.example.com',
+            position: 'right'
+        }
+    ]"
+/>
+<twig:block-testimonials
+    :testimonials="[
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            quote: 'Muy buena plataforma, lo tengo integrado con mi página web www.chupilca.com en Jumpseller, así genera las boletas de manera automática y le llegan al cliente sin tener que complicarme.',
+            author: 'Lance Espinoza',
+            avatar: '../../../assets/img/avatar.png',
+            company: 'Chupilca Juega',
+            url: 'https://chupilca.com'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            quote: 'Gracias a LibreDTE podemos emitir nuestras boletas electrónicas de forma masiva y sin errores. ¡Recomendado al 100%!',
+            author: 'Pedro Gómez',
+            avatar: '../../../assets/img/avatar.png',
+            url: 'http://www.example.com'
+        }
+    ]"
+    theme="ocean-mystic"
+    interval="2000"
+/>
+{% endblock %}

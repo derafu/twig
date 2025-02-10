@@ -1,0 +1,78 @@
+{# templates/components/block-timeline.html.twig #}
+<section class="block-timeline theme-{{ this.theme }}">
+    <div class="container">
+        <div class="block-timeline__container block-timeline__container--{{ this.line_position }}">
+            <div class="block-timeline__line"></div>
+
+            <div class="block-timeline__events">
+                {% set currentYear = null %}
+                {% for event in this.events %}
+                    {% set year = event.date matches '/^\\d{4}$/' ? event.date : event.date|date('Y') %}
+                    {% set showFullDate = event.date matches '/^\\d{4}-\\d{2}-\\d{2}$/' %}
+                    {% set showMonthYear = event.date matches '/^\\d{4}\\d{2}$/' or event.date matches '/^\\d{4}-\\d{2}$/' %}
+
+                    {# Mostrar año si es nuevo #}
+                    {% if year != currentYear %}
+                        {% set currentYear = year %}
+                        <div class="block-timeline__year">{{ year }}</div>
+                    {% endif %}
+
+                    {# Contenido del evento #}
+                    {% macro eventContent(event, showFullDate, showMonthYear, dateFormat) %}
+                        <div class="block-timeline__content">
+                            <i class="{{ event.icon }} block-timeline__icon"></i>
+                            <div class="block-timeline__header">
+                                <div class="block-timeline__title-row">
+                                    {% if event.title %}
+                                        <h3 class="block-timeline__title">{{ event.title }}</h3>
+                                    {% endif %}
+                                    {% if showFullDate %}
+                                        <span class="block-timeline__date">
+                                            {{ event.date|date(dateFormat) }}
+                                        </span>
+                                    {% elseif showMonthYear %}
+                                        <span class="block-timeline__date">
+                                            {{ event.date|date('m/Y') }}
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="block-timeline__description">
+                                {{ event.description|raw }}
+                            </div>
+                        </div>
+                    {% endmacro %}
+
+                    {# Para line_position=center, alternamos izquierda y derecha #}
+                    {% if this.line_position == 'center' %}
+                        <div class="block-timeline__row">
+                            {% if loop.index is odd %}
+                                <div class="block-timeline__event block-timeline__event--left">
+                                    {{ _self.eventContent(event, showFullDate, showMonthYear, this.date_format ?? 'd/m/Y') }}
+                                </div>
+                                <div class="block-timeline__event block-timeline__event--right"></div>
+                            {% else %}
+                                <div class="block-timeline__event block-timeline__event--left"></div>
+                                <div class="block-timeline__event block-timeline__event--right">
+                                    {{ _self.eventContent(event, showFullDate, showMonthYear, this.date_format ?? 'd/m/Y') }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="block-timeline__row">
+                            {% if this.line_position == 'left' %}
+                                <div class="block-timeline__event block-timeline__event--right">
+                                    {{ _self.eventContent(event, showFullDate, showMonthYear, this.date_format ?? 'd/m/Y') }}
+                                </div>
+                            {% else %}
+                                <div class="block-timeline__event block-timeline__event--left">
+                                    {{ _self.eventContent(event, showFullDate, showMonthYear, this.date_format ?? 'd/m/Y') }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-card-grid
+    :cards="[
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            description: 'Twig es una ramita'
+        }
+    ]"
+    :cols="3"
+/>
+<twig:block-card-grid
+    :cards="[
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../../assets/img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        }
+    ]"
+    :cols="4"
+    theme="ocean-mystic"
+/>
+{% endblock %}

@@ -1,0 +1,19 @@
+{# templates/components/block-cta.html.twig #}
+<section class="block-cta theme-{{ this.theme }}">
+    <div class="block-cta__container container">
+        <div class="block-cta__row row align-items-center">
+            {# Text Section #}
+            <div class="col-md-{{ this.text_cols }} block-cta__content">
+                <h3 class="block-cta__title">{{ this.title }}</h3>
+                <p class="block-cta__description">{{ this.description|raw }}</p>
+            </div>
+
+            {# Button Section #}
+            <div class="col-md-{{ this.button_cols }} block-cta__action">
+                <a href="{{ this.button_url }}" class="block-cta__button">
+                    {{ this.button_text }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

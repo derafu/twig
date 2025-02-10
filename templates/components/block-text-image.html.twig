@@ -1,0 +1,32 @@
+{# templates/components/block-text-image.html.twig #}
+<section class="block-text-image theme-{{ this.theme }}">
+    <div class="container">
+        <div class="row align-items-center">
+            {# Text Column #}
+            <div class="col-md-{{ this.text_cols }} {% if this.image_position == 'left' %}order-md-2{% endif %}">
+                <div class="block-text-image__content">
+                    <h2 class="block-text-image__title">{{ this.title }}</h2>
+                    <div class="block-text-image__text">
+                        {{ this.content|raw }}
+                    </div>
+                    {% if this.buttons|length > 0 %}
+                        <div class="block-text-image__buttons">
+                            {% for button in this.buttons %}
+                                <a href="{{ button.url }}" class="block-text-image__button">
+                                    {{ button.text }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {# Image Column #}
+            <div class="col-md-{{ this.image_cols }} {% if this.image_position == 'left' %}order-md-1{% endif %}">
+                <div class="block-text-image__image">
+                    <img src="{{ this.image }}" alt="{{ this.title }}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

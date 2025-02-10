@@ -1,0 +1,52 @@
+{
+    "name": "derafu/twig",
+    "description": "Twig components and extensions library",
+    "type": "library",
+    "homepage": "https://twig.docs.derafu.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Esteban De La Fuente Rubio / Derafu",
+            "homepage": "https://www.derafu.org"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/derafu/twig/issues",
+        "source": "https://github.com/derafu/twig"
+    },
+    "autoload": {
+        "psr-4": {
+            "Derafu\\Twig\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Derafu\\TestsTwig\\": "tests/src/"
+        }
+    },
+    "require": {
+        "php": "^8.3",
+        "symfony/ux-twig-component": "^2.22",
+        "symfony/cache": "^7.2"
+    },
+    "require-dev": {
+        "ext-xdebug": "*",
+        "friendsofphp/php-cs-fixer": "^3.63",
+        "phpstan/phpstan": "^1.12",
+        "phpunit/phpunit": "^11.4",
+        "twig/cssinliner-extra": "^3.19",
+        "twig/intl-extra": "^3.19",
+        "twig/string-extra": "^3.19",
+        "twig/inky-extra": "^3.19",
+        "symfony/string": "^7.2",
+        "derafu/markdown": "^1.0"
+    },
+    "scripts": {
+        "docs": "php tools/phpdocumentor run --config=phpdoc.xml",
+        "tests": "XDEBUG_MODE=coverage vendor/bin/phpunit --configuration=phpunit.xml",
+        "phpcs-fix": "php-cs-fixer fix -v --config=php-cs-fixer.php .",
+        "phpcs-fix-dry-run": "php-cs-fixer fix -v --dry-run --diff --config=php-cs-fixer.php .",
+        "phpstan": "phpstan analyse --configuration=phpstan.neon --memory-limit=1G",
+        "phpstan-export": "phpstan analyse --configuration=phpstan.neon --level 9 --generate-baseline"
+    }
+}

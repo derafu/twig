@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-hero
+    title="Título del Hero"
+    subtitle="Subtítulo o descripción"
+    :buttons="[
+        {
+            text: 'Botón Principal',
+            url: 'https://www.derafu.org'
+        },
+        {
+            text: 'Botón Secundario',
+            url: 'https://www.derafu.org'
+        }
+    ]"
+/>
+<twig:block-hero
+    background="{{ base_path }}/assets/img/block-hero.jpeg"
+    title="Título del Hero"
+    subtitle="Subtítulo o descripción"
+    :buttons="[
+        {
+            text: 'Botón Principal',
+            url: 'https://www.derafu.org'
+        }
+    ]"
+    align="left"
+    theme="amber-elegance"
+/>
+<twig:block-hero
+    title="Título del Hero"
+    subtitle="Subtítulo o descripción"
+    :buttons="[
+        {
+            text: 'Botón Principal',
+            url: 'https://www.derafu.org'
+        }
+    ]"
+    theme="neo-crimson"
+/>
+{% endblock %}

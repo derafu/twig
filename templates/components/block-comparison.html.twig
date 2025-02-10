@@ -1,0 +1,70 @@
+{# templates/components/block-comparison.html.twig #}
+<section class="block-comparison theme-{{ this.theme }}">
+    <div class="container">
+        <div class="row g-4">
+            {% for plan in this.plans %}
+                <div class="col-12 {% if this.plans|length == 2 %}col-lg-6
+                    {% elseif this.plans|length == 3 %}col-lg-4
+                    {% else %}col-lg-3{% endif %}">
+
+                    <div class="block-comparison__plan {% if plan.highlighted %}block-comparison__plan--highlighted{% endif %}">
+                        {# Title section #}
+                        <div class="block-comparison__title-section {% if plan.highlighted %}block-comparison__title-section--highlighted{% endif %}">
+                            <h3 class="block-comparison__title">{{ plan.title }}</h3>
+                        </div>
+
+                        {# Price section #}
+                        <div class="block-comparison__price-section">
+                            <div class="block-comparison__price">
+                                {{ plan.price|raw }}
+                            </div>
+                            {% if plan.period %}
+                                <div class="block-comparison__period">{{ plan.period }}</div>
+                            {% endif %}
+                        </div>
+
+                        {# Features #}
+                        <div class="block-comparison__features">
+                            {% for feature in plan.features %}
+                                <div class="block-comparison__feature"
+                                     {% if feature.tooltip %}
+                                     title="{{ feature.tooltip }}"
+                                     {% endif %}
+                                >
+                                    {% if feature.value is same as(true) %}
+                                        <i class="fa-solid fa-check-circle text-success"></i>
+                                    {% elseif feature.value is same as(false) %}
+                                        <i class="fa-solid fa-times-circle text-danger"></i>
+                                    {% elseif feature.value is not empty %}
+                                        <span class="block-comparison__value">{{ feature.value }}</span>
+                                    {% endif %}
+                                    <span class="block-comparison__text">{{ feature.text|raw }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        {# Footer #}
+                        <div class="block-comparison__footer">
+                            {% if plan.recommendation %}
+                                <div class="block-comparison__recommendation">{{ plan.recommendation }}</div>
+                            {% endif %}
+                            <a href="{{ plan.button_url }}" class="block-comparison__button">
+                                {{ plan.button_text }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# Initialize tooltips #}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+            tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+</section>

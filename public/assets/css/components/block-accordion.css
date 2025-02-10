@@ -1,0 +1,56 @@
+.block-accordion {
+    margin: var(--spacing-y, 2rem) 0;
+}
+
+.block-accordion .accordion-item {
+    border: 1px solid var(--accordion-border);
+    border-radius: 0;
+}
+
+.block-accordion .accordion-item:first-of-type {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.block-accordion .accordion-item:last-of-type {
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.block-accordion .accordion-button {
+    color: var(--accordion-button-color);
+    background-color: var(--accordion-button-bg);
+    font-weight: 500;
+    padding: 1rem 1.25rem;
+}
+
+.block-accordion .accordion-button:not(.collapsed) {
+    background-color: var(--accordion-button-hover);
+    color: var(--accordion-button-color);
+}
+
+.block-accordion .accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.block-accordion .accordion-body {
+    color: var(--accordion-text);
+    padding: 1.5rem;
+}
+
+.block-accordion .accordion-body p {
+    margin-bottom: 1rem;
+}
+
+.block-accordion .accordion-body p:last-child {
+    margin-bottom: 0;
+}
+
+.block-accordion .accordion-body a {
+    color: var(--accordion-button-bg);
+    text-decoration: none;
+}
+
+.block-accordion .accordion-body a:hover {
+    text-decoration: underline;
+}

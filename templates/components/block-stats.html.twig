@@ -1,0 +1,23 @@
+{# templates/components/block-stats.html.twig #}
+<section class="block-stats theme-{{ this.theme }} block-stats--{{ this.text_position }}">
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for stat in this.stats %}
+                {% set cols = this.stats|length %}
+                <div class="col-6 col-md-4 {% if cols == 4 %}col-lg-3{% elseif cols == 5 %}col-lg-20{% elseif cols >= 6 %}col-lg-2{% endif %}">
+                    <div class="block-stats__item">
+                        {% if this.text_position == 'top' %}
+                            <div class="block-stats__text">{{ stat.text }}</div>
+                        {% endif %}
+
+                        <div class="block-stats__number">{{ stat.number }}</div>
+
+                        {% if this.text_position == 'bottom' %}
+                            <div class="block-stats__text">{{ stat.text }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

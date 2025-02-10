@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% set tab_content_1 %}
+    <twig:block-text-image
+        title="Te ayudamos a simplificar tu facturación"
+        content="<p>La mejor manera de ahorrar tiempo es no desperdiciarlo en tareas rutinarias. Te ofrecemos una plataforma que te permitirá agilizar la emisión de tus <strong>boletas</strong> y <strong>facturas</strong>.</p>
+                <p>Somos la primera solución de facturación electrónica libre para Chile. Con LibreDTE podrás administrar múltiples empresas desde tu cuenta.</p>"
+        :buttons="[
+            {
+                text: 'Conoce más',
+                url: 'https://www.libredte.cl'
+            },
+            {
+                text: 'Solicita un período de prueba GRATIS',
+                url: 'https://www.libredte.cl/trial'
+            }
+        ]"
+        image="{{ base_path }}/assets/img/block-text-image.png"
+    />
+{% endset %}
+
+{% set tab_content_2 %}
+    <h2>Información</h2>
+    <p>Contenido...</p>
+{% endset %}
+
+<twig:block-tabs
+    :tabs="[
+        {
+            'id': 'features',
+            'title': 'Características',
+            'icon': 'fa-solid fa-list',
+            'content': tab_content_1
+        },
+        {
+            'id': 'info',
+            'title': 'Información',
+            'icon': 'fa-solid fa-info-circle',
+            'content': tab_content_2
+        }
+    ]"
+/>
+<twig:block-tabs
+    :tabs="[
+        {
+            'id': 'features2',
+            'title': 'Características',
+            'icon': 'fa-solid fa-list',
+            'content': tab_content_1
+        },
+        {
+            'id': 'info2',
+            'title': 'Información',
+            'icon': 'fa-solid fa-info-circle',
+            'content': tab_content_2
+        }
+    ]"
+    position="vertical"
+    theme="ocean-mystic"
+/>
+{% endblock %}

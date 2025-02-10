@@ -1,0 +1,53 @@
+.block-tabs .nav-link {
+    color: var(--tab-inactive-text);
+    background-color: var(--tab-inactive-bg);
+    border-radius: 0;
+    margin: 0;
+}
+
+/* Horizontal tabs */
+.block-tabs .nav-pills:not(.flex-column) {
+    gap: 0;
+}
+
+.block-tabs .nav-pills:not(.flex-column) .nav-link:first-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+.block-tabs .nav-pills:not(.flex-column) .nav-link:last-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+/* Vertical tabs */
+.block-tabs .nav-pills.flex-column {
+    gap: 0;
+}
+
+.block-tabs .nav-pills.flex-column .nav-link:first-child {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.block-tabs .nav-pills.flex-column .nav-link:last-child {
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.block-tabs .nav-link:hover:not(.active) {
+    color: var(--tab-hover-text);
+    background-color: var(--tab-hover-bg);
+}
+
+.block-tabs .nav-link.active {
+    color: var(--tab-active-text);
+    background-color: var(--tab-active-bg);
+}
+
+/* Content area */
+.block-tabs .tab-content {
+    background-color: var(--tab-content-bg);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}

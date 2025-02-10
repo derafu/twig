@@ -1,0 +1,239 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{# Caso 4 elementos (una fila de 4) #}
+<twig:block-features-icon
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Software as a Service',
+            description: 'LibreDTE es un software en la nube, requieres acceso a Internet para poder utilizarlo.'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Precio por empresa',
+            description: 'El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Sincronización con SII',
+            description: 'Tus documentos tributarios son enviados inmediatamente al SII y monitoreamos su estado.'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Característica 4',
+            description: 'Descripción de la característica 4.'
+        }
+    ]"
+/>
+
+{# Caso 5 elementos (fila de 3 + fila de 2) #}
+<twig:block-features-icon
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Feature 1',
+            description: 'Descripción 1'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Feature 2',
+            description: 'Descripción 2'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Feature 3',
+            description: 'Descripción 3'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Feature 4',
+            description: 'Descripción 4'
+        },
+        {
+            icon: 'fa-solid fa-star',
+            title: 'Feature 5',
+            description: 'Descripción 5'
+        }
+    ]"
+    theme="ocean-mystic"
+/>
+
+{# Caso 8 elementos (dos filas de 4) #}
+<twig:block-features-icon
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Feature 1',
+            description: 'Descripción 1'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Feature 2',
+            description: 'Descripción 2'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Feature 3',
+            description: 'Descripción 3'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Feature 4',
+            description: 'Descripción 4'
+        },
+        {
+            icon: 'fa-solid fa-star',
+            title: 'Feature 5',
+            description: 'Descripción 5'
+        },
+        {
+            icon: 'fa-solid fa-heart',
+            title: 'Feature 6',
+            description: 'Descripción 6'
+        },
+        {
+            icon: 'fa-solid fa-bell',
+            title: 'Feature 7',
+            description: 'Descripción 7'
+        },
+        {
+            icon: 'fa-solid fa-user',
+            title: 'Feature 8',
+            description: 'Descripción 8'
+        }
+    ]"
+    theme="deep-blue"
+/>
+
+{# Caso 9 elementos (tres filas de 3) #}
+<twig:block-features-icon
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Feature 1',
+            description: 'Descripción 1'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Feature 2',
+            description: 'Descripción 2'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Feature 3',
+            description: 'Descripción 3'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Feature 4',
+            description: 'Descripción 4'
+        },
+        {
+            icon: 'fa-solid fa-star',
+            title: 'Feature 5',
+            description: 'Descripción 5'
+        },
+        {
+            icon: 'fa-solid fa-heart',
+            title: 'Feature 6',
+            description: 'Descripción 6'
+        },
+        {
+            icon: 'fa-solid fa-bell',
+            title: 'Feature 7',
+            description: 'Descripción 7'
+        },
+        {
+            icon: 'fa-solid fa-user',
+            title: 'Feature 8',
+            description: 'Descripción 8'
+        },
+        {
+            icon: 'fa-solid fa-gear',
+            title: 'Feature 9',
+            description: 'Descripción 9'
+        }
+    ]"
+    theme="neo-crimson"
+/>
+
+{# Caso 7 elementos (fila de 4 + fila de 3) #}
+<twig:block-features-icon
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Feature 1',
+            description: 'Descripción 1'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Feature 2',
+            description: 'Descripción 2'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Feature 3',
+            description: 'Descripción 3'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Feature 4',
+            description: 'Descripción 4'
+        },
+        {
+            icon: 'fa-solid fa-star',
+            title: 'Feature 5',
+            description: 'Descripción 5'
+        },
+        {
+            icon: 'fa-solid fa-heart',
+            title: 'Feature 6',
+            description: 'Descripción 6'
+        },
+        {
+            icon: 'fa-solid fa-bell',
+            title: 'Feature 7',
+            description: 'Descripción 7'
+        }
+    ]"
+    theme="amber-elegance"
+/>
+
+{# Caso 6 elementos (fila de 6) #}
+<twig:block-features-icon
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Feature 1',
+            description: 'Descripción 1'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Feature 2',
+            description: 'Descripción 2'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Feature 3',
+            description: 'Descripción 3'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Feature 4',
+            description: 'Descripción 4'
+        },
+        {
+            icon: 'fa-solid fa-star',
+            title: 'Feature 5',
+            description: 'Descripción 5'
+        },
+        {
+            icon: 'fa-solid fa-heart',
+            title: 'Feature 6',
+            description: 'Descripción 6'
+        }
+    ]"
+    theme="royal-sunset"
+/>
+{% endblock %}

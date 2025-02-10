@@ -1,0 +1,61 @@
+{# templates/components/block-features-icon.html.twig #}
+<section class="block-features-icon theme-{{ this.theme }}">
+    <div class="container">
+        {% set total = features|length %}
+
+        {# Primero determinamos el tamaño base de filas que usaremos #}
+        {% set base_row_size = 0 %}
+        {% if total % 6 == 0 %}
+            {% set base_row_size = 6 %}
+        {% elseif total % 4 == 0 %}
+            {% set base_row_size = 4 %}
+        {% elseif total % 3 == 0 %}
+            {% set base_row_size = 3 %}
+        {% endif %}
+
+        {# Calculamos cuántas filas necesitaremos #}
+        {% set rows = [] %}
+        {% set remaining = total %}
+        {% set offset = 0 %}
+
+        {% for i in range(0, ((total / 2)|round(0, 'ceil') - 1)) %}
+            {% if remaining > 0 %}
+                {% set row_size = 0 %}
+
+                {% if base_row_size > 0 %}
+                    {% set row_size = base_row_size %}
+                {% elseif remaining >= 4 %}
+                    {% set row_size = 4 %}
+                {% elseif remaining == 3 %}
+                    {% set row_size = 3 %}
+                {% elseif remaining == 2 %}
+                    {% set row_size = 2 %}
+                {% elseif remaining == 1 %}
+                    {% set row_size = 1 %}
+                {% endif %}
+
+                {% if remaining == 5 and offset == 0 %}
+                    {% set row_size = 3 %}
+                {% endif %}
+
+                <div class="block-features-icon__row{% if row_size < 3 %} block-features-icon__row--centered{% endif %}">
+                    {% for j in range(0, row_size - 1) %}
+                        {% set feature = features[offset + j] %}
+                        <div class="block-features-icon__item block-features-icon__item--{{ row_size }}">
+                            <div class="block-features-icon__icon">
+                                <i class="{{ feature.icon }}"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">{{ feature.title }}</h3>
+                            <div class="block-features-icon__description">
+                                {{ feature.description|raw }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% set offset = offset + row_size %}
+                {% set remaining = remaining - row_size %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

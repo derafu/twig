@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-accordion
+    :items="[
+        {
+            title: '¿Cómo puedo validar que la firma del representante legal les servirá?',
+            content: 'La forma más sencilla es ingresar al SII con el certificado digital o firma electrónica e ir a la opción de postulación a software de mercado. Si al ingresar el RUT de la empresa el SII muestra un formulario para iniciar el proceso, la firma es correcta y deberíamos poder realizar el proceso de certificación con dicha firma.',
+        },
+        {
+            title: '¿Cómo lo hago si no puedo enviar la firma electrónica del representante legal?',
+            content: 'Deberás coordinar con el SII para presentar los documentos físicamente. Esto puede depender de las normativas locales.',
+        }
+    ]"
+/>
+<twig:block-accordion
+    :items="[
+        {
+            title: '¿Cómo puedo validar que la firma del representante legal les servirá?',
+            content: 'La forma más sencilla es ingresar al SII con el certificado digital o firma electrónica e ir a la opción de postulación a software de mercado. Si al ingresar el RUT de la empresa el SII muestra un formulario para iniciar el proceso, la firma es correcta y deberíamos poder realizar el proceso de certificación con dicha firma.',
+            active: true
+        },
+        {
+            title: '¿Cómo lo hago si no puedo enviar la firma electrónica del representante legal?',
+            content: 'Deberás coordinar con el SII para presentar los documentos físicamente. Esto puede depender de las normativas locales.',
+        }
+    ]"
+    theme="ocean-mystic"
+/>
+{% endblock %}

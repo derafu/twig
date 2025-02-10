@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4 border-bottom">
+        {% block title %}Derafu Twig: Components{% endblock %}
+    </h1>
+    <h2 class="mb-4 border-bottom">Block Components</h2>
+    {% set components = {
+        'block-accordion': 'Accordion',
+        'block-boxes': 'Big Boxes',
+        'block-card-grid': 'Card Grid',
+        'block-comparison': 'Comparison',
+        'block-cta': 'Call-to-Action (CTA)',
+        'block-features-grid': 'Features Grid',
+        'block-features-icon': 'Features Icon',
+        'block-features-list': 'Features List',
+        'block-features-table': 'Features Table',
+        'block-footer': 'Footer',
+        'block-grid': 'Grid',
+        'block-header': 'Header',
+        'block-hero': 'Hero',
+        'block-image-grid': 'Image Grid',
+        'block-photo': 'Photo',
+        'block-stats': 'Stats',
+        'block-steps': 'Steps',
+        'block-tabs': 'Tabs',
+        'block-team': 'Team',
+        'block-testimonials': 'Testimonials',
+        'block-text-image': 'Text Image',
+        'block-text-video': 'Text Video',
+        'block-timeline': 'Timeline',
+    } %}
+    <ul class="list-group">
+        {% for key, label in components %}
+        <li class="list-group-item">
+            <a href="demo/components/{{ key }}">
+                {{ label }}: <code>{{ key }}</code>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

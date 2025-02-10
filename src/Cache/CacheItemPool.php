@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
+
+namespace Derafu\Twig\Cache;
+
+use Psr\Cache\CacheItemPoolInterface;
+use Symfony\Component\Cache\Adapter\PhpFilesAdapter;
+
+class CacheItemPool extends PhpFilesAdapter implements CacheItemPoolInterface
+{
+    public function __construct(
+        private string $namespace = 'derafu_twig',
+        private int $defaultLifetime = 3600,
+        private ?string $directory = null
+    )
+    {
+        $directory = $directory ?? __DIR__ . '/../../cache';
+
+        parent::__construct($namespace, $defaultLifetime, $directory);
+    }
+}
