@@ -20,13 +20,20 @@ class CardGridComponent
     // Layout
     public int $cols = 4;    // 1, 2, 3, 4, o 6 columnas
 
-    // Cards
-    public array $cards = [];   // Array de:
-                                // - image: URL de la imagen (opcional)
-                                // - title: título (opcional)
-                                // - description: descripción (opcional)
-                                // - button_text: texto del botón (opcional)
-                                // - button_url: URL del botón
+    /**
+     * Cards
+     *
+     * Array de:
+     *
+     *   - image: URL de la imagen (opcional)
+     *   - title: título (opcional)
+     *   - description: descripción (opcional)
+     *   - button_text: texto del botón (opcional)
+     *   - button_url: URL del botón
+     *
+     * @var array
+     */
+    public array $cards = [];
 
     // Theme
     public string $theme = 'default';

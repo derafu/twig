@@ -20,12 +20,18 @@ class TimelineComponent
     // Layout
     public string $line_position = 'center';  // center, left, right
 
-    // Content
-    public array $events = [];  // Array de:
-                                // - date: Fecha (YYYY-MM-DD, YYYYMM, YYYY)
-                                // - title: título (opcional)
-                                // - description: descripción (obligatorio)
-                                // - icon: ícono de Font Awesome (ej: "fa-solid fa-check-circle")
+    /**
+     * Content
+     *
+     * Array de:
+     * - date: Fecha (YYYY-MM-DD, YYYYMM, YYYY)
+     * - title: título (opcional)
+     * - description: descripción (obligatorio)
+     * - icon: ícono de Font Awesome (ej: "fa-solid fa-check-circle")
+     *
+     * @var array
+     */
+    public array $events = [];
 
     // Date format
     public ?string $date_format = null;  // Formato de fecha (opcional)

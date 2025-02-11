@@ -1,6 +1,6 @@
 {
     "name": "derafu/twig",
-    "description": "Twig components and extensions library",
+    "description": "Derafu: Twig - UI Component and Extension Library",
     "type": "library",
     "homepage": "https://twig.docs.derafu.org",
     "license": "MIT",

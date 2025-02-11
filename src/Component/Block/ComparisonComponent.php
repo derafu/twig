@@ -17,18 +17,26 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-comparison')]
 class ComparisonComponent
 {
-    // Configuración
-    public array $plans = [];   // Array de planes:
-                                // - title: título del plan
-                                // - price: precio
-                                // - period: período (/mes, /año, etc)
-                                // - features: array de características:
-                                //   - text: texto de la característica
-                                //   - value: valor específico o true/false
-                                //   - tooltip: tooltip opcional
-                                // - button_text: texto del botón
-                                // - button_url: URL del botón
-                                // - highlighted: true/false para destacar
+    /**
+     * Configuración
+     *
+     * Array de planes:
+     *
+     *   - title: título del plan
+     *   - price: precio
+     *   - period: período (/mes, /año, etc)
+     *   - features: array de características:
+     *     - text: texto de la característica
+     *     - value: valor específico o true/false
+     *     - tooltip: tooltip opcional
+     *   - button_text: texto del botón
+     *   - button_url: URL del botón
+     *   - highlighted: true/false para destacar
+     *
+     * @var array
+     */
+    public array $plans = [];
+
     // Theme
     public string $theme = 'default';
 }

@@ -17,7 +17,7 @@ $options = [
     'paths' => [
         __DIR__ . '/../templates',
         __DIR__ . '/pages',
-    ]
+    ],
 ];
 
 $twigService = new TwigService($options);

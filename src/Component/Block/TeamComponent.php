@@ -23,16 +23,23 @@ class TeamComponent
     // Alineación
     public string $align = 'center';  // left, center, right
 
-    // Miembros del equipo
-    public array $members = []; // Array de miembros con:
-                                // - image: URL de la imagen
-                                // - name: nombre
-                                // - role: rol/cargo
-                                // - bio: biografía (opcional)
-                                // - links: array de enlaces
-                                //   - icon: ícono (opcional)
-                                //   - text: texto
-                                //   - url: enlace
+    /**
+     * Miembros del equipo
+     *
+     * Array de miembros con:
+     *
+     *  - image: URL de la imagen
+     *  - name: nombre
+     *  - role: rol/cargo
+     *  - bio: biografía (opcional)
+     *  - links: array de enlaces
+     *    - icon: ícono (opcional)
+     *    - text: texto
+     *    - url: enlace
+     *
+     * @var array
+     */
+    public array $members = [];
 
     // Theme
     public string $theme = 'default';

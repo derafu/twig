@@ -18,13 +18,19 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class PhotoComponent
 {
     // Contenido
+
     public string $title;
+
     public string $image;            // URL de la imagen
+
     public ?string $description = null;
+
     public array $buttons = [];      // Array de {text, url}
 
     // Layout
+
     public string $align = 'center';  // Alineación del contenido
+
     public string $size = 'medium';   // small, medium, large
 
     // Theme

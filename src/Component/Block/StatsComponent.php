@@ -18,7 +18,9 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class StatsComponent
 {
     // Configuración
+
     public string $text_position = 'bottom';  // bottom, top
+
     public array $stats = [];  // Array de {number, text}
 
     // Visual

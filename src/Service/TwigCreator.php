@@ -17,9 +17,9 @@ use Derafu\Twig\Contract\TwigCreatorInterface;
 use Derafu\Twig\Extension\MarkdownExtension;
 use Twig\Environment;
 use Twig\Extra\CssInliner\CssInlinerExtension;
+use Twig\Extra\Inky\InkyExtension;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\Extra\String\StringExtension;
-use Twig\Extra\Inky\InkyExtension;
 use Twig\Loader\FilesystemLoader;
 
 class TwigCreator implements TwigCreatorInterface

@@ -20,11 +20,18 @@ class StepsComponent
     // Theme
     public string $theme = 'default';
 
-    // Steps
-    public array $steps = [];   // Array de:
-                               // - icon: ícono de Font Awesome (ej: "fa-solid fa-list")
-                               // - title: título del paso
-                               // - description: descripción con HTML permitido
+    /**
+     * Steps
+     *
+     * Array de:
+     *
+     *   - icon: ícono de Font Awesome (ej: "fa-solid fa-list")
+     *   - title: título del paso
+     *   - description: descripción con HTML permitido
+     *
+     * @var array
+     */
+    public array $steps = [];
 
     // Arrow type
     public string $arrow_type = 'curved';  // curved, straight

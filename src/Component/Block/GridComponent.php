@@ -18,6 +18,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class GridComponent
 {
     public array $items;
+
     public int $cols;
+
     public string $theme = 'default';
 }

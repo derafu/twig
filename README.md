@@ -60,7 +60,7 @@ $options = [
     'paths' => [
         __DIR__ . '/../templates',  // Path to the derafu-twig templates.
         __DIR__ . '/pages',         // Path to your templates.
-    ]
+    ],
 ];
 
 $twigService = new TwigService($options);

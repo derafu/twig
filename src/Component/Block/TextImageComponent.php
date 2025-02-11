@@ -18,14 +18,21 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class TextImageComponent
 {
     // Layout
+
     public string $image_position = 'right';  // right, left
+
     public int $text_cols = 7;
+
     public int $image_cols = 5;
 
     // Contenido
+
     public string $title;
+
     public string $content;          // Texto que puede tener párrafos
+
     public array $buttons = [];      // Array de {text, url}
+
     public string $image;            // URL de la imagen
 
     // Visual

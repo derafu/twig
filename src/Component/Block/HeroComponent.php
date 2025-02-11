@@ -18,13 +18,19 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class HeroComponent
 {
     // Configuración general.
+
     public string $size = 'medium'; // small, medium, large
+
     public string $align = 'center'; // left, center, right
+
     public string $background;
 
     // Contenido (todo opcional).
+
     public string $title;
+
     public string $subtitle;
+
     public array $buttons = [];
 
     // Theme.

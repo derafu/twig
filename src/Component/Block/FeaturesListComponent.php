@@ -17,14 +17,31 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-features-list')]
 class FeaturesListComponent
 {
-    // Features left side
-    public array $features_left = [];  // Array de:
-                                      // - icon: ícono de Font Awesome (ej: "fa-solid fa-display")
-                                      // - title: título
-                                      // - description: descripción (permite HTML)
+    /**
+     * Features left side
+     *
+     * Array de:
+     *
+     *   - icon: ícono de Font Awesome (ej: "fa-solid fa-display")
+     *   - title: título
+     *   - description: descripción (permite HTML)
+     *
+     * @var array
+     */
+    public array $features_left = [];
 
-    // Features right side
-    public array $features_right = []; // Misma estructura que features_left
+    /**
+     * Features right side
+     *
+     * Array de:
+     *
+     *   - icon: ícono de Font Awesome (ej: "fa-solid fa-display")
+     *   - title: título
+     *   - description: descripción (permite HTML)
+     *
+     * @var array
+     */
+    public array $features_right = [];
 
     // Theme
     public string $theme = 'default';

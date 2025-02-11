@@ -19,20 +19,23 @@ class FeaturesTableComponent
 {
     public string $title = 'Features';
 
-    // Features array containing the rows of the table
-    public array $features = [
-        // Example structure:
-        // [
-        //     'icon' => 'fa-solid fa-folder',
-        //     'name' => 'Feature Name',
-        //     'description' => 'Optional description text',
-        //     'values' => [
-        //         'Plan A' => true,              // For boolean (check/cross)
-        //         'Plan B' => '1,400',           // For text/numeric
-        //         'Plan C' => '<strong>...</strong>'  // For HTML content
-        //     ]
-        // ]
-    ];
+    /**
+     * Features array containing the rows of the table.
+     *
+     * Example structure:
+     *
+     *   [
+     *       'icon' => 'fa-solid fa-folder',
+     *       'name' => 'Feature Name',
+     *       'description' => 'Optional description text',
+     *       'values' => [
+     *           'Plan A' => true,              // For boolean (check/cross)
+     *           'Plan B' => '1,400',           // For text/numeric
+     *           'Plan C' => '<strong>...</strong>'  // For HTML content
+     *       ]
+     *   ]
+     */
+    public array $features = [];
 
     // Theme for the component
     public string $theme = 'default';

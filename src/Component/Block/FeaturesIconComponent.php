@@ -17,11 +17,18 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-features-icon')]
 class FeaturesIconComponent
 {
-    // Features
-    public array $features = [];    // Array de:
-                                    // - icon: ícono de Font Awesome (ej: "fa-solid fa-cloud")
-                                    // - title: título de la característica
-                                    // - description: descripción con HTML permitido
+    /**
+     * Features
+     *
+     * Array de:
+     *
+     *   - icon: ícono de Font Awesome (ej: "fa-solid fa-display")
+     *   - title: título
+     *   - description: descripción (permite HTML)
+     *
+     * @var array
+     */
+    public array $features = [];
 
     // Theme
     public string $theme = 'default';

@@ -17,9 +17,9 @@ use Derafu\Twig\Contract\ComponentProviderInterface;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use ReflectionClass;
+use Symfony\Component\DependencyInjection\ServiceLocator;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\DependencyInjection\ServiceLocator;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PostMount;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
@@ -67,7 +67,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         return [
             'propertyAccessor' => PropertyAccess::createPropertyAccessor(),
             'eventDispatcher' => new EventDispatcher(),
-            'templateFinder' => new ComponentTemplateFinder($twig, 'components')
+            'templateFinder' => new ComponentTemplateFinder($twig, 'components'),
         ];
     }
 
@@ -92,7 +92,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         return [
             'serviceLocator' => $serviceLocator,
             'factory' => $factory,
-            'renderer' => $renderer
+            'renderer' => $renderer,
         ];
     }
 
@@ -101,7 +101,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         $services = [];
         foreach ($components as $componentClass) {
             $name = $this->getComponentName($componentClass);
-            $services[$name] = fn() => new $componentClass();
+            $services[$name] = fn () => new $componentClass();
         }
 
         return new ServiceLocator($services);
@@ -176,7 +176,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
                 'pre_mount' => $this->getPreMountMethods($reflection),
 
                 // PostMount methods si existen.
-                'post_mount' => $this->getPostMountMethods($reflection)
+                'post_mount' => $this->getPostMountMethods($reflection),
             ];
         }
 
@@ -236,7 +236,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         array $services
     ): Environment {
         // Registrar ComponentExtension
-        $twig->addExtension(new ComponentExtension($services['factory']));
+        $twig->addExtension(new ComponentExtension());
 
         // Registrar Runtime
         $renderersLocator = new ServiceLocator([]);
@@ -254,13 +254,15 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         ComponentRenderer $renderer,
         ServiceLocator $renderers
     ): RuntimeLoaderInterface {
-        return new class($renderer, $renderers) implements RuntimeLoaderInterface {
+        return new class ($renderer, $renderers) implements RuntimeLoaderInterface {
             public function __construct(
                 private ComponentRenderer $renderer,
                 private ServiceLocator $renderers
-            ) {}
+            ) {
+            }
 
-            public function load($class) {
+            public function load($class)
+            {
                 if ($class === ComponentRuntime::class) {
                     return new ComponentRuntime($this->renderer, $this->renderers);
                 }

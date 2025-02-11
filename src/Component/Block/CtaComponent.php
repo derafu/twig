@@ -18,10 +18,16 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class CtaComponent
 {
     public string $title;
+
     public string $description;
+
     public string $button_text;
+
     public string $button_url;
+
     public int $text_cols = 8;
+
     public int $button_cols = 4;
+
     public string $theme = 'default';
 }

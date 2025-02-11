@@ -19,17 +19,25 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 class HeaderComponent
 {
     // Logo configuration
+
     public ?string $logoImage = null;
+
     public ?string $logoHtml = null;
+
     public int $logoMaxWidth = 150;
 
     // Navigation items
+
     public array $leftNav = [];
+
     public array $rightNav = [];
 
     // Call to action button
+
     public ?string $ctaIcon = null;
+
     public ?string $ctaText = null;
+
     public ?string $ctaUrl = null;
 
     // Dropdown behavior
@@ -68,7 +76,7 @@ class HeaderComponent
         } elseif (isset($item['items'])) {
             $item['type'] = 'dropdown';
             // Process subitems recursively
-            $item['items'] = array_map(function($subitem) {
+            $item['items'] = array_map(function ($subitem) {
                 if (isset($subitem['items'])) {
                     $subitem['type'] = 'submenu';
                 } elseif (!isset($subitem['type'])) {

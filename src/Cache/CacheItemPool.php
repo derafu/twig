@@ -21,10 +21,9 @@ class CacheItemPool extends PhpFilesAdapter implements CacheItemPoolInterface
         private string $namespace = 'derafu_twig',
         private int $defaultLifetime = 3600,
         private ?string $directory = null
-    )
-    {
-        $directory = $directory ?? __DIR__ . '/../../cache';
+    ) {
+        $this->directory = $directory ?? __DIR__ . '/../../cache';
 
-        parent::__construct($namespace, $defaultLifetime, $directory);
+        parent::__construct($this->namespace, $this->defaultLifetime, $this->directory);
     }
 }

@@ -18,11 +18,15 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class TabsComponent
 {
     // Tabs configuration
+
     public array $tabs = [];
+
     public ?string $activeTab = null; // if null, first tab will be active
 
     // Display options
+
     public string $position = 'horizontal';  // 'horizontal' | 'vertical'
+
     public int $cols = 2;  // cols for vertical layout
 
     // Theme

@@ -20,11 +20,17 @@ class ImageGridComponent
     // Layout
     public int $cols = 6;    // 4 o 6 columnas
 
-    // Imágenes
-    public array $images = [];  // Array de:
-                                // - image: URL de la imagen
-                                // - url: enlace (opcional)
-                                // - tooltip: texto al hover (opcional)
+    /**
+     * Imágenes
+     *
+     * Array de:
+     *   - image: URL de la imagen
+     *   - url: enlace (opcional)
+     *   - tooltip: texto al hover (opcional)
+     *
+     * @var array
+     */
+    public array $images = [];
 
     // Theme
     public string $theme = 'default';

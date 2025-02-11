@@ -17,14 +17,21 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-features-grid')]
 class FeaturesGridComponent
 {
-    // Content blocks
-    public array $blocks = [];  // Array de:
-                                // - title: título del bloque
-                                // - subtitle: subtítulo del bloque
-                                // - features: array de características
-                                //   - icon: ícono de Font Awesome
-                                //   - title: título de la característica
-                                //   - description: descripción (permite HTML)
+    /**
+     * Content blocks
+     *
+     * Array de:
+     *
+     *   - title: título del bloque
+     *   - subtitle: subtítulo del bloque
+     *   - features: array de características
+     *     - icon: ícono de Font Awesome
+     *     - title: título de la característica
+     *     - description: descripción (permite HTML)
+     *
+     * @var array
+     */
+    public array $blocks = [];
 
     // Theme
     public string $theme = 'default';

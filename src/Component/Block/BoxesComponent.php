@@ -17,16 +17,25 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-boxes')]
 class BoxesComponent
 {
-    // Boxes - array de cajas, cada una con:
-    // - icon: nombre del ícono
-    // - title: título de la caja
-    // - description: descripción
-    // - button_text: texto del botón
-    // - button_url: URL del botón
+    /**
+     * Boxes - array de cajas.
+     *
+     * Cada una con:
+     *
+     *   - icon: nombre del ícono
+     *   - title: título de la caja
+     *   - description: descripción
+     *   - button_text: texto del botón
+     *   - button_url: URL del botón
+     *
+     * @var array
+     */
     public array $boxes = [];
 
     // Layout
+
     public int $cols = 2;  // 2 o 3 columnas
+
     public string $align = 'center';    // left, center, right
 
     // Theme
