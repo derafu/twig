@@ -1,0 +1,35 @@
+name: Deploy Static Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar PHP y Composer
+        run: sudo apt-get install -y php-cli php-curl php-mbstring php-xml composer
+
+      - name: Instalar dependencias
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Levantar servidor PHP
+        run: php -S 127.0.0.1:9000 -t public/ &
+
+      - name: Descargar HTML estático con wget
+        run: |
+          mkdir -p output
+          wget --mirror --convert-links --adjust-extension --page-requisites --no-parent \
+               --directory-prefix=output --no-host-directories http://127.0.0.1:9000/
+
+      - name: Subir a GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: output
