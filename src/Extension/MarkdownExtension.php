@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Extension;
 
-use Derafu\Markdown\Service\MarkdownCreator;
+use Derafu\Markdown\Contract\MarkdownServiceInterface;
 use Derafu\Markdown\Service\MarkdownService;
 use LogicException;
 use Twig\Extension\AbstractExtension;
@@ -29,22 +29,21 @@ class MarkdownExtension extends AbstractExtension
     /**
      * Markdown rendering service.
      *
-     * @var MarkdownService
+     * @var MarkdownServiceInterface
      */
-    private MarkdownService $markdownService;
+    private MarkdownServiceInterface $markdownService;
 
     /**
      * Constructor.
      *
      * @param MarkdownService|null $markdownService Service for rendering Markdown.
      */
-    public function __construct(?MarkdownService $markdownService = null)
-    {
+    public function __construct(
+        ?MarkdownServiceInterface $markdownService = null
+    ) {
         if ($markdownService === null) {
             if (class_exists(MarkdownService::class)) {
-                $markdownService = new MarkdownService(
-                    new MarkdownCreator()
-                );
+                $markdownService = new MarkdownService();
             }
         }
 

@@ -2,7 +2,7 @@
     "name": "derafu/twig",
     "description": "Derafu: Twig - UI Component and Extension Library",
     "type": "library",
-    "homepage": "https://twig.docs.derafu.org",
+    "homepage": "https://derafu.org/twig",
     "license": "MIT",
     "authors": [
         {
@@ -39,7 +39,7 @@
         "twig/string-extra": "^3.19",
         "twig/inky-extra": "^3.19",
         "symfony/string": "^7.2",
-        "derafu/markdown": "^1.0"
+        "derafu/markdown": "^1.0.1"
     },
     "scripts": {
         "docs": "php tools/phpdocumentor run --config=phpdoc.xml",

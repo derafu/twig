@@ -10,25 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Instalar PHP y Composer
+      - name: Install PHP and Composer
         run: sudo apt-get install -y php-cli php-curl php-mbstring php-xml composer
 
-      - name: Instalar dependencias
+      - name: Install dependencies
         run: composer install --no-dev --optimize-autoloader && composer require derafu/markdown
 
-      - name: Levantar servidor PHP
+      - name: Start PHP server
         run: php -d display_errors=1 -S 127.0.0.1:9000 -t public/ &
 
-      - name: Descargar HTML estático con wget
+      - name: Download static HTML with wget
         run: |
           mkdir -p output
           wget --mirror --convert-links --adjust-extension --page-requisites --no-parent \
                --directory-prefix=output --no-host-directories http://127.0.0.1:9000/
 
-      - name: Subir a GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
