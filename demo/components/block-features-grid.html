@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derafu Twig</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/derafu-twig.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        .code-container {
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    </head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Derafu Twig</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../themes.html">
+                            <i class="fa-solid fa-palette"></i>
+                            Themes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../components.html">
+                            <i class="fa-solid fa-cubes"></i>
+                            Components
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-4" href="https://github.com/derafu/twig">
+                            <i class="fa-brands fa-github"></i>
+                            View on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="block-features-grid theme-default">
+    <div class="container">
+        <div class="block-features-grid__row">
+                            <div class="block-features-grid__block">
+                    <div class="block-features-grid__header">
+                        <h3 class="block-features-grid__title">Si actualmente emites por el SII</h3>
+                        <p class="block-features-grid__subtitle">Usando el sistema de facturación gratuito del SII</p>
+                    </div>
+
+                    <div class="block-features-grid__features">
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-check-circle"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Sin situaciones pendientes</h4>
+                                    <div class="block-features-grid__description">
+                                        Verificación de actividad y domicilio. Representante sin problemas.
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Documentos a certificar</h4>
+                                    <div class="block-features-grid__description">
+                                        Debemos certificar todos los documentos que uses en SII.
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+                            <div class="block-features-grid__block">
+                    <div class="block-features-grid__header">
+                        <h3 class="block-features-grid__title">Si actualmente emites con otro proveedor</h3>
+                        <p class="block-features-grid__subtitle">Usando software de mercado (tienes certificación de DTE realizada)</p>
+                    </div>
+
+                    <div class="block-features-grid__features">
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-check-circle"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Sin restricción de timbraje de folios</h4>
+                                    <div class="block-features-grid__description">
+                                        Si tenías folios antiguos sin usar, debes anularlos en SII.
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Documentos a habilitar</h4>
+                                    <div class="block-features-grid__description">
+                                        Además deberás indicar si necesitamos certificar algún nuevo.
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+
+<section class="block-features-grid theme-ocean-mystic">
+    <div class="container">
+        <div class="block-features-grid__row">
+                            <div class="block-features-grid__block">
+                    <div class="block-features-grid__header">
+                        <h3 class="block-features-grid__title">Primer Bloque</h3>
+                        <p class="block-features-grid__subtitle">Descripción del primer bloque</p>
+                    </div>
+
+                    <div class="block-features-grid__features">
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-cloud"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Característica 1</h4>
+                                    <div class="block-features-grid__description">
+                                        Descripción de la característica 1.
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-cog"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Característica 2</h4>
+                                    <div class="block-features-grid__description">
+                                        Descripción de la característica 2.
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Característica 3</h4>
+                                    <div class="block-features-grid__description">
+                                        Descripción de la característica 3.
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+                            <div class="block-features-grid__block">
+                    <div class="block-features-grid__header">
+                        <h3 class="block-features-grid__title">Segundo Bloque</h3>
+                        <p class="block-features-grid__subtitle">Descripción del segundo bloque</p>
+                    </div>
+
+                    <div class="block-features-grid__features">
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Característica 1</h4>
+                                    <div class="block-features-grid__description">
+                                        Descripción de la característica 1.
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Característica 2</h4>
+                                    <div class="block-features-grid__description">
+                                        Descripción de la característica 2.
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="block-features-grid__feature">
+                                <div class="block-features-grid__icon">
+                                    <i class="fa-solid fa-bell"></i>
+                                </div>
+                                <div class="block-features-grid__content">
+                                    <h4 class="block-features-grid__feature-title">Característica 3</h4>
+                                    <div class="block-features-grid__description">
+                                        Descripción de la característica 3.
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+
+        <div class="container mt-4 mb-4">
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-features-grid.html.twig #}
+
+{% extends &#039;base.html.twig&#039; %}
+
+{% block body %}
+&lt;twig:block-features-grid
+   :blocks=&quot;[
+       {
+           title: &#039;Si actualmente emites por el SII&#039;,
+           subtitle: &#039;Usando el sistema de facturación gratuito del SII&#039;,
+           features: [
+               {
+                   icon: &#039;fa-solid fa-check-circle&#039;,
+                   title: &#039;Sin situaciones pendientes&#039;,
+                   description: &#039;Verificación de actividad y domicilio. Representante sin problemas.&#039;
+               },
+               {
+                   icon: &#039;fa-solid fa-file-lines&#039;,
+                   title: &#039;Documentos a certificar&#039;,
+                   description: &#039;Debemos certificar todos los documentos que uses en SII.&#039;
+               }
+           ]
+       },
+       {
+           title: &#039;Si actualmente emites con otro proveedor&#039;,
+           subtitle: &#039;Usando software de mercado (tienes certificación de DTE realizada)&#039;,
+           features: [
+               {
+                   icon: &#039;fa-solid fa-check-circle&#039;,
+                   title: &#039;Sin restricción de timbraje de folios&#039;,
+                   description: &#039;Si tenías folios antiguos sin usar, debes anularlos en SII.&#039;
+               },
+               {
+                   icon: &#039;fa-solid fa-file-lines&#039;,
+                   title: &#039;Documentos a habilitar&#039;,
+                   description: &#039;Además deberás indicar si necesitamos certificar algún nuevo.&#039;
+               }
+           ]
+       }
+   ]&quot;
+/&gt;
+
+{# Caso adicional con más características por bloque #}
+&lt;twig:block-features-grid
+   :blocks=&quot;[
+       {
+           title: &#039;Primer Bloque&#039;,
+           subtitle: &#039;Descripción del primer bloque&#039;,
+           features: [
+               {
+                   icon: &#039;fa-solid fa-cloud&#039;,
+                   title: &#039;Característica 1&#039;,
+                   description: &#039;Descripción de la característica 1.&#039;
+               },
+               {
+                   icon: &#039;fa-solid fa-cog&#039;,
+                   title: &#039;Característica 2&#039;,
+                   description: &#039;Descripción de la característica 2.&#039;
+               },
+               {
+                   icon: &#039;fa-solid fa-users&#039;,
+                   title: &#039;Característica 3&#039;,
+                   description: &#039;Descripción de la característica 3.&#039;
+               }
+           ]
+       },
+       {
+           title: &#039;Segundo Bloque&#039;,
+           subtitle: &#039;Descripción del segundo bloque&#039;,
+           features: [
+               {
+                   icon: &#039;fa-solid fa-star&#039;,
+                   title: &#039;Característica 1&#039;,
+                   description: &#039;Descripción de la característica 1.&#039;
+               },
+               {
+                   icon: &#039;fa-solid fa-heart&#039;,
+                   title: &#039;Característica 2&#039;,
+                   description: &#039;Descripción de la característica 2.&#039;
+               },
+               {
+                   icon: &#039;fa-solid fa-bell&#039;,
+                   title: &#039;Característica 3&#039;,
+                   description: &#039;Descripción de la característica 3.&#039;
+               }
+           ]
+       }
+   ]&quot;
+   theme=&quot;ocean-mystic&quot;
+/&gt;
+{% endblock %}
+</code></pre>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="sticky-bottom py-3 bg-body-tertiary mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="text-body-secondary">
+                        &copy; 2025 Derafu Twig -
+                        <a href="https://github.com/derafu/twig" class="text-decoration-none">
+                            github.com/derafu/twig
+                        </a><br/>
+                        <small>UI Component and Extension Library</small>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-body-secondary">
+                        With love <i class="fa-solid fa-heart text-danger"></i> from
+                        <a href="https://www.derafu.org" target="_blank" class="text-decoration-none">Derafu ORG</a><br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script>
+        function copyCode(button) {
+            let code = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => button.innerText = "Copy", 2000);
+            });
+        }
+    </script>
+    </body>
+</html>

@@ -1,28 +1,220 @@
-<br />
-<font size='1'><table class='xdebug-error xe-uncaught-exception' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
-<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Fatal error: Uncaught LogicException: MarkdownExtension requires Derafu\Markdown to be installed. Run "composer require derafu/markdown" to enable this extension. in /home/runner/work/twig/twig/src/Extension/MarkdownExtension.php:77
-Stack trace:
-#0 /home/runner/work/twig/twig/vendor/twig/twig/src/Environment.php(421) : eval()'d code(61): Derafu\Twig\Extension\MarkdownExtension-&gt;renderMarkdown()
-#1 /home/runner/work/twig/twig/vendor/twig/twig/src/Template.php(432): __TwigTemplate_335a46f98abf4e151b5d323e100aaf7e-&gt;block_body()
-#2 /home/runner/work/twig/twig/vendor/twig/twig/src/Environment.php(421) : eval()'d code(137): Twig\Template-&gt;yieldBlock()
-#3 /home/runner/work/twig/twig/vendor/twig/twig/src/Template.php(388): __TwigTemplate_9853e64a6c389134933eda95cb2eeb92-&gt;doDisplay()
-#4 /home/runner/work/twig/twig/vendor/twig/twig/src/Environment.php(421) : eval()'d code(47): Twig\Template-&gt;yield()
-#5 /home/runner/work/twig/twig/vendor/twig/twig/src/Template.php(388): __TwigTemplate_335a46f98abf4e151b5d323e100aaf7e-&gt;doDisplay()
-#6 /home/runner/work/twig/twig/vendor/twig/twig/src/Template.php(344): Twig\Template-&gt;yield()
-#7 /home/runner/work/twig/twig/vendor/twig/twig/src/Template.php(359): Twig\Template-&gt;display()
-#8 /home/runner/work/twig/twig/vendor/twig/twig/src/TemplateWrapper.php(51): Twig\Template-&gt;render()
-#9 /home/runner/work/twig/twig/vendor/twig/twig/src/Environment.php(334): Twig\TemplateWrapper-&gt;render()
-#10 /home/runner/work/twig/twig/src/Service/TwigService.php(70): Twig\Environment-&gt;render()
-#11 /home/runner/work/twig/twig/public/index.php(50): Derafu\Twig\Service\TwigService-&gt;render()
-#12 {main}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derafu Twig</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/derafu-twig.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        .code-container {
+            position: relative;
+        }
 
-Next Twig\Error\RuntimeError: An exception has been thrown during the rendering of a template ("MarkdownExtension requires Derafu\Markdown to be installed. Run "composer require derafu/markdown" to enable this extension."). in /home/runner/work/twig/twig/public/pages/index.html.twig on line <i>5</i></th></tr>
-<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Twig\Error\RuntimeError: An exception has been thrown during the rendering of a template ("MarkdownExtension requires Derafu\Markdown to be installed. Run "composer require derafu/markdown" to enable this extension."). in /home/runner/work/twig/twig/public/pages/index.html.twig on line <i>5</i></th></tr>
-<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
-<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
-<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0002</td><td bgcolor='#eeeeec' align='right'>354856</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/home/runner/work/twig/twig/public/index.php' bgcolor='#eeeeec'>.../index.php<b>:</b>0</td></tr>
-<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0102</td><td bgcolor='#eeeeec' align='right'>506120</td><td bgcolor='#eeeeec'>Derafu\Twig\Service\TwigService->render( <span>$template = </span><span>&#39;index.html.twig&#39;</span>, <span>$data = </span><span>[&#39;base_path&#39; =&gt; &#39;&#39;, &#39;html_twig&#39; =&gt; NULL, &#39;readme&#39; =&gt; &#39;# Derafu: Twig - UI Component and Extension Library\n\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)\n\n**Derafu Twig** is a comprehensive UI component library for Twig, designed to work standalone or with any PHP framework. Built with Bootstrap 5 and Font Awesome 6, it provides a collection of reusable, customizable components for rapid web development.\n\n## Features\n\n- üé® **Rich Component Library**: Extensive collection of UI components including headers&#39;...]</span> )</td><td title='/home/runner/work/twig/twig/public/index.php' bgcolor='#eeeeec'>.../index.php<b>:</b>50</td></tr>
-<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0355</td><td bgcolor='#eeeeec' align='right'>850664</td><td bgcolor='#eeeeec'>Twig\Environment->render( <span>$name = </span><span>&#39;index.html.twig&#39;</span>, <span>$context = </span><span>[&#39;base_path&#39; =&gt; &#39;&#39;, &#39;html_twig&#39; =&gt; NULL, &#39;readme&#39; =&gt; &#39;# Derafu: Twig - UI Component and Extension Library\n\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)\n\n**Derafu Twig** is a comprehensive UI component library for Twig, designed to work standalone or with any PHP framework. Built with Bootstrap 5 and Font Awesome 6, it provides a collection of reusable, customizable components for rapid web development.\n\n## Features\n\n- üé® **Rich Component Library**: Extensive collection of UI components including headers&#39;...]</span> )</td><td title='/home/runner/work/twig/twig/src/Service/TwigService.php' bgcolor='#eeeeec'>.../TwigService.php<b>:</b>70</td></tr>
-<tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.0546</td><td bgcolor='#eeeeec' align='right'>1244736</td><td bgcolor='#eeeeec'>Twig\TemplateWrapper->render( <span>$context = </span><span>[&#39;base_path&#39; =&gt; &#39;&#39;, &#39;html_twig&#39; =&gt; NULL, &#39;readme&#39; =&gt; &#39;# Derafu: Twig - UI Component and Extension Library\n\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)\n\n**Derafu Twig** is a comprehensive UI component library for Twig, designed to work standalone or with any PHP framework. Built with Bootstrap 5 and Font Awesome 6, it provides a collection of reusable, customizable components for rapid web development.\n\n## Features\n\n- üé® **Rich Component Library**: Extensive collection of UI components including headers&#39;...]</span> )</td><td title='/home/runner/work/twig/twig/vendor/twig/twig/src/Environment.php' bgcolor='#eeeeec'>.../Environment.php<b>:</b>334</td></tr>
-<tr><td bgcolor='#eeeeec' align='center'>5</td><td bgcolor='#eeeeec' align='center'>0.0546</td><td bgcolor='#eeeeec' align='right'>1244736</td><td bgcolor='#eeeeec'>Twig\Template->render( <span>$context = </span><span>[&#39;base_path&#39; =&gt; &#39;&#39;, &#39;html_twig&#39; =&gt; NULL, &#39;readme&#39; =&gt; &#39;# Derafu: Twig - UI Component and Extension Library\n\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)\n\n**Derafu Twig** is a comprehensive UI component library for Twig, designed to work standalone or with any PHP framework. Built with Bootstrap 5 and Font Awesome 6, it provides a collection of reusable, customizable components for rapid web development.\n\n## Features\n\n- üé® **Rich Component Library**: Extensive collection of UI components including headers&#39;...]</span> )</td><td title='/home/runner/work/twig/twig/vendor/twig/twig/src/TemplateWrapper.php' bgcolor='#eeeeec'>.../TemplateWrapper.php<b>:</b>51</td></tr>
-</table></font>
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    </head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Derafu Twig</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="themes.html">
+                            <i class="fa-solid fa-palette"></i>
+                            Themes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="components.html">
+                            <i class="fa-solid fa-cubes"></i>
+                            Components
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-4" href="https://github.com/derafu/twig">
+                            <i class="fa-brands fa-github"></i>
+                            View on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+    <div class="markdown-body"><h1><a id="content-derafu-twig---ui-component-and-extension-library" href="index.html#content-derafu-twig---ui-component-and-extension-library" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Derafu: Twig - UI Component and Extension Library</h1>
+<p><a rel="nofollow noopener noreferrer" target="_blank" class="external-link" href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a></p>
+<p><strong>Derafu Twig</strong> is a comprehensive UI component library for Twig, designed to work standalone or with any PHP framework. Built with Bootstrap 5 and Font Awesome 6, it provides a collection of reusable, customizable components for rapid web development.</p>
+<h2><a id="content-features" href="index.html#content-features" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Features</h2>
+<ul>
+<li>üé® <strong>Rich Component Library</strong>: Extensive collection of UI components including headers, footers, cards, grids, and more.</li>
+<li>üéØ <strong>Framework Agnostic</strong>: Works with any PHP framework or standalone Twig.</li>
+<li>üîß <strong>Highly Customizable</strong>: Theme support with CSS variables for easy styling.</li>
+<li>üì± <strong>Responsive Design</strong>: All components are mobile-first and fully responsive.</li>
+<li>üß© <strong>Modular Architecture</strong>: Components can be used independently or combined.</li>
+<li>üé≠ <strong>Theme System</strong>: Built-in theme support with easy customization.</li>
+<li>üì¶ <strong>Bootstrap 5 Integration</strong>: Leverages Bootstrap‚Äôs grid system and utilities.</li>
+<li>üéüÔ∏è <strong>Font Awesome 6</strong>: Integrated icon support.</li>
+<li>üè∑Ô∏è <strong>MIT License</strong>: Open-source and free to use.</li>
+</ul>
+<h2><a id="content-component-categories" href="index.html#content-component-categories" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Component Categories</h2>
+<h3><a id="content-block-components" href="index.html#content-block-components" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Block Components</h3>
+<ul>
+<li><strong>Layout</strong>: Header, Footer, Grid.</li>
+<li><strong>Content</strong>: Cards, Features (Grid, List, Icon, Table), Text with Image/Video.</li>
+<li><strong>Navigation</strong>: Tabs, Steps, Timeline.</li>
+<li><strong>Interaction</strong>: Accordion, CTA (Call to Action).</li>
+<li><strong>Showcasing</strong>: Team, Testimonials, Hero, Photo.</li>
+<li><strong>Comparison</strong>: Tables, Boxes, Comparison grids.</li>
+</ul>
+<h2><a id="content-extensions" href="index.html#content-extensions" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Extensions</h2>
+<ul>
+<li><strong>Markdown</strong>: render markdown content with <code>markdown</code> filter.</li>
+</ul>
+<h2><a id="content-installation" href="index.html#content-installation" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Installation</h2>
+<p>Install the library using Composer:</p>
+<pre><code class="language-bash">composer require derafu/twig
+</code></pre>
+<h2><a id="content-example-webpage" href="index.html#content-example-webpage" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Example webpage</h2>
+<p>To view the example webpage, run:</p>
+<p>Explore the variety of components default webpage, run:</p>
+<pre><code class="language-bash">php -S localhost:9000 -t public
+</code></pre>
+<h2><a id="content-basic-usage" href="index.html#content-basic-usage" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Basic Usage</h2>
+<ol>
+<li>Create the Twig environment with <code>TwigService</code> or register the components with <code>ComponentRegistrar</code>:</li>
+</ol>
+<pre><code class="language-php">use Derafu\Twig\Service\TwigService;
+
+$options = [
+    'paths' =&gt; [
+        __DIR__ . '/../templates',  // Path to the derafu-twig templates.
+        __DIR__ . '/pages',         // Path to your templates.
+    ],
+];
+
+$twigService = new TwigService($options);
+
+echo $twigService-&gt;render('example.html.twig');
+</code></pre>
+<ol start="2">
+<li>Use components in your Twig templates:</li>
+</ol>
+<pre><code class="language-twig">{# Example using a card grid component #}
+&lt;twig:block-card-grid
+    :cols=&quot;3&quot;
+    :cards=&quot;[
+        {
+            'image': 'path/to/image.jpg',
+            'title': 'Card Title',
+            'description': 'Card description text',
+            'button_text': 'Learn More',
+            'button_url': '#'
+        }
+    ]&quot;
+/&gt;
+</code></pre>
+<h2><a id="content-key-concepts" href="index.html#content-key-concepts" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Key Concepts</h2>
+<h3><a id="content-theme-system" href="index.html#content-theme-system" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Theme System</h3>
+<p>Components support theming through CSS variables:</p>
+<pre><code class="language-css">.theme-default {
+    --color-primary: #0d6efd;
+    --color-secondary: #6c757d;
+    --color-tertiary: #198754;
+}
+</code></pre>
+<h3><a id="content-component-structure" href="index.html#content-component-structure" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Component Structure</h3>
+<p>Each component follows a consistent structure:</p>
+<ul>
+<li>PHP Class: Defines component properties and logic.</li>
+<li>Twig Template: Handles component rendering.</li>
+<li>CSS: Component-specific styles.</li>
+</ul>
+<h2><a id="content-documentation" href="index.html#content-documentation" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Documentation</h2>
+<p>Visit our <a rel="nofollow noopener noreferrer" target="_blank" class="external-link" href="https://derafu.org/twig">documentation site</a> for:</p>
+<ul>
+<li>Live demos.</li>
+<li>Detailed component examples.</li>
+<li>List of themes and predefined colors.</li>
+</ul>
+<h2><a id="content-roadmap" href="index.html#content-roadmap" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Roadmap</h2>
+<ul>
+<li>üîå More component variations.</li>
+<li>üì± Enhanced mobile optimizations.</li>
+<li>üé® Additional theme presets.</li>
+<li>üåê Internationalization features.</li>
+</ul>
+<h2><a id="content-contributing" href="index.html#content-contributing" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Contributing</h2>
+<p>Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.</p>
+<h2><a id="content-license" href="index.html#content-license" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>License</h2>
+<p>This project is licensed under the MIT License - see the <a rel="nofollow noopener noreferrer" target="_blank" class="external-link" href="https://github.com/derafu/twig/blob/main/LICENSE">LICENSE</a> file for details.</p>
+<hr />
+<p>Happy coding! ‚ú®</p>
+</div>
+</div>
+
+    
+    <!-- Footer -->
+    <footer class="sticky-bottom py-3 bg-body-tertiary mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="text-body-secondary">
+                        &copy; 2025 Derafu Twig -
+                        <a href="https://github.com/derafu/twig" class="text-decoration-none">
+                            github.com/derafu/twig
+                        </a><br/>
+                        <small>UI Component and Extension Library</small>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-body-secondary">
+                        With love <i class="fa-solid fa-heart text-danger"></i> from
+                        <a href="https://www.derafu.org" target="_blank" class="text-decoration-none">Derafu ORG</a><br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script>
+        function copyCode(button) {
+            let code = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => button.innerText = "Copy", 2000);
+            });
+        }
+    </script>
+    </body>
+</html>

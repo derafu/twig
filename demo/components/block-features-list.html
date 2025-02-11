@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derafu Twig</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/derafu-twig.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        .code-container {
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    </head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Derafu Twig</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../themes.html">
+                            <i class="fa-solid fa-palette"></i>
+                            Themes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../components.html">
+                            <i class="fa-solid fa-cubes"></i>
+                            Components
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-4" href="https://github.com/derafu/twig">
+                            <i class="fa-brands fa-github"></i>
+                            View on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="block-features-list theme-default">
+    <div class="container">
+        <div class="block-features-list__row">
+                        <div class="block-features-list__column block-features-list__column--left">
+                                    <div class="block-features-list__item block-features-list__item--right">
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Aplicación Web</h3>
+                            <div class="block-features-list__description">
+                                Con emisión de documentos en forma individual y masiva.
+                            </div>
+                        </div>
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                    </div>
+                                    <div class="block-features-list__item block-features-list__item--right">
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Reportes</h3>
+                            <div class="block-features-list__description">
+                                Gráficos y estadísticas para visualizar tus datos de manera sencilla.
+                            </div>
+                        </div>
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                    </div>
+                            </div>
+
+                        <div class="block-features-list__column block-features-list__column--right">
+                                    <div class="block-features-list__item block-features-list__item--left">
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Productos y Servicios</h3>
+                            <div class="block-features-list__description">
+                                Codifica tus productos y servicios para emitir rápidamente y sin errores.
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="block-features-list__item block-features-list__item--left">
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-cloud-download"></i>
+                        </div>
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Respaldo</h3>
+                            <div class="block-features-list__description">
+                                Descarga tus datos cada vez que los requieras.
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="block-features-list theme-ocean-mystic">
+    <div class="container">
+        <div class="block-features-list__row">
+                        <div class="block-features-list__column block-features-list__column--left">
+                                    <div class="block-features-list__item block-features-list__item--right">
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Aplicación Web</h3>
+                            <div class="block-features-list__description">
+                                Con emisión de documentos en forma individual y masiva.
+                            </div>
+                        </div>
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                    </div>
+                                    <div class="block-features-list__item block-features-list__item--right">
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Reportes</h3>
+                            <div class="block-features-list__description">
+                                Gráficos y estadísticas para visualizar tus datos de manera sencilla.
+                            </div>
+                        </div>
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                    </div>
+                                    <div class="block-features-list__item block-features-list__item--right">
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Configuración</h3>
+                            <div class="block-features-list__description">
+                                Personaliza la aplicación según tus necesidades específicas.
+                            </div>
+                        </div>
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-cogs"></i>
+                        </div>
+                    </div>
+                            </div>
+
+                        <div class="block-features-list__column block-features-list__column--right">
+                                    <div class="block-features-list__item block-features-list__item--left">
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Productos y Servicios</h3>
+                            <div class="block-features-list__description">
+                                Codifica tus productos y servicios para emitir rápidamente y sin errores.
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="block-features-list__item block-features-list__item--left">
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-cloud-download"></i>
+                        </div>
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Respaldo</h3>
+                            <div class="block-features-list__description">
+                                Descarga tus datos cada vez que los requieras.
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="block-features-list__item block-features-list__item--left">
+                        <div class="block-features-list__icon">
+                            <i class="fa-solid fa-shield"></i>
+                        </div>
+                        <div class="block-features-list__content">
+                            <h3 class="block-features-list__title">Seguridad</h3>
+                            <div class="block-features-list__description">
+                                Tus datos están protegidos con los más altos estándares de seguridad.
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+        <div class="container mt-4 mb-4">
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-features-list.html.twig #}
+
+{% extends &#039;base.html.twig&#039; %}
+
+{% block body %}
+&lt;twig:block-features-list
+    :features_left=&quot;[
+        {
+            icon: &#039;fa-solid fa-laptop&#039;,
+            title: &#039;Aplicación Web&#039;,
+            description: &#039;Con emisión de documentos en forma individual y masiva.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-chart-line&#039;,
+            title: &#039;Reportes&#039;,
+            description: &#039;Gráficos y estadísticas para visualizar tus datos de manera sencilla.&#039;
+        }
+    ]&quot;
+    :features_right=&quot;[
+        {
+            icon: &#039;fa-solid fa-cubes&#039;,
+            title: &#039;Productos y Servicios&#039;,
+            description: &#039;Codifica tus productos y servicios para emitir rápidamente y sin errores.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-cloud-download&#039;,
+            title: &#039;Respaldo&#039;,
+            description: &#039;Descarga tus datos cada vez que los requieras.&#039;
+        }
+    ]&quot;
+/&gt;
+
+{# Caso con más elementos para verificar el espaciado #}
+&lt;twig:block-features-list
+    :features_left=&quot;[
+        {
+            icon: &#039;fa-solid fa-laptop&#039;,
+            title: &#039;Aplicación Web&#039;,
+            description: &#039;Con emisión de documentos en forma individual y masiva.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-chart-line&#039;,
+            title: &#039;Reportes&#039;,
+            description: &#039;Gráficos y estadísticas para visualizar tus datos de manera sencilla.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-cogs&#039;,
+            title: &#039;Configuración&#039;,
+            description: &#039;Personaliza la aplicación según tus necesidades específicas.&#039;
+        }
+    ]&quot;
+    :features_right=&quot;[
+        {
+            icon: &#039;fa-solid fa-cubes&#039;,
+            title: &#039;Productos y Servicios&#039;,
+            description: &#039;Codifica tus productos y servicios para emitir rápidamente y sin errores.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-cloud-download&#039;,
+            title: &#039;Respaldo&#039;,
+            description: &#039;Descarga tus datos cada vez que los requieras.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-shield&#039;,
+            title: &#039;Seguridad&#039;,
+            description: &#039;Tus datos están protegidos con los más altos estándares de seguridad.&#039;
+        }
+    ]&quot;
+    theme=&quot;ocean-mystic&quot;
+/&gt;
+{% endblock %}
+</code></pre>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="sticky-bottom py-3 bg-body-tertiary mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="text-body-secondary">
+                        &copy; 2025 Derafu Twig -
+                        <a href="https://github.com/derafu/twig" class="text-decoration-none">
+                            github.com/derafu/twig
+                        </a><br/>
+                        <small>UI Component and Extension Library</small>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-body-secondary">
+                        With love <i class="fa-solid fa-heart text-danger"></i> from
+                        <a href="https://www.derafu.org" target="_blank" class="text-decoration-none">Derafu ORG</a><br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script>
+        function copyCode(button) {
+            let code = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => button.innerText = "Copy", 2000);
+            });
+        }
+    </script>
+    </body>
+</html>

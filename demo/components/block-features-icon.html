@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derafu Twig</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/derafu-twig.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        .code-container {
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    </head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Derafu Twig</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../themes.html">
+                            <i class="fa-solid fa-palette"></i>
+                            Themes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../components.html">
+                            <i class="fa-solid fa-cubes"></i>
+                            Components
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-4" href="https://github.com/derafu/twig">
+                            <i class="fa-brands fa-github"></i>
+                            View on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="block-features-icon theme-default">
+    <div class="container">
+        
+                                            
+                                
+                                    
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Software as a Service</h3>
+                            <div class="block-features-icon__description">
+                                LibreDTE es un software en la nube, requieres acceso a Internet para poder utilizarlo.
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Precio por empresa</h3>
+                            <div class="block-features-icon__description">
+                                El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Sincronización con SII</h3>
+                            <div class="block-features-icon__description">
+                                Tus documentos tributarios son enviados inmediatamente al SII y monitoreamos su estado.
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Característica 4</h3>
+                            <div class="block-features-icon__description">
+                                Descripción de la característica 4.
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                            </div>
+</section>
+
+
+<section class="block-features-icon theme-ocean-mystic">
+    <div class="container">
+        
+                        
+                                
+                                    
+                                                    
+                                                    
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 1</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 1
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 2</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 2
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 3</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 3
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                
+                                                    
+                
+                <div class="block-features-icon__row block-features-icon__row--centered">
+                                                                    <div class="block-features-icon__item block-features-icon__item--2">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 4</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 4
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--2">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 5</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 5
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                            </div>
+</section>
+
+
+<section class="block-features-icon theme-deep-blue">
+    <div class="container">
+        
+                                            
+                                
+                                    
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 1</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 1
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 2</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 2
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 3</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 3
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 4</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 4
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 5</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 5
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 6</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 6
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 7</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 7
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 8</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 8
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                                </div>
+</section>
+
+
+<section class="block-features-icon theme-neo-crimson">
+    <div class="container">
+        
+                                            
+                                
+                                    
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 1</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 1
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 2</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 2
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 3</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 3
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 4</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 4
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 5</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 5
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 6</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 6
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 7</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 7
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 8</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 8
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-gear"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 9</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 9
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                                </div>
+</section>
+
+
+<section class="block-features-icon theme-amber-elegance">
+    <div class="container">
+        
+                        
+                                
+                                    
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 1</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 1
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 2</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 2
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 3</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 3
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--4">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 4</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 4
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 5</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 5
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 6</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 6
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--3">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 7</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 7
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                                </div>
+</section>
+
+
+<section class="block-features-icon theme-royal-sunset">
+    <div class="container">
+        
+                                            
+                                
+                                    
+                                                    
+                
+                <div class="block-features-icon__row">
+                                                                    <div class="block-features-icon__item block-features-icon__item--6">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 1</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 1
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--6">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 2</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 2
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--6">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 3</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 3
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--6">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 4</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 4
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--6">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 5</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 5
+                            </div>
+                        </div>
+                                                                    <div class="block-features-icon__item block-features-icon__item--6">
+                            <div class="block-features-icon__icon">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <h3 class="block-features-icon__title">Feature 6</h3>
+                            <div class="block-features-icon__description">
+                                Descripción 6
+                            </div>
+                        </div>
+                                    </div>
+
+                                                                                                </div>
+</section>
+
+
+        <div class="container mt-4 mb-4">
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-features-icon.html.twig #}
+
+{% extends &#039;base.html.twig&#039; %}
+
+{% block body %}
+{# Caso 4 elementos (una fila de 4) #}
+&lt;twig:block-features-icon
+    :features=&quot;[
+        {
+            icon: &#039;fa-solid fa-cloud&#039;,
+            title: &#039;Software as a Service&#039;,
+            description: &#039;LibreDTE es un software en la nube, requieres acceso a Internet para poder utilizarlo.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-money-bill&#039;,
+            title: &#039;Precio por empresa&#039;,
+            description: &#039;El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-arrows-left-right&#039;,
+            title: &#039;Sincronización con SII&#039;,
+            description: &#039;Tus documentos tributarios son enviados inmediatamente al SII y monitoreamos su estado.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-check&#039;,
+            title: &#039;Característica 4&#039;,
+            description: &#039;Descripción de la característica 4.&#039;
+        }
+    ]&quot;
+/&gt;
+
+{# Caso 5 elementos (fila de 3 + fila de 2) #}
+&lt;twig:block-features-icon
+    :features=&quot;[
+        {
+            icon: &#039;fa-solid fa-cloud&#039;,
+            title: &#039;Feature 1&#039;,
+            description: &#039;Descripción 1&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-money-bill&#039;,
+            title: &#039;Feature 2&#039;,
+            description: &#039;Descripción 2&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-arrows-left-right&#039;,
+            title: &#039;Feature 3&#039;,
+            description: &#039;Descripción 3&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-check&#039;,
+            title: &#039;Feature 4&#039;,
+            description: &#039;Descripción 4&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-star&#039;,
+            title: &#039;Feature 5&#039;,
+            description: &#039;Descripción 5&#039;
+        }
+    ]&quot;
+    theme=&quot;ocean-mystic&quot;
+/&gt;
+
+{# Caso 8 elementos (dos filas de 4) #}
+&lt;twig:block-features-icon
+    :features=&quot;[
+        {
+            icon: &#039;fa-solid fa-cloud&#039;,
+            title: &#039;Feature 1&#039;,
+            description: &#039;Descripción 1&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-money-bill&#039;,
+            title: &#039;Feature 2&#039;,
+            description: &#039;Descripción 2&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-arrows-left-right&#039;,
+            title: &#039;Feature 3&#039;,
+            description: &#039;Descripción 3&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-check&#039;,
+            title: &#039;Feature 4&#039;,
+            description: &#039;Descripción 4&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-star&#039;,
+            title: &#039;Feature 5&#039;,
+            description: &#039;Descripción 5&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-heart&#039;,
+            title: &#039;Feature 6&#039;,
+            description: &#039;Descripción 6&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-bell&#039;,
+            title: &#039;Feature 7&#039;,
+            description: &#039;Descripción 7&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-user&#039;,
+            title: &#039;Feature 8&#039;,
+            description: &#039;Descripción 8&#039;
+        }
+    ]&quot;
+    theme=&quot;deep-blue&quot;
+/&gt;
+
+{# Caso 9 elementos (tres filas de 3) #}
+&lt;twig:block-features-icon
+    :features=&quot;[
+        {
+            icon: &#039;fa-solid fa-cloud&#039;,
+            title: &#039;Feature 1&#039;,
+            description: &#039;Descripción 1&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-money-bill&#039;,
+            title: &#039;Feature 2&#039;,
+            description: &#039;Descripción 2&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-arrows-left-right&#039;,
+            title: &#039;Feature 3&#039;,
+            description: &#039;Descripción 3&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-check&#039;,
+            title: &#039;Feature 4&#039;,
+            description: &#039;Descripción 4&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-star&#039;,
+            title: &#039;Feature 5&#039;,
+            description: &#039;Descripción 5&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-heart&#039;,
+            title: &#039;Feature 6&#039;,
+            description: &#039;Descripción 6&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-bell&#039;,
+            title: &#039;Feature 7&#039;,
+            description: &#039;Descripción 7&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-user&#039;,
+            title: &#039;Feature 8&#039;,
+            description: &#039;Descripción 8&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-gear&#039;,
+            title: &#039;Feature 9&#039;,
+            description: &#039;Descripción 9&#039;
+        }
+    ]&quot;
+    theme=&quot;neo-crimson&quot;
+/&gt;
+
+{# Caso 7 elementos (fila de 4 + fila de 3) #}
+&lt;twig:block-features-icon
+    :features=&quot;[
+        {
+            icon: &#039;fa-solid fa-cloud&#039;,
+            title: &#039;Feature 1&#039;,
+            description: &#039;Descripción 1&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-money-bill&#039;,
+            title: &#039;Feature 2&#039;,
+            description: &#039;Descripción 2&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-arrows-left-right&#039;,
+            title: &#039;Feature 3&#039;,
+            description: &#039;Descripción 3&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-check&#039;,
+            title: &#039;Feature 4&#039;,
+            description: &#039;Descripción 4&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-star&#039;,
+            title: &#039;Feature 5&#039;,
+            description: &#039;Descripción 5&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-heart&#039;,
+            title: &#039;Feature 6&#039;,
+            description: &#039;Descripción 6&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-bell&#039;,
+            title: &#039;Feature 7&#039;,
+            description: &#039;Descripción 7&#039;
+        }
+    ]&quot;
+    theme=&quot;amber-elegance&quot;
+/&gt;
+
+{# Caso 6 elementos (fila de 6) #}
+&lt;twig:block-features-icon
+    :features=&quot;[
+        {
+            icon: &#039;fa-solid fa-cloud&#039;,
+            title: &#039;Feature 1&#039;,
+            description: &#039;Descripción 1&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-money-bill&#039;,
+            title: &#039;Feature 2&#039;,
+            description: &#039;Descripción 2&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-arrows-left-right&#039;,
+            title: &#039;Feature 3&#039;,
+            description: &#039;Descripción 3&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-check&#039;,
+            title: &#039;Feature 4&#039;,
+            description: &#039;Descripción 4&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-star&#039;,
+            title: &#039;Feature 5&#039;,
+            description: &#039;Descripción 5&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-heart&#039;,
+            title: &#039;Feature 6&#039;,
+            description: &#039;Descripción 6&#039;
+        }
+    ]&quot;
+    theme=&quot;royal-sunset&quot;
+/&gt;
+{% endblock %}
+</code></pre>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="sticky-bottom py-3 bg-body-tertiary mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="text-body-secondary">
+                        &copy; 2025 Derafu Twig -
+                        <a href="https://github.com/derafu/twig" class="text-decoration-none">
+                            github.com/derafu/twig
+                        </a><br/>
+                        <small>UI Component and Extension Library</small>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-body-secondary">
+                        With love <i class="fa-solid fa-heart text-danger"></i> from
+                        <a href="https://www.derafu.org" target="_blank" class="text-decoration-none">Derafu ORG</a><br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script>
+        function copyCode(button) {
+            let code = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => button.innerText = "Copy", 2000);
+            });
+        }
+    </script>
+    </body>
+</html>

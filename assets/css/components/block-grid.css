@@ -1,0 +1,23 @@
+.block-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre filas */
+}
+
+.block-grid__row {
+    display: flex;
+    width: 100%;
+    gap: 10px; /* Espaciado entre columnas */
+}
+
+.block-grid__item {
+    padding: 20px;
+}
+
+/* Tamaños dinámicos */
+.block-grid__item--1 { flex: 1 1 calc(100% - 20px); } /* 1 item = ocupa todo */
+.block-grid__item--2 { flex: 1 1 calc(50% - 20px); } /* 2 items = mitad */
+.block-grid__item--3 { flex: 1 1 calc(33.33% - 20px); } /* 3 items = 1/3 cada uno */
+.block-grid__item--4 { flex: 1 1 calc(25% - 20px); } /* 4 items = 1/4 cada uno */
+.block-grid__item--6 { flex: 1 1 calc(16.66% - 20px); } /* 6 items = 1/6 cada uno */

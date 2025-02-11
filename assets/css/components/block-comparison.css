@@ -1,0 +1,140 @@
+/* Estilos del componente */
+.block-comparison {
+    padding: var(--spacing-y, 2rem) 0;
+    background-color: var(--comparison-bg);
+}
+
+.block-comparison__plan {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--comparison-plan-bg);
+    border: 1px solid var(--comparison-plan-border);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--comparison-plan-shadow);
+    transition: transform 0.3s ease;
+}
+
+.block-comparison__plan:hover {
+    transform: translateY(-5px);
+}
+
+/* Title section */
+.block-comparison__title-section {
+    padding: 1.5rem;
+    background-color: var(--comparison-title-bg);
+    text-align: center;
+}
+
+.block-comparison__title {
+    color: var(--comparison-title-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Price section */
+.block-comparison__price-section {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--comparison-plan-bg);
+}
+
+.block-comparison__price {
+    color: var(--comparison-price);
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.block-comparison__price small {
+    font-size: 50%;
+    position: relative;
+}
+
+.block-comparison__period {
+    color: var(--comparison-period);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Features */
+.block-comparison__features {
+    flex: 1;
+    padding: 2rem;
+    border-top: 1px solid var(--comparison-plan-border);
+    border-bottom: 1px solid var(--comparison-plan-border);
+}
+
+.block-comparison__feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    color: var(--comparison-text);
+}
+
+.block-comparison__feature:not(:last-child) {
+    border-bottom: 1px solid var(--comparison-plan-border);
+}
+
+.block-comparison__value {
+    font-weight: bold;
+}
+
+/* Footer */
+.block-comparison__footer {
+    padding: 2rem;
+}
+
+.block-comparison__recommendation {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--comparison-recommendation);
+    margin-bottom: 1.5rem;
+}
+
+.block-comparison__button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--comparison-button-bg);
+    color: var(--comparison-button-text);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.block-comparison__button:hover {
+    background-color: var(--comparison-button-hover);
+    color: var(--comparison-button-text);
+    text-decoration: none;
+}
+
+/* Plan destacado - solo el título */
+.block-comparison__title-section--highlighted {
+    background-color: var(--comparison-highlighted-title-bg);
+}
+
+.block-comparison__title-section--highlighted .block-comparison__title {
+    color: var(--comparison-highlighted-title-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .block-comparison__plan {
+        margin-bottom: 2rem;
+    }
+
+    .block-comparison__plan:last-child {
+        margin-bottom: 0;
+    }
+}
