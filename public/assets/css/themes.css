@@ -1,37 +1,37 @@
 /* Tema bootstrap */
 .theme-default {
-    --color-primary: #0d6efd;
-    --color-primary-light: #3d8bfd;
-    --color-primary-dark: #0a58ca;
+    --color-primary: #0D6EFD;
+    --color-primary-light: #3D8BFD;
+    --color-primary-dark: #0A58CA;
     --color-primary-contrast: #FFFFFF;
 
-    --color-secondary: #6c757d;
-    --color-secondary-light: #a0a8b1;
-    --color-secondary-dark: #565e64;
+    --color-secondary: #6C757D;
+    --color-secondary-light: #A0A8B1;
+    --color-secondary-dark: #565E64;
     --color-secondary-contrast: #FFFFFF;
 
-    --color-tertiary: #198754;
-    --color-tertiary-light: #25a56a;
-    --color-tertiary-dark: #146c43;
+    --color-tertiary: #F7A713;
+    --color-tertiary-light: #FFBA3A;
+    --color-tertiary-dark: #C77F0D;
     --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema derafu */
 .theme-amber-elegance {
     --color-primary: #F7A713;
-    --color-primary-light: #fbb642;
-    --color-primary-dark: #d68c02;
+    --color-primary-light: #FFBA3A;
+    --color-primary-dark: #C77F0D;
     --color-primary-contrast: #000000;
 
     --color-secondary: #1D1D1B;
-    --color-secondary-light: #2d2d2a;
+    --color-secondary-light: #2D2D2A;
     --color-secondary-dark: #000000;
     --color-secondary-contrast: #FFFFFF;
 
-    --color-tertiary: #FFFFFF;
-    --color-tertiary-light: #FFFFFF;
-    --color-tertiary-dark: #f0f0f0;
-    --color-tertiary-contrast: #1D1D1B;
+    --color-tertiary: #3F4242;
+    --color-tertiary-light: #4F5252;
+    --color-tertiary-dark: #2F3232;
+    --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema libredte */
@@ -54,38 +54,38 @@
 
 /* Tema billmysales */
 .theme-sky-pro {
-    --color-primary: #0075F2;
-    --color-primary-light: #1a8aff;
-    --color-primary-dark: #0060c4;
+    --color-primary: #0076F3;
+    --color-primary-light: #1A8BFF;
+    --color-primary-dark: #0060C4;
     --color-primary-contrast: #FFFFFF;
 
     --color-secondary: #3F4242;
-    --color-secondary-light: #4f5252;
-    --color-secondary-dark: #2f3232;
+    --color-secondary-light: #4F5252;
+    --color-secondary-dark: #2F3232;
     --color-secondary-contrast: #FFFFFF;
 
-    --color-tertiary: #FFFFFF;
-    --color-tertiary-light: #FFFFFF;
-    --color-tertiary-dark: #f5f5f5;
-    --color-tertiary-contrast: #212529;
+    --color-tertiary: #F7A713;
+    --color-tertiary-light: #FFBA3A;
+    --color-tertiary-dark: #C77F0D;
+    --color-tertiary-contrast: #3F4242;
 }
 
 /* Tema apigateway */
 .theme-sky-energy {
-    --color-primary: #0075F2;
-    --color-primary-light: #1a8aff;
-    --color-primary-dark: #0060c4;
+    --color-primary: #0076F3;
+    --color-primary-light: #1A8BFF;
+    --color-primary-dark: #0060C4;
     --color-primary-contrast: #FFFFFF;
 
-    --color-secondary: #3F4242;
-    --color-secondary-light: #4f5252;
-    --color-secondary-dark: #2f3232;
-    --color-secondary-contrast: #FFFFFF;
+    --color-secondary: #F7A713;
+    --color-secondary-light: #FFBA3A;
+    --color-secondary-dark: #C77F0D;
+    --color-secondary-contrast: #3F4242;
 
-    --color-tertiary: #F7A713;
-    --color-tertiary-light: #ffba3a;
-    --color-tertiary-dark: #c77f0d;
-    --color-tertiary-contrast: #3F4242;
+    --color-tertiary: #3F4242;
+    --color-tertiary-light: #4F5252;
+    --color-tertiary-dark: #2F3232;
+    --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema bhexpress y contafi */
@@ -100,10 +100,10 @@
     --color-secondary-dark: #C77F0D;
     --color-secondary-contrast: #194B97;
 
-    --color-tertiary: #FFFFFF;
-    --color-tertiary-light: #FFFFFF;
-    --color-tertiary-dark: #E6E6E6;
-    --color-tertiary-contrast: #194B97;
+    --color-tertiary: #3F4242;
+    --color-tertiary-light: #555858;
+    --color-tertiary-dark: #2A2C2C;
+    --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema dinncode */
@@ -118,28 +118,28 @@
     --color-secondary-dark: #A56F06;
     --color-secondary-contrast: #3F4242;
 
-    --color-tertiary: #FFFFFF;
-    --color-tertiary-light: #FFFFFF;
-    --color-tertiary-dark: #E6E6E6;
-    --color-tertiary-contrast: #3F4242;
+    --color-tertiary: #0076F3;
+    --color-tertiary-light: #1A8BFF;
+    --color-tertiary-dark: #005AC1;
+    --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema dinnodoo */
 .theme-ocean-mystic {
-    --color-primary: #00969A;
-    --color-primary-light: #33B2B5;
-    --color-primary-dark: #007478;
+    --color-primary: #865E7F;
+    --color-primary-light: #A07D99;
+    --color-primary-dark: #684965;
     --color-primary-contrast: #FFFFFF;
 
-    --color-secondary: #865E7F;
-    --color-secondary-light: #A07D99;
-    --color-secondary-dark: #684965;
+    --color-secondary: #00969A;
+    --color-secondary-light: #33B2B5;
+    --color-secondary-dark: #007478;
     --color-secondary-contrast: #FFFFFF;
 
-    --color-tertiary: #FFFFFF;
-    --color-tertiary-light: #FFFFFF;
-    --color-tertiary-dark: #E6E6E6;
-    --color-tertiary-contrast: #00969A;
+    --color-tertiary: #8F8F8F;
+    --color-tertiary-light: #B3B3B3;
+    --color-tertiary-dark: #6A6A6A;
+    --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema dinnopay */
@@ -154,9 +154,9 @@
     --color-secondary-dark: #005AC1;
     --color-secondary-contrast: #FFFFFF;
 
-    --color-tertiary: #FFFFFF;
-    --color-tertiary-light: #FFFFFF;
-    --color-tertiary-dark: #E6E6E6;
+    --color-tertiary: #F7A713;
+    --color-tertiary-light: #FFBA3A;
+    --color-tertiary-dark: #C77F0D;
     --color-tertiary-contrast: #194B97;
 }
 
@@ -167,15 +167,15 @@
     --color-primary-dark: #000000;
     --color-primary-contrast: #FFFFFF;
 
-    --color-secondary: #ED0027;
-    --color-secondary-light: #FF334D;
-    --color-secondary-dark: #B5001D;
+    --color-secondary: #00C4C7;
+    --color-secondary-light: #33D6D9;
+    --color-secondary-dark: #009A9D;
     --color-secondary-contrast: #FFFFFF;
 
-    --color-tertiary: #00C4C7;
-    --color-tertiary-light: #33D6D9;
-    --color-tertiary-dark: #009A9D;
-    --color-tertiary-contrast: #000000;
+    --color-tertiary: #ED0027;
+    --color-tertiary-light: #FE354C;
+    --color-tertiary-dark: #B10322;
+    --color-tertiary-contrast: #FFFFFF;
 }
 
 /* Tema guarida */
