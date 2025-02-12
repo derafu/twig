@@ -13,11 +13,12 @@ declare(strict_types=1);
 namespace Derafu\Twig\Service;
 
 use Derafu\Twig\Contract\TwigCreatorInterface;
+use Derafu\Twig\Contract\TwigServiceInterface;
 use Derafu\Twig\Provider\AllComponentProvider;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class TwigService
+class TwigService implements TwigServiceInterface
 {
     /**
      * Renderizador de plantillas HTML con Twig.
@@ -53,11 +54,7 @@ class TwigService
     }
 
     /**
-     * Renderiza una plantilla Twig en HTML.
-     *
-     * @param string $template Plantilla Twig a renderizar.
-     * @param array $data Datos que se pasarán a la plantilla Twig.
-     * @return string Código HTML con el renderizado de la plantilla Twig.
+     * {@inheritDoc}
      */
     public function render(string $template, array &$data = []): string
     {
@@ -71,12 +68,7 @@ class TwigService
     }
 
     /**
-     * Entrega la instancia de Twig.
-     *
-     * Este método evita crearla en el constructor y se crea solo cuando
-     * realmente se utiliza. Útil cuando se usan lazy services.
-     *
-     * @return Environment
+     * {@inheritDoc}
      */
     public function getTwig(): Environment
     {
