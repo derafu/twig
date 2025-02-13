@@ -41,8 +41,6 @@ composer require derafu/twig
 
 ## Example webpage
 
-To view the example webpage, run:
-
 Explore the variety of components default webpage, run:
 
 ```bash
