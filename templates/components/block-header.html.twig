@@ -4,7 +4,7 @@
      {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}>
     <div class="container">
         {# Logo Section #}
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="{{ this.logoUrl }}">
             {% if this.logoImage %}
                 <img src="{{ this.logoImage }}" alt="Logo" style="max-width: {{ this.logoMaxWidth }}px;">
             {% endif %}

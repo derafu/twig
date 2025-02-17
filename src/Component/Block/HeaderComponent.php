@@ -20,6 +20,8 @@ class HeaderComponent
 {
     // Logo configuration
 
+    public string $logoUrl = '';
+
     public ?string $logoImage = null;
 
     public ?string $logoHtml = null;
