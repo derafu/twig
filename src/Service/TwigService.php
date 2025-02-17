@@ -107,10 +107,12 @@ class TwigService implements TwigServiceInterface
 
         // Agregar el directorio si se pasó una ruta absoluta.
         $realpath = realpath($template);
-        if ($realpath && !in_array($realpath, $loader->getPaths())) {
+        if ($realpath) {
             $dir = dirname($realpath);
-            $loader->addPath($dir);
-            $template = basename($realpath);
+            if (!in_array($dir, $loader->getPaths())) {
+                $loader->addPath($dir);
+                $template = basename($realpath);
+            }
         }
 
         // Entregar nombre de la plantilla.
