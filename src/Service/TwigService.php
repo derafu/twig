@@ -111,8 +111,8 @@ class TwigService implements TwigServiceInterface
             $dir = dirname($realpath);
             if (!in_array($dir, $loader->getPaths())) {
                 $loader->addPath($dir);
-                $template = basename($realpath);
             }
+            $template = basename($realpath);
         }
 
         // Entregar nombre de la plantilla.
