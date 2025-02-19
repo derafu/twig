@@ -95,7 +95,7 @@ class TwigService implements TwigServiceInterface
     private function resolveTemplate(string $template): string
     {
         // Agregar extensión.
-        if (!str_ends_with($template, '.html.twig')) {
+        if (!str_ends_with($template, '.twig')) {
             $template .= '.html.twig';
         }
 
