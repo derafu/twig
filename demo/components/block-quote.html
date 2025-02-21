@@ -68,104 +68,82 @@
         </div>
     </nav>
 
-    <section class="block-hero theme-default block-hero--medium block-hero--center"
-     id="alert-67b8dae5670c1">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Secundario
-                        </a>
-                                    </div>
-                    </div>
-    </div>
+    <section class="block-quote theme-ocean-mystic" id="quote-67b8dae572025">
+   <div class="container">
+                                <figure class="text-center">
+                   <div class="quote-icon quote-icon-left">
+                       <i class="fa-solid fa-quote-left"></i>
+                   </div>
+                   <div class="quote-icon quote-icon-right">
+                       <i class="fa-solid fa-quote-right"></i>
+                   </div>
+                                          <blockquote class="blockquote">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                       </blockquote>
+                                      <div class="quote-author">
+                                                  <img src="../../assets/img/block-hero.jpeg" alt="Cosme Fulanito" class="quote-author-image">
+                                              <div class="quote-author-info">
+                                                          <span class="quote-author-name">Cosme Fulanito</span>
+                                                                                     <span class="quote-author-source">MK11</span>
+                                                  </div>
+                   </div>
+               </figure>
+                     </div>
 </section>
 
-<section class="block-hero theme-amber-elegance block-hero--medium block-hero--left"
-        style="background-image: url('../../assets/img/block-hero.jpeg')"
-     id="alert-67b8dae568556">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                    </div>
-                    </div>
-    </div>
+<section class="block-quote theme-default" id="quote-67b8dae5731ed">
+   <div class="container">
+                                <figure class="text-center">
+                   <div class="quote-icon quote-icon-left">
+                       <i class="fa-solid fa-quote-left"></i>
+                   </div>
+                   <div class="quote-icon quote-icon-right">
+                       <i class="fa-solid fa-quote-right"></i>
+                   </div>
+                                          <blockquote class="blockquote">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                       </blockquote>
+                                      <div class="quote-author">
+                                                  <img src="../../assets/img/block-hero.jpeg" alt="Daniel Barros" class="quote-author-image">
+                                              <div class="quote-author-info">
+                                                          <span class="quote-author-name">Daniel Barros</span>
+                                                                                     <span class="quote-author-source">Grez</span>
+                                                  </div>
+                   </div>
+               </figure>
+                     </div>
 </section>
-
-<section class="block-hero theme-neo-crimson block-hero--medium block-hero--center"
-     id="alert-67b8dae568696">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                    </div>
-                    </div>
-    </div>
-</section>
-
 
         <div class="container mt-4 mb-4">
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-hero.html.twig #}
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-quote.html.twig #}
 
 {% extends &#039;base.html.twig&#039; %}
 
 {% block body %}
-&lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
+&lt;twig:block-quote
+    :quote=&quot;[
         {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        },
-        {
-            text: &#039;Botón Secundario&#039;,
-            url: &#039;https://www.derafu.org&#039;
+            quote: &#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&#039;,
+            author: &#039;Cosme Fulanito&#039;,
+            source: &#039;MK11&#039;,
+            image: &#039;/assets/img/block-hero.jpeg&#039;
         }
     ]&quot;
+    theme=&quot;theme-ocean-mystic&quot;
 /&gt;
-&lt;twig:block-hero
-    background=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
+
+&lt;twig:block-quote
+    :quote=&quot;[
         {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
+            quote: &#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&#039;,
+            author: &#039;Daniel Barros&#039;,
+            source: &#039;Grez&#039;,
+            image: &#039;/assets/img/block-hero.jpeg&#039;
         }
     ]&quot;
-    align=&quot;left&quot;
-    theme=&quot;amber-elegance&quot;
-/&gt;
-&lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
-        {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        }
-    ]&quot;
-    theme=&quot;neo-crimson&quot;
+    theme=&quot;theme-default&quot;
 /&gt;
 {% endblock %}
 </code></pre>

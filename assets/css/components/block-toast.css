@@ -1,0 +1,90 @@
+/* Toast Base Styles */
+.toast {
+    position: relative;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    padding-right: 2.5rem;
+    position: relative;
+}
+
+/* Toast Type Styles - Usando variables para evitar repetición */
+.toast[class*="type-"] .toast-header {
+    background-color: var(--color-type);
+    color: var(--color-type-contrast);
+}
+
+.toast[class*="type-"] .toast-header .text-body-secondary,
+.toast[class*="type-"] .toast-header small {
+    color: var(--color-type-contrast) !important;
+    opacity: 0.75;
+}
+
+/* Definiendo colores específicos para cada tipo */
+.toast.type-primary .toast-header {
+    --color-type: var(--color-primary);
+    --color-type-contrast: var(--color-primary-contrast);
+}
+
+.toast.type-secondary .toast-header {
+    --color-type: var(--color-secondary);
+    --color-type-contrast: var(--color-secondary-contrast);
+}
+
+.toast.type-tertiary .toast-header {
+    --color-type: var(--color-tertiary);
+    --color-type-contrast: var(--color-tertiary-contrast);
+}
+
+/* Close Button Styles */
+.btn-close {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+.btn-close::before,
+.btn-close::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 0.75rem;
+    background-color: var(--color-type-contrast);
+    transform-origin: center;
+}
+
+.btn-close::before {
+    transform: rotate(45deg);
+}
+
+.btn-close::after {
+    transform: rotate(-45deg);
+}
+
+/* Toast Body */
+.toast-body {
+    padding: 0.75rem;
+    background-color: #fff;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}

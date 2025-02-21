@@ -68,107 +68,32 @@
         </div>
     </nav>
 
-    <section class="block-hero theme-default block-hero--medium block-hero--center"
-     id="alert-67b8dae5670c1">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Secundario
-                        </a>
-                                    </div>
-                    </div>
+    <section class="block-box theme-ocean-mystic" id="box-67b8dae55ffa5">
+    <div class="container">
+       <div class="text-highlight text-highlight-ocean-mystic">
+            <h3 class="text-highlight-title">Fórmula general de precio</h3>
+            <div class="text-highlight-content">Precio mensual = MAX(# documentos * 15 + 10.000, 40000)</div>
+        </div>
     </div>
 </section>
 
-<section class="block-hero theme-amber-elegance block-hero--medium block-hero--left"
-        style="background-image: url('../../assets/img/block-hero.jpeg')"
-     id="alert-67b8dae568556">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                    </div>
-                    </div>
-    </div>
-</section>
-
-<section class="block-hero theme-neo-crimson block-hero--medium block-hero--center"
-     id="alert-67b8dae568696">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                    </div>
-                    </div>
-    </div>
-</section>
 
 
         <div class="container mt-4 mb-4">
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-hero.html.twig #}
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-box.html.twig #}
 
 {% extends &#039;base.html.twig&#039; %}
 
 {% block body %}
-&lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
-        {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        },
-        {
-            text: &#039;Botón Secundario&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        }
-    ]&quot;
+&lt;twig:block-box
+    title=&quot;Fórmula general de precio&quot;
+    text=&quot;Precio mensual = MAX(# documentos * 15 + 10.000, 40000)&quot;
+    theme=&quot;theme-ocean-mystic&quot;
 /&gt;
-&lt;twig:block-hero
-    background=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
-        {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        }
-    ]&quot;
-    align=&quot;left&quot;
-    theme=&quot;amber-elegance&quot;
-/&gt;
-&lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
-        {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        }
-    ]&quot;
-    theme=&quot;neo-crimson&quot;
-/&gt;
-{% endblock %}
-</code></pre>
+
+{% endblock %}</code></pre>
         </div>
     </div>
     

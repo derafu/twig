@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derafu Twig: Components</title>
+    <title>Derafu Twig</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/derafu-twig.css">
@@ -68,127 +68,369 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-    <h1 class="mb-4 border-bottom">
-        Derafu Twig: Components    </h1>
-    <h2 class="mb-4 border-bottom">Block Components</h2>
-        <ul class="list-group">
-                <li class="list-group-item">
-            <a href="demo/components/block-accordion.html">
-                Accordion: <code>block-accordion</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-boxes.html">
-                Big Boxes: <code>block-boxes</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-card-grid.html">
-                Card Grid: <code>block-card-grid</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-comparison.html">
-                Comparison: <code>block-comparison</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-cta.html">
-                Call-to-Action (CTA): <code>block-cta</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-features-grid.html">
-                Features Grid: <code>block-features-grid</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-features-icon.html">
-                Features Icon: <code>block-features-icon</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-features-list.html">
-                Features List: <code>block-features-list</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-features-table.html">
-                Features Table: <code>block-features-table</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-footer.html">
-                Footer: <code>block-footer</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-grid.html">
-                Grid: <code>block-grid</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-header.html">
-                Header: <code>block-header</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-hero.html">
-                Hero: <code>block-hero</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-image-grid.html">
-                Image Grid: <code>block-image-grid</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-photo.html">
-                Photo: <code>block-photo</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-stats.html">
-                Stats: <code>block-stats</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-steps.html">
-                Steps: <code>block-steps</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-tabs.html">
-                Tabs: <code>block-tabs</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-team.html">
-                Team: <code>block-team</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-testimonials.html">
-                Testimonials: <code>block-testimonials</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-text-image.html">
-                Text Image: <code>block-text-image</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-text-video.html">
-                Text Video: <code>block-text-video</code>
-            </a>
-        </li>
-            <li class="list-group-item">
-            <a href="demo/components/block-timeline.html">
-                Timeline: <code>block-timeline</code>
-            </a>
-        </li>
-        </ul>
+    <div class="container py-5">
+    <h1 class="display-6 mb-3">Derafu Twig Components</h1>
+    <p class="lead mb-5">A collection of UI components for building modern web interfaces.</p>
+
+        <h2 class="h3 mb-4">Layout Components</h2>
+    <div class="row g-4 mb-5">
+        
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Grid</h3>
+                        <p class="card-text text-muted mb-3">Basic grid layout system for organizing content</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-grid</code>
+                        <a href="demo/components/block-grid.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Header</h3>
+                        <p class="card-text text-muted mb-3">Page header component with navigation options</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-header</code>
+                        <a href="demo/components/block-header.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Footer</h3>
+                        <p class="card-text text-muted mb-3">Page footer component with various layouts</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-footer</code>
+                        <a href="demo/components/block-footer.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Box</h3>
+                        <p class="card-text text-muted mb-3">Simple box container for content</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-box</code>
+                        <a href="demo/components/block-box.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <h2 class="h3 mb-4">Content Components</h2>
+    <div class="row g-4 mb-5">
+        
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Title</h3>
+                        <p class="card-text text-muted mb-3">Customizable title component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-title</code>
+                        <a href="demo/components/block-title.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Hero</h3>
+                        <p class="card-text text-muted mb-3">Eye-catching hero sections for landing pages</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-hero</code>
+                        <a href="demo/components/block-hero.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Card</h3>
+                        <p class="card-text text-muted mb-3">Versatile card component for content display</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-card</code>
+                        <a href="demo/components/block-card.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Card Grid</h3>
+                        <p class="card-text text-muted mb-3">Grid layout for multiple cards</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-card-grid</code>
+                        <a href="demo/components/block-card-grid.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Quote</h3>
+                        <p class="card-text text-muted mb-3">Styled blockquote component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-quote</code>
+                        <a href="demo/components/block-quote.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Table</h3>
+                        <p class="card-text text-muted mb-3">Data table component with styling options</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-table</code>
+                        <a href="demo/components/block-table.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Steps</h3>
+                        <p class="card-text text-muted mb-3">Step-by-step guide component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-steps</code>
+                        <a href="demo/components/block-steps.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Timeline</h3>
+                        <p class="card-text text-muted mb-3">Chronological event display</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-timeline</code>
+                        <a href="demo/components/block-timeline.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <h2 class="h3 mb-4">Interactive Components</h2>
+    <div class="row g-4 mb-5">
+        
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Accordion</h3>
+                        <p class="card-text text-muted mb-3">Collapsible content sections</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-accordion</code>
+                        <a href="demo/components/block-accordion.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Modal</h3>
+                        <p class="card-text text-muted mb-3">Popup dialog windows</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-modal</code>
+                        <a href="demo/components/block-modal.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Tabs</h3>
+                        <p class="card-text text-muted mb-3">Tabbed content interface</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-tabs</code>
+                        <a href="demo/components/block-tabs.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Toast</h3>
+                        <p class="card-text text-muted mb-3">Notification messages</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-toast</code>
+                        <a href="demo/components/block-toast.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Alert</h3>
+                        <p class="card-text text-muted mb-3">Alert messages for user feedback</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-alert</code>
+                        <a href="demo/components/block-alert.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">CTA</h3>
+                        <p class="card-text text-muted mb-3">Call-to-action component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-cta</code>
+                        <a href="demo/components/block-cta.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <h2 class="h3 mb-4">Feature Components</h2>
+    <div class="row g-4 mb-5">
+        
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Features Grid</h3>
+                        <p class="card-text text-muted mb-3">Grid layout for feature highlights</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-features-grid</code>
+                        <a href="demo/components/block-features-grid.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Features Icon</h3>
+                        <p class="card-text text-muted mb-3">Icon-based feature display</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-features-icon</code>
+                        <a href="demo/components/block-features-icon.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Features List</h3>
+                        <p class="card-text text-muted mb-3">List-style feature presentation</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-features-list</code>
+                        <a href="demo/components/block-features-list.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Features Table</h3>
+                        <p class="card-text text-muted mb-3">Tabular feature comparison</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-features-table</code>
+                        <a href="demo/components/block-features-table.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Big Boxes</h3>
+                        <p class="card-text text-muted mb-3">Large feature box display</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-boxes</code>
+                        <a href="demo/components/block-boxes.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Stats</h3>
+                        <p class="card-text text-muted mb-3">Statistical data display</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-stats</code>
+                        <a href="demo/components/block-stats.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Comparison</h3>
+                        <p class="card-text text-muted mb-3">Side-by-side comparison component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-comparison</code>
+                        <a href="demo/components/block-comparison.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <h2 class="h3 mb-4">Media Components</h2>
+    <div class="row g-4 mb-5">
+        
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Image Grid</h3>
+                        <p class="card-text text-muted mb-3">Grid layout for image galleries</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-image-grid</code>
+                        <a href="demo/components/block-image-grid.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Photo</h3>
+                        <p class="card-text text-muted mb-3">Enhanced photo display component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-photo</code>
+                        <a href="demo/components/block-photo.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Video</h3>
+                        <p class="card-text text-muted mb-3">Video player component</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-video</code>
+                        <a href="demo/components/block-video.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Video Grid</h3>
+                        <p class="card-text text-muted mb-3">Grid layout for multiple videos</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-video-grid</code>
+                        <a href="demo/components/block-video-grid.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Text Image</h3>
+                        <p class="card-text text-muted mb-3">Combined text and image layout</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-text-image</code>
+                        <a href="demo/components/block-text-image.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Text Video</h3>
+                        <p class="card-text text-muted mb-3">Combined text and video layout</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-text-video</code>
+                        <a href="demo/components/block-text-video.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <h2 class="h3 mb-4">Testimonial Components</h2>
+    <div class="row g-4">
+        
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Team</h3>
+                        <p class="card-text text-muted mb-3">Team member showcase</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-team</code>
+                        <a href="demo/components/block-team.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Testimonials</h3>
+                        <p class="card-text text-muted mb-3">Customer testimonial display</p>
+                        <code class="d-block mb-3 p-2 bg-light">block-testimonials</code>
+                        <a href="demo/components/block-testimonials.html" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
 </div>
 
     

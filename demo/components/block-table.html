@@ -68,107 +68,118 @@
         </div>
     </nav>
 
-    <section class="block-hero theme-default block-hero--medium block-hero--center"
-     id="alert-67b8dae5670c1">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
+    <section class="block-table theme-ocean-mystic" id="table-67b8dae575bfd">
+    <div class="container">
+        <table class="table table-striped table-bordered table-hover theme-ocean-mystic">
 
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Secundario
-                        </a>
-                                    </div>
-                    </div>
+            <thead>
+                <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Empresa</th>
+                                            <th scope="col">Correo</th>
+                                            <th scope="col">Estado</th>
+                                    </tr>
+            </thead>
+            <tbody>
+                                    <tr>
+                        <th scope="row">1</th>
+                        <td>Juan Pérez</td>
+                        <td>Tecnología SA</td>
+                        <td>juan@tecno.com</td>
+                        <td>Activo</td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">2</th>
+                        <td>María López</td>
+                        <td>Desarrollo SL</td>
+                        <td>maria@desa.com</td>
+                        <td>Pendiente</td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">3</th>
+                        <td>Carlos Ruiz</td>
+                        <td>Servicios IT</td>
+                        <td>carlos@it.com</td>
+                        <td>Inactivo</td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">4</th>
+                        <td>Ana García</td>
+                        <td>Web Solutions</td>
+                        <td>ana@web.com</td>
+                        <td>Activo</td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">5</th>
+                        <td>Pedro Sánchez</td>
+                        <td>Tech Corp</td>
+                        <td>pedro@tech.com</td>
+                        <td>Pendiente</td>
+                    </tr>
+                            </tbody>
+        </table>
     </div>
 </section>
-
-<section class="block-hero theme-amber-elegance block-hero--medium block-hero--left"
-        style="background-image: url('../../assets/img/block-hero.jpeg')"
-     id="alert-67b8dae568556">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                    </div>
-                    </div>
-    </div>
-</section>
-
-<section class="block-hero theme-neo-crimson block-hero--medium block-hero--center"
-     id="alert-67b8dae568696">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
-                        </a>
-                                    </div>
-                    </div>
-    </div>
-</section>
-
 
         <div class="container mt-4 mb-4">
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-hero.html.twig #}
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-table.html.twig #}
 
 {% extends &#039;base.html.twig&#039; %}
 
 {% block body %}
-&lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
+&lt;twig:block-table
+    theme=&quot;default&quot;
+    type=&quot;primary&quot;
+    :headers=&quot;[
+        {text: &#039;ID&#039;, scope: &#039;col&#039;},
+        {text: &#039;Nombre&#039;, scope: &#039;col&#039;},
+        {text: &#039;Empresa&#039;, scope: &#039;col&#039;},
+        {text: &#039;Correo&#039;, scope: &#039;col&#039;},
+        {text: &#039;Estado&#039;, scope: &#039;col&#039;}
+    ]&quot;
+    :rows=&quot;[
         {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
+            id: {text: &#039;1&#039;, scope: &#039;row&#039;},
+            nombre: &#039;Juan Pérez&#039;,
+            empresa: &#039;Tecnología SA&#039;,
+            correo: &#039;juan@tecno.com&#039;,
+            estado: &#039;Activo&#039;
         },
         {
-            text: &#039;Botón Secundario&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        }
-    ]&quot;
-/&gt;
-&lt;twig:block-hero
-    background=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
+            id: {text: &#039;2&#039;, scope: &#039;row&#039;},
+            nombre: &#039;María López&#039;,
+            empresa: &#039;Desarrollo SL&#039;,
+            correo: &#039;maria@desa.com&#039;,
+            estado: &#039;Pendiente&#039;
+        },
         {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
-        }
-    ]&quot;
-    align=&quot;left&quot;
-    theme=&quot;amber-elegance&quot;
-/&gt;
-&lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
-    :buttons=&quot;[
+            id: {text: &#039;3&#039;, scope: &#039;row&#039;},
+            nombre: &#039;Carlos Ruiz&#039;,
+            empresa: &#039;Servicios IT&#039;,
+            correo: &#039;carlos@it.com&#039;,
+            estado: &#039;Inactivo&#039;
+        },
         {
-            text: &#039;Botón Principal&#039;,
-            url: &#039;https://www.derafu.org&#039;
+            id: {text: &#039;4&#039;, scope: &#039;row&#039;},
+            nombre: &#039;Ana García&#039;,
+            empresa: &#039;Web Solutions&#039;,
+            correo: &#039;ana@web.com&#039;,
+            estado: &#039;Activo&#039;
+        },
+        {
+            id: {text: &#039;5&#039;, scope: &#039;row&#039;},
+            nombre: &#039;Pedro Sánchez&#039;,
+            empresa: &#039;Tech Corp&#039;,
+            correo: &#039;pedro@tech.com&#039;,
+            estado: &#039;Pendiente&#039;
         }
     ]&quot;
-    theme=&quot;neo-crimson&quot;
+    theme=&quot;ocean-mystic&quot;
 /&gt;
-{% endblock %}
-</code></pre>
+{% endblock %}</code></pre>
         </div>
     </div>
     
