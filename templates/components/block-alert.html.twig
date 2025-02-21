@@ -1,0 +1,15 @@
+{# templates/components/block-alert.html.twig #}
+<section class="block-alert theme-{{ this.theme }}">
+   <div class="{{ this.container }}">
+       {% for key, alert in this.alert %}
+           <div class="alert alert-{{ alert.type }} d-flex align-items-center" role="alert" id="{{ this.id }}">
+               {% if alert.icon %}
+                   <i class="{{alert.icon}}"></i>
+               {% endif %}
+               <div>
+                   {{alert.content}}
+               </div>
+           </div>
+       {% endfor %}
+   </div>
+</section>

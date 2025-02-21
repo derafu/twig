@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<twig:block-video-grid
+    :video="[
+        {
+            title: 'Título 1',
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttons: [
+                {
+                    text: 'Ver más',
+                    url: '#'
+                }
+            ],
+            card: true
+        },
+        {
+            title: 'Título 2',
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttons: [
+                {
+                    text: 'Ver más',
+                    url: '#'
+                }
+            ],
+            card: true
+        },
+        {
+            title: 'Título 3',
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttons: [
+                {
+                    text: 'Ver más',
+                    url: '#'
+                }
+            ],
+            card: true
+        }
+    ]"
+    :columns="3"
+    theme="ocean-mystic"
+/>
+
+<twig:block-video-grid
+    :video="[
+        {
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            card: false
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            card: false
+        }
+    ]"
+    :columns="2"
+    theme="sky-pro"
+/>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{# Título con subtítulo #}
+<twig:block-title
+    :title="[
+        {
+            title: {
+                text: 'Título h2',
+                subtitle: ''
+            }
+        }
+    ]"
+/>
+
+
+{% endblock %}

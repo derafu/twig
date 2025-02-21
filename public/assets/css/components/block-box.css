@@ -1,0 +1,18 @@
+.text-highlight {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.75rem;
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+}
+
+.text-highlight-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.text-highlight-content {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}

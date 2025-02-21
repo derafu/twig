@@ -1,0 +1,38 @@
+{# templates/components/block-modal.html.twig #}
+<section class="block-modal theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
+        <div class="modal demo-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    {% if this.modal.title %}
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ this.modal.title }}</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    {% endif %}
+
+                    {% if this.modal.content %}
+                        <div class="modal-body">
+                            <p>{{ this.modal.content }}</p>
+                        </div>
+                    {% endif %}
+
+                    {% if this.modal.button_primary or this.modal.button_secondary %}
+                        <div class="modal-footer">
+                            {% if this.modal.button_secondary %}
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    {{ this.modal.button_secondary.text }}
+                                </button>
+                            {% endif %}
+                            {% if this.modal.button_primary %}
+                                <button type="button" class="btn btn-primary">
+                                    {{ this.modal.button_primary.text }}
+                                </button>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

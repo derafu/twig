@@ -1,0 +1,26 @@
+{# templates/components/block-toast.html.twig #}
+<section class="block-toast theme-{{ this.theme }}" id="{{ this.id }}">
+   <div class="{{ this.container }}">
+       {% for key, toast in this.toast %}
+           <div class="toast show type-{{ toast.type|default('primary') }}" role="alert" aria-live="assertive" aria-atomic="true" id="{{ this.id }}-{{ key }}" style="position: static;">
+               <div class="toast-header">
+                   {% if toast.icon %}
+                       <i class="{{ toast.icon }} rounded me-2"></i>
+                   {% endif %}
+                   {% if toast.title %}
+                       <strong class="me-auto">{{ toast.title }}</strong>
+                   {% endif %}
+                   {% if toast.time %}
+                       <small class="text-body-secondary">{{ toast.time }}</small>
+                   {% endif %}
+                   <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+               </div>
+               {% if toast.content %}
+                   <div class="toast-body">
+                       {{ toast.content }}
+                   </div>
+               {% endif %}
+           </div>
+       {% endfor %}
+   </div>
+</section>

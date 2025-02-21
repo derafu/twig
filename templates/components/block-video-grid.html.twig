@@ -1,0 +1,44 @@
+{# templates/components/block-video-grid.html.twig #}
+<section class="block-video-grid theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
+        <div class="block-video-grid__wrapper grid-cols-{{ this.columns }}">
+            {% for key, video in this.video %}
+                <div class="block-video-grid__item{% if not video.card %} block-video-grid__item--simple{% endif %}" id="{{ this.id }}-{{ key }}">
+                    {% if video.card %}
+                        {% if video.title %}
+                            <h2 class="block-video-grid__title">{{ video.title }}</h2>
+                        {% endif %}
+                    {% endif %}
+
+                    <div class="block-video-grid__media">
+                        <iframe
+                            class="block-video-grid__player"
+                            src="{{ video.video|replace({'watch?v=': 'embed/'}) }}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    {% if video.card %}
+                        {% if video.description %}
+                            <div class="block-video-grid__description">
+                                {{ video.description|raw }}
+                            </div>
+                        {% endif %}
+
+                        {% if video.buttons|length > 0 %}
+                            <div class="block-video-grid__buttons">
+                                {% for button in video.buttons %}
+                                    <a href="{{ button.url }}" class="block-video-grid__button">
+                                        {{ button.text }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

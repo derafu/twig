@@ -1,0 +1,37 @@
+{# templates/components/block-quote.html.twig #}
+<section class="block-quote {{ this.theme }}" id="{{ this.id }}">
+   <div class="{{ this.container }}">
+       {% if this.quote is not empty %}
+           {% for quote in this.quote %}
+              <figure class="text-center">
+                   <div class="quote-icon quote-icon-left">
+                       <i class="fa-solid fa-quote-left"></i>
+                   </div>
+                   <div class="quote-icon quote-icon-right">
+                       <i class="fa-solid fa-quote-right"></i>
+                   </div>
+                   {% if quote.quote %}
+                       <blockquote class="blockquote">
+                           <p>{{ quote.quote }}</p>
+                       </blockquote>
+                   {% endif %}
+                   <div class="quote-author">
+                       {% if quote.image %}
+                           <img src="{{ quote.image }}" alt="{{ quote.author|default('') }}" class="quote-author-image">
+                       {% endif %}
+                       <div class="quote-author-info">
+                           {% if quote.author %}
+                               <span class="quote-author-name">{{ quote.author }}</span>
+                           {% endif %}
+                           {% if quote.source %}
+                               <span class="quote-author-source">{{ quote.source }}</span>
+                           {% endif %}
+                       </div>
+                   </div>
+               </figure>
+           {% endfor %}
+       {% else %}
+           <p>No hay citas disponibles</p>
+       {% endif %}
+   </div>
+</section>

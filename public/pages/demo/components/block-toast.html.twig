@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <h4 class="mb-3 text-lg font-semibold">Segundo Toast</h4>
+            <twig:block-toast
+                :toast="[
+                    {
+                        type: 'primary',
+                        icon: 'fas fa-info',
+                        title: 'Segundo Toast',
+                        content: 'Segundo mensaje de notificación.',
+                        time: '2 mins ago'
+
+                    }
+                ]"
+                theme="ocean-mystic"
+            />
+        </div>
+
+        <div>
+            <h4 class="mb-3 text-lg font-semibold">Primer Toast</h4>
+            <twig:block-toast
+                :toast="[
+                    {
+                        type: 'secondary',
+                        title: 'Primer Toast',
+                        content: 'Primer mensaje de notificación.',
+                        time: '5 mins ago'
+                    }
+                ]"
+                theme="ocean-mystic"
+            />
+        </div>
+
+        <div class="col-span-2">
+            <h4 class="mb-3 text-lg font-semibold">Toast con Contenido Extenso</h4>
+            <twig:block-toast
+                :toast="[
+                    {
+                        type: 'primary',
+                        title: 'Prueba de Contenido Extenso',
+                        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        time: '11 mins ago'
+                    }
+                ]"
+                theme="amber-elegance"
+            />
+        </div>
+    </div>
+</div>
+{% endblock %}

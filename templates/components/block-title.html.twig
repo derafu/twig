@@ -1,0 +1,22 @@
+{# templates/components/block-title.html.twig #}
+<section class="block-title theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
+        {% for key, title in this.title %}
+            {% if title.title %}
+                <div class="block-title__title-wrapper text-{{ title.title.alignment ?? 'center' }}
+                    {% if title.title.bottomBorder ?? false %}border-b mb-4{% endif %}">
+                    {% set titleTag = title.title.level ?? 'h2' %}
+                    <{{ titleTag }} class="block-title__title">
+                        {{ title.title.text }}
+                    </{{ titleTag }}>
+
+                    {% if title.title.subtitle %}
+                        <p class="block-title__subtitle">
+                            {{ title.title.subtitle }}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

@@ -1,44 +1,261 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container mt-4">
-    <h1 class="mb-4 border-bottom">
-        {% block title %}Derafu Twig: Components{% endblock %}
-    </h1>
-    <h2 class="mb-4 border-bottom">Block Components</h2>
-    {% set components = {
-        'block-accordion': 'Accordion',
-        'block-boxes': 'Big Boxes',
-        'block-card-grid': 'Card Grid',
-        'block-comparison': 'Comparison',
-        'block-cta': 'Call-to-Action (CTA)',
-        'block-features-grid': 'Features Grid',
-        'block-features-icon': 'Features Icon',
-        'block-features-list': 'Features List',
-        'block-features-table': 'Features Table',
-        'block-footer': 'Footer',
-        'block-grid': 'Grid',
-        'block-header': 'Header',
-        'block-hero': 'Hero',
-        'block-image-grid': 'Image Grid',
-        'block-photo': 'Photo',
-        'block-stats': 'Stats',
-        'block-steps': 'Steps',
-        'block-tabs': 'Tabs',
-        'block-team': 'Team',
-        'block-testimonials': 'Testimonials',
-        'block-text-image': 'Text Image',
-        'block-text-video': 'Text Video',
-        'block-timeline': 'Timeline',
-    } %}
-    <ul class="list-group">
-        {% for key, label in components %}
-        <li class="list-group-item">
-            <a href="demo/components/{{ key }}">
-                {{ label }}: <code>{{ key }}</code>
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
+<div class="container py-5">
+    <h1 class="display-6 mb-3">Derafu Twig Components</h1>
+    <p class="lead mb-5">A collection of UI components for building modern web interfaces.</p>
+
+    {# Layout Components #}
+    <h2 class="h3 mb-4">Layout Components</h2>
+    <div class="row g-4 mb-5">
+        {% set layout_components = {
+            'Grid': {
+                'code': 'block-grid',
+                'description': 'Basic grid layout system for organizing content'
+            },
+            'Header': {
+                'code': 'block-header',
+                'description': 'Page header component with navigation options'
+            },
+            'Footer': {
+                'code': 'block-footer',
+                'description': 'Page footer component with various layouts'
+            },
+            'Box': {
+                'code': 'block-box',
+                'description': 'Simple box container for content'
+            }
+        } %}
+
+        {% for title, data in layout_components %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">{{ title }}</h3>
+                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
+                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Content Components #}
+    <h2 class="h3 mb-4">Content Components</h2>
+    <div class="row g-4 mb-5">
+        {% set content_components = {
+            'Title': {
+                'code': 'block-title',
+                'description': 'Customizable title component'
+            },
+            'Hero': {
+                'code': 'block-hero',
+                'description': 'Eye-catching hero sections for landing pages'
+            },
+            'Card': {
+                'code': 'block-card',
+                'description': 'Versatile card component for content display'
+            },
+            'Card Grid': {
+                'code': 'block-card-grid',
+                'description': 'Grid layout for multiple cards'
+            },
+            'Quote': {
+                'code': 'block-quote',
+                'description': 'Styled blockquote component'
+            },
+            'Table': {
+                'code': 'block-table',
+                'description': 'Data table component with styling options'
+            },
+            'Steps': {
+                'code': 'block-steps',
+                'description': 'Step-by-step guide component'
+            },
+            'Timeline': {
+                'code': 'block-timeline',
+                'description': 'Chronological event display'
+            }
+        } %}
+
+        {% for title, data in content_components %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">{{ title }}</h3>
+                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
+                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Interactive Components #}
+    <h2 class="h3 mb-4">Interactive Components</h2>
+    <div class="row g-4 mb-5">
+        {% set interactive_components = {
+            'Accordion': {
+                'code': 'block-accordion',
+                'description': 'Collapsible content sections'
+            },
+            'Modal': {
+                'code': 'block-modal',
+                'description': 'Popup dialog windows'
+            },
+            'Tabs': {
+                'code': 'block-tabs',
+                'description': 'Tabbed content interface'
+            },
+            'Toast': {
+                'code': 'block-toast',
+                'description': 'Notification messages'
+            },
+            'Alert': {
+                'code': 'block-alert',
+                'description': 'Alert messages for user feedback'
+            },
+            'CTA': {
+                'code': 'block-cta',
+                'description': 'Call-to-action component'
+            }
+        } %}
+
+        {% for title, data in interactive_components %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">{{ title }}</h3>
+                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
+                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Feature Components #}
+    <h2 class="h3 mb-4">Feature Components</h2>
+    <div class="row g-4 mb-5">
+        {% set feature_components = {
+            'Features Grid': {
+                'code': 'block-features-grid',
+                'description': 'Grid layout for feature highlights'
+            },
+            'Features Icon': {
+                'code': 'block-features-icon',
+                'description': 'Icon-based feature display'
+            },
+            'Features List': {
+                'code': 'block-features-list',
+                'description': 'List-style feature presentation'
+            },
+            'Features Table': {
+                'code': 'block-features-table',
+                'description': 'Tabular feature comparison'
+            },
+            'Big Boxes': {
+                'code': 'block-boxes',
+                'description': 'Large feature box display'
+            },
+            'Stats': {
+                'code': 'block-stats',
+                'description': 'Statistical data display'
+            },
+            'Comparison': {
+                'code': 'block-comparison',
+                'description': 'Side-by-side comparison component'
+            }
+        } %}
+
+        {% for title, data in feature_components %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">{{ title }}</h3>
+                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
+                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Media Components #}
+    <h2 class="h3 mb-4">Media Components</h2>
+    <div class="row g-4 mb-5">
+        {% set media_components = {
+            'Image Grid': {
+                'code': 'block-image-grid',
+                'description': 'Grid layout for image galleries'
+            },
+            'Photo': {
+                'code': 'block-photo',
+                'description': 'Enhanced photo display component'
+            },
+            'Video': {
+                'code': 'block-video',
+                'description': 'Video player component'
+            },
+            'Video Grid': {
+                'code': 'block-video-grid',
+                'description': 'Grid layout for multiple videos'
+            },
+            'Text Image': {
+                'code': 'block-text-image',
+                'description': 'Combined text and image layout'
+            },
+            'Text Video': {
+                'code': 'block-text-video',
+                'description': 'Combined text and video layout'
+            }
+        } %}
+
+        {% for title, data in media_components %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">{{ title }}</h3>
+                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
+                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Testimonial Components #}
+    <h2 class="h3 mb-4">Testimonial Components</h2>
+    <div class="row g-4">
+        {% set testimonial_components = {
+            'Team': {
+                'code': 'block-team',
+                'description': 'Team member showcase'
+            },
+            'Testimonials': {
+                'code': 'block-testimonials',
+                'description': 'Customer testimonial display'
+            }
+        } %}
+
+        {% for title, data in testimonial_components %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">{{ title }}</h3>
+                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
+                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
+

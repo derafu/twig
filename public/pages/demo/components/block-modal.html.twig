@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="demo-modal">
+                <twig:block-modal
+                    :modal="{
+                        title: 'Título del Modal',
+                        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        button_primary: {
+                            text: 'Guardar',
+                            action: '#'
+                        },
+                        button_secondary: {
+                            text: 'Cerrar',
+                            action: '#'
+                        }
+                    }"
+                    theme="default"
+                />
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="demo-modal">
+                <twig:block-modal
+                    :modal="{
+                        title: 'Título del Modal',
+                        content: 'Este es un modal.',
+                        button_primary: {
+                            text: 'Aceptar',
+                            action: '#'
+                        },
+                        button_secondary: {
+                            text: 'Cancelar',
+                            action: '#'
+                        }
+                    }"
+                    theme="ocean-mystic"
+                />
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
