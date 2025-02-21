@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -17,27 +17,61 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-boxes')]
 class BoxesComponent
 {
-    /**
-     * Boxes - array de cajas.
-     *
-     * Cada una con:
-     *
-     *   - icon: nombre del ícono
-     *   - title: título de la caja
-     *   - description: descripción
-     *   - button_text: texto del botón
-     *   - button_url: URL del botón
-     *
-     * @var array
-     */
-    public array $boxes = [];
+   /**
+    * Unique identifier for the boxes component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    // Layout
+   /**
+    * Theme for styling the boxes component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    public int $cols = 2;  // 2 o 3 columnas
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = 'container';
 
-    public string $align = 'center';    // left, center, right
+   /**
+    * Array of boxes with their configurations.
+    *
+    * Each box contains:
+    * - icon: Icon name
+    * - title: Box title
+    * - description: Box description
+    * - button_text: Button text
+    * - button_url: Button URL
+    *
+    * @var array<int,array<string,string|null>>
+    */
+   public array $boxes = [];
 
-    // Theme
-    public string $theme = 'default';
+   /**
+    * Number of columns in the layout (2 or 3).
+    *
+    * @var int
+    */
+   public int $cols = 2;
+
+   /**
+    * Alignment of the boxes (left, center, right).
+    *
+    * @var string
+    */
+   public string $align = 'center';
+
+   /**
+    * Constructor for the Boxes component.
+    * Automatically generates a unique ID with 'boxes-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('boxes-');
+   }
 }

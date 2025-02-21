@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -17,55 +17,166 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-footer')]
 class FooterComponent
 {
-    // Columna 1
+   /**
+    * Unique identifier for the footer component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    public ?string $col1Title = null;
+   /**
+    * Theme for styling the footer component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    public ?string $col1Html = null;
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = 'container';
 
-    public array $col1Links = [];
+   /**
+    * Title for the first column.
+    *
+    * @var string|null
+    */
+   public ?string $col1Title = null;
 
-    public array $col1SocialIcons = [];
+   /**
+    * HTML content for the first column.
+    *
+    * @var string|null
+    */
+   public ?string $col1Html = null;
 
-    // Columna 2
+   /**
+    * Array of links for the first column.
+    *
+    * @var array
+    */
+   public array $col1Links = [];
 
-    public ?string $col2Title = null;
+   /**
+    * Array of social icons for the first column.
+    *
+    * @var array
+    */
+   public array $col1SocialIcons = [];
 
-    public ?string $col2Html = null;
+   /**
+    * Title for the second column.
+    *
+    * @var string|null
+    */
+   public ?string $col2Title = null;
 
-    public array $col2Links = [];
+   /**
+    * HTML content for the second column.
+    *
+    * @var string|null
+    */
+   public ?string $col2Html = null;
 
-    public array $col2SocialIcons = [];
+   /**
+    * Array of links for the second column.
+    *
+    * @var array
+    */
+   public array $col2Links = [];
 
-    // Columna 3
+   /**
+    * Array of social icons for the second column.
+    *
+    * @var array
+    */
+   public array $col2SocialIcons = [];
 
-    public ?string $col3Title = null;
+   /**
+    * Title for the third column.
+    *
+    * @var string|null
+    */
+   public ?string $col3Title = null;
 
-    public ?string $col3Html = null;
+   /**
+    * HTML content for the third column.
+    *
+    * @var string|null
+    */
+   public ?string $col3Html = null;
 
-    public array $col3Links = [];
+   /**
+    * Array of links for the third column.
+    *
+    * @var array
+    */
+   public array $col3Links = [];
 
-    public array $col3SocialIcons = [];
+   /**
+    * Array of social icons for the third column.
+    *
+    * @var array
+    */
+   public array $col3SocialIcons = [];
 
-    // Columna 4
+   /**
+    * Title for the fourth column.
+    *
+    * @var string|null
+    */
+   public ?string $col4Title = null;
 
-    public ?string $col4Title = null;
+   /**
+    * HTML content for the fourth column.
+    *
+    * @var string|null
+    */
+   public ?string $col4Html = null;
 
-    public ?string $col4Html = null;
+   /**
+    * Array of links for the fourth column.
+    *
+    * @var array
+    */
+   public array $col4Links = [];
 
-    public array $col4Links = [];
+   /**
+    * Array of social icons for the fourth column.
+    *
+    * @var array
+    */
+   public array $col4SocialIcons = [];
 
-    public array $col4SocialIcons = [];
+   /**
+    * Text content for the left side of footer bottom.
+    *
+    * @var string|null
+    */
+   public ?string $leftText = null;
 
-    // Footer bottom
+   /**
+    * Text content for the right side of footer bottom.
+    *
+    * @var string|null
+    */
+   public ?string $rightText = null;
 
-    public ?string $leftText = null;
+   /**
+    * Whether social icons should be displayed in circular style.
+    *
+    * @var bool
+    */
+   public bool $socialIconsCircular = false;
 
-    public ?string $rightText = null;
-
-    // Configuración general
-
-    public bool $socialIconsCircular = false;
-
-    public string $theme = 'default';
+   /**
+    * Constructor for the Footer component.
+    * Automatically generates a unique ID with 'footer-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('footer-');
+   }
 }

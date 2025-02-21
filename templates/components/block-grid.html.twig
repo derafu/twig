@@ -1,5 +1,5 @@
-<section class="block-grid theme-{{ this.theme }}">
-    <div class="container">
+<section class="block-grid theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         {% if this.cols is not empty %}
             <div style="display: grid; grid-template-columns: repeat({{ this.cols }}, 1fr); gap: 10px;">
                 {% for item in items %}

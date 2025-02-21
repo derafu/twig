@@ -1,8 +1,8 @@
 {# templates/components/block-header.html.twig #}
 <nav class="block-header navbar navbar-expand-lg {% if this.position != 'normal' %}{{ this.position }}{% endif %} theme-{{ this.theme }}"
      {% if this.backgroundColor %}style="background-color: {{ this.backgroundColor }};"{% endif %}
-     {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}>
-    <div class="container">
+     {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %} id="{{ this.id }}">
+    <div class="{{ this.container }}">
         {# Logo Section #}
         <a class="navbar-brand d-flex align-items-center" href="{{ this.logoUrl }}">
             {% if this.logoImage %}

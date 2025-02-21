@@ -1,6 +1,6 @@
 {# templates/components/block-comparison.html.twig #}
-<section class="block-comparison theme-{{ this.theme }}">
-    <div class="container">
+<section class="block-comparison theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="row g-4">
             {% for plan in this.plans %}
                 <div class="col-12 {% if this.plans|length == 2 %}col-lg-6

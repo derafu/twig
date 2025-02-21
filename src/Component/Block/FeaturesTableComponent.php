@@ -17,26 +17,59 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-features-table')]
 class FeaturesTableComponent
 {
+    /**
+     * Unique component ID
+     *
+     * @var string
+     */
+    public string $id;
+
+    /**
+     * Theme for styling the component
+     *
+     * @var string
+     */
+    public string $theme = 'default';
+
+    /**
+     * Use container wrapper
+     *
+     * @var string
+     */
+    public string $container = 'container';
+
+    /**
+     * Title of the features table
+     *
+     * @var string
+     */
     public string $title = 'Features';
 
     /**
-     * Features array containing the rows of the table.
+     * Features array containing the rows of the table
      *
      * Example structure:
+     * [
+     *     'icon' => 'fa-solid fa-folder',
+     *     'name' => 'Feature Name',
+     *     'description' => 'Optional description text',
+     *     'values' => [
+     *         'Plan A' => true,              // For boolean (check/cross)
+     *         'Plan B' => '1,400',           // For text/numeric
+     *         'Plan C' => '<strong>...</strong>'  // For HTML content
+     *     ]
+     * ]
      *
-     *   [
-     *       'icon' => 'fa-solid fa-folder',
-     *       'name' => 'Feature Name',
-     *       'description' => 'Optional description text',
-     *       'values' => [
-     *           'Plan A' => true,              // For boolean (check/cross)
-     *           'Plan B' => '1,400',           // For text/numeric
-     *           'Plan C' => '<strong>...</strong>'  // For HTML content
-     *       ]
-     *   ]
+     * @var array
      */
     public array $features = [];
 
-    // Theme for the component
-    public string $theme = 'default';
+    /**
+     * Constructor for the Features Table component
+     * Automatically generates a unique ID with 'features-table-' prefix
+     */
+    public function __construct()
+    {
+        $this->id = uniqid('features-table-');
+    }
 }

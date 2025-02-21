@@ -17,18 +17,41 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-accordion')]
 class AccordionComponent
 {
-    // Configuración
-    public array $items = [];    // Array de {title, content, active}
-
-    // Identificador único para el acordeón
+    /**
+     * Unique identifier for the accordion component.
+     *
+     * @var string
+     */
     public string $id;
 
-    // Theme
+    /**
+     * Theme for styling the accordion component.
+     *
+     * @var string
+     */
     public string $theme = 'default';
 
+    /**
+     * Use container wrapper.
+     *
+     * @var string
+     */
+    public string $container = 'container';
+
+    /**
+     * Array of accordion items.
+     * Each item should contain: {title, content, active}
+     *
+     * @var array
+     */
+    public array $items = [];
+
+    /**
+     * Constructor for the Accordion component.
+     * Automatically generates a unique ID with 'accordion-' prefix.
+     */
     public function __construct()
     {
-        // Generar ID único si no se proporciona
         $this->id = uniqid('accordion-');
     }
 }

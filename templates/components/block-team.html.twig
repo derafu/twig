@@ -1,6 +1,6 @@
 {# templates/components/block-team.html.twig #}
-<section class="block-team theme-{{ this.theme }} block-team--cols-{{ this.cols }} block-team--align-{{ this.align }}">
-    <div class="container">
+<section class="block-team theme-{{ this.theme }} block-team--cols-{{ this.cols }} block-team--align-{{ this.align }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="row g-4">
             {% for member in this.members %}
                 {% set cols = this.cols %}

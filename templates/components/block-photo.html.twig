@@ -1,6 +1,6 @@
 {# templates/components/block-photo.html.twig #}
-<section class="block-photo theme-{{ this.theme }} block-photo--{{ this.align }} block-photo--{{ this.size }}">
-    <div class="container">
+<section class="block-photo theme-{{ this.theme }} block-photo--{{ this.align }} block-photo--{{ this.size }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="block-photo__wrapper">
             {% if this.title %}
                 <h2 class="block-photo__title">{{ this.title }}</h2>

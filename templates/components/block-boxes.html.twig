@@ -1,6 +1,6 @@
 {# templates/components/block-boxes.html.twig #}
-<section class="block-boxes theme-{{ this.theme }} block-boxes--{{ this.align }}">
-    <div class="container">
+<section class="block-boxes theme-{{ this.theme }} block-boxes--{{ this.align }}" id="{{ this.id }}>
+    <div class="{{ this.container }}">
         <div class="row g-0">
             {% for box in this.boxes %}
                 <div class="col-md-{{ 12 / this.cols }}">

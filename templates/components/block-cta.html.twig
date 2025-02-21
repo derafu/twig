@@ -1,6 +1,6 @@
 {# templates/components/block-cta.html.twig #}
-<section class="block-cta theme-{{ this.theme }}">
-    <div class="block-cta__container container">
+<section class="block-cta theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="block-cta__container {{ this.container }}">
         <div class="block-cta__row row align-items-center">
             {# Text Section #}
             <div class="col-md-{{ this.text_cols }} block-cta__content">

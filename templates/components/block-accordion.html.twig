@@ -1,6 +1,6 @@
 {# templates/components/block-accordion.html.twig #}
 <section class="block-accordion theme-{{ this.theme }}">
-    <div class="container">
+    <div class="{{ this.container }}">
         <div class="accordion" id="{{ this.id }}">
             {% for key, item in this.items %}
                 <div class="accordion-item">

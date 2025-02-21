@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -17,22 +17,76 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-photo')]
 class PhotoComponent
 {
-    // Contenido
+   /**
+    * Unique identifier for the photo component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    public string $title;
+   /**
+    * Theme for styling the photo component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    public string $image;            // URL de la imagen
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = 'container';
 
-    public ?string $description = null;
+   /**
+    * Title of the photo section.
+    *
+    * @var string
+    */
+   public string $title;
 
-    public array $buttons = [];      // Array de {text, url}
+   /**
+    * URL of the photo image.
+    *
+    * @var string
+    */
+   public string $image;
 
-    // Layout
+   /**
+    * Optional description text for the photo.
+    *
+    * @var string|null
+    */
+   public ?string $description = null;
 
-    public string $align = 'center';  // Alineación del contenido
+   /**
+    * Array of buttons configurations.
+    * Each button contains: {text, url}
+    *
+    * @var array
+    */
+   public array $buttons = [];
 
-    public string $size = 'medium';   // small, medium, large
+   /**
+    * Content alignment (center, left, right).
+    *
+    * @var string
+    */
+   public string $align = 'center';
 
-    // Theme
-    public string $theme = 'default';
+   /**
+    * Size of the photo section (small, medium, large).
+    *
+    * @var string
+    */
+   public string $size = 'medium';
+
+   /**
+    * Constructor for the Photo component.
+    * Automatically generates a unique ID with 'photo-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('photo-');
+   }
 }

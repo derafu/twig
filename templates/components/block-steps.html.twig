@@ -1,6 +1,6 @@
 {# templates/components/block-steps.html.twig #}
-<section class="block-steps theme-{{ this.theme }}">
-    <div class="container">
+<section class="block-steps theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="block-steps__container">
             {% for step in this.steps %}
                 {# Paso #}

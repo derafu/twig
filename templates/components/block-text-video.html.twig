@@ -1,6 +1,6 @@
 {# templates/components/block-text-video.html.twig #}
-<section class="block-text-video theme-{{ this.theme }}">
-    <div class="container">
+<section class="block-text-video theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="row align-items-center">
             {# Text Column #}
             <div class="col-md-{{ this.text_cols }} {% if this.video_position == 'left' %}order-md-2{% endif %}">

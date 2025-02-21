@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -18,60 +18,137 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 #[AsTwigComponent('block-text-video')]
 class TextVideoComponent
 {
-    // Layout
+   /**
+    * Unique identifier for the text-video component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    public string $video_position = 'right';  // right, left
+   /**
+    * Theme for styling the text-video component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    public int $text_cols = 7;
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = 'container';
 
-    public int $video_cols = 5;
+   /**
+    * Position of the video (right, left).
+    *
+    * @var string
+    */
+   public string $video_position = 'right';
 
-    // Contenido
+   /**
+    * Number of columns for text section (Bootstrap grid).
+    *
+    * @var int
+    */
+   public int $text_cols = 7;
 
-    public string $title;
+   /**
+    * Number of columns for video section (Bootstrap grid).
+    *
+    * @var int
+    */
+   public int $video_cols = 5;
 
-    public string $content;          // Texto que puede tener párrafos
+   /**
+    * Title of the text section.
+    *
+    * @var string
+    */
+   public string $title;
 
-    public array $buttons = [];      // Array de {text, url}
+   /**
+    * Main content text (supports paragraphs).
+    *
+    * @var string
+    */
+   public string $content;
 
-    // Video (YouTube)
+   /**
+    * Array of button configurations.
+    * Each button contains: {text, url}
+    *
+    * @var array
+    */
+   public array $buttons = [];
 
-    public string $video_url;        // URL de YouTube
+   /**
+    * YouTube video URL.
+    *
+    * @var string
+    */
+   public string $video_url;
 
-    public string $aspect_ratio = '16:9';  // 16:9, 4:3, 1:1
+   /**
+    * Video aspect ratio (16:9, 4:3, 1:1).
+    *
+    * @var string
+    */
+   public string $aspect_ratio = '16:9';
 
-    public bool $show_controls = true;
+   /**
+    * Show video player controls.
+    *
+    * @var bool
+    */
+   public bool $show_controls = true;
 
-    public bool $show_title = false;
+   /**
+    * Show video title.
+    *
+    * @var bool
+    */
+   public bool $show_title = false;
 
-    public bool $enable_privacy = true;  // Usar youtube-nocookie.com
+   /**
+    * Use privacy-enhanced mode (youtube-nocookie.com).
+    *
+    * @var bool
+    */
+   public bool $enable_privacy = true;
 
-    // Visual
-    public string $theme = 'default';
+   /**
+    * Process component data before mount.
+    * Converts YouTube URL to embed format.
+    */
+   #[PreMount]
+   public function preMount(array $data): array
+   {
+       if (isset($data['video_url'])) {
+           preg_match(
+               '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/',
+               $data['video_url'],
+               $matches
+           );
+           $videoId = $matches[1] ?? '';
 
-    #[PreMount]
-    public function preMount(array $data): array
-    {
-        if (isset($data['video_url'])) {
-            // Extrae el ID del video de diferentes formatos de URL de YouTube
-            preg_match(
-                '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/',
-                $data['video_url'],
-                $matches
-            );
-            $videoId = $matches[1] ?? '';
+           $privacy = $data['enable_privacy'] ?? true;
+           $base = $privacy
+               ? 'https://www.youtube-nocookie.com/embed/'
+               : 'https://www.youtube.com/embed/';
 
-            // Base de la URL (normal o modo privacidad)
-            $privacy = $data['enable_privacy'] ?? true;
-            $base = $privacy
-                ? 'https://www.youtube-nocookie.com/embed/'
-                : 'https://www.youtube.com/embed/'
-            ;
+           $data['video_url'] = $base . $videoId;
+       }
 
-            // Actualiza la URL con la versión embed
-            $data['video_url'] = $base . $videoId;
-        }
+       return $data;
+   }
 
-        return $data;
-    }
+   /**
+    * Constructor for the Text-Video component.
+    * Automatically generates a unique ID with 'text-video-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('text-video-');
+   }
 }

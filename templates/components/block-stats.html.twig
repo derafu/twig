@@ -1,6 +1,6 @@
 {# templates/components/block-stats.html.twig #}
-<section class="block-stats theme-{{ this.theme }} block-stats--{{ this.text_position }}">
-    <div class="container">
+<section class="block-stats theme-{{ this.theme }} block-stats--{{ this.text_position }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="row justify-content-center">
             {% for stat in this.stats %}
                 {% set cols = this.stats|length %}

@@ -1,6 +1,6 @@
 {# templates/components/block-card-grid.html.twig #}
-<section class="block-card-grid theme-{{ this.theme }}">
-    <div class="container">
+<section class="block-card-grid theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="row g-4">
             {% for card in this.cards %}
                 <div class="col-sm-6 {% if this.cols == 1 %}col-lg-12

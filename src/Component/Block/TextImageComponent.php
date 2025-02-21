@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -17,24 +17,83 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-text-image')]
 class TextImageComponent
 {
-    // Layout
+   /**
+    * Unique identifier for the text-image component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    public string $image_position = 'right';  // right, left
+   /**
+    * Theme for styling the text-image component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    public int $text_cols = 7;
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = 'container';
 
-    public int $image_cols = 5;
+   /**
+    * Position of the image (right, left).
+    *
+    * @var string
+    */
+   public string $image_position = 'right';
 
-    // Contenido
+   /**
+    * Number of columns for text section (Bootstrap grid).
+    *
+    * @var int
+    */
+   public int $text_cols = 7;
 
-    public string $title;
+   /**
+    * Number of columns for image section (Bootstrap grid).
+    *
+    * @var int
+    */
+   public int $image_cols = 5;
 
-    public string $content;          // Texto que puede tener párrafos
+   /**
+    * Title of the text section.
+    *
+    * @var string
+    */
+   public string $title;
 
-    public array $buttons = [];      // Array de {text, url}
+   /**
+    * Main content text (supports paragraphs).
+    *
+    * @var string
+    */
+   public string $content;
 
-    public string $image;            // URL de la imagen
+   /**
+    * Array of button configurations.
+    * Each button contains: {text, url}
+    *
+    * @var array
+    */
+   public array $buttons = [];
 
-    // Visual
-    public string $theme = 'default';
+   /**
+    * URL of the featured image.
+    *
+    * @var string
+    */
+   public string $image;
+
+   /**
+    * Constructor for the Text-Image component.
+    * Automatically generates a unique ID with 'text-image-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('text-image-');
+   }
 }

@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -17,54 +17,107 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-testimonials')]
 class TestimonialsComponent
 {
-    // Identificador único para los testimonios.
-    public string $id;
+   /**
+    * Unique identifier for the testimonials component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    /**
-     * Testimonials array.
-     *
-     * Ejemplo:
-     * 'image' => 'url/imagen.jpg',
-     * 'quote' => 'Texto del testimonio...',
-     * 'author' => 'Nombre Autor',
-     * 'company' => 'Empresa', // opcional
-     * 'url' => 'https://...', // opcional, para links en el texto
-     * 'position' => 'center', // Card position (center, left, right).
-     *
-     * @var array
-     */
-    public array $testimonials = [];
+   /**
+    * Theme for styling the testimonials component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    // Carousel options.
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = '';
 
-    public bool $autoplay = true;
+   /**
+    * Array of testimonials configurations.
+    *
+    * Each testimonial contains:
+    * - image: Background image URL
+    * - quote: Testimonial text
+    * - author: Author name
+    * - company: Company name (optional)
+    * - url: Link URL (optional)
+    * - position: Card position (center, left, right)
+    *
+    * @var array
+    */
+   public array $testimonials = [];
 
-    public int $interval = 5000; // milliseconds
+   /**
+    * Enable automatic slideshow.
+    *
+    * @var bool
+    */
+   public bool $autoplay = true;
 
-    public bool $showControls = true;
+   /**
+    * Time between slides in milliseconds.
+    *
+    * @var int
+    */
+   public int $interval = 5000;
 
-    public bool $showIndicators = true;
+   /**
+    * Show navigation controls.
+    *
+    * @var bool
+    */
+   public bool $showControls = true;
 
-    // Style options.
+   /**
+    * Show slide indicators.
+    *
+    * @var bool
+    */
+   public bool $showIndicators = true;
 
-    public int $maxWidth = 600; // pixels
+   /**
+    * Maximum width of testimonial cards in pixels.
+    *
+    * @var int
+    */
+   public int $maxWidth = 600;
 
-    public int $brightness = 70; // percentage
+   /**
+    * Background image brightness percentage.
+    *
+    * @var int
+    */
+   public int $brightness = 70;
 
-    public int $height = 500; // pixels
+   /**
+    * Height of testimonial section in pixels.
+    *
+    * @var int
+    */
+   public int $height = 500;
 
-    // Theme.
-    public string $theme = 'default';
+   /**
+    * Recommended width for background images.
+    */
+   public const RECOMMENDED_IMAGE_WIDTH = 1920;
 
-    // Recommended image dimensions (informative only).
+   /**
+    * Recommended height for background images.
+    */
+   public const RECOMMENDED_IMAGE_HEIGHT = 500;
 
-    public const RECOMMENDED_IMAGE_WIDTH = 1920;
-
-    public const RECOMMENDED_IMAGE_HEIGHT = 500;
-
-    public function __construct()
-    {
-        // Generar ID único si no se proporciona
-        $this->id = uniqid('testimonials-');
-    }
+   /**
+    * Constructor for the Testimonials component.
+    * Automatically generates a unique ID with 'testimonials-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('testimonials-');
+   }
 }

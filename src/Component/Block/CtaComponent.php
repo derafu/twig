@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
+* Derafu: Twig - UI Component and Extension Library.
+*
+* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+* Licensed under the MIT License.
+* See LICENSE file for more details.
+*/
 
 namespace Derafu\Twig\Component\Block;
 
@@ -17,17 +17,75 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-cta')]
 class CtaComponent
 {
-    public string $title;
+   /**
+    * Unique identifier for the CTA component.
+    *
+    * @var string
+    */
+   public string $id;
 
-    public string $description;
+   /**
+    * Theme for styling the CTA component.
+    *
+    * @var string
+    */
+   public string $theme = 'default';
 
-    public string $button_text;
+   /**
+    * Use container wrapper.
+    *
+    * @var string
+    */
+   public string $container = 'container';
 
-    public string $button_url;
+   /**
+    * Main title of the CTA.
+    *
+    * @var string
+    */
+   public string $title;
 
-    public int $text_cols = 8;
+   /**
+    * Description text of the CTA.
+    *
+    * @var string
+    */
+   public string $description;
 
-    public int $button_cols = 4;
+   /**
+    * Text to display on the CTA button.
+    *
+    * @var string
+    */
+   public string $button_text;
 
-    public string $theme = 'default';
+   /**
+    * URL for the CTA button.
+    *
+    * @var string
+    */
+   public string $button_url;
+
+   /**
+    * Number of columns for the text section (Bootstrap grid).
+    *
+    * @var int
+    */
+   public int $text_cols = 8;
+
+   /**
+    * Number of columns for the button section (Bootstrap grid).
+    *
+    * @var int
+    */
+   public int $button_cols = 4;
+
+   /**
+    * Constructor for the CTA component.
+    * Automatically generates a unique ID with 'cta-' prefix.
+    */
+   public function __construct()
+   {
+       $this->id = uniqid('cta-');
+   }
 }

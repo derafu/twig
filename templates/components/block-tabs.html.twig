@@ -1,6 +1,6 @@
 {# templates/components/block-tabs.html.twig #}
-<section class="block-tabs theme-{{ this.theme }}">
-    <div class="container">
+<section class="block-tabs theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         {% if this.position == 'horizontal' %}
             <nav class="nav nav-pills nav-justified">
                 {% for tab in this.tabs %}

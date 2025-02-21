@@ -1,8 +1,8 @@
 {# templates/components/block-footer.html.twig #}
-<footer class="block-footer theme-{{ this.theme }}">
-    <div class="container">
+<footer class="block-footer theme-{{ this.theme }}" id="{{ this.id }}">
+    <div class="{{ this.container }}">
         <div class="row">
-            {# Columna 1 #}
+            {# Column 1 #}
             {% if this.col1Title or this.col1Html or this.col1Links is not empty or this.col1SocialIcons is not empty %}
                 <div class="col">
                     {% if this.col1Title %}
@@ -40,7 +40,7 @@
                 </div>
             {% endif %}
 
-            {# Columna 2 #}
+            {# Column 2 #}
             {% if this.col2Title or this.col2Html or this.col2Links is not empty or this.col2SocialIcons is not empty %}
                 <div class="col">
                     {# Similar structure to column 1 #}
@@ -79,7 +79,7 @@
                 </div>
             {% endif %}
 
-            {# Columna 3 #}
+            {# Column 3 #}
             {% if this.col3Title or this.col3Html or this.col3Links is not empty or this.col3SocialIcons is not empty %}
                 <div class="col">
                     {# Similar structure to column 1 #}
@@ -118,7 +118,7 @@
                 </div>
             {% endif %}
 
-            {# Columna 4 #}
+            {# Column 4 #}
             {% if this.col4Title or this.col4Html or this.col4Links is not empty or this.col4SocialIcons is not empty %}
                 <div class="col">
                     {# Similar structure to column 1 #}

@@ -2,9 +2,8 @@
 <section class="block-hero theme-{{ this.theme }} block-hero--{{ this.size }} block-hero--{{ this.align }}"
     {% if this.background is not empty %}
     style="background-image: url('{{ this.background }}')"
-    {% endif %}
->
-    <div class="block-hero__container container">
+    {% endif %} id="{{ this.id }}">
+    <div class="block-hero__container {{ this.container }}">
         <div class="block-hero__content">
             <h1 class="block-hero__title">{{ this.title }}</h1>
             <div class="block-hero__subtitle">{{ this.subtitle }}</div>
