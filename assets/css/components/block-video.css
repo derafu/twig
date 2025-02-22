@@ -1,42 +1,46 @@
+/* Variables estructurales */
+:root {
+    --video-spacing: 2rem;
+}
+
 /* Video Block Styles */
-.block-video__wrapper {
+.derafu-block-video__wrapper {
     padding: 4rem 0;
     text-align: center;
 }
 
-.block-video__title {
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-    font-weight: bold;
+.derafu-block-video__title {
+    color: var(--video-title);
+    margin-bottom: var(--video-spacing);
 }
 
 /* Tamaño normal (por defecto) */
-.block-video--normal .block-video__media {
+.derafu-block-video--normal .derafu-block-video__media {
     margin-bottom: 2rem;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.block-video__player {
+.derafu-block-video__player {
     width: 100%;
     aspect-ratio: 16/9;
     border-radius: 0.5rem;
     border: none;
 }
 
-.block-video__description {
+.derafu-block-video__description {
     max-width: 800px;
     margin: 0 auto 2rem;
 }
 
-.block-video__buttons {
+.derafu-block-video__buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.block-video__button {
+.derafu-block-video__button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
@@ -47,29 +51,29 @@
 }
 
 /* Alignment Variants */
-.block-video--left {
+.derafu-block-video--left {
     text-align: left;
 }
 
-.block-video--center {
+.derafu-block-video--center {
     text-align: center;
 }
 
-.block-video--right {
+.derafu-block-video--right {
     text-align: right;
 }
 
 /* Size Variants */
-.block-video--small {
+.derafu-block-video--small {
     padding: 2rem 0;
 }
 
-.block-video--small .block-video__title {
+.derafu-block-video--small .derafu-block-video__title {
     font-size: 2rem;
 }
 
 /* Específicamente para el tamaño pequeño */
-.block-video--small .block-video__media {
+.derafu-block-video--small .derafu-block-video__media {
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -77,12 +81,12 @@
 }
 
 /* Theme Variations */
-.theme-default .block-video__button {
+.derafu-theme-default .derafu-block-video__button {
     background-color: var(--color-primary);
     color: var(--color-primary-contrast);
 }
 
-.theme-crimson-dark .block-video__button {
+.derafu-theme-crimson-dark .derafu-block-video__button {
     background-color: var(--color-secondary);
     color: var(--color-secondary-contrast);
 }

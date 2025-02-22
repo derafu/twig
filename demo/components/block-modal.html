@@ -68,75 +68,62 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="demo-modal">
-                <section class="block-modal theme-default" id="modal-67b8dae586418">
-    <div class="container">
-        <div class="modal demo-modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                                            <div class="modal-header">
-                            <h5 class="modal-title">Título del Modal</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    
-                                            <div class="modal-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    
-                                            <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Cerrar
-                                </button>
-                                                                                        <button type="button" class="btn btn-primary">
-                                    Guardar
-                                </button>
-                                                    </div>
-                                    </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-            </div>
-        </div>
-
-        <div class="col-md-6 mb-4">
-            <div class="demo-modal">
-                <section class="block-modal theme-ocean-mystic" id="modal-67b8dae5875b8">
-    <div class="container">
-        <div class="modal demo-modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                                            <div class="modal-header">
-                            <h5 class="modal-title">Título del Modal</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    
-                                            <div class="modal-body">
-                            <p>Este es un modal.</p>
-                        </div>
-                    
-                                            <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Cancelar
-                                </button>
-                                                                                        <button type="button" class="btn btn-primary">
-                                    Aceptar
-                                </button>
-                                                    </div>
-                                    </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-            </div>
+    
+    <div class="derafu-theme-default">
+        <div class="derafu-block-modal derafu-theme-default" id="block-modal--67b9530345cc0">
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                                    <div class="modal-header">
+                        <h5 class="modal-title">Título del Modal</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                
+                                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                
+                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cerrar
+                            </button>
+                                                                            <button type="button" class="btn btn-primary">
+                                Guardar
+                            </button>
+                                            </div>
+                            </div>
         </div>
     </div>
 </div>
+
+
+<div class="derafu-block-modal derafu-theme-ocean-mystic" id="block-modal--67b95303469f3">
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                                    <div class="modal-header">
+                        <h5 class="modal-title">Título del Modal</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                
+                                    <div class="modal-body">
+                        <p>Este es un modal.</p>
+                    </div>
+                
+                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cancelar
+                            </button>
+                                                                            <button type="button" class="btn btn-primary">
+                                Aceptar
+                            </button>
+                                            </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
 
         <div class="container mt-4 mb-4">
         <div class="code-container">
@@ -146,49 +133,37 @@
 {% extends &#039;base.html.twig&#039; %}
 
 {% block body %}
-&lt;div class=&quot;container mt-4&quot;&gt;
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-md-6 mb-4&quot;&gt;
-            &lt;div class=&quot;demo-modal&quot;&gt;
-                &lt;twig:block-modal
-                    :modal=&quot;{
-                        title: &#039;Título del Modal&#039;,
-                        content: &#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#039;,
-                        button_primary: {
-                            text: &#039;Guardar&#039;,
-                            action: &#039;#&#039;
-                        },
-                        button_secondary: {
-                            text: &#039;Cerrar&#039;,
-                            action: &#039;#&#039;
-                        }
-                    }&quot;
-                    theme=&quot;default&quot;
-                /&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+&lt;twig:block-modal
+    :modal=&quot;{
+        title: &#039;Título del Modal&#039;,
+        content: &#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#039;,
+        button_primary: {
+            text: &#039;Guardar&#039;,
+            action: &#039;#&#039;
+        },
+        button_secondary: {
+            text: &#039;Cerrar&#039;,
+            action: &#039;#&#039;
+        }
+    }&quot;
+    theme=&quot;default&quot;
+/&gt;
 
-        &lt;div class=&quot;col-md-6 mb-4&quot;&gt;
-            &lt;div class=&quot;demo-modal&quot;&gt;
-                &lt;twig:block-modal
-                    :modal=&quot;{
-                        title: &#039;Título del Modal&#039;,
-                        content: &#039;Este es un modal.&#039;,
-                        button_primary: {
-                            text: &#039;Aceptar&#039;,
-                            action: &#039;#&#039;
-                        },
-                        button_secondary: {
-                            text: &#039;Cancelar&#039;,
-                            action: &#039;#&#039;
-                        }
-                    }&quot;
-                    theme=&quot;ocean-mystic&quot;
-                /&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+&lt;twig:block-modal
+    :modal=&quot;{
+        title: &#039;Título del Modal&#039;,
+        content: &#039;Este es un modal.&#039;,
+        button_primary: {
+            text: &#039;Aceptar&#039;,
+            action: &#039;#&#039;
+        },
+        button_secondary: {
+            text: &#039;Cancelar&#039;,
+            action: &#039;#&#039;
+        }
+    }&quot;
+    theme=&quot;ocean-mystic&quot;
+/&gt;
 {% endblock %}
 </code></pre>
         </div>

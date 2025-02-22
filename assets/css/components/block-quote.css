@@ -1,4 +1,4 @@
-.block-quote .blockquote {
+.derafu-block-quote__content {
     font-size: 1.25rem;
     font-style: italic;
     color: var(--color-primary);
@@ -7,14 +7,14 @@
     z-index: 1;
 }
 
-.quote-author {
+.derafu-block-quote__author {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
 }
 
-.quote-author-image {
+.derafu-block-quote__author-image {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -22,22 +22,22 @@
     object-fit: cover;
 }
 
-.quote-author-info {
+.derafu-block-quote__author-info {
     display: flex;
     flex-direction: column;
 }
 
-.quote-author-name {
+.derafu-block-quote__author-name {
     font-weight: 600;
     color: var(--color-primary-dark);
 }
 
-.quote-author-source {
+.derafu-block-quote__author-source {
     color: var(--color-secondary);
     font-size: 0.9rem;
 }
 
-.block-quote figure {
+.derafu-block-quote__figure {
     position: relative;
     margin-bottom: 1.5rem;
     padding: 2rem;
@@ -49,22 +49,20 @@
     text-align: center;
 }
 
-.quote-icon {
+.derafu-block-quote__icon {
     position: absolute;
-    top: 30%;
-    left: 2rem;
     color: var(--color-secondary);
     opacity: 0.1;
     font-size: 3rem;
 }
 
-.quote-icon-left {
+.derafu-block-quote__icon--left {
     top: 0%;
     left: 2rem;
     transform: translateX(-50%);
 }
 
-.quote-icon-right {
+.derafu-block-quote__icon--right {
     bottom: 0%;
     right: 2rem;
     transform: translateX(50%);

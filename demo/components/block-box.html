@@ -68,16 +68,64 @@
         </div>
     </nav>
 
-    <section class="block-box theme-ocean-mystic" id="box-67b8dae55ffa5">
-    <div class="container">
-       <div class="text-highlight text-highlight-ocean-mystic">
-            <h3 class="text-highlight-title">Fórmula general de precio</h3>
-            <div class="text-highlight-content">Precio mensual = MAX(# documentos * 15 + 10.000, 40000)</div>
-        </div>
+    
+    <div class="derafu-theme-default">
+            <div class="derafu-block-box derafu-theme-default container" id="block-box--67b953032174d">
+    <h3 class="derafu-block-box__title">Theme: Default</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-amber-elegance container" id="block-box--67b9530321d4a">
+    <h3 class="derafu-block-box__title">Theme: Amber Elegance</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-royal-sunset container" id="block-box--67b9530321db1">
+    <h3 class="derafu-block-box__title">Theme: Royal Sunset</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-sky-pro container" id="block-box--67b9530321e06">
+    <h3 class="derafu-block-box__title">Theme: Sky Pro</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-sky-energy container" id="block-box--67b9530321e55">
+    <h3 class="derafu-block-box__title">Theme: Sky Energy</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-sunrise-blue container" id="block-box--67b9530321ea3">
+    <h3 class="derafu-block-box__title">Theme: Sunrise Blue</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-earthstone container" id="block-box--67b9530321f05">
+    <h3 class="derafu-block-box__title">Theme: Earthstone</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-ocean-mystic container" id="block-box--67b9530321f54">
+    <h3 class="derafu-block-box__title">Theme: Ocean Mystic</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-deep-blue container" id="block-box--67b9530321fa0">
+    <h3 class="derafu-block-box__title">Theme: Deep Blue</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-neo-crimson container" id="block-box--67b9530321feb">
+    <h3 class="derafu-block-box__title">Theme: Neo Crimson</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
+    <div class="derafu-block-box derafu-theme-crimson-dark container" id="block-box--67b9530322037">
+    <h3 class="derafu-block-box__title">Theme: Crimson Dark</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+
     </div>
-</section>
-
-
 
         <div class="container mt-4 mb-4">
         <div class="code-container">
@@ -87,13 +135,15 @@
 {% extends &#039;base.html.twig&#039; %}
 
 {% block body %}
-&lt;twig:block-box
-    title=&quot;Fórmula general de precio&quot;
-    text=&quot;Precio mensual = MAX(# documentos * 15 + 10.000, 40000)&quot;
-    theme=&quot;theme-ocean-mystic&quot;
-/&gt;
-
-{% endblock %}</code></pre>
+{% for theme, name in themes %}
+    &lt;twig:block-box
+        title=&quot;Theme: {{ name }}&quot;
+        content=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+        theme=&quot;{{ theme }}&quot;
+    /&gt;
+{% endfor %}
+{% endblock %}
+</code></pre>
         </div>
     </div>
     

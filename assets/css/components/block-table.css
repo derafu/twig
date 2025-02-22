@@ -1,17 +1,18 @@
 /* Estilos base de la tabla */
-.block-table .table {
+.derafu-block-table .table {
     width: 100%;
     margin-bottom: 1rem;
     border-collapse: collapse;
     color: var(--table-text);
+    border-bottom: 1px solid var(--table-border);
 }
 
 /* Header */
-.block-table .table thead {
+.derafu-block-table .table thead {
     background-color: var(--table-header-bg);
 }
 
-.block-table .table thead th {
+.derafu-block-table .table thead th {
     padding: 1rem 0.75rem;
     color: var(--table-header-text);
     font-weight: 600;
@@ -19,21 +20,19 @@
 }
 
 /* Striped rows */
-.block-table .table tbody tr:nth-child(odd) {
+.derafu-block-table .table tbody tr:nth-child(odd) {
     background-color: var(--table-row-alt);
 }
 
 /* Row hover */
-.block-table .table-hover > tbody > tr:hover > * {
+.derafu-block-table .table-hover > tbody > tr:hover > * {
     color: var(--table-row-hover-text);
     background-color: var(--table-row-hover-bg);
 }
 
 /* Celdas */
-.block-table .table td,
-.block-table .table th {
+.derafu-block-table .table td,
+.derafu-block-table .table th {
     padding: 0.75rem;
     border-bottom: 1px solid var(--table-border);
 }
-
-/* table table-striped table-bordered table-hover */

@@ -1,70 +1,20 @@
-/* Block Title Styles */
-.block-title {
-    width: 100%;
+.derafu-block-title__wrapper {
     margin-bottom: 2rem;
 }
 
-.block-title__title-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0 1rem;
-}
-
-.block-title__title {
-    font-weight: bold;
-    color: var(--color-primary, #000);
+.derafu-block-title__title {
     margin: 0;
     line-height: 1.2;
+    color: var(--color-primary);
 }
 
-.block-title__subtitle {
-    color: var(--color-secondary, #666);
-    margin: 0;
-    font-size: 0.9rem;
-    max-width: 800px;
-    text-align: inherit;
+.derafu-block-title__subtitle {
+    margin: 0.5rem 0 0;
+    opacity: 0.7;
+    color: var(--color-secondary-dark);
 }
 
-/* Theme Variations */
-.block-title.theme-default .block-title__title {
-    color: var(--color-primary, #000);
-}
-
-.block-title.theme-default .block-title__subtitle {
-    color: var(--color-secondary, #666);
-}
-
-/* Border Variations */
-.block-title__title-wrapper.border-b {
-    border-bottom: 1px solid var(--color-border, #e0e0e0);
+.derafu-block-title__wrapper--bordered {
     padding-bottom: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .block-title__title {
-        font-size: 1.5rem;
-    }
-
-    .block-title__subtitle {
-        font-size: 0.85rem;
-    }
-}
-
-/* Alignment Variations */
-.block-title__title-wrapper.text-left {
-    align-items: flex-start;
-    text-align: left;
-}
-
-.block-title__title-wrapper.text-center {
-    align-items: center;
-    text-align: center;
-}
-
-.block-title__title-wrapper.text-right {
-    align-items: flex-end;
-    text-align: right;
+    border-bottom: 1px solid var(--color-secondary-dark);
 }

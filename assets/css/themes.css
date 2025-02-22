@@ -1,5 +1,5 @@
 /* Tema bootstrap */
-.theme-default {
+.derafu-theme-default {
     --color-primary: #0D6EFD;
     --color-primary-light: #3D8BFD;
     --color-primary-dark: #0A58CA;
@@ -17,7 +17,7 @@
 }
 
 /* Tema derafu */
-.theme-amber-elegance {
+.derafu-theme-amber-elegance {
     --color-primary: #F7A713;
     --color-primary-light: #FFBA3A;
     --color-primary-dark: #C77F0D;
@@ -35,7 +35,7 @@
 }
 
 /* Tema libredte */
-.theme-royal-sunset {
+.derafu-theme-royal-sunset {
     --color-primary: #194B97;
     --color-primary-light: #2C63C0;
     --color-primary-dark: #123A75;
@@ -53,7 +53,7 @@
 }
 
 /* Tema billmysales */
-.theme-sky-pro {
+.derafu-theme-sky-pro {
     --color-primary: #0076F3;
     --color-primary-light: #1A8BFF;
     --color-primary-dark: #0060C4;
@@ -71,7 +71,7 @@
 }
 
 /* Tema apigateway */
-.theme-sky-energy {
+.derafu-theme-sky-energy {
     --color-primary: #0076F3;
     --color-primary-light: #1A8BFF;
     --color-primary-dark: #0060C4;
@@ -89,7 +89,7 @@
 }
 
 /* Tema bhexpress y contafi */
-.theme-sunrise-blue {
+.derafu-theme-sunrise-blue {
     --color-primary: #194B97;
     --color-primary-light: #2C63C0;
     --color-primary-dark: #123A75;
@@ -107,7 +107,7 @@
 }
 
 /* Tema dinncode */
-.theme-earthstone {
+.derafu-theme-earthstone {
     --color-primary: #3F4242;
     --color-primary-light: #555858;
     --color-primary-dark: #2A2C2C;
@@ -125,7 +125,7 @@
 }
 
 /* Tema dinnodoo */
-.theme-ocean-mystic {
+.derafu-theme-ocean-mystic {
     --color-primary: #865E7F;
     --color-primary-light: #A07D99;
     --color-primary-dark: #684965;
@@ -143,7 +143,7 @@
 }
 
 /* Tema dinnopay */
-.theme-deep-blue {
+.derafu-theme-deep-blue {
     --color-primary: #194B97;
     --color-primary-light: #2C63C0;
     --color-primary-dark: #123A75;
@@ -161,7 +161,7 @@
 }
 
 /* Tema mk11 */
-.theme-neo-crimson {
+.derafu-theme-neo-crimson {
     --color-primary: #000000;
     --color-primary-light: #333333;
     --color-primary-dark: #000000;
@@ -179,7 +179,7 @@
 }
 
 /* Tema guarida */
-.theme-crimson-dark {
+.derafu-theme-crimson-dark {
     --color-primary: #000000;
     --color-primary-light: #333333;
     --color-primary-dark: #000000;

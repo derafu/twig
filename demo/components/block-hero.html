@@ -68,58 +68,57 @@
         </div>
     </nav>
 
-    <section class="block-hero theme-default block-hero--medium block-hero--center"
-     id="alert-67b8dae5670c1">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
+    
+    <div class="derafu-theme-default">
+        <div class="derafu-block-hero derafu-block-hero--medium derafu-block-hero--center "
+     id="block-hero--67b953032798b">
+    <div class="derafu-block-hero__container">
+        <div class="derafu-block-hero__content">
+            <h1 class="derafu-block-hero__title">Lorem ipsum</h1>
+            <div class="derafu-block-hero__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                            <div class="derafu-block-hero__buttons">
+                                            <a href="https://www.derafu.org" class="btn derafu-block-hero__button derafu-block-hero__button--primary">
+                            Derafu ORG
                         </a>
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Secundario
-                        </a>
-                                    </div>
-                    </div>
-    </div>
-</section>
-
-<section class="block-hero theme-amber-elegance block-hero--medium block-hero--left"
-        style="background-image: url('../../assets/img/block-hero.jpeg')"
-     id="alert-67b8dae568556">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
+                                            <a href="https://www.example.com" class="btn derafu-block-hero__button derafu-block-hero__button--primary">
+                            Example.com
                         </a>
                                     </div>
                     </div>
     </div>
-</section>
+</div>
 
-<section class="block-hero theme-neo-crimson block-hero--medium block-hero--center"
-     id="alert-67b8dae568696">
-    <div class="block-hero__container container">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">Título del Hero</h1>
-            <div class="block-hero__subtitle">Subtítulo o descripción</div>
-
-                            <div class="block-hero__buttons">
-                                            <a href="https://www.derafu.org" class="btn block-hero__button block-hero__button--primary">
-                            Botón Principal
+<div class="derafu-block-hero derafu-block-hero--medium derafu-block-hero--left derafu-theme-amber-elegance"
+    style="background-image: url('../../assets/img/block-hero.jpeg')" id="block-hero--67b9530328a5d">
+    <div class="derafu-block-hero__container">
+        <div class="derafu-block-hero__content">
+            <h1 class="derafu-block-hero__title">Lorem ipsum</h1>
+            <div class="derafu-block-hero__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                            <div class="derafu-block-hero__buttons">
+                                            <a href="https://www.derafu.org" class="btn derafu-block-hero__button derafu-block-hero__button--primary">
+                            Derafu ORG
                         </a>
                                     </div>
                     </div>
     </div>
-</section>
+</div>
 
+<div class="derafu-block-hero derafu-block-hero--medium derafu-block-hero--center derafu-theme-neo-crimson"
+     id="block-hero--67b9530328b92">
+    <div class="derafu-block-hero__container">
+        <div class="derafu-block-hero__content">
+            <h1 class="derafu-block-hero__title">Lorem ipsum</h1>
+            <div class="derafu-block-hero__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                            <div class="derafu-block-hero__buttons">
+                                            <a href="https://www.derafu.org" class="btn derafu-block-hero__button derafu-block-hero__button--primary">
+                            Derafu ORG
+                        </a>
+                                    </div>
+                    </div>
+    </div>
+</div>
+
+    </div>
 
         <div class="container mt-4 mb-4">
         <div class="code-container">
@@ -130,26 +129,26 @@
 
 {% block body %}
 &lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
+    title=&quot;Lorem ipsum&quot;
+    subtitle=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
     :buttons=&quot;[
         {
-            text: &#039;Botón Principal&#039;,
+            text: &#039;Derafu ORG&#039;,
             url: &#039;https://www.derafu.org&#039;
         },
         {
-            text: &#039;Botón Secundario&#039;,
-            url: &#039;https://www.derafu.org&#039;
+            text: &#039;Example.com&#039;,
+            url: &#039;https://www.example.com&#039;
         }
     ]&quot;
 /&gt;
 &lt;twig:block-hero
     background=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
+    title=&quot;Lorem ipsum&quot;
+    subtitle=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
     :buttons=&quot;[
         {
-            text: &#039;Botón Principal&#039;,
+            text: &#039;Derafu ORG&#039;,
             url: &#039;https://www.derafu.org&#039;
         }
     ]&quot;
@@ -157,11 +156,11 @@
     theme=&quot;amber-elegance&quot;
 /&gt;
 &lt;twig:block-hero
-    title=&quot;Título del Hero&quot;
-    subtitle=&quot;Subtítulo o descripción&quot;
+    title=&quot;Lorem ipsum&quot;
+    subtitle=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
     :buttons=&quot;[
         {
-            text: &#039;Botón Principal&#039;,
+            text: &#039;Derafu ORG&#039;,
             url: &#039;https://www.derafu.org&#039;
         }
     ]&quot;

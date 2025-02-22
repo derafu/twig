@@ -1,15 +1,15 @@
 /* Asignación a componentes */
-.theme-default,
-.theme-amber-elegance,
-.theme-royal-sunset,
-.theme-sky-pro,
-.theme-sky-energy,
-.theme-sunrise-blue,
-.theme-earthstone,
-.theme-ocean-mystic,
-.theme-deep-blue,
-.theme-neo-crimson,
-.theme-crimson-dark {
+.derafu-theme-default,
+.derafu-theme-amber-elegance,
+.derafu-theme-royal-sunset,
+.derafu-theme-sky-pro,
+.derafu-theme-sky-energy,
+.derafu-theme-sunrise-blue,
+.derafu-theme-earthstone,
+.derafu-theme-ocean-mystic,
+.derafu-theme-deep-blue,
+.derafu-theme-neo-crimson,
+.derafu-theme-crimson-dark {
     /* Accordion Component */
     --accordion-button-bg: var(--color-primary-light);
     --accordion-button-color: var(--color-primary-contrast);
@@ -42,7 +42,6 @@
     --card-background-color: var(--color-secondary-light);
 
     /* Comparison Component */
-    --comparison-bg: var(--color-primary-contrast);
     --comparison-plan-bg: white;
     --comparison-plan-border: rgba(0, 0, 0, 0.1);
     --comparison-plan-shadow: rgba(0, 0, 0, 0.1);
@@ -225,55 +224,58 @@
     --alert-shadow: rgba(0, 0, 0, 0.1);
     --alert-border-radius: 0.5rem;
 
-  /* Card Component */
-  --card-grid-bg: var(--color-primary-contrast);
-  --card-bg: white;
-  --card-border: rgba(0, 0, 0, 0.1);
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --card-title: var(--color-primary);
-  --card-text: var(--color-primary-dark);
-  --card-button-bg: var(--color-primary);
-  --card-button-text: var(--color-primary-contrast);
-  --card-button-hover: var(--color-primary-dark);
-  --card-button-border: var(--color-primary);
+    /* Card Component */
+    --card-grid-bg: var(--color-primary-contrast);
+    --card-bg: white;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-title: var(--color-primary);
+    --card-text: var(--color-primary-dark);
+    --card-button-bg: var(--color-primary);
+    --card-button-text: var(--color-primary-contrast);
+    --card-button-hover: var(--color-primary-dark);
+    --card-button-border: var(--color-primary);
 
-  /* Modal Component */
-  --modal-bg: var(--color-primary-contrast);
-  --modal-overlay: rgba(0, 0, 0, 0.5);
-  --modal-border: rgba(0, 0, 0, 0.1);
-  --modal-shadow: rgba(0, 0, 0, 0.15);
-  --modal-title: var(--color-primary);
-  --modal-text: var(--color-primary-dark);
-  --modal-header-bg: white;
-  --modal-footer-bg: white;
-  --modal-button-primary-bg: var(--color-primary);
-  --modal-button-primary-text: var(--color-primary-contrast);
-  --modal-button-secondary-bg: var(--color-secondary);
-  --modal-button-secondary-text: var(--color-secondary-contrast);
-  --modal-close-button: var(--color-primary-dark);
-  --modal-button-hover: var(--color-primary-dark);
-  --modal-button-border: var(--color-primary);
-
-
-  /* Table Component */
---table-header-bg: var(--color-primary);          /* Fondo del header */
---table-header-text: var(--color-text-light);     /* Texto del header */
---table-row-alt: var(--color-background-alt);     /* Fondo de filas alternadas */
---table-row-hover-bg: var(--color-primary);            /* Color al pasar el mouse */
---table-row-hover-text: var(--color-primary-contrast);
---table-border: var(--color-primary-dark);              /* Color de bordes */
---table-text: var(--color-text);                  /* Color del texto */
+    /* Modal Component */
+    --modal-bg: var(--color-primary-contrast);
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --modal-border: rgba(0, 0, 0, 0.1);
+    --modal-shadow: rgba(0, 0, 0, 0.15);
+    --modal-title: var(--color-primary);
+    --modal-text: var(--color-primary-dark);
+    --modal-header-bg: white;
+    --modal-footer-bg: white;
+    --modal-button-primary-bg: var(--color-primary);
+    --modal-button-primary-text: var(--color-primary-contrast);
+    --modal-button-secondary-bg: var(--color-secondary);
+    --modal-button-secondary-text: var(--color-secondary-contrast);
+    --modal-close-button: var(--color-primary-dark);
+    --modal-button-hover: var(--color-primary-dark);
+    --modal-button-border: var(--color-primary);
 
 
-/* Box Component */
---box-bg: var(--color-primary-light);            /* Fondo del box */
---box-text: var(--color-primary-contrast);       /* Color del texto principal */
---box-title-text: var(--color-primary);          /* Color del título */
---box-border-radius: 0.5rem;                     /* Radio de bordes */
---box-padding: 1.5rem;                           /* Padding interno */
---box-margin-bottom: 1.5rem;                     /* Margen inferior */
---box-content-text: rgba(0, 0, 0, 0.7);          /* Color del texto de contenido */
+    /* Table Component */
+    --table-header-bg: var(--color-primary);
+    --table-header-text: var(--color-primary);
+    --table-row-alt: var(--color-background-alt);
+    --table-row-hover-bg: var(--color-primary-light);
+    --table-row-hover-text: var(--color-primary-contrast);
+    --table-border: var(--color-primary-dark);
+    --table-text: var(--color-text);
 
-/* Quote Component */
---quote-bg: rgb(234, 237, 240);
+
+    /* Box Component */
+    --box-bg: var(--color-primary-light);
+    --box-text: var(--color-primary-contrast);
+    --box-title-text: var(--color-primary);
+    --box-border-radius: 0.5rem;
+    --box-padding: 1.5rem;
+    --box-margin-bottom: 1.5rem;
+    --box-content-text: rgba(0, 0, 0, 0.7);
+
+    /* Quote Component */
+    --quote-bg: rgb(234, 237, 240);
+
+    /* Video component */
+    --video-title: var(--color-primary);
 }

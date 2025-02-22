@@ -1,38 +1,37 @@
-/* Estilos específicos para la demo de modales */
-.demo-modal .modal {
+.derafu-block-modal .modal {
     position: static;
     display: block;
     background: none;
 }
 
-.demo-modal .modal-dialog {
+.derafu-block-modal .modal-dialog {
     margin: 0;
     transform: none !important;
 }
 
-.demo-modal .modal-content {
+.derafu-block-modal .modal-content {
     box-shadow: 0 2px 4px var(--modal-shadow);
 }
 
-.demo-modal .modal-backdrop {
+.derafu-block-modal .modal-backdrop {
     display: none;
 }
 
 /* Estilos del header según el tema */
-.demo-modal.theme-default .modal-header,
-.block-modal.theme-default .modal-header {
+.derafu-block-modal.derafu-theme-default .modal-header,
+.derafu-block-modal.derafu-theme-default .modal-header {
     background-color: var(--bs-secondary) !important;
     color: white !important;
 }
 
-.demo-modal.theme-ocean-mystic .modal-header,
-.block-modal.theme-ocean-mystic .modal-header {
-    background-color: var(--color-secondary-light) !important; /* Cambiado de --theme-secondary-light a --color-secondary-light */
+.derafu-block-modal.derafu-theme-ocean-mystic .modal-header,
+.derafu-block-modal.derafu-theme-ocean-mystic .modal-header {
+    background-color: var(--color-secondary-light) !important;
     color: white !important;
 }
 
 /* Estilos específicos para el footer y los botones */
-.demo-modal .modal-footer {
+.derafu-block-modal .modal-footer {
     display: flex !important;
     flex-direction: row !important;
     justify-content: flex-end !important;
@@ -42,7 +41,7 @@
 }
 
 /* Estilos unificados para todos los botones */
-.demo-modal .modal-footer .btn {
+.derafu-block-modal .modal-footer .btn {
     min-width: 100px;
     max-width: 150px !important;
     height: 40px !important;
@@ -56,13 +55,13 @@
     justify-content: center !important;
 }
 
-.block-modal .btn:active {
+.derafu-block-modal .btn:active {
     background-color: var(--modal-button-hover);
     border-color: var(--modal-button-border);
 
 }
 
-.block-modal .btn-primary {
+.derafu-block-modal .btn-primary {
     border-color: var(--modal-button-border);
 
 }

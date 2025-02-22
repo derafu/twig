@@ -1,15 +1,14 @@
-/* Estilos del componente */
-.block-stats {
+.derafu-block-stats {
     padding: var(--stats-spacing) 0;
     text-align: center;
     background-color: var(--stats-bg);
 }
 
-.block-stats__item {
+.derafu-block-stats__item {
     padding: var(--stats-spacing);
 }
 
-.block-stats__number {
+.derafu-block-stats__number {
     color: var(--stats-number-color);
     font-size: 3rem;
     font-weight: bold;
@@ -17,7 +16,7 @@
     margin: 0.5rem 0;
 }
 
-.block-stats__text {
+.derafu-block-stats__text {
     color: var(--stats-text-color);
     font-size: 1rem;
     line-height: 1.4;
@@ -26,11 +25,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .block-stats__number {
+    .derafu-block-stats__number {
         font-size: 2.5rem;
     }
 
-    .block-stats__item {
+    .derafu-block-stats__item {
         padding: 1rem;
     }
 }

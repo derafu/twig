@@ -1,8 +1,8 @@
-.block-steps {
+.derafu-block-steps {
     padding: var(--spacing-y, 2rem) 0;
 }
 
-.block-steps__container {
+.derafu-block-steps__container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@
     padding: 1rem 0;
 }
 
-.block-steps__step {
+.derafu-block-steps__step {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,7 @@
     padding: 1rem;
 }
 
-.block-steps__icon {
+.derafu-block-steps__icon {
     width: 60px;
     height: 60px;
     background-color: var(--steps-icon-bg);
@@ -33,20 +33,20 @@
     font-size: 1.5rem;
 }
 
-.block-steps__title {
+.derafu-block-steps__title {
     color: var(--steps-title-color);
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
-.block-steps__description {
+.derafu-block-steps__description {
     color: var(--steps-text-color);
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
-.block-steps__arrow {
+.derafu-block-steps__arrow {
     width: 100px;
     color: var(--steps-arrow-color);
     flex-shrink: 0;
@@ -54,11 +54,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .block-steps__container {
+    .derafu-block-steps__container {
         padding-bottom: 1rem; /* Espacio para el scrollbar */
     }
 
-    .block-steps__arrow {
+    .derafu-block-steps__arrow {
         width: 50px; /* Flechas más pequeñas en móvil */
     }
 }
