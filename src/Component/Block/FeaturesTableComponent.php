@@ -12,37 +12,19 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-features-table')]
-class FeaturesTableComponent
+class FeaturesTableComponent extends AbstractComponent
 {
-    /**
-     * Unique component ID
-     *
-     * @var string
-     */
-    public string $id;
-
-    /**
-     * Theme for styling the component
-     *
-     * @var string
-     */
-    public string $theme = 'default';
-
-    /**
-     * Use container wrapper
-     *
-     * @var string
-     */
-    public string $container = 'container';
-
     /**
      * Title of the features table
      *
      * @var string
      */
+    #[ExposeInTemplate()]
     public string $title = 'Features';
 
     /**
@@ -54,22 +36,16 @@ class FeaturesTableComponent
      *     'name' => 'Feature Name',
      *     'description' => 'Optional description text',
      *     'values' => [
-     *         'Plan A' => true,              // For boolean (check/cross)
-     *         'Plan B' => '1,400',           // For text/numeric
-     *         'Plan C' => '<strong>...</strong>'  // For HTML content
+     *         'Plan A' => true,                   // For boolean (check/cross).
+     *         'Plan B' => '1,400',                // For text/numeric.
+     *         'Plan C' => '<strong>...</strong>'  // For HTML content.
      *     ]
      * ]
      *
      * @var array
      */
+    #[ExposeInTemplate()]
     public array $features = [];
 
-    /**
-     * Constructor for the Features Table component
-     * Automatically generates a unique ID with 'features-table-' prefix
-     */
-    public function __construct()
-    {
-        $this->id = uniqid('features-table-');
-    }
+    protected ?string $container = 'container';
 }

@@ -11,7 +11,7 @@
 }
 
 /* Estilos base */
-.block-hero {
+.derafu-block-hero {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,67 +23,67 @@
 }
 
 /* Tamaños */
-.block-hero--small { min-height: var(--hero-height-small); }
-.block-hero--medium { min-height: var(--hero-height-medium); }
-.block-hero--large { min-height: var(--hero-height-large); }
+.derafu-block-hero--small { min-height: var(--hero-height-small); }
+.derafu-block-hero--medium { min-height: var(--hero-height-medium); }
+.derafu-block-hero--large { min-height: var(--hero-height-large); }
 
 /* Alineación */
-.block-hero--left { text-align: left; }
-.block-hero--center { text-align: center; }
-.block-hero--right { text-align: right; }
+.derafu-block-hero--left { text-align: left; }
+.derafu-block-hero--center { text-align: center; }
+.derafu-block-hero--right { text-align: right; }
 
 /* Contenido */
-.block-hero__content {
+.derafu-block-hero__content {
     padding: var(--hero-spacing-y) 0;
 }
 
-.block-hero__title {
+.derafu-block-hero__title {
     margin-bottom: 1rem;
     font-weight: bold;
 }
 
-.block-hero__subtitle {
+.derafu-block-hero__subtitle {
     margin-bottom: 2rem;
 }
 
 /* Botones */
-.block-hero__buttons {
+.derafu-block-hero__buttons {
     display: flex;
     gap: var(--hero-button-spacing);
     justify-content: var(--hero-buttons-justify, center);
 }
 
-.block-hero--left .block-hero__buttons {
+.derafu-block-hero--left .derafu-block-hero__buttons {
     --hero-buttons-justify: flex-start;
 }
 
-.block-hero--right .block-hero__buttons {
+.derafu-block-hero--right .derafu-block-hero__buttons {
     --hero-buttons-justify: flex-end;
 }
 
-.block-hero {
+.derafu-block-hero {
     background-color: var(--hero-bg);
     color: var(--hero-text);
 }
 
-.block-hero__title {
+.derafu-block-hero__title {
     color: var(--hero-title-color);
 }
 
-.block-hero__subtitle {
+.derafu-block-hero__subtitle {
     color: var(--hero-subtitle-color);
 }
 
-.block-hero__button--primary {
+.derafu-block-hero__button--primary {
     background-color: var(--hero-button-primary-bg);
     color: var(--hero-button-primary-text);
 }
 
-.block-hero__button--primary:hover {
+.derafu-block-hero__button--primary:hover {
     background-color: var(--hero-button-primary-hover);
 }
 
-.block-hero__button--secondary {
+.derafu-block-hero__button--secondary {
     background-color: var(--hero-button-secondary-bg);
     color: var(--hero-button-secondary-text);
     border: 2px solid var(--hero-button-secondary-border);

@@ -2,7 +2,7 @@
 
 {% block body %}
 <twig:block-video-grid
-    :video="[
+    :videos="[
         {
             title: 'Título 1',
             video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
@@ -40,12 +40,12 @@
             card: true
         }
     ]"
-    :columns="3"
+    :cols="3"
     theme="ocean-mystic"
 />
 
 <twig:block-video-grid
-    :video="[
+    :videos="[
         {
             video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
             card: false
@@ -55,7 +55,7 @@
             card: false
         }
     ]"
-    :columns="2"
+    :cols="2"
     theme="sky-pro"
 />
 {% endblock %}

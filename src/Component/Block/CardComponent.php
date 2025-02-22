@@ -2,60 +2,44 @@
 
 declare(strict_types=1);
 
+/**
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
+
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('block-card')]
-class CardComponent
+class CardComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the card component.
-     *
-     * @var string
+     * Optional card image URL.
      */
-    public string $id;
+    public ?string $image = null;
 
     /**
-     * Theme for styling the card component.
-     *
-     * @var string
+     * Optional card title.
      */
-    public string $theme = 'default';
+    public ?string $title = null;
 
     /**
-     * Use container wrapper.
-     *
-     * @var string
+     * Optional card description.
      */
-    public string $container = 'container';
+    public ?string $description = null;
 
     /**
-     * Array of cards to be displayed.
-     *
-     * Optional variables for each card:
-     * - image: Optional card image URL
-     * - title: Optional card title
-     * - description: Optional card description
-     * - button_text: Optional button text
-     * - button_url: Optional button URL (required if button_text is present)
-     *
-     * @var array{
-     *     image?: ?string,
-     *     title?: ?string,
-     *     description?: ?string,
-     *     button_text?: ?string,
-     *     button_url?: ?string
-     * }[]
+     * Optional button text.
      */
-    public array $cards = [];
+    public ?string $buttonText = null;
 
     /**
-     * Constructor for the Card component.
-     * Automatically generates a unique ID with 'card-' prefix.
+     * Optional button URL (required if buttonText is present).
      */
-    public function __construct()
-    {
-        $this->id = uniqid('card-');
-    }
+    public ?string $buttonUrl = null;
 }

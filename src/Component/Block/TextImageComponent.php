@@ -3,97 +3,78 @@
 declare(strict_types=1);
 
 /**
-* Derafu: Twig - UI Component and Extension Library.
-*
-* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
-* Licensed under the MIT License.
-* See LICENSE file for more details.
-*/
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-text-image')]
-class TextImageComponent
+class TextImageComponent extends AbstractComponent
 {
-   /**
-    * Unique identifier for the text-image component.
-    *
-    * @var string
-    */
-   public string $id;
+    /**
+     * Position of the image (right, left).
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $image_position = 'right';
 
-   /**
-    * Theme for styling the text-image component.
-    *
-    * @var string
-    */
-   public string $theme = 'default';
+    /**
+     * Number of columns for text section (Bootstrap grid).
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $text_cols = 7;
 
-   /**
-    * Use container wrapper.
-    *
-    * @var string
-    */
-   public string $container = 'container';
+    /**
+     * Number of columns for image section (Bootstrap grid).
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $image_cols = 5;
 
-   /**
-    * Position of the image (right, left).
-    *
-    * @var string
-    */
-   public string $image_position = 'right';
+    /**
+     * Title of the text section.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $title;
 
-   /**
-    * Number of columns for text section (Bootstrap grid).
-    *
-    * @var int
-    */
-   public int $text_cols = 7;
+    /**
+     * Main content text (supports paragraphs).
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $content;
 
-   /**
-    * Number of columns for image section (Bootstrap grid).
-    *
-    * @var int
-    */
-   public int $image_cols = 5;
+    /**
+     * Array of button configurations.
+     * Each button contains: {text, url}
+     *
+     * @var array
+     */
+    #[ExposeInTemplate()]
+    public array $buttons = [];
 
-   /**
-    * Title of the text section.
-    *
-    * @var string
-    */
-   public string $title;
+    /**
+     * URL of the featured image.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $image;
 
-   /**
-    * Main content text (supports paragraphs).
-    *
-    * @var string
-    */
-   public string $content;
-
-   /**
-    * Array of button configurations.
-    * Each button contains: {text, url}
-    *
-    * @var array
-    */
-   public array $buttons = [];
-
-   /**
-    * URL of the featured image.
-    *
-    * @var string
-    */
-   public string $image;
-
-   /**
-    * Constructor for the Text-Image component.
-    * Automatically generates a unique ID with 'text-image-' prefix.
-    */
-   public function __construct()
-   {
-       $this->id = uniqid('text-image-');
-   }
+    protected ?string $container = 'container';
 }

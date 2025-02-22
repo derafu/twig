@@ -2,58 +2,65 @@
 
 declare(strict_types=1);
 
+/**
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
+
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-alert')]
-class AlertComponent
+class AlertComponent extends AbstractComponent
 {
-   /**
-    * Unique identifier for the alert component.
-    *
-    * @var string
-    */
-   public string $id;
+    /**
+     * Alert type (e.g., 'primary', 'secondary', 'success')
+     * Default: 'primary'
+     */
+    #[ExposeInTemplate()]
+    public string $type = 'primary';
 
-   /**
-    * Theme for styling the alert component.
-    *
-    * @var string
-    */
-   public string $theme = 'default';
+    /**
+     * Alert content (supports HTML)
+     */
+    #[ExposeInTemplate()]
+    public string $content;
 
-   /**
-    * Use container wrapper.
-    *
-    * @var string
-    */
-   public string $container = 'container';
+    /**
+     * Optional Font Awesome icon class (e.g., "fa-solid fa-house")
+     */
+    #[ExposeInTemplate()]
+    protected ?string $icon = null;
 
-   /**
-    * Alert configuration array with optional variables.
-    *
-    * Optional variables for each alert:
-    * - type: Alert type (optional, e.g., 'primary', 'secondary', 'success')
-    *   Default: 'primary'
-    * - content: Alert content (optional, supports HTML)
-    * - icon: Optional Font Awesome icon class
-    *   (e.g., "fa-solid fa-house")
-    *
-    * @var array{
-    *     type?: string,
-    *     content?: string,
-    *     icon?: string
-    * }[]
-    */
-   public array $alert = [];
+    protected ?string $container = 'container';
 
-   /**
-    * Constructor for the Alert component.
-    * Automatically generates a unique ID with 'alert-' prefix.
-    */
-   public function __construct()
-   {
-       $this->id = uniqid('alert-');
-   }
+    /**
+     * Get the value of icon.
+     */
+    public function getIcon()
+    {
+        if (!isset($this->icon)) {
+            $this->icon = $this->getDefaultIcon($this->type);
+        };
+
+        return $this->icon;
+    }
+
+    /**
+     * Set the value of icon.
+     *
+     * @return  self
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
 }

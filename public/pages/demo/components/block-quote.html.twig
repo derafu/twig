@@ -1,27 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<twig:block-quote
-    :quote="[
-        {
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            author: 'Cosme Fulanito',
-            source: 'MK11',
-            image: '/assets/img/block-hero.jpeg'
-        }
-    ]"
-    theme="theme-ocean-mystic"
-/>
-
-<twig:block-quote
-    :quote="[
-        {
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            author: 'Daniel Barros',
-            source: 'Grez',
-            image: '/assets/img/block-hero.jpeg'
-        }
-    ]"
-    theme="theme-default"
-/>
+{% for theme, name in themes %}
+    <twig:block-quote
+        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        author="John Doe"
+        source="Theme: {{ name }}"
+        image="/assets/img/block-hero.jpeg"
+        theme="{{ theme }}"
+    />
+{% endfor %}
 {% endblock %}

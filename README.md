@@ -89,7 +89,7 @@ echo $twigService->render('example.html.twig');
 ### Theme System
 Components support theming through CSS variables:
 ```css
-.theme-default {
+.derafu-theme-default {
     --color-primary: #0d6efd;
     --color-secondary: #6c757d;
     --color-tertiary: #198754;

@@ -1,31 +1,29 @@
 {# templates/components/block-features-grid.html.twig #}
-<section class="block-features-grid theme-{{ this.theme }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-        <div class="block-features-grid__row">
-            {% for block in this.blocks %}
-                <div class="block-features-grid__block">
-                    <div class="block-features-grid__header">
-                        <h3 class="block-features-grid__title">{{ block.title }}</h3>
-                        <p class="block-features-grid__subtitle">{{ block.subtitle }}</p>
-                    </div>
+<div class="derafu-block-features-grid {{ style }}" id="{{ id }}">
+    <div class="derafu-block-features-grid__row">
+        {% for block in blocks %}
+            <div class="derafu-block-features-grid__block">
+                <div class="derafu-block-features-grid__header">
+                    <h3 class="derafu-block-features-grid__title">{{ block.title }}</h3>
+                    <p class="derafu-block-features-grid__subtitle">{{ block.subtitle }}</p>
+                </div>
 
-                    <div class="block-features-grid__features">
-                        {% for feature in block.features %}
-                            <div class="block-features-grid__feature">
-                                <div class="block-features-grid__icon">
-                                    <i class="{{ feature.icon }}"></i>
-                                </div>
-                                <div class="block-features-grid__content">
-                                    <h4 class="block-features-grid__feature-title">{{ feature.title }}</h4>
-                                    <div class="block-features-grid__description">
-                                        {{ feature.description|raw }}
-                                    </div>
+                <div class="derafu-block-features-grid__features">
+                    {% for feature in block.features %}
+                        <div class="derafu-block-features-grid__feature">
+                            <div class="derafu-block-features-grid__icon">
+                                <i class="{{ feature.icon }}"></i>
+                            </div>
+                            <div class="derafu-block-features-grid__content">
+                                <h4 class="derafu-block-features-grid__feature-title">{{ feature.title }}</h4>
+                                <div class="derafu-block-features-grid__description">
+                                    {{ feature.description|raw }}
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
-</section>
+</div>

@@ -1,24 +1,23 @@
-/* Component CSS */
-.block-testimonials {
+.derafu-block-testimonials {
     width: 100%;
     --carousel-control-width: 48px;
     --carousel-control-margin: 100px;
     --card-spacing: 3rem;
 }
 
-.block-testimonials .carousel-item {
+.derafu-block-testimonials .carousel-item {
     height: var(--testimonial-height);
     position: relative;
 }
 
-.block-testimonials__image {
+.derafu-block-testimonials__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(var(--testimonial-brightness));
 }
 
-.block-testimonials__card {
+.derafu-block-testimonials__card {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -31,51 +30,51 @@
     text-align: center;
 }
 
-.block-testimonials__card--center {
+.derafu-block-testimonials__card--center {
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.block-testimonials__card--left {
+.derafu-block-testimonials__card--left {
     left: calc(var(--carousel-control-width) + var(--carousel-control-margin) + var(--card-spacing));
 }
 
-.block-testimonials__card--right {
+.derafu-block-testimonials__card--right {
     right: calc(var(--carousel-control-width) + var(--carousel-control-margin) + var(--card-spacing));
 }
 
-.block-testimonials__quote-start-icon, .block-testimonials__quote-end-icon {
+.derafu-block-testimonials__quote-start-icon, .derafu-block-testimonials__quote-end-icon {
     font-size: 2rem;
     color: var(--testimonial-quote-color);
     margin-bottom: 1rem;
     line-height: 1;
 }
 
-.block-testimonials__quote-start-icon {
+.derafu-block-testimonials__quote-start-icon {
     text-align: left;
 }
 
-.block-testimonials__quote-end-icon {
+.derafu-block-testimonials__quote-end-icon {
     text-align: right;
 }
 
-.block-testimonials__text {
+.derafu-block-testimonials__text {
     font-size: 1.1rem;
     color: var(--testimonial-text-color);
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
-.block-testimonials__text a {
+.derafu-block-testimonials__text a {
     color: var(--testimonial-link-color);
     text-decoration: none;
 }
 
-.block-testimonials__text a:hover {
+.derafu-block-testimonials__text a:hover {
     text-decoration: underline;
 }
 
-.block-testimonials__author {
+.derafu-block-testimonials__author {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,36 +84,36 @@
     color: var(--testimonial-author-color);
 }
 
-.block-testimonials__avatar {
+.derafu-block-testimonials__avatar {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.block-testimonials__author-info {
+.derafu-block-testimonials__author-info {
     text-align: left;
 }
 
-.block-testimonials .carousel-indicators [data-bs-target] {
+.derafu-block-testimonials .carousel-indicators [data-bs-target] {
     background-color: var(--testimonial-indicator-color);
 }
 
-.block-testimonials .carousel-control-prev-icon,
-.block-testimonials .carousel-control-next-icon {
+.derafu-block-testimonials .carousel-control-prev-icon,
+.derafu-block-testimonials .carousel-control-next-icon {
     filter: invert(1);
 }
 
 @media (max-width: 768px) {
-    .block-testimonials__card {
+    .derafu-block-testimonials__card {
         padding: 1.5rem;
     }
 
-    .block-testimonials__text {
+    .derafu-block-testimonials__text {
         font-size: 1rem;
     }
 
-    .block-testimonials__quote-start-icon, .block-testimonials__quote-start-icon {
+    .derafu-block-testimonials__quote-start-icon, .derafu-block-testimonials__quote-start-icon {
         font-size: 1.5rem;
     }
 }

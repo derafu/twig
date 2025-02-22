@@ -1,68 +1,67 @@
 {# templates/components/block-testimonials.html.twig #}
-<div class="block-testimonials theme-{{ this.theme }}" style="--testimonial-card-max-width: {{ this.maxWidth }}px; --testimonial-brightness: {{ this.brightness }}%; --testimonial-height: {{ this.height }}px;">
-    <div class="{{ this.container }}">
-        <div id="{{ this.id }}" class="carousel slide" {% if this.autoplay %}data-bs-ride="carousel" data-bs-interval="{{ this.interval }}"{% endif %}>
-            {% if this.showIndicators %}
-            <div class="carousel-indicators">
-                {% for testimonial in this.testimonials %}
-                    <button type="button"
-                            data-bs-target="#{{ this.id }}"
-                            data-bs-slide-to="{{ loop.index0 }}"
-                            {% if loop.first %}class="active" aria-current="true"{% endif %}
-                            aria-label="Slide {{ loop.index }}">
-                    </button>
-                {% endfor %}
-            </div>
-            {% endif %}
+<div class="derafu-block-testimonials {{ style }}" style="--testimonial-card-max-width: {{ maxWidth }}px; --testimonial-brightness: {{ brightness }}%; --testimonial-height: {{ height }}px;">
+    <div id="{{ id }}" class="carousel slide" {% if autoplay %}data-bs-ride="carousel" data-bs-interval="{{ interval }}"{% endif %}>
+        {% if showIndicators %}
+        <div class="carousel-indicators">
+            {% for testimonial in testimonials %}
+                <button type="button"
+                        data-bs-target="#{{ id }}"
+                        data-bs-slide-to="{{ loop.index0 }}"
+                        {% if loop.first %}class="active" aria-current="true"{% endif %}
+                        aria-label="Slide {{ loop.index }}">
+                </button>
+            {% endfor %}
+        </div>
+        {% endif %}
 
-            <div class="carousel-inner">
-                {% for testimonial in this.testimonials %}
-                    <div class="carousel-item{% if loop.first %} active{% endif %}">
-                        <img src="{{ testimonial.image }}" alt="Background {{ loop.index }}" class="block-testimonials__image">
-                        <div class="block-testimonials__card block-testimonials__card--{{ testimonial.position|default('center') }}">
-                            <div class="block-testimonials__quote-start-icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </div>
-                            <p class="block-testimonials__text">
-                                {{ testimonial.quote }}
-                            </p>
-                            <div class="block-testimonials__quote-end-icon">
-                                <i class="fa-solid fa-quote-right"></i>
-                            </div>
-                            <div class="block-testimonials__author">
-                                {% if testimonial.avatar is not empty %}
-                                    <img src="{{ testimonial.avatar }}" alt="{{ testimonial.author }}" class="block-testimonials__avatar">
-                                {% endif %}
-                                <div class="block-testimonials__author-info">
-                                    {{ testimonial.author }}
-                                    {% if testimonial.company is not empty %}
-                                        {% if testimonial.url is not empty %}
-                                            • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.company }}</a>
-                                        {% else %}
-                                            • {{ testimonial.company }}
-                                        {% endif %}
-                                    {% else %}
+        <div class="carousel-inner">
+            {% for testimonial in testimonials %}
+                <div class="carousel-item{% if loop.first %} active{% endif %}">
+                    <img src="{{ testimonial.image }}" alt="Background {{ loop.index }}" class="derafu-block-testimonials__image">
+                    <div class="derafu-block-testimonials__card derafu-block-testimonials__card--{{ testimonial.position|default('center') }}">
+                        <div class="derafu-block-testimonials__quote-start-icon">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="derafu-block-testimonials__text">
+                            {{ testimonial.quote }}
+                        </p>
+                        <div class="derafu-block-testimonials__quote-end-icon">
+                            <i class="fa-solid fa-quote-right"></i>
+                        </div>
+                        <div class="derafu-block-testimonials__author">
+                            {% if testimonial.avatar is not empty %}
+                                <img src="{{ testimonial.avatar }}" alt="{{ testimonial.author }}" class="derafu-block-testimonials__avatar">
+                            {% endif %}
+                            <div class="derafu-block-testimonials__author-info">
+                                {{ testimonial.author }}
+                                {% if testimonial.company is not empty %}
                                     {% if testimonial.url is not empty %}
-                                        • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.url }}</a>
+                                        • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.company }}</a>
                                     {% else %}
+                                        • {{ testimonial.company }}
                                     {% endif %}
+                                {% else %}
+                                {% if testimonial.url is not empty %}
+                                    • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.url }}</a>
+                                {% else %}
                                 {% endif %}
-                                </div>
+                            {% endif %}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
-
-            {% if this.showControls %}
-            <button class="carousel-control-prev" type="button" data-bs-target="#{{ this.id }}" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#{{ this.id }}" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
-            {% endif %}
+                </div>
+            {% endfor %}
         </div>
+
+        {% if showControls %}
+        <button class="carousel-control-prev" type="button" data-bs-target="#{{ id }}" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#{{ id }}" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+        {% endif %}
     </div>
+</div>

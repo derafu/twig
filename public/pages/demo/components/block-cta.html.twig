@@ -1,80 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="amber-elegance"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="royal-sunset"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="sky-pro"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="sky-energy"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="sunrise-blue"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="earthstone"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="ocean-mystic"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="deep-blue"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="neo-crimson"
-/>
-<twig:block-cta
-    title="Título del llamado a la acción"
-    description="Descripción del llamado a la acción. Puede ser más larga que el título."
-    button_text="CTA"
-    button_url="https://www.derafu.org"
-    theme="crimson-dark"
-/>
+{% for theme, name in themes %}
+    <twig:block-cta
+        title="Lorem ipsum dolor sit amet"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        button_text="Theme: {{ name }}"
+        button_url="https://www.example.com"
+        theme="{{ theme }}"
+    />
+{% endfor %}
 {% endblock %}

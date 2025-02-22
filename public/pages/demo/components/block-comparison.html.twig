@@ -1,207 +1,74 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<twig:block-comparison
-    :plans="[
-        {
-            title: 'Plan Alfa',
-            price: '$20<small>.000</small>',
-            period: '/mes',
-            features: [
-                {
-                    text: 'Hasta <b>500</b> boletas mensuales',
-                    tooltip: 'Límite mensual de emisión o sincronización de boletas de honorario electrónicas (BHE).'
-                },
-                {
-                    text: 'Permite otros usuarios',
-                    value: false
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para contadores o médicos.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=alfa'
-        },
-        {
-            title: 'Plan Beta',
-            price: '$40.000',
-            period: '/mes',
-            features: [
-                {
-                    text: 'Hasta <b>2.000</b> boletas mensuales'
-                },
-                {
-                    text: 'Hasta <b>2 usuarios</b> pueden trabajar con el emisor'
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para sociedades de profesionales.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=beta',
-            highlighted: true
-        },
-        {
-            title: 'Gamma',
-            price: '$ 80<small>.000</small>',
-            period: '/ mes',
-            features: [
-                {
-                    text: 'Hasta <b>5.000</b> boletas mensuales'
-                },
-                {
-                    text: 'Hasta <b>3 usuarios</b> pueden trabajar con el emisor'
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para notarías.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma',
-        }
-    ]"
-/>
-<twig:block-comparison
-    :plans="[
-        {
-            title: 'Plan Alfa',
-            price: '$20<small>.000</small>',
-            period: '/mes',
-            features: [
-                {
-                    text: 'Hasta <b>500</b> boletas mensuales',
-                    tooltip: 'Límite mensual de emisión o sincronización de boletas de honorario electrónicas (BHE).'
-                },
-                {
-                    text: 'Permite otros usuarios',
-                    value: false
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para contadores o médicos.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=alfa'
-        },
-        {
-            title: 'Plan Beta',
-            price: '$40.000',
-            period: '/mes',
-            features: [
-                {
-                    text: 'Hasta <b>2.000</b> boletas mensuales'
-                },
-                {
-                    text: 'Hasta <b>2 usuarios</b> pueden trabajar con el emisor'
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para sociedades de profesionales.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=beta',
-            highlighted: true
-        },
-        {
-            title: 'Gamma',
-            price: '$ 80<small>.000</small>',
-            period: '/ mes',
-            features: [
-                {
-                    text: 'Hasta <b>5.000</b> boletas mensuales'
-                },
-                {
-                    text: 'Hasta <b>3 usuarios</b> pueden trabajar con el emisor'
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para notarías.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma',
-        }
-    ]"
-    theme="ocean-mystic"
-/>
-<twig:block-comparison
-    :plans="[
-        {
-            title: 'Plan Alfa',
-            price: '$20<small>.000</small>',
-            period: '/mes',
-            features: [
-                {
-                    text: 'Hasta <b>500</b> boletas mensuales',
-                    tooltip: 'Límite mensual de emisión o sincronización de boletas de honorario electrónicas (BHE).'
-                },
-                {
-                    text: 'Permite otros usuarios',
-                    value: false
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para contadores o médicos.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=alfa'
-        },
-        {
-            title: 'Plan Beta',
-            price: '$40.000',
-            period: '/mes',
-            features: [
-                {
-                    text: 'Hasta <b>2.000</b> boletas mensuales'
-                },
-                {
-                    text: 'Hasta <b>2 usuarios</b> pueden trabajar con el emisor'
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para sociedades de profesionales.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=beta',
-            highlighted: true
-        },
-        {
-            title: 'Gamma',
-            price: '$ 80<small>.000</small>',
-            period: '/ mes',
-            features: [
-                {
-                    text: 'Hasta <b>5.000</b> boletas mensuales'
-                },
-                {
-                    text: 'Hasta <b>3 usuarios</b> pueden trabajar con el emisor'
-                },
-                {
-                    text: 'Emisión vía API',
-                    value: true
-                }
-            ],
-            recommendation: 'Recomendado para notarías.',
-            button_text: 'Registrarme',
-            button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma',
-        }
-    ]"
-    theme="neo-crimson"
-/>
+{% for theme, name in themes %}
+    <twig:block-comparison
+        :plans="[
+            {
+                title: 'Plan Alfa',
+                price: '$20<small>.000</small>',
+                period: '/mes',
+                features: [
+                    {
+                        text: 'Hasta <b>500</b> boletas mensuales',
+                        tooltip: 'Límite mensual de emisión o sincronización de boletas de honorario electrónicas (BHE).'
+                    },
+                    {
+                        text: 'Permite otros usuarios',
+                        value: false
+                    },
+                    {
+                        text: 'Emisión vía API',
+                        value: true
+                    }
+                ],
+                recommendation: 'Recomendado para contadores o médicos.',
+                button_text: 'Registrarme',
+                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=alfa'
+            },
+            {
+                title: 'Plan Beta',
+                price: '$40.000',
+                period: '/mes',
+                features: [
+                    {
+                        text: 'Hasta <b>2.000</b> boletas mensuales'
+                    },
+                    {
+                        text: 'Hasta <b>2 usuarios</b> pueden trabajar con el emisor'
+                    },
+                    {
+                        text: 'Emisión vía API',
+                        value: true
+                    }
+                ],
+                recommendation: 'Recomendado para sociedades de profesionales.',
+                button_text: 'Registrarme',
+                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=beta',
+                highlighted: true
+            },
+            {
+                title: 'Gamma',
+                price: '$ 80<small>.000</small>',
+                period: '/ mes',
+                features: [
+                    {
+                        text: 'Hasta <b>5.000</b> boletas mensuales'
+                    },
+                    {
+                        text: 'Hasta <b>3 usuarios</b> pueden trabajar con el emisor'
+                    },
+                    {
+                        text: 'Emisión vía API',
+                        value: true
+                    }
+                ],
+                recommendation: 'Recomendado para notarías.',
+                button_text: 'Registrarme',
+                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma',
+            }
+        ]"
+        theme="{{ theme }}"
+    />
+{% endfor %}
 {% endblock %}

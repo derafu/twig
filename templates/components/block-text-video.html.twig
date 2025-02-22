@@ -1,37 +1,35 @@
 {# templates/components/block-text-video.html.twig #}
-<section class="block-text-video theme-{{ this.theme }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-        <div class="row align-items-center">
-            {# Text Column #}
-            <div class="col-md-{{ this.text_cols }} {% if this.video_position == 'left' %}order-md-2{% endif %}">
-                <div class="block-text-video__content">
-                    <h2 class="block-text-video__title">{{ this.title }}</h2>
-                    <div class="block-text-video__text">
-                        {{ this.content|raw }}
+<div class="derafu-block-text-video {{ style }}" id="{{ id }}">
+    <div class="row align-items-center">
+        {# Text Column #}
+        <div class="col-md-{{ text_cols }} {% if video_position == 'left' %}order-md-2{% endif %}">
+            <div class="derafu-block-text-video__content">
+                <h2 class="derafu-block-text-video__title">{{ title }}</h2>
+                <div class="derafu-block-text-video__text">
+                    {{ content|raw }}
+                </div>
+                {% if buttons|length > 0 %}
+                    <div class="derafu-block-text-video__buttons">
+                        {% for button in buttons %}
+                            <a href="{{ button.url }}" class="derafu-block-text-video__button">
+                                {{ button.text }}
+                            </a>
+                        {% endfor %}
                     </div>
-                    {% if this.buttons|length > 0 %}
-                        <div class="block-text-video__buttons">
-                            {% for button in this.buttons %}
-                                <a href="{{ button.url }}" class="block-text-video__button">
-                                    {{ button.text }}
-                                </a>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
+                {% endif %}
             </div>
+        </div>
 
-            {# Video Column #}
-            <div class="col-md-{{ this.video_cols }} {% if this.video_position == 'left' %}order-md-1{% endif %}">
-                <div class="block-text-video__video block-text-video__video--{{ this.aspect_ratio|replace({':': '-'}) }}">
-                    <iframe
-                        src="{{ this.video_url }}{% if not this.show_controls %}?controls=0{% endif %}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
-                </div>
+        {# Video Column #}
+        <div class="col-md-{{ video_cols }} {% if video_position == 'left' %}order-md-1{% endif %}">
+            <div class="derafu-block-text-video__video derafu-block-text-video__video--{{ aspect_ratio|replace({':': '-'}) }}">
+                <iframe
+                    src="{{ video_url }}{% if not show_controls %}?controls=0{% endif %}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
             </div>
         </div>
     </div>
-</section>
+</div>

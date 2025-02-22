@@ -1,15 +1,15 @@
 {# templates/components/block-header.html.twig #}
-<nav class="block-header navbar navbar-expand-lg {% if this.position != 'normal' %}{{ this.position }}{% endif %} theme-{{ this.theme }}"
-     {% if this.backgroundColor %}style="background-color: {{ this.backgroundColor }};"{% endif %}
-     {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %} id="{{ this.id }}">
-    <div class="{{ this.container }}">
+<nav class="derafu-block-header navbar navbar-expand-lg {% if position != 'normal' %}{{ position }}{% endif %} {{ style }}"
+     {% if backgroundColor %}style="background-color: {{ backgroundColor }};"{% endif %}
+     {% if dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %} id="{{ id }}">
+    <div {% if fullWidth is empty %}class="container"{% endif %}>
         {# Logo Section #}
-        <a class="navbar-brand d-flex align-items-center" href="{{ this.logoUrl }}">
-            {% if this.logoImage %}
-                <img src="{{ this.logoImage }}" alt="Logo" style="max-width: {{ this.logoMaxWidth }}px;">
+        <a class="navbar-brand d-flex align-items-center" href="{{ logoUrl }}">
+            {% if logoImage %}
+                <img src="{{ logoImage }}" alt="Logo" style="max-width: {{ logoMaxWidth }}px;">
             {% endif %}
-            {% if this.logoHtml %}
-                <span class="ms-2">{{ this.logoHtml|raw }}</span>
+            {% if logoHtml %}
+                <span class="ms-2">{{ logoHtml|raw }}</span>
             {% endif %}
         </a>
 
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             {# Left Navigation #}
             <ul class="navbar-nav me-auto">
-                {% for item in this.leftNav %}
+                {% for item in leftNav %}
                     {% if item.type == 'link' %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ item.url }}">
@@ -125,7 +125,7 @@
 
             {# Right Navigation #}
             <ul class="navbar-nav">
-                {% for item in this.rightNav %}
+                {% for item in rightNav %}
                     {% if item.type == 'link' %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ item.url }}">
@@ -185,13 +185,13 @@
                 {% endfor %}
 
                 {# CTA Button #}
-                {% if this.ctaText and this.ctaUrl %}
+                {% if ctaText and ctaUrl %}
                     <li class="nav-item ms-2">
-                        <a href="{{ this.ctaUrl }}" class="btn btn-primary">
-                            {% if this.ctaIcon is not empty %}
-                                <i class="{{ this.ctaIcon }} me-1"></i>
+                        <a href="{{ ctaUrl }}" class="btn btn-primary">
+                            {% if ctaIcon is not empty %}
+                                <i class="{{ ctaIcon }} me-1"></i>
                             {% endif %}
-                            {{ this.ctaText }}
+                            {{ ctaText }}
                         </a>
                     </li>
                 {% endif %}

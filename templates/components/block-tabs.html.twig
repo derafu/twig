@@ -1,70 +1,68 @@
 {# templates/components/block-tabs.html.twig #}
-<section class="block-tabs theme-{{ this.theme }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-        {% if this.position == 'horizontal' %}
-            <nav class="nav nav-pills nav-justified">
-                {% for tab in this.tabs %}
-                    <button class="nav-link{% if (this.activeTab is null and loop.first) or this.activeTab == tab.id %} active{% endif %}"
-                            id="tab-{{ tab.id }}"
-                            data-bs-toggle="pill"
-                            data-bs-target="#content-{{ tab.id }}"
-                            type="button"
-                            role="tab"
-                            aria-controls="content-{{ tab.id }}"
-                            aria-selected="{% if (this.activeTab is null and loop.first) or this.activeTab == tab.id %}true{% else %}false{% endif %}">
-                        {% if tab.icon is defined %}
-                            <i class="{{ tab.icon }} me-2"></i>
-                        {% endif %}
-                        {{ tab.title }}
-                    </button>
-                {% endfor %}
-            </nav>
-            <div class="tab-content mt-3">
-                {% for tab in this.tabs %}
-                    <div class="tab-pane fade{% if (this.activeTab is null and loop.first) or this.activeTab == tab.id %} show active{% endif %}"
-                        id="content-{{ tab.id }}"
-                        role="tabpanel"
-                        aria-labelledby="tab-{{ tab.id }}"
-                        tabindex="0">
-                        {{ tab.content|raw }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <div class="row">
-                <div class="col-{{ this.cols }}">
-                    <nav class="nav nav-pills flex-column">
-                        {% for tab in this.tabs %}
-                            <button class="nav-link text-start{% if (this.activeTab is null and loop.first) or this.activeTab == tab.id %} active{% endif %}"
-                                    id="tab-{{ tab.id }}"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#content-{{ tab.id }}"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="content-{{ tab.id }}"
-                                    aria-selected="{% if (this.activeTab is null and loop.first) or this.activeTab == tab.id %}true{% else %}false{% endif %}">
-                                {% if tab.icon is defined %}
-                                    <i class="{{ tab.icon }} me-2"></i>
-                                {% endif %}
-                                {{ tab.title }}
-                            </button>
-                        {% endfor %}
-                    </nav>
+<div class="derafu-block-tabs {{ style }}" id="{{ id }}">
+    {% if position == 'horizontal' %}
+        <nav class="nav nav-pills nav-justified">
+            {% for tab in tabs %}
+                <button class="nav-link{% if (activeTab is null and loop.first) or activeTab == tab.id %} active{% endif %}"
+                        id="tab-{{ tab.id }}"
+                        data-bs-toggle="pill"
+                        data-bs-target="#content-{{ tab.id }}"
+                        type="button"
+                        role="tab"
+                        aria-controls="content-{{ tab.id }}"
+                        aria-selected="{% if (activeTab is null and loop.first) or activeTab == tab.id %}true{% else %}false{% endif %}">
+                    {% if tab.icon is defined %}
+                        <i class="{{ tab.icon }} me-2"></i>
+                    {% endif %}
+                    {{ tab.title }}
+                </button>
+            {% endfor %}
+        </nav>
+        <div class="tab-content mt-3">
+            {% for tab in tabs %}
+                <div class="tab-pane fade{% if (activeTab is null and loop.first) or activeTab == tab.id %} show active{% endif %}"
+                    id="content-{{ tab.id }}"
+                    role="tabpanel"
+                    aria-labelledby="tab-{{ tab.id }}"
+                    tabindex="0">
+                    {{ tab.content|raw }}
                 </div>
-                <div class="col">
-                    <div class="tab-content">
-                        {% for tab in this.tabs %}
-                            <div class="tab-pane fade{% if (this.activeTab is null and loop.first) or this.activeTab == tab.id %} show active{% endif %}"
-                                id="content-{{ tab.id }}"
-                                role="tabpanel"
-                                aria-labelledby="tab-{{ tab.id }}"
-                                tabindex="0">
-                                {{ tab.content|raw }}
-                            </div>
-                        {% endfor %}
-                    </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-{{ cols }}">
+                <nav class="nav nav-pills flex-column">
+                    {% for tab in tabs %}
+                        <button class="nav-link text-start{% if (activeTab is null and loop.first) or activeTab == tab.id %} active{% endif %}"
+                                id="tab-{{ tab.id }}"
+                                data-bs-toggle="pill"
+                                data-bs-target="#content-{{ tab.id }}"
+                                type="button"
+                                role="tab"
+                                aria-controls="content-{{ tab.id }}"
+                                aria-selected="{% if (activeTab is null and loop.first) or activeTab == tab.id %}true{% else %}false{% endif %}">
+                            {% if tab.icon is defined %}
+                                <i class="{{ tab.icon }} me-2"></i>
+                            {% endif %}
+                            {{ tab.title }}
+                        </button>
+                    {% endfor %}
+                </nav>
+            </div>
+            <div class="col">
+                <div class="tab-content">
+                    {% for tab in tabs %}
+                        <div class="tab-pane fade{% if (activeTab is null and loop.first) or activeTab == tab.id %} show active{% endif %}"
+                            id="content-{{ tab.id }}"
+                            role="tabpanel"
+                            aria-labelledby="tab-{{ tab.id }}"
+                            tabindex="0">
+                            {{ tab.content|raw }}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
-        {% endif %}
-    </div>
-</section>
+        </div>
+    {% endif %}
+</div>

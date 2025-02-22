@@ -1,9 +1,9 @@
-.block-card-grid {
+.derafu-block-card-grid {
     padding: var(--spacing-y, 2rem) 0;
     background-color: var(--card-grid-bg);
 }
 
-.block-card-grid__card {
+.derafu-block-card-grid__card {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -15,46 +15,46 @@
     transition: transform 0.3s ease;
 }
 
-.block-card-grid__card:hover {
+.derafu-block-card-grid__card:hover {
     transform: translateY(-5px);
 }
 
-.block-card-grid__image {
+.derafu-block-card-grid__image {
     width: 100%;
     aspect-ratio: 16/9;
     overflow: hidden;
 }
 
-.block-card-grid__image img {
+.derafu-block-card-grid__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.block-card-grid__content {
+.derafu-block-card-grid__content {
     padding: 1.5rem;
     flex: 1;
 }
 
-.block-card-grid__title {
+.derafu-block-card-grid__title {
     color: var(--card-title);
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-.block-card-grid__description {
+.derafu-block-card-grid__description {
     color: var(--card-text);
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
-.block-card-grid__footer {
+.derafu-block-card-grid__footer {
     padding: 1.5rem;
     padding-top: 0;
 }
 
-.block-card-grid__button {
+.derafu-block-card-grid__button {
     display: block;
     width: 100%;
     padding: 0.75rem 1.5rem;
@@ -66,7 +66,7 @@
     transition: background-color 0.3s ease;
 }
 
-.block-card-grid__button:hover {
+.derafu-block-card-grid__button:hover {
     background-color: var(--card-button-hover);
     color: var(--card-button-text);
     text-decoration: none;

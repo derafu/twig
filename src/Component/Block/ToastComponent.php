@@ -3,78 +3,80 @@
 declare(strict_types=1);
 
 /**
-* Derafu: Twig - UI Component and Extension Library.
-*
-* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
-* Licensed under the MIT License.
-* See LICENSE file for more details.
-*/
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
-* Toast Component for displaying notification messages.
-*
-* This component creates Bootstrap-based toast notifications that can be themed
-* and configured with different types, titles, content and icons.
-*/
+ * Toast Component for displaying notification messages.
+ *
+ * This component creates Bootstrap-based toast notifications that can be themed
+ * and configured with different types, titles, content and icons.
+ */
 #[AsTwigComponent('block-toast')]
-class ToastComponent
+class ToastComponent extends AbstractComponent
 {
-   /**
-    * Unique identifier for the toast component.
-    *
-    * @var string
-    */
-   public string $id;
+    /**
+     * Toast type (primary, secondary, tertiary)
+     * Default: 'primary'
+     */
+    #[ExposeInTemplate()]
+    public string $type = 'primary';
 
-   /**
-    * Theme for styling the toast component.
-    *
-    * @var string
-    */
-   public string $theme = 'default';
+    /**
+     * Toast title
+     */
+    #[ExposeInTemplate()]
+    public ?string $title = null;
 
-   /**
-    * Use container wrapper.
-    *
-    * @var string
-    */
-   public string $container = 'container';
+    /**
+     * Toast content/message
+     */
+    #[ExposeInTemplate()]
+    public ?string $content = null;
 
-   /**
-    * Configuration array for toast notifications.
-    *
-    * Structure:
-    * - type: Toast type (optional, default: 'primary')
-    * - title: Toast title (optional)
-    * - content: Message text (optional)
-    * - time: Time display (optional)
-    * - icon: Font Awesome icon class (optional)
-    *
-    * Example:
-    * [
-    *   {
-    *     'type' => 'success',
-    *     'title' => 'Success',
-    *     'content' => 'Operation completed',
-    *     'time' => 'Now',
-    *     'icon' => 'fas fa-check'
-    *   }
-    * ]
-    *
-    * @var array
-    */
-   public array $toast = [];
+    /**
+     * Time display (e.g., "2 mins ago")
+     */
+    #[ExposeInTemplate()]
+    public ?string $time = null;
 
-   /**
-    * Constructor for the Toast component.
-    * Automatically generates a unique ID with 'toast-' prefix.
-    */
-   public function __construct()
-   {
-       $this->id = uniqid('toast-');
-   }
+    /**
+     * Optional Font Awesome icon class
+     */
+    #[ExposeInTemplate()]
+    protected ?string $icon = null;
+
+    /**
+     * Get the value of icon.
+     */
+    public function getIcon()
+    {
+        if (!isset($this->icon)) {
+            $this->icon = $this->getDefaultIcon($this->type);
+        }
+
+        return $this->icon;
+    }
+
+    /**
+     * Set the value of icon.
+     *
+     * @return  self
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
 }

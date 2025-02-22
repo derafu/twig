@@ -1,53 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<twig:block-table
-    theme="default"
-    type="primary"
-    :headers="[
-        {text: 'ID', scope: 'col'},
-        {text: 'Nombre', scope: 'col'},
-        {text: 'Empresa', scope: 'col'},
-        {text: 'Correo', scope: 'col'},
-        {text: 'Estado', scope: 'col'}
-    ]"
-    :rows="[
-        {
-            id: {text: '1', scope: 'row'},
-            nombre: 'Juan Pérez',
-            empresa: 'Tecnología SA',
-            correo: 'juan@tecno.com',
-            estado: 'Activo'
-        },
-        {
-            id: {text: '2', scope: 'row'},
-            nombre: 'María López',
-            empresa: 'Desarrollo SL',
-            correo: 'maria@desa.com',
-            estado: 'Pendiente'
-        },
-        {
-            id: {text: '3', scope: 'row'},
-            nombre: 'Carlos Ruiz',
-            empresa: 'Servicios IT',
-            correo: 'carlos@it.com',
-            estado: 'Inactivo'
-        },
-        {
-            id: {text: '4', scope: 'row'},
-            nombre: 'Ana García',
-            empresa: 'Web Solutions',
-            correo: 'ana@web.com',
-            estado: 'Activo'
-        },
-        {
-            id: {text: '5', scope: 'row'},
-            nombre: 'Pedro Sánchez',
-            empresa: 'Tech Corp',
-            correo: 'pedro@tech.com',
-            estado: 'Pendiente'
-        }
-    ]"
-    theme="ocean-mystic"
-/>
+<div class="container">
+    {% for theme, name in themes %}
+        <h2 class="mt-4 mb-2">Theme: {{ name }}</h2>
+        <twig:block-table
+            :headers="[
+                {text: 'ID', scope: 'col'},
+                {text: 'Nombre', scope: 'col'},
+                {text: 'Empresa', scope: 'col'},
+                {text: 'Correo', scope: 'col'},
+                {text: 'Estado', scope: 'col'}
+            ]"
+            :rows="[
+                {
+                    id: {text: '1', scope: 'row'},
+                    nombre: 'Juan Pérez',
+                    empresa: 'Tecnología SA',
+                    correo: 'juan@tecno.com',
+                    estado: 'Activo'
+                },
+                {
+                    id: {text: '2', scope: 'row'},
+                    nombre: 'María López',
+                    empresa: 'Desarrollo SL',
+                    correo: 'maria@desa.com',
+                    estado: 'Pendiente'
+                },
+                {
+                    id: {text: '3', scope: 'row'},
+                    nombre: 'Carlos Ruiz',
+                    empresa: 'Servicios IT',
+                    correo: 'carlos@it.com',
+                    estado: 'Inactivo'
+                },
+                {
+                    id: {text: '4', scope: 'row'},
+                    nombre: 'Ana García',
+                    empresa: 'Web Solutions',
+                    correo: 'ana@web.com',
+                    estado: 'Activo'
+                },
+                {
+                    id: {text: '5', scope: 'row'},
+                    nombre: 'Pedro Sánchez',
+                    empresa: 'Tech Corp',
+                    correo: 'pedro@tech.com',
+                    estado: 'Pendiente'
+                }
+            ]"
+            theme="{{ theme }}"
+        />
+    {% endfor %}
+</div>
 {% endblock %}

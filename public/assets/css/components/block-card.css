@@ -1,11 +1,10 @@
 /* Contenedor principal */
-.block-card {
+.derafu-block-card {
     padding: var(--spacing-y, 2rem) 0;
-    background-color: var(--card-grid-bg);
 }
 
 /* Card principal */
-.card {
+.derafu-block-card .card {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -17,25 +16,25 @@
     transition: transform 0.3s ease;
 }
 
-.card:hover {
+.derafu-block-card .card:hover {
     transform: translateY(-5px);
 }
 
 /* Imagen */
-.card-img-top {
+.derafu-block-card .card-img-top {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
 }
 
 /* Cuerpo de la card */
-.card-body {
+.derafu-block-card .card-body {
     padding: 1.5rem;
     flex: 1;
 }
 
 /* Título */
-.card-title {
+.derafu-block-card .card-title {
     color: var(--card-title);
     font-size: 1.25rem;
     font-weight: bold;
@@ -43,7 +42,7 @@
 }
 
 /* Texto */
-.card-text {
+.derafu-block-card .card-text {
     color: var(--card-text);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -51,7 +50,7 @@
 }
 
 /* Botón */
-.btn-primary {
+.derafu-block-card .btn-primary {
     display: block;
     width: 100%;
     padding: 0.75rem 1.5rem;
@@ -63,25 +62,23 @@
     transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.derafu-block-card .btn-primary:hover {
     background-color: var(--card-button-hover);
     color: var(--card-button-text);
     text-decoration: none;
 }
-.block-card .btn:active {
+.derafu-block-card .btn:active {
     background-color: var(--card-background-color);
     border-color: var(--card-background-color);
 
 }
-.block-card .btn-primary {
+.derafu-block-card .btn-primary {
     border-color: var(--card-button-border);
-
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {
-    .card {
+    .derafu-block-card .card {
         width: 100% !important; /* Sobrescribe el width inline */
     }
 }

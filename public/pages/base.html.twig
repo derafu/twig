@@ -69,7 +69,23 @@
         </div>
     </nav>
 
-    {% block body %}{% endblock %}
+    {% set themes = {
+        'default': 'Default',
+        'amber-elegance': 'Amber Elegance',
+        'royal-sunset': 'Royal Sunset',
+        'sky-pro': 'Sky Pro',
+        'sky-energy': 'Sky Energy',
+        'sunrise-blue': 'Sunrise Blue',
+        'earthstone': 'Earthstone',
+        'ocean-mystic': 'Ocean Mystic',
+        'deep-blue': 'Deep Blue',
+        'neo-crimson': 'Neo Crimson',
+        'crimson-dark': 'Crimson Dark'
+    } %}
+
+    <div class="derafu-theme-default">
+        {% block body %}{% endblock %}
+    </div>
 
     {% if html_twig is not empty %}
     <div class="container mt-4 mb-4">

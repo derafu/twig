@@ -1,32 +1,30 @@
 {# templates/components/block-boxes.html.twig #}
-<section class="block-boxes theme-{{ this.theme }} block-boxes--{{ this.align }}" id="{{ this.id }}>
-    <div class="{{ this.container }}">
-        <div class="row g-0">
-            {% for box in this.boxes %}
-                <div class="col-md-{{ 12 / this.cols }}">
-                    <div class="block-boxes__box block-boxes__box--{{ loop.index }}">
-                        {# Icon #}
-                        <div class="block-boxes__icon-container">
-                            <div class="block-boxes__icon">
-                                <i class="{{ box.icon }}"></i>
-                            </div>
-                        </div>
-
-                        {# Content #}
-                        <div class="block-boxes__content">
-                            <h3 class="block-boxes__title">{{ box.title }}</h3>
-                            <p class="block-boxes__description">{{ box.description }}</p>
-                        </div>
-
-                        {# Button #}
-                        <div class="block-boxes__action">
-                            <a href="{{ box.button_url }}" class="block-boxes__button">
-                                {{ box.button_text }}
-                            </a>
+<div class="derafu-block-boxes {{ style }} derafu-block-boxes--{{ align }}" id="{{ id }}>
+    <div class="row g-0">
+        {% for box in boxes %}
+            <div class="col-md-{{ 12 / cols }}">
+                <div class="derafu-block-boxes__box derafu-block-boxes__box--{{ loop.index }}">
+                    {# Icon #}
+                    <div class="derafu-block-boxes__icon-container">
+                        <div class="derafu-block-boxes__icon">
+                            <i class="{{ box.icon }}"></i>
                         </div>
                     </div>
+
+                    {# Content #}
+                    <div class="derafu-block-boxes__content">
+                        <h3 class="derafu-block-boxes__title">{{ box.title }}</h3>
+                        <p class="derafu-block-boxes__description">{{ box.description }}</p>
+                    </div>
+
+                    {# Button #}
+                    <div class="derafu-block-boxes__action">
+                        <a href="{{ box.button_url }}" class="derafu-block-boxes__button">
+                            {{ box.button_text }}
+                        </a>
+                    </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
-</section>
+</div>

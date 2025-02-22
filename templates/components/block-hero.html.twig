@@ -1,17 +1,14 @@
 {# templates/components/block-hero.html.twig #}
-<section class="block-hero theme-{{ this.theme }} block-hero--{{ this.size }} block-hero--{{ this.align }}"
-    {% if this.background is not empty %}
-    style="background-image: url('{{ this.background }}')"
-    {% endif %} id="{{ this.id }}">
-    <div class="block-hero__container {{ this.container }}">
-        <div class="block-hero__content">
-            <h1 class="block-hero__title">{{ this.title }}</h1>
-            <div class="block-hero__subtitle">{{ this.subtitle }}</div>
-
-            {% if this.buttons is not empty %}
-                <div class="block-hero__buttons">
-                    {% for button in this.buttons %}
-                        <a href="{{ button.url }}" class="btn block-hero__button block-hero__button--{{ button.theme|default('primary') }}">
+<div class="derafu-block-hero derafu-block-hero--{{ size }} derafu-block-hero--{{ align }} {{ style }}"
+    {% if background is not empty %}style="background-image: url('{{ background }}')"{% endif %} id="{{ id }}">
+    <div class="derafu-block-hero__container">
+        <div class="derafu-block-hero__content">
+            <h1 class="derafu-block-hero__title">{{ title }}</h1>
+            <div class="derafu-block-hero__subtitle">{{ subtitle }}</div>
+            {% if buttons is not empty %}
+                <div class="derafu-block-hero__buttons">
+                    {% for button in buttons %}
+                        <a href="{{ button.url }}" class="btn derafu-block-hero__button derafu-block-hero__button--{{ button.theme|default('primary') }}">
                             {{ button.text }}
                         </a>
                     {% endfor %}
@@ -19,4 +16,4 @@
             {% endif %}
         </div>
     </div>
-</section>
+</div>

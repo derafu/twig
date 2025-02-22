@@ -1,30 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<twig:block-card
-    :cards="[
-        {
-            image: '../../../assets/img/block-hero.jpeg',
-            title: 'Titulo',
-            description: 'Descripción.',
-            button_text: 'Clic',
-            button_url: 'https://twig.symfony.com'
-        }
-    ]"
-    theme="ocean-mystic"
-/>
-
-<twig:block-card
-    :cards="[
-        {
-            image: '../../../assets/img/block-hero.jpeg',
-            title: 'Titulo',
-            description: 'Descripción.',
-            button_text: 'Clic',
-            button_url: 'https://twig.symfony.com'
-        }
-    ]"
-    theme="sky-pro"
-/>
-
+<div class="container">
+    {% for theme, name in themes %}
+        <twig:block-card
+            image="../../../assets/img/block-hero.jpeg"
+            title="Theme: {{ name }}"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            buttonText="More..."
+            buttonUrl="https://www.example.com"
+            theme="{{ theme }}"
+        />
+    {% endfor %}
+</div>
 {% endblock %}

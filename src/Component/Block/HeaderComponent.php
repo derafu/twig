@@ -3,173 +3,160 @@
 declare(strict_types=1);
 
 /**
-* Derafu: Twig - UI Component and Extension Library.
-*
-* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
-* Licensed under the MIT License.
-* See LICENSE file for more details.
-*/
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
 #[AsTwigComponent('block-header')]
-class HeaderComponent
+class HeaderComponent extends AbstractComponent
 {
-   /**
-    * Unique identifier for the header component.
-    *
-    * @var string
-    */
-   public string $id;
+    /**
+     * URL for the logo link.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $logoUrl = '';
 
-   /**
-    * Theme for styling the header component.
-    *
-    * @var string
-    */
-   public string $theme = 'default';
+    /**
+     * Path to the logo image file.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $logoImage = null;
 
-   /**
-    * Use container wrapper.
-    *
-    * @var string
-    */
-   public string $container = 'container';
+    /**
+     * HTML content for the logo.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $logoHtml = null;
 
-   /**
-    * URL for the logo link.
-    *
-    * @var string
-    */
-   public string $logoUrl = '';
+    /**
+     * Maximum width for the logo in pixels.
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $logoMaxWidth = 150;
 
-   /**
-    * Path to the logo image file.
-    *
-    * @var string|null
-    */
-   public ?string $logoImage = null;
+    /**
+     * Array of navigation items for the left side.
+     *
+     * @var array
+     */
+    #[ExposeInTemplate()]
+    public array $leftNav = [];
 
-   /**
-    * HTML content for the logo.
-    *
-    * @var string|null
-    */
-   public ?string $logoHtml = null;
+    /**
+     * Array of navigation items for the right side.
+     *
+     * @var array
+     */
+    #[ExposeInTemplate()]
+    public array $rightNav = [];
 
-   /**
-    * Maximum width for the logo in pixels.
-    *
-    * @var int
-    */
-   public int $logoMaxWidth = 150;
+    /**
+     * Icon class for the call-to-action button.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $ctaIcon = null;
 
-   /**
-    * Array of navigation items for the left side.
-    *
-    * @var array
-    */
-   public array $leftNav = [];
+    /**
+     * Text for the call-to-action button.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $ctaText = null;
 
-   /**
-    * Array of navigation items for the right side.
-    *
-    * @var array
-    */
-   public array $rightNav = [];
+    /**
+     * URL for the call-to-action button.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $ctaUrl = null;
 
-   /**
-    * Icon class for the call-to-action button.
-    *
-    * @var string|null
-    */
-   public ?string $ctaIcon = null;
+    /**
+     * Trigger type for dropdown menus ('click' or 'hover').
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $dropdownTrigger = 'click';
 
-   /**
-    * Text for the call-to-action button.
-    *
-    * @var string|null
-    */
-   public ?string $ctaText = null;
+    /**
+     * Position of the header ('normal' or 'fixed').
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $position = 'normal';
 
-   /**
-    * URL for the call-to-action button.
-    *
-    * @var string|null
-    */
-   public ?string $ctaUrl = null;
+    /**
+     * Background color for the header.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $backgroundColor = null;
 
-   /**
-    * Trigger type for dropdown menus ('click' or 'hover').
-    *
-    * @var string
-    */
-   public string $dropdownTrigger = 'click';
+    #[ExposeInTemplate()]
+    public bool $fullWidth = false;
 
-   /**
-    * Position of the header ('normal' or 'fixed').
-    *
-    * @var string
-    */
-   public string $position = 'normal';
+    /**
+     * Process navigation items before component mount.
+     */
+    #[PreMount]
+    public function preMount(array $data): array
+    {
+        if (isset($data['leftNav'])) {
+            $data['leftNav'] = array_map([$this, 'processNavItem'], $data['leftNav']);
+        }
 
-   /**
-    * Background color for the header.
-    *
-    * @var string|null
-    */
-   public ?string $backgroundColor = null;
+        if (isset($data['rightNav'])) {
+            $data['rightNav'] = array_map([$this, 'processNavItem'], $data['rightNav']);
+        }
 
-   /**
-    * Process navigation items before component mount.
-    */
-   #[PreMount]
-   public function preMount(array $data): array
-   {
-       if (isset($data['leftNav'])) {
-           $data['leftNav'] = array_map([$this, 'processNavItem'], $data['leftNav']);
-       }
+        return $data;
+    }
 
-       if (isset($data['rightNav'])) {
-           $data['rightNav'] = array_map([$this, 'processNavItem'], $data['rightNav']);
-       }
+    /**
+     * Process a single navigation item to determine its type.
+     */
+    private function processNavItem(array $item): array
+    {
+        if (isset($item['sections'])) {
+            $item['type'] = 'mega-dropdown';
+        } elseif (isset($item['items'])) {
+            $item['type'] = 'dropdown';
+            $item['items'] = array_map(function ($subitem) {
+                if (isset($subitem['items'])) {
+                    $subitem['type'] = 'submenu';
+                } elseif (!isset($subitem['type'])) {
+                    $subitem['type'] = 'link';
+                }
+                return $subitem;
+            }, $item['items']);
+        } else {
+            $item['type'] = 'link';
+        }
 
-       return $data;
-   }
-
-   /**
-    * Process a single navigation item to determine its type.
-    */
-   private function processNavItem(array $item): array
-   {
-       if (isset($item['sections'])) {
-           $item['type'] = 'mega-dropdown';
-       } elseif (isset($item['items'])) {
-           $item['type'] = 'dropdown';
-           $item['items'] = array_map(function ($subitem) {
-               if (isset($subitem['items'])) {
-                   $subitem['type'] = 'submenu';
-               } elseif (!isset($subitem['type'])) {
-                   $subitem['type'] = 'link';
-               }
-               return $subitem;
-           }, $item['items']);
-       } else {
-           $item['type'] = 'link';
-       }
-
-       return $item;
-   }
-
-   /**
-    * Constructor for the Header component.
-    * Automatically generates a unique ID with 'header-' prefix.
-    */
-   public function __construct()
-   {
-       $this->id = uniqid('header-');
-   }
+        return $item;
+    }
 }

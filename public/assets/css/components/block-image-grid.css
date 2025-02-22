@@ -1,9 +1,9 @@
-.block-image-grid {
+.derafu-block-image-grid {
     padding: var(--spacing-y, 2rem) 0;
     background-color: var(--image-grid-bg);
 }
 
-.block-image-grid__item {
+.derafu-block-image-grid__item {
     height: 120px;
     padding: 1.5rem;
     border: 1px solid var(--image-grid-border);
@@ -14,12 +14,12 @@
     transition: all 0.3s ease;
 }
 
-.block-image-grid__item:hover {
+.derafu-block-image-grid__item:hover {
     background-color: var(--image-grid-hover);
     transform: translateY(-2px);
 }
 
-.block-image-grid__link {
+.derafu-block-image-grid__link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@
     height: 100%;
 }
 
-.block-image-grid__image {
+.derafu-block-image-grid__image {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -36,7 +36,7 @@
     transition: all 0.3s ease;
 }
 
-.block-image-grid__item:hover .block-image-grid__image {
+.derafu-block-image-grid__item:hover .derafu-block-image-grid__image {
     filter: grayscale(0);
     opacity: 1;
 }

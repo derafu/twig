@@ -1,30 +1,28 @@
 {# templates/components/block-photo.html.twig #}
-<section class="block-photo theme-{{ this.theme }} block-photo--{{ this.align }} block-photo--{{ this.size }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-        <div class="block-photo__wrapper">
-            {% if this.title %}
-                <h2 class="block-photo__title">{{ this.title }}</h2>
-            {% endif %}
+<div class="derafu-block-photo {{ style }} derafu-block-photo--{{ align }} derafu-block-photo--{{ size }}" id="{{ id }}">
+    <div class="derafu-block-photo__wrapper">
+        {% if title %}
+            <h2 class="derafu-block-photo__title">{{ title }}</h2>
+        {% endif %}
 
-            <div class="block-photo__image">
-                <img src="{{ this.image }}" alt="{{ this.title }}" class="img-fluid">
-            </div>
-
-            {% if this.description %}
-                <div class="block-photo__description">
-                    {{ this.description|raw }}
-                </div>
-            {% endif %}
-
-            {% if this.buttons|length > 0 %}
-                <div class="block-photo__buttons">
-                    {% for button in this.buttons %}
-                        <a href="{{ button.url }}" class="block-photo__button">
-                            {{ button.text }}
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        <div class="derafu-block-photo__image">
+            <img src="{{ image }}" alt="{{ title }}" class="img-fluid">
         </div>
+
+        {% if description %}
+            <div class="derafu-block-photo__description">
+                {{ description|raw }}
+            </div>
+        {% endif %}
+
+        {% if buttons|length > 0 %}
+            <div class="derafu-block-photo__buttons">
+                {% for button in buttons %}
+                    <a href="{{ button.url }}" class="derafu-block-photo__button">
+                        {{ button.text }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-</section>
+</div>

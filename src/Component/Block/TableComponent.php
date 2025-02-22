@@ -2,9 +2,19 @@
 
 declare(strict_types=1);
 
+/**
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
+
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Table Component for displaying tabular data.
@@ -13,29 +23,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
  * and configured with different headers and row data.
  */
 #[AsTwigComponent('block-table')]
-class TableComponent
+class TableComponent extends AbstractComponent
 {
-    /**
-     * Unique identifier for the table component.
-     *
-     * @var string
-     */
-    public string $id;
-
-    /**
-     * Theme for styling the table component.
-     *
-     * @var string
-     */
-    public string $theme = 'default';
-
-    /**
-     * Use container wrapper.
-     *
-     * @var string
-     */
-    public string $container = 'container';
-
     /**
      * Array of table headers configurations.
      *
@@ -48,6 +37,7 @@ class TableComponent
      *     scope?: ?string
      * }[]
      */
+    #[ExposeInTemplate()]
     public array $headers = [];
 
     /**
@@ -72,21 +62,6 @@ class TableComponent
      *     estado?: ?string
      * }[]
      */
+    #[ExposeInTemplate()]
     public array $rows = [];
-
-    /**
-     * Visual style/type of the table (primary, secondary, etc).
-     *
-     * @var string
-     */
-    public string $type = '';
-
-    /**
-     * Constructor for the Table component.
-     * Automatically generates a unique ID with 'table-' prefix.
-     */
-    public function __construct()
-    {
-        $this->id = uniqid('table-');
-    }
 }

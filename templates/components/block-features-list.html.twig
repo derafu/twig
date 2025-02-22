@@ -1,40 +1,38 @@
 {# templates/components/block-features-list.html.twig #}
-<section class="block-features-list theme-{{ this.theme }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-        <div class="block-features-list__row">
-            {# Left column #}
-            <div class="block-features-list__column block-features-list__column--left">
-                {% for feature in this.features_left %}
-                    <div class="block-features-list__item block-features-list__item--right">
-                        <div class="block-features-list__content">
-                            <h3 class="block-features-list__title">{{ feature.title }}</h3>
-                            <div class="block-features-list__description">
-                                {{ feature.description|raw }}
-                            </div>
-                        </div>
-                        <div class="block-features-list__icon">
-                            <i class="{{ feature.icon }}"></i>
+<div class="derafu-block-features-list {{ style }}" id="{{ id }}">
+    <div class="derafu-block-features-list__row">
+        {# Left column #}
+        <div class="derafu-block-features-list__column derafu-block-features-list__column--left">
+            {% for feature in features_left %}
+                <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
+                    <div class="derafu-block-features-list__content">
+                        <h3 class="derafu-block-features-list__title">{{ feature.title }}</h3>
+                        <div class="derafu-block-features-list__description">
+                            {{ feature.description|raw }}
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                    <div class="derafu-block-features-list__icon">
+                        <i class="{{ feature.icon }}"></i>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
-            {# Right column #}
-            <div class="block-features-list__column block-features-list__column--right">
-                {% for feature in this.features_right %}
-                    <div class="block-features-list__item block-features-list__item--left">
-                        <div class="block-features-list__icon">
-                            <i class="{{ feature.icon }}"></i>
-                        </div>
-                        <div class="block-features-list__content">
-                            <h3 class="block-features-list__title">{{ feature.title }}</h3>
-                            <div class="block-features-list__description">
-                                {{ feature.description|raw }}
-                            </div>
+        {# Right column #}
+        <div class="derafu-block-features-list__column derafu-block-features-list__column--right">
+            {% for feature in features_right %}
+                <div class="derafu-block-features-list__item derafu-block-features-list__item--left">
+                    <div class="derafu-block-features-list__icon">
+                        <i class="{{ feature.icon }}"></i>
+                    </div>
+                    <div class="derafu-block-features-list__content">
+                        <h3 class="derafu-block-features-list__title">{{ feature.title }}</h3>
+                        <div class="derafu-block-features-list__description">
+                            {{ feature.description|raw }}
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-</section>
+</div>

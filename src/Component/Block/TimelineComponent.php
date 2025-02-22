@@ -3,74 +3,51 @@
 declare(strict_types=1);
 
 /**
-* Derafu: Twig - UI Component and Extension Library.
-*
-* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
-* Licensed under the MIT License.
-* See LICENSE file for more details.
-*/
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-timeline')]
-class TimelineComponent
+class TimelineComponent extends AbstractComponent
 {
-   /**
-    * Unique identifier for the timeline component.
-    *
-    * @var string
-    */
-   public string $id;
+    /**
+     * Array of timeline events configurations.
+     *
+     * Each event contains:
+     * - date: Event date (YYYY-MM-DD, YYYYMM, YYYY)
+     * - title: Event title (optional)
+     * - description: Event description (required)
+     * - icon: Font Awesome icon class (e.g. "fa-solid fa-check-circle")
+     *
+     * @var array
+     */
+    #[ExposeInTemplate()]
+    public array $events = [];
 
-   /**
-    * Theme for styling the timeline component.
-    *
-    * @var string
-    */
-   public string $theme = 'default';
+    /**
+     * Position of the timeline line (center, left, right).
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $line_position = 'center';
 
-   /**
-    * Use container wrapper.
-    *
-    * @var string
-    */
-   public string $container = 'container';
+    /**
+     * Optional date format for event dates.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $date_format = null;
 
-   /**
-    * Position of the timeline line (center, left, right).
-    *
-    * @var string
-    */
-   public string $line_position = 'center';
-
-   /**
-    * Array of timeline events configurations.
-    *
-    * Each event contains:
-    * - date: Event date (YYYY-MM-DD, YYYYMM, YYYY)
-    * - title: Event title (optional)
-    * - description: Event description (required)
-    * - icon: Font Awesome icon class (e.g. "fa-solid fa-check-circle")
-    *
-    * @var array
-    */
-   public array $events = [];
-
-   /**
-    * Optional date format for event dates.
-    *
-    * @var string|null
-    */
-   public ?string $date_format = null;
-
-   /**
-    * Constructor for the Timeline component.
-    * Automatically generates a unique ID with 'timeline-' prefix.
-    */
-   public function __construct()
-   {
-       $this->id = uniqid('timeline-');
-   }
+    protected ?string $container = 'container';
 }

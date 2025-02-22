@@ -1,22 +1,13 @@
 {# templates/components/block-title.html.twig #}
-<section class="block-title theme-{{ this.theme }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-        {% for key, title in this.title %}
-            {% if title.title %}
-                <div class="block-title__title-wrapper text-{{ title.title.alignment ?? 'center' }}
-                    {% if title.title.bottomBorder ?? false %}border-b mb-4{% endif %}">
-                    {% set titleTag = title.title.level ?? 'h2' %}
-                    <{{ titleTag }} class="block-title__title">
-                        {{ title.title.text }}
-                    </{{ titleTag }}>
-
-                    {% if title.title.subtitle %}
-                        <p class="block-title__subtitle">
-                            {{ title.title.subtitle }}
-                        </p>
-                    {% endif %}
-                </div>
-            {% endif %}
-        {% endfor %}
+<div class="derafu-block-title {{ style }}" id="{{ id }}">
+    <div class="derafu-block-title__wrapper text-{{ align }}{% if bottomBorder %} derafu-block-title__wrapper--bordered{% endif %}">
+        <h{{ level }} class="derafu-block-title__title">
+            {{ title|raw }}
+        </h{{ level }}>
+        {% if subtitle %}
+            <p class="derafu-block-title__subtitle">
+                {{ subtitle|raw }}
+            </p>
+        {% endif %}
     </div>
-</section>
+</div>

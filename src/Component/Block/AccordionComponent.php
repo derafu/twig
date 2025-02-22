@@ -12,46 +12,26 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-accordion')]
-class AccordionComponent
+class AccordionComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the accordion component.
-     *
-     * @var string
-     */
-    public string $id;
-
-    /**
-     * Theme for styling the accordion component.
-     *
-     * @var string
-     */
-    public string $theme = 'default';
-
-    /**
-     * Use container wrapper.
-     *
-     * @var string
-     */
-    public string $container = 'container';
-
-    /**
      * Array of accordion items.
-     * Each item should contain: {title, content, active}
      *
-     * @var array
+     * Each item should contain:
+     *
+     *   - `title`.
+     *   - `content`.
+     *   - `active`.
+     *
+     * @var array<int,array>
      */
+    #[ExposeInTemplate()]
     public array $items = [];
 
-    /**
-     * Constructor for the Accordion component.
-     * Automatically generates a unique ID with 'accordion-' prefix.
-     */
-    public function __construct()
-    {
-        $this->id = uniqid('accordion-');
-    }
+    protected ?string $container = 'container';
 }

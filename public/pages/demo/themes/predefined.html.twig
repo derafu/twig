@@ -20,14 +20,9 @@
             </tr>
         </thead>
         <tbody>
-            {% set themes = [
-                'theme-default', 'theme-amber-elegance', 'theme-royal-sunset', 'theme-sky-pro',
-                'theme-sky-energy', 'theme-sunrise-blue', 'theme-earthstone', 'theme-ocean-mystic',
-                'theme-deep-blue', 'theme-neo-crimson', 'theme-crimson-dark'
-            ] %}
-            {% for theme in themes %}
-                <tr class="{{ theme }}">
-                    <td>{{ theme|replace({'theme-': ''})|title }}</td>
+            {% for theme, name in themes %}
+                <tr class="derafu-theme-{{ theme }}">
+                    <td>{{ name }}</td>
                     {% for type in ['primary', 'secondary', 'tertiary'] %}
                         {% for variant in ['', '-light', '-dark', '-contrast'] %}
                             <td><div class="color-box" style="background: var(--color-{{ type }}{{ variant }});" data-bs-toggle="tooltip" title=""></div></td>

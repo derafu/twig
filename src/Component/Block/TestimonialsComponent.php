@@ -3,121 +3,101 @@
 declare(strict_types=1);
 
 /**
-* Derafu: Twig - UI Component and Extension Library.
-*
-* Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
-* Licensed under the MIT License.
-* See LICENSE file for more details.
-*/
+ * Derafu: Twig - UI Component and Extension Library.
+ *
+ * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
+ * Licensed under the MIT License.
+ * See LICENSE file for more details.
+ */
 
 namespace Derafu\Twig\Component\Block;
 
+use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-testimonials')]
-class TestimonialsComponent
+class TestimonialsComponent extends AbstractComponent
 {
-   /**
-    * Unique identifier for the testimonials component.
-    *
-    * @var string
-    */
-   public string $id;
+    /**
+     * Recommended width for background images.
+     */
+    public const RECOMMENDED_IMAGE_WIDTH = 1920;
 
-   /**
-    * Theme for styling the testimonials component.
-    *
-    * @var string
-    */
-   public string $theme = 'default';
+    /**
+     * Recommended height for background images.
+     */
+    public const RECOMMENDED_IMAGE_HEIGHT = 500;
 
-   /**
-    * Use container wrapper.
-    *
-    * @var string
-    */
-   public string $container = '';
+    /**
+     * Array of testimonials configurations.
+     *
+     * Each testimonial contains:
+     * - image: Background image URL
+     * - quote: Testimonial text
+     * - author: Author name
+     * - company: Company name (optional)
+     * - url: Link URL (optional)
+     * - position: Card position (center, left, right)
+     *
+     * @var array
+     */
+    #[ExposeInTemplate()]
+    public array $testimonials = [];
 
-   /**
-    * Array of testimonials configurations.
-    *
-    * Each testimonial contains:
-    * - image: Background image URL
-    * - quote: Testimonial text
-    * - author: Author name
-    * - company: Company name (optional)
-    * - url: Link URL (optional)
-    * - position: Card position (center, left, right)
-    *
-    * @var array
-    */
-   public array $testimonials = [];
+    /**
+     * Enable automatic slideshow.
+     *
+     * @var bool
+     */
+    #[ExposeInTemplate()]
+    public bool $autoplay = true;
 
-   /**
-    * Enable automatic slideshow.
-    *
-    * @var bool
-    */
-   public bool $autoplay = true;
+    /**
+     * Time between slides in milliseconds.
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $interval = 5000;
 
-   /**
-    * Time between slides in milliseconds.
-    *
-    * @var int
-    */
-   public int $interval = 5000;
+    /**
+     * Show navigation controls.
+     *
+     * @var bool
+     */
+    #[ExposeInTemplate()]
+    public bool $showControls = true;
 
-   /**
-    * Show navigation controls.
-    *
-    * @var bool
-    */
-   public bool $showControls = true;
+    /**
+     * Show slide indicators.
+     *
+     * @var bool
+     */
+    #[ExposeInTemplate()]
+    public bool $showIndicators = true;
 
-   /**
-    * Show slide indicators.
-    *
-    * @var bool
-    */
-   public bool $showIndicators = true;
+    /**
+     * Maximum width of testimonial cards in pixels.
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $maxWidth = 600;
 
-   /**
-    * Maximum width of testimonial cards in pixels.
-    *
-    * @var int
-    */
-   public int $maxWidth = 600;
+    /**
+     * Background image brightness percentage.
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $brightness = 70;
 
-   /**
-    * Background image brightness percentage.
-    *
-    * @var int
-    */
-   public int $brightness = 70;
-
-   /**
-    * Height of testimonial section in pixels.
-    *
-    * @var int
-    */
-   public int $height = 500;
-
-   /**
-    * Recommended width for background images.
-    */
-   public const RECOMMENDED_IMAGE_WIDTH = 1920;
-
-   /**
-    * Recommended height for background images.
-    */
-   public const RECOMMENDED_IMAGE_HEIGHT = 500;
-
-   /**
-    * Constructor for the Testimonials component.
-    * Automatically generates a unique ID with 'testimonials-' prefix.
-    */
-   public function __construct()
-   {
-       $this->id = uniqid('testimonials-');
-   }
+    /**
+     * Height of testimonial section in pixels.
+     *
+     * @var int
+     */
+    #[ExposeInTemplate()]
+    public int $height = 500;
 }

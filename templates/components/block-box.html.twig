@@ -1,9 +1,5 @@
 {# templates/components/block-box.html.twig #}
-<section class="block-box {{ this.theme }}" id="{{ this.id }}">
-    <div class="{{ this.container }}">
-       <div class="text-highlight text-highlight-{{ this.theme | replace({'theme-': ''}) }}">
-            <h3 class="text-highlight-title">{{ this.title }}</h3>
-            <div class="text-highlight-content">{{ this.text }}</div>
-        </div>
-    </div>
-</section>
+<div class="derafu-block-box {{ style }}" id="{{ id }}">
+    <h3 class="derafu-block-box__title">{{ title }}</h3>
+    <div class="derafu-block-box__content">{{ content }}</div>
+</div>

@@ -1,5 +1,5 @@
 /* Variables en el tema */
-:root, .theme-default {
+:root, .derafu-theme-default {
     /* Text-Video Component */
     --text-video-title: var(--color-primary);
     --text-video-text: var(--color-primary-dark);
@@ -11,37 +11,37 @@
 }
 
 /* Estilos del componente */
-.block-text-video {
+.derafu-block-text-video {
     padding: var(--spacing-y, 2rem) 0;
 }
 
-.block-text-video__content {
+.derafu-block-text-video__content {
     padding: var(--spacing-y, 2rem);
 }
 
-.block-text-video__title {
+.derafu-block-text-video__title {
     color: var(--text-video-title);
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
 
-.block-text-video__text {
+.derafu-block-text-video__text {
     color: var(--text-video-text);
     margin-bottom: 2rem;
 }
 
-.block-text-video__text p {
+.derafu-block-text-video__text p {
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
-.block-text-video__buttons {
+.derafu-block-text-video__buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.block-text-video__button {
+.derafu-block-text-video__button {
     display: inline-block;
     background-color: var(--text-video-button-bg);
     color: var(--text-video-button-text);
@@ -52,14 +52,14 @@
     transition: background-color 0.2s;
 }
 
-.block-text-video__button:hover {
+.derafu-block-text-video__button:hover {
     background-color: var(--text-video-button-hover);
     color: var(--text-video-button-hover-text);
     text-decoration: none;
 }
 
 /* Video Container con diferentes relaciones de aspecto */
-.block-text-video__video {
+.derafu-block-text-video__video {
     position: relative;
     width: 100%;
     border-radius: 0.5rem;
@@ -67,7 +67,7 @@
     box-shadow: 0 4px 6px var(--text-video-shadow);
 }
 
-.block-text-video__video iframe {
+.derafu-block-text-video__video iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -75,25 +75,25 @@
     height: 100%;
 }
 
-.block-text-video__video--16-9 {
+.derafu-block-text-video__video--16-9 {
     padding-bottom: 56.25%;  /* 16:9 */
 }
 
-.block-text-video__video--4-3 {
+.derafu-block-text-video__video--4-3 {
     padding-bottom: 75%;     /* 4:3 */
 }
 
-.block-text-video__video--1-1 {
+.derafu-block-text-video__video--1-1 {
     padding-bottom: 100%;    /* 1:1 */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .block-text-video__content {
+    .derafu-block-text-video__content {
         padding: var(--spacing-y, 2rem) 0;
     }
 
-    .block-text-video__video {
+    .derafu-block-text-video__video {
         margin-bottom: var(--spacing-y, 2rem);
     }
 }

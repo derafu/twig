@@ -1,18 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-{# Título con subtítulo #}
-<twig:block-title
-    :title="[
-        {
-            title: {
-                text: 'Título h2',
-                subtitle: ''
-            }
-        }
-    ]"
-/>
-
+{% for theme, name in themes %}
+    <twig:block-title
+        title="Theme: {{ name }}"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        theme="{{ theme }}"
+    />
+{% endfor %}
 
 {% endblock %}
