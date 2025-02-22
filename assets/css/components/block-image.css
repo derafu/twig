@@ -1,0 +1,87 @@
+/* Variables estructurales */
+:root {
+    --image-spacing: 2rem;
+    --image-width-small: 400px;
+    --image-width-medium: 800px;
+    --image-width-large: 1200px;
+}
+
+/* Estilos del componente */
+.derafu-block-image {
+    padding: var(--image-spacing) 0;
+}
+
+.derafu-block-image__wrapper {
+    margin: 0 auto;
+    max-width: var(--image-width-medium);
+}
+
+.derafu-block-image--small .derafu-block-image__wrapper {
+    max-width: var(--image-width-small);
+}
+
+.derafu-block-image--large .derafu-block-image__wrapper {
+    max-width: var(--image-width-large);
+}
+
+.derafu-block-image--left {
+    text-align: left;
+}
+
+.derafu-block-image--center {
+    text-align: center;
+}
+
+.derafu-block-image--right {
+    text-align: right;
+}
+
+.derafu-block-image__title {
+    color: var(--image-title);
+    margin-bottom: var(--image-spacing);
+}
+
+.derafu-block-image__image {
+    margin-bottom: var(--image-spacing);
+}
+
+.derafu-block-image__image img {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px var(--image-shadow);
+}
+
+.derafu-block-image__description {
+    color: var(--image-text);
+    margin-bottom: var(--image-spacing);
+}
+
+.derafu-block-image__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.derafu-block-image--left .derafu-block-image__buttons {
+    justify-content: flex-start;
+}
+
+.derafu-block-image--right .derafu-block-image__buttons {
+    justify-content: flex-end;
+}
+
+.derafu-block-image__button {
+    display: inline-block;
+    background-color: var(--image-button-bg);
+    color: var(--image-button-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.derafu-block-image__button:hover {
+    background-color: var(--image-button-hover);
+    color: var(--image-button-hover-text);
+    text-decoration: none;
+}

@@ -1,32 +1,25 @@
-/* Variables en el tema */
-:root, .derafu-theme-default {
-    /* Text-Video Component */
-    --text-video-title: var(--color-primary);
-    --text-video-text: var(--color-primary-dark);
-    --text-video-button-bg: var(--color-primary);
-    --text-video-button-text: var(--color-primary-contrast);
-    --text-video-button-hover: var(--color-primary-dark);
-    --text-video-button-hover-text: var(--color-primary-contrast);
-    --text-video-shadow: rgba(0, 0, 0, 0.1);
+/* Variables estructurales */
+:root {
+    --text-video-spacing: 2rem;
+    --text-video-button-gap: 1rem;
 }
 
 /* Estilos del componente */
 .derafu-block-text-video {
-    padding: var(--spacing-y, 2rem) 0;
+    padding: var(--text-video-spacing) 0;
 }
 
 .derafu-block-text-video__content {
-    padding: var(--spacing-y, 2rem);
+    padding-right: var(--text-video-spacing);
 }
 
 .derafu-block-text-video__title {
-    color: var(--text-video-title);
+    color: var(--color-primary);
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
 
 .derafu-block-text-video__text {
-    color: var(--text-video-text);
     margin-bottom: 2rem;
 }
 
@@ -37,14 +30,14 @@
 
 .derafu-block-text-video__buttons {
     display: flex;
-    gap: 1rem;
+    gap: var(--text-video-button-gap);
     flex-wrap: wrap;
 }
 
 .derafu-block-text-video__button {
     display: inline-block;
-    background-color: var(--text-video-button-bg);
-    color: var(--text-video-button-text);
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     text-decoration: none;
@@ -53,47 +46,51 @@
 }
 
 .derafu-block-text-video__button:hover {
-    background-color: var(--text-video-button-hover);
-    color: var(--text-video-button-hover-text);
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary-contrast);
     text-decoration: none;
 }
 
-/* Video Container con diferentes relaciones de aspecto */
-.derafu-block-text-video__video {
+/* Video container */
+.derafu-block-text-video__media-wrapper {
     position: relative;
     width: 100%;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px var(--text-video-shadow);
 }
 
-.derafu-block-text-video__video iframe {
+.derafu-block-text-video__media {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.derafu-block-text-video__media iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border: 0;
+    border-radius: 0.5rem;
 }
 
-.derafu-block-text-video__video--16-9 {
+/* Aspect ratios */
+.derafu-block-text-video__media--16-9 {
     padding-bottom: 56.25%;  /* 16:9 */
 }
 
-.derafu-block-text-video__video--4-3 {
+.derafu-block-text-video__media--4-3 {
     padding-bottom: 75%;     /* 4:3 */
 }
 
-.derafu-block-text-video__video--1-1 {
+.derafu-block-text-video__media--1-1 {
     padding-bottom: 100%;    /* 1:1 */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .derafu-block-text-video__content {
-        padding: var(--spacing-y, 2rem) 0;
-    }
-
-    .derafu-block-text-video__video {
-        margin-bottom: var(--spacing-y, 2rem);
+        padding-right: 0;
+        padding-bottom: var(--text-video-spacing);
     }
 }

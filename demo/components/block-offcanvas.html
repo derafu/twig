@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derafu Twig</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/derafu-twig.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        .code-container {
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+
+        h1 {
+            margin: 24px 0 16px;
+            font-weight: 600;
+            padding-bottom: 0.3em;
+            font-size: 2em;
+            line-height: 1.25;
+            border-bottom: 1px solid #d7dde3;
+        }
+    </style>
+    </head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Derafu Twig</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../themes.html">
+                            <i class="fa-solid fa-palette"></i>
+                            Themes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../components.html">
+                            <i class="fa-solid fa-cubes"></i>
+                            Components
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-4" href="https://github.com/derafu/twig">
+                            <i class="fa-brands fa-github"></i>
+                            View on Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="derafu-theme-default">
+        <div class="container my-5">
+        <button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-left">
+        Menú Izquierdo
+    </button>
+
+    <div class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="offcanvas-left"
+    aria-labelledby="offcanvas-left-label"
+        >
+
+            <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvas-left-label">Menú de Navegación</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+    
+    <div class="offcanvas-body">
+        <ul class='nav flex-column'>
+            <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Inicio</a></li>
+            <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Productos</a></li>
+            <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Servicios</a></li>
+            <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Contacto</a></li>
+        </ul>
+
+            </div>
+</div>
+
+
+        <button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-right">
+        Editar Perfil
+    </button>
+
+    <div class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvas-right"
+    aria-labelledby="offcanvas-right-label"
+        >
+
+            <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvas-right-label">Editar Perfil</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+    
+    <div class="offcanvas-body">
+        <form id='profileForm'>
+            <div class='mb-3'>
+                <label class='form-label'>Nombre</label>
+                <input type='text' class='form-control'>
+            </div>
+            <div class='mb-3'>
+                <label class='form-label'>Email</label>
+                <input type='email' class='form-control'>
+            </div>
+            <div class='mb-3'>
+                <label class='form-label'>Bio</label>
+                <textarea class='form-control' rows='3'></textarea>
+            </div>
+        </form>
+
+                    <div class="derafu-block-offcanvas__buttons">
+                                    <button type="button"
+                        class="btn btn-light"
+                        data-bs-dismiss="offcanvas"                        >
+                        Cancelar
+                    </button>
+                                    <button type="button"
+                        class="btn btn-success"
+                                                onclick=&quot;document.getElementById('profileForm').submit()&quot;>
+                        Guardar
+                    </button>
+                            </div>
+            </div>
+</div>
+
+
+        <button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-top">
+        Notificaciones
+    </button>
+
+    <div class="offcanvas offcanvas-top"
+    tabindex="-1"
+    id="offcanvas-top"
+    aria-labelledby="offcanvas-top-label"
+        data-bs-scroll="true">
+
+            <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvas-top-label">Notificaciones</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+    
+    <div class="offcanvas-body">
+        <div class='list-group'>
+            <a href='block-offcanvas.html#' class='list-group-item list-group-item-action'>
+                <div class='d-flex w-100 justify-content-between'>
+                    <h6 class='mb-1'>Nuevo mensaje</h6>
+                    <small>3 mins ago</small>
+                </div>
+                <p class='mb-1'>Tienes un nuevo mensaje de soporte.</p>
+            </a>
+            <!-- Más notificaciones... -->
+        </div>
+
+            </div>
+</div>
+
+
+        <button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-bottom">
+        Player de Música
+    </button>
+
+    <div class="offcanvas offcanvas-bottom"
+    tabindex="-1"
+    id="offcanvas-bottom"
+    aria-labelledby="offcanvas-bottom-label"
+    data-bs-backdrop="false"    >
+
+            <div class="offcanvas-header">
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+    
+    <div class="offcanvas-body">
+        <div class='d-flex align-items-center justify-content-between'>
+            <div class='d-flex align-items-center'>
+                <img src='../../assets/img/block-hero.jpeg' width='50' height='50' class='me-3'>
+                <div>
+                    <h6 class='mb-0'>Nombre de la Canción</h6>
+                    <small>Artista</small>
+                </div>
+            </div>
+            <div class='btn-group'>
+                <button class='btn btn-link'><i class='fas fa-backward'></i></button>
+                <button class='btn btn-link'><i class='fas fa-play'></i></button>
+                <button class='btn btn-link'><i class='fas fa-forward'></i></button>
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+        <button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll">
+        Documentación
+    </button>
+
+    <div class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvas-scroll"
+    aria-labelledby="offcanvas-scroll-label"
+    data-bs-backdrop="false"    data-bs-scroll="true">
+
+            <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvas-scroll-label">Documentación</h5>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+    
+    <div class="offcanvas-body">
+        <div>
+            <h4>Introducción</h4>
+            <p>Lorem ipsum dolor sit amet...</p>
+            <h4>Guía de Inicio</h4>
+            <p>Sed do eiusmod tempor incididunt...</p>
+            <h4>Configuración</h4>
+            <p>Ut enim ad minim veniam...</p>
+            <!-- Más contenido para demostrar scroll -->
+        </div>
+
+                    <div class="derafu-block-offcanvas__buttons">
+                                    <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="offcanvas"                        >
+                        Cerrar
+                    </button>
+                            </div>
+            </div>
+</div>
+
+</div>
+    </div>
+
+        <div class="container mt-4 mb-4">
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre><code class="language-twig">{# derafu_twig:public/pages/demo/components/block-offcanvas.html.twig #}
+
+{% extends &#039;base.html.twig&#039; %}
+
+{% block body %}
+&lt;div class=&quot;container my-5&quot;&gt;
+    {# Offcanvas Izquierda (start) #}
+    &lt;button class=&quot;btn btn-light d-block mb-2&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-left&quot;&gt;
+        Menú Izquierdo
+    &lt;/button&gt;
+
+    &lt;twig:block-offcanvas
+        id=&quot;offcanvas-left&quot;
+        position=&quot;start&quot;
+        title=&quot;Menú de Navegación&quot;
+        content=&quot;&lt;ul class=&#039;nav flex-column&#039;&gt;
+            &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Productos&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;&quot;
+    /&gt;
+
+    {# Offcanvas Derecha con Formulario #}
+    &lt;button class=&quot;btn btn-light d-block mb-2&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-right&quot;&gt;
+        Editar Perfil
+    &lt;/button&gt;
+
+    &lt;twig:block-offcanvas
+        id=&quot;offcanvas-right&quot;
+        position=&quot;end&quot;
+        title=&quot;Editar Perfil&quot;
+        content=&quot;&lt;form id=&#039;profileForm&#039;&gt;
+            &lt;div class=&#039;mb-3&#039;&gt;
+                &lt;label class=&#039;form-label&#039;&gt;Nombre&lt;/label&gt;
+                &lt;input type=&#039;text&#039; class=&#039;form-control&#039;&gt;
+            &lt;/div&gt;
+            &lt;div class=&#039;mb-3&#039;&gt;
+                &lt;label class=&#039;form-label&#039;&gt;Email&lt;/label&gt;
+                &lt;input type=&#039;email&#039; class=&#039;form-control&#039;&gt;
+            &lt;/div&gt;
+            &lt;div class=&#039;mb-3&#039;&gt;
+                &lt;label class=&#039;form-label&#039;&gt;Bio&lt;/label&gt;
+                &lt;textarea class=&#039;form-control&#039; rows=&#039;3&#039;&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;&quot;
+        :buttons=&quot;[
+            {
+                text: &#039;Cancelar&#039;,
+                type: &#039;light&#039;,
+                dismiss: true
+            },
+            {
+                text: &#039;Guardar&#039;,
+                type: &#039;success&#039;,
+                attributes: &#039;onclick=&amp;quot;document.getElementById(\&#039;profileForm\&#039;).submit()&amp;quot;&#039;
+            }
+        ]&quot;
+    /&gt;
+
+    {# Offcanvas Superior #}
+    &lt;button class=&quot;btn btn-light d-block mb-2&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-top&quot;&gt;
+        Notificaciones
+    &lt;/button&gt;
+
+    &lt;twig:block-offcanvas
+        id=&quot;offcanvas-top&quot;
+        position=&quot;top&quot;
+        title=&quot;Notificaciones&quot;
+        scroll=&quot;true&quot;
+        content=&quot;&lt;div class=&#039;list-group&#039;&gt;
+            &lt;a href=&#039;#&#039; class=&#039;list-group-item list-group-item-action&#039;&gt;
+                &lt;div class=&#039;d-flex w-100 justify-content-between&#039;&gt;
+                    &lt;h6 class=&#039;mb-1&#039;&gt;Nuevo mensaje&lt;/h6&gt;
+                    &lt;small&gt;3 mins ago&lt;/small&gt;
+                &lt;/div&gt;
+                &lt;p class=&#039;mb-1&#039;&gt;Tienes un nuevo mensaje de soporte.&lt;/p&gt;
+            &lt;/a&gt;
+            &lt;!-- Más notificaciones... --&gt;
+        &lt;/div&gt;&quot;
+    /&gt;
+
+    {# Offcanvas Inferior sin Backdrop #}
+    &lt;button class=&quot;btn btn-light d-block mb-2&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-bottom&quot;&gt;
+        Player de Música
+    &lt;/button&gt;
+
+    &lt;twig:block-offcanvas
+        id=&quot;offcanvas-bottom&quot;
+        position=&quot;bottom&quot;
+        :backdrop=&quot;false&quot;
+        showClose=&quot;false&quot;
+        content=&quot;&lt;div class=&#039;d-flex align-items-center justify-content-between&#039;&gt;
+            &lt;div class=&#039;d-flex align-items-center&#039;&gt;
+                &lt;img src=&#039;{{ base_path }}/assets/img/block-hero.jpeg&#039; width=&#039;50&#039; height=&#039;50&#039; class=&#039;me-3&#039;&gt;
+                &lt;div&gt;
+                    &lt;h6 class=&#039;mb-0&#039;&gt;Nombre de la Canción&lt;/h6&gt;
+                    &lt;small&gt;Artista&lt;/small&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&#039;btn-group&#039;&gt;
+                &lt;button class=&#039;btn btn-link&#039;&gt;&lt;i class=&#039;fas fa-backward&#039;&gt;&lt;/i&gt;&lt;/button&gt;
+                &lt;button class=&#039;btn btn-link&#039;&gt;&lt;i class=&#039;fas fa-play&#039;&gt;&lt;/i&gt;&lt;/button&gt;
+                &lt;button class=&#039;btn btn-link&#039;&gt;&lt;i class=&#039;fas fa-forward&#039;&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;
+    /&gt;
+
+    {# Offcanvas con Scroll y Sin Backdrop #}
+    &lt;button class=&quot;btn btn-light d-block mb-2&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-scroll&quot;&gt;
+        Documentación
+    &lt;/button&gt;
+
+    &lt;twig:block-offcanvas
+        id=&quot;offcanvas-scroll&quot;
+        position=&quot;end&quot;
+        title=&quot;Documentación&quot;
+        scroll=&quot;true&quot;
+        :backdrop=&quot;false&quot;
+        content=&quot;&lt;div&gt;
+            &lt;h4&gt;Introducción&lt;/h4&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+            &lt;h4&gt;Guía de Inicio&lt;/h4&gt;
+            &lt;p&gt;Sed do eiusmod tempor incididunt...&lt;/p&gt;
+            &lt;h4&gt;Configuración&lt;/h4&gt;
+            &lt;p&gt;Ut enim ad minim veniam...&lt;/p&gt;
+            &lt;!-- Más contenido para demostrar scroll --&gt;
+        &lt;/div&gt;&quot;
+        :buttons=&quot;[
+            {
+                text: &#039;Cerrar&#039;,
+                type: &#039;secondary&#039;,
+                dismiss: true
+            }
+        ]&quot;
+    /&gt;
+&lt;/div&gt;
+{% endblock %}
+</code></pre>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="sticky-bottom py-3 bg-body-tertiary mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="text-body-secondary">
+                        &copy; 2025 Derafu Twig -
+                        <a href="https://github.com/derafu/twig" class="text-decoration-none">
+                            github.com/derafu/twig
+                        </a><br/>
+                        <small>UI Component and Extension Library</small>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-body-secondary">
+                        With love <i class="fa-solid fa-heart text-danger"></i> from
+                        <a href="https://www.derafu.org" target="_blank" class="text-decoration-none">Derafu ORG</a><br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+    <script>
+        function copyCode(button) {
+            let code = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => button.innerText = "Copy", 2000);
+            });
+        }
+    </script>
+    </body>
+</html>

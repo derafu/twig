@@ -30,6 +30,15 @@
         .copy-btn:hover {
             background: #0056b3;
         }
+
+        h1 {
+            margin: 24px 0 16px;
+            font-weight: 600;
+            padding-bottom: 0.3em;
+            font-size: 2em;
+            line-height: 1.25;
+            border-bottom: 1px solid #d7dde3;
+        }
     </style>
     </head>
 <body>
@@ -93,7 +102,7 @@
 <li><strong>Content</strong>: Cards, Features (Grid, List, Icon, Table), Text with Image/Video.</li>
 <li><strong>Navigation</strong>: Tabs, Steps, Timeline.</li>
 <li><strong>Interaction</strong>: Accordion, CTA (Call to Action).</li>
-<li><strong>Showcasing</strong>: Team, Testimonials, Hero, Photo.</li>
+<li><strong>Showcasing</strong>: Team, Testimonials, Hero, Image.</li>
 <li><strong>Comparison</strong>: Tables, Boxes, Comparison grids.</li>
 </ul>
 <h2><a id="content-extensions" href="index.html#content-extensions" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Extensions</h2>
@@ -208,7 +217,10 @@ echo $twigService-&gt;render('example.html.twig');
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
     <script>
         function copyCode(button) {
             let code = button.nextElementSibling.innerText;

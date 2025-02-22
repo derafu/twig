@@ -1,67 +1,29 @@
-.derafu-block-modal .modal {
-    position: static;
-    display: block;
-    background: none;
+/* Solo estilos adicionales si se necesitan */
+.modal-dialog {
+    margin: var(--modal-margin, 1.75rem) auto;
 }
 
-.derafu-block-modal .modal-dialog {
+.modal-content {
+    border-radius: var(--modal-border-radius, 0.5rem);
+}
+
+.modal-header {
+    border-bottom-color: var(--modal-border-color);
+}
+
+.modal-footer {
+    border-top-color: var(--modal-border-color);
+}
+
+.modal-dialog.modal-fullscreen {
     margin: 0;
-    transform: none !important;
+    padding: 0;
+    max-width: 100%;
+    min-height: 100vh;
 }
 
-.derafu-block-modal .modal-content {
-    box-shadow: 0 2px 4px var(--modal-shadow);
-}
-
-.derafu-block-modal .modal-backdrop {
-    display: none;
-}
-
-/* Estilos del header según el tema */
-.derafu-block-modal.derafu-theme-default .modal-header,
-.derafu-block-modal.derafu-theme-default .modal-header {
-    background-color: var(--bs-secondary) !important;
-    color: white !important;
-}
-
-.derafu-block-modal.derafu-theme-ocean-mystic .modal-header,
-.derafu-block-modal.derafu-theme-ocean-mystic .modal-header {
-    background-color: var(--color-secondary-light) !important;
-    color: white !important;
-}
-
-/* Estilos específicos para el footer y los botones */
-.derafu-block-modal .modal-footer {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    padding: 1rem;
-}
-
-/* Estilos unificados para todos los botones */
-.derafu-block-modal .modal-footer .btn {
-    min-width: 100px;
-    max-width: 150px !important;
-    height: 40px !important;
-    line-height: 40px !important;
-    padding: 0 1rem !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    font-size: 1rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.derafu-block-modal .btn:active {
-    background-color: var(--modal-button-hover);
-    border-color: var(--modal-button-border);
-
-}
-
-.derafu-block-modal .btn-primary {
-    border-color: var(--modal-button-border);
-
+.modal-dialog.modal-fullscreen .modal-content {
+    border: 0;
+    border-radius: 0;
+    min-height: 100vh;
 }

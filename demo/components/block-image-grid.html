@@ -30,6 +30,15 @@
         .copy-btn:hover {
             background: #0056b3;
         }
+
+        h1 {
+            margin: 24px 0 16px;
+            font-weight: 600;
+            padding-bottom: 0.3em;
+            font-size: 2em;
+            line-height: 1.25;
+            border-bottom: 1px solid #d7dde3;
+        }
     </style>
     </head>
 <body>
@@ -70,8 +79,30 @@
 
     
     <div class="derafu-theme-default">
-        <div class="derafu-block-image-grid container" id="block-image-grid--67b9570a5e8a7">
+        <div class="derafu-block-image-grid container" id="block-image-grid--67ba5b3ebb646">
     <div class="row g-4">
+                    <div class="col-6 col-md-4 col-lg-3">
+                <div class="derafu-block-image-grid__item">
+                                            <a href="https://example1.com" class="derafu-block-image-grid__link" data-bs-toggle="tooltip" title="Empresa 1">
+                            <img src="../../assets/img/block-hero.jpeg" alt="Empresa 1" class="derafu-block-image-grid__image">
+                        </a>
+                                    </div>
+            </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                <div class="derafu-block-image-grid__item">
+                                            <img src="../../assets/img/block-hero.jpeg" alt="Empresa 2" class="derafu-block-image-grid__image" data-bs-toggle="tooltip" title="Empresa 2">
+                                    </div>
+            </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                <div class="derafu-block-image-grid__item">
+                                            <img src="../../assets/img/block-hero.jpeg" alt="" class="derafu-block-image-grid__image" >
+                                    </div>
+            </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                <div class="derafu-block-image-grid__item">
+                                            <img src="../../assets/img/block-hero.jpeg" alt="" class="derafu-block-image-grid__image" >
+                                    </div>
+            </div>
                     <div class="col-6 col-md-4 col-lg-3">
                 <div class="derafu-block-image-grid__item">
                                             <a href="https://example1.com" class="derafu-block-image-grid__link" data-bs-toggle="tooltip" title="Empresa 1">
@@ -132,6 +163,21 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             image: &#039;../../../assets/img/block-hero.jpeg&#039;,
+        },
+        {
+            image: &#039;../../../assets/img/block-hero.jpeg&#039;,
+            url: &#039;https://example1.com&#039;,
+            tooltip: &#039;Empresa 1&#039;
+        },
+        {
+            image: &#039;../../../assets/img/block-hero.jpeg&#039;,
+            tooltip: &#039;Empresa 2&#039;
+        },
+        {
+            image: &#039;../../../assets/img/block-hero.jpeg&#039;,
+        },
+        {
+            image: &#039;../../../assets/img/block-hero.jpeg&#039;,
         }
     ]&quot;
     :cols=&quot;4&quot;
@@ -166,7 +212,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
     <script>
         function copyCode(button) {
             let code = button.nextElementSibling.innerText;

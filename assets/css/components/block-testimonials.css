@@ -65,12 +65,14 @@
     line-height: 1.6;
 }
 
-.derafu-block-testimonials__text a {
+.derafu-block-testimonials__text a,
+.derafu-block-testimonials__author-info a {
     color: var(--testimonial-link-color);
     text-decoration: none;
 }
 
-.derafu-block-testimonials__text a:hover {
+.derafu-block-testimonials__text a:hover,
+.derafu-block-testimonials__author-info a:hover {
     text-decoration: underline;
 }
 

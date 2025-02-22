@@ -30,6 +30,15 @@
         .copy-btn:hover {
             background: #0056b3;
         }
+
+        h1 {
+            margin: 24px 0 16px;
+            font-weight: 600;
+            padding-bottom: 0.3em;
+            font-size: 2em;
+            line-height: 1.25;
+            border-bottom: 1px solid #d7dde3;
+        }
     </style>
     </head>
 <body>
@@ -70,21 +79,20 @@
 
     
     <div class="derafu-theme-default">
-        <div class="derafu-block-text-image container" id="block-text-image--67b9570a6fe46">
+        <div class="derafu-block-text-image container" id="block-text-image--67ba5b3f00a88">
     <div class="row align-items-center">
                 <div class="col-md-7 ">
             <div class="derafu-block-text-image__content">
                 <h2 class="derafu-block-text-image__title">Lorem ipsum dolor sit amet</h2>
                 <div class="derafu-block-text-image__text">
-                    <p>La mejor manera de ahorrar tiempo es no desperdiciarlo en tareas rutinarias. Te ofrecemos una plataforma que te permitirá agilizar la emisión de tus <strong>boletas</strong> y <strong>facturas</strong>.</p>
-             <p>Somos la primera solución de facturación electrónica libre para Chile. Con LibreDTE podrás administrar múltiples empresas desde tu cuenta.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.</p>
                 </div>
                                     <div class="derafu-block-text-image__buttons">
-                                                    <a href="https://www.libredte.cl" class="derafu-block-text-image__button">
-                                Conoce más
+                                                    <a href="https://www.derafu.org" class="derafu-block-text-image__button">
+                                Derafu ORG
                             </a>
-                                                    <a href="https://www.libredte.cl/trial" class="derafu-block-text-image__button">
-                                Solicita un período de prueba GRATIS
+                                                    <a href="https://www.example.com" class="derafu-block-text-image__button">
+                                Example.com
                             </a>
                                             </div>
                             </div>
@@ -98,21 +106,17 @@
     </div>
 </div>
 
-<div class="derafu-block-text-image derafu-theme-earthstone container" id="block-text-image--67b9570a70d5a">
+<div class="derafu-block-text-image derafu-theme-earthstone container" id="block-text-image--67ba5b3f0193c">
     <div class="row align-items-center">
                 <div class="col-md-7 order-md-2">
             <div class="derafu-block-text-image__content">
                 <h2 class="derafu-block-text-image__title">Lorem ipsum dolor sit amet</h2>
                 <div class="derafu-block-text-image__text">
-                    <p>La mejor manera de ahorrar tiempo es no desperdiciarlo en tareas rutinarias. Te ofrecemos una plataforma que te permitirá agilizar la emisión de tus <strong>boletas</strong> y <strong>facturas</strong>.</p>
-             <p>Somos la primera solución de facturación electrónica libre para Chile. Con LibreDTE podrás administrar múltiples empresas desde tu cuenta.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.</p>
                 </div>
                                     <div class="derafu-block-text-image__buttons">
-                                                    <a href="https://www.libredte.cl" class="derafu-block-text-image__button">
-                                Conoce más
-                            </a>
-                                                    <a href="https://www.libredte.cl/trial" class="derafu-block-text-image__button">
-                                Solicita un período de prueba GRATIS
+                                                    <a href="https://www.example.com" class="derafu-block-text-image__button">
+                                Example.com
                             </a>
                                             </div>
                             </div>
@@ -137,36 +141,30 @@
 
 {% block body %}
 &lt;twig:block-text-image
+    image=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
     title=&quot;Lorem ipsum dolor sit amet&quot;
-    content=&quot;&lt;p&gt;La mejor manera de ahorrar tiempo es no desperdiciarlo en tareas rutinarias. Te ofrecemos una plataforma que te permitirá agilizar la emisión de tus &lt;strong&gt;boletas&lt;/strong&gt; y &lt;strong&gt;facturas&lt;/strong&gt;.&lt;/p&gt;
-             &lt;p&gt;Somos la primera solución de facturación electrónica libre para Chile. Con LibreDTE podrás administrar múltiples empresas desde tu cuenta.&lt;/p&gt;&quot;
+    content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.&lt;/p&gt;&lt;p&gt;Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.&lt;/p&gt;&quot;
     :buttons=&quot;[
         {
-            text: &#039;Conoce más&#039;,
-            url: &#039;https://www.libredte.cl&#039;
+            text: &#039;Derafu ORG&#039;,
+            url: &#039;https://www.derafu.org&#039;
         },
         {
-            text: &#039;Solicita un período de prueba GRATIS&#039;,
-            url: &#039;https://www.libredte.cl/trial&#039;
+            text: &#039;Example.com&#039;,
+            url: &#039;https://www.example.com&#039;
         }
     ]&quot;
-    image=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
 /&gt;
 &lt;twig:block-text-image
+    image=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
     title=&quot;Lorem ipsum dolor sit amet&quot;
-    content=&quot;&lt;p&gt;La mejor manera de ahorrar tiempo es no desperdiciarlo en tareas rutinarias. Te ofrecemos una plataforma que te permitirá agilizar la emisión de tus &lt;strong&gt;boletas&lt;/strong&gt; y &lt;strong&gt;facturas&lt;/strong&gt;.&lt;/p&gt;
-             &lt;p&gt;Somos la primera solución de facturación electrónica libre para Chile. Con LibreDTE podrás administrar múltiples empresas desde tu cuenta.&lt;/p&gt;&quot;
+    content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.&lt;/p&gt;&lt;p&gt;Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.&lt;/p&gt;&quot;
     :buttons=&quot;[
         {
-            text: &#039;Conoce más&#039;,
-            url: &#039;https://www.libredte.cl&#039;
-        },
-        {
-            text: &#039;Solicita un período de prueba GRATIS&#039;,
-            url: &#039;https://www.libredte.cl/trial&#039;
+            text: &#039;Example.com&#039;,
+            url: &#039;https://www.example.com&#039;
         }
     ]&quot;
-    image=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
     image_position=&quot;left&quot;
     theme=&quot;earthstone&quot;
 /&gt;
@@ -200,7 +198,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
     <script>
         function copyCode(button) {
             let code = button.nextElementSibling.innerText;

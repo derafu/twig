@@ -30,6 +30,15 @@
         .copy-btn:hover {
             background: #0056b3;
         }
+
+        h1 {
+            margin: 24px 0 16px;
+            font-weight: 600;
+            padding-bottom: 0.3em;
+            font-size: 2em;
+            line-height: 1.25;
+            border-bottom: 1px solid #d7dde3;
+        }
     </style>
     </head>
 <body>
@@ -73,7 +82,7 @@
         
 
 
-<div class="derafu-block-grid container" id="block-grid--67b95709e22b4">
+<div class="derafu-block-grid container" id="block-grid--67ba5b3ea6876">
             
                         
                                 
@@ -87,20 +96,20 @@
 
                         </div>
                                                                     <div class="derafu-block-grid__item derafu-block-grid__item--2">
-                                <div class="derafu-block-photo  derafu-block-photo--center derafu-block-photo--medium" id="block-photo--67b95709e0a3a">
-    <div class="derafu-block-photo__wrapper">
-                    <h2 class="derafu-block-photo__title">¿Qué es Twig?</h2>
+                                <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium" id="block-image--67ba5b3ea5abc">
+    <div class="derafu-block-image__wrapper">
+                    <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
-        <div class="derafu-block-photo__image">
+        <div class="derafu-block-image__image">
             <img src="../../assets/img/block-hero.jpeg" alt="¿Qué es Twig?" class="img-fluid">
         </div>
 
-                    <div class="derafu-block-photo__description">
+                    <div class="derafu-block-image__description">
                 <p>Una ramita.</p>
             </div>
         
-                    <div class="derafu-block-photo__buttons">
-                                    <a href="https://twig.symfony.com/" class="derafu-block-photo__button">
+                    <div class="derafu-block-image__buttons">
+                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button">
                         Aprende sobre Twig
                     </a>
                             </div>
@@ -114,7 +123,7 @@
                                                         </div>
 
 
-<div class="derafu-block-grid container" id="block-grid--67b95709e4156">
+<div class="derafu-block-grid container" id="block-grid--67ba5b3ea8539">
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
                             <div class="grid-item">
                         <h2>Item 1</h2>
@@ -122,20 +131,20 @@
 
                 </div>
                             <div class="grid-item">
-                        <div class="derafu-block-photo  derafu-block-photo--center derafu-block-photo--medium" id="block-photo--67b95709e0a3a">
-    <div class="derafu-block-photo__wrapper">
-                    <h2 class="derafu-block-photo__title">¿Qué es Twig?</h2>
+                        <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium" id="block-image--67ba5b3ea5abc">
+    <div class="derafu-block-image__wrapper">
+                    <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
-        <div class="derafu-block-photo__image">
+        <div class="derafu-block-image__image">
             <img src="../../assets/img/block-hero.jpeg" alt="¿Qué es Twig?" class="img-fluid">
         </div>
 
-                    <div class="derafu-block-photo__description">
+                    <div class="derafu-block-image__description">
                 <p>Una ramita.</p>
             </div>
         
-                    <div class="derafu-block-photo__buttons">
-                                    <a href="https://twig.symfony.com/" class="derafu-block-photo__button">
+                    <div class="derafu-block-image__buttons">
+                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button">
                         Aprende sobre Twig
                     </a>
                             </div>
@@ -164,7 +173,7 @@
 {% endset %}
 
 {% set grid_item_2 %}
-    &lt;twig:block-photo
+    &lt;twig:block-image
         title=&quot;¿Qué es Twig?&quot;
         image=&quot;{{ base_path }}/assets/img/block-hero.jpeg&quot;
         description=&quot;&lt;p&gt;Una ramita.&lt;/p&gt;&quot;
@@ -221,7 +230,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
     <script>
         function copyCode(button) {
             let code = button.nextElementSibling.innerText;

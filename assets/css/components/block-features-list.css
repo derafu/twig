@@ -1,5 +1,5 @@
 .derafu-block-features-list {
-    padding: var(--spacing-y, 2rem) 0;
+    margin: var(--spacing-y, 2rem) auto;
 }
 
 .derafu-block-features-list__row {
