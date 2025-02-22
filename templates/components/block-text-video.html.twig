@@ -1,8 +1,8 @@
 {# templates/components/block-text-video.html.twig #}
-<div class="derafu-block-text-video {{ style }}" id="{{ id }}">
+<div class="derafu-block-text-video {{ class }}" id="{{ id }}">
     <div class="row align-items-center">
         {# Text Column #}
-        <div class="col-md-{{ text_cols }} {% if video_position == 'left' %}order-md-2{% endif %}">
+        <div class="col-12 col-md-{{ text_cols }} {% if video_position == 'left' %}order-md-2{% endif %}">
             <div class="derafu-block-text-video__content">
                 <h2 class="derafu-block-text-video__title">{{ title }}</h2>
                 <div class="derafu-block-text-video__text">
@@ -21,14 +21,16 @@
         </div>
 
         {# Video Column #}
-        <div class="col-md-{{ video_cols }} {% if video_position == 'left' %}order-md-1{% endif %}">
-            <div class="derafu-block-text-video__video derafu-block-text-video__video--{{ aspect_ratio|replace({':': '-'}) }}">
-                <iframe
-                    src="{{ video_url }}{% if not show_controls %}?controls=0{% endif %}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
+        <div class="col-12 col-md-{{ 12 - text_cols }} {% if video_position == 'left' %}order-md-1{% endif %}">
+            <div class="derafu-block-text-video__media-wrapper">
+                <div class="derafu-block-text-video__media derafu-block-text-video__media--{{ aspect_ratio|replace({':': '-'}) }}">
+                    <iframe
+                        src="{{ video_url }}{% if not show_controls %}?controls=0{% endif %}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
             </div>
         </div>
     </div>

@@ -2,55 +2,144 @@
 
 {% block body %}
 <div class="container">
+    {# Tabla básica #}
     {% for theme, name in themes %}
-        <h2 class="mt-4 mb-2">Theme: {{ name }}</h2>
         <twig:block-table
+            caption="Theme: {{ name }}"
             :headers="[
-                {text: 'ID', scope: 'col'},
-                {text: 'Nombre', scope: 'col'},
-                {text: 'Empresa', scope: 'col'},
-                {text: 'Correo', scope: 'col'},
-                {text: 'Estado', scope: 'col'}
+                [
+                    {'text': 'ID', 'scope': 'col', 'align': 'center'},
+                    {'text': 'Nombre', 'scope': 'col'},
+                    {'text': 'Email', 'scope': 'col'},
+                    {'text': 'Estado', 'scope': 'col', 'align': 'center'}
+                ]
             ]"
             :rows="[
-                {
-                    id: {text: '1', scope: 'row'},
-                    nombre: 'Juan Pérez',
-                    empresa: 'Tecnología SA',
-                    correo: 'juan@tecno.com',
-                    estado: 'Activo'
-                },
-                {
-                    id: {text: '2', scope: 'row'},
-                    nombre: 'María López',
-                    empresa: 'Desarrollo SL',
-                    correo: 'maria@desa.com',
-                    estado: 'Pendiente'
-                },
-                {
-                    id: {text: '3', scope: 'row'},
-                    nombre: 'Carlos Ruiz',
-                    empresa: 'Servicios IT',
-                    correo: 'carlos@it.com',
-                    estado: 'Inactivo'
-                },
-                {
-                    id: {text: '4', scope: 'row'},
-                    nombre: 'Ana García',
-                    empresa: 'Web Solutions',
-                    correo: 'ana@web.com',
-                    estado: 'Activo'
-                },
-                {
-                    id: {text: '5', scope: 'row'},
-                    nombre: 'Pedro Sánchez',
-                    empresa: 'Tech Corp',
-                    correo: 'pedro@tech.com',
-                    estado: 'Pendiente'
-                }
+                ['1', 'Juan Pérez', 'juan@example.com', 'Activo'],
+                ['2', 'María López', 'maria@example.com', 'Inactivo'],
+                ['3', 'Carlos Ruiz', 'carlos@example.com', 'Pendiente']
+            ]"
+            :columns="[
+                {'index': 0, 'width': '80px', 'align': 'center'},
+                {'index': 3, 'align': 'center', 'class': 'fw-bold'}
+            ]"
+            :rowClasses="[
+                {'col': 3, 'values': {
+                    'Activo': 'table-success',
+                    'Inactivo': 'table-danger',
+                    'Pendiente': 'table-warning'
+                }}
             ]"
             theme="{{ theme }}"
         />
+
+        <br/>
+
     {% endfor %}
+
+    {# Tabla con headers complejos y footer #}
+    <twig:block-table
+        caption="Reporte de Ventas 2024"
+        :headers="[
+            [
+                {text: 'Región', scope: 'col', rowspan: '2'},
+                {text: 'Ventas por Trimestre', scope: 'col', colspan: '4', class: 'text-center'},
+            ],
+            [
+                {text: 'Q1', scope: 'col', align: 'end'},
+                {text: 'Q2', scope: 'col', align: 'end'},
+                {text: 'Q3', scope: 'col', align: 'end'},
+                {text: 'Q4', scope: 'col', align: 'end'}
+            ]
+        ]"
+        :rows="[
+            ['Norte', '10,500', '12,300', '11,800', '13,200'],
+            ['Sur', '8,900', '9,200', '9,800', '10,100'],
+            ['Este', '11,200', '11,500', '12,100', '12,800']
+        ]"
+        :footer="[
+            [
+                {text: 'Total', colspan: '1'},
+                {text: '30,600', class: 'fw-bold text-end'},
+                {text: '33,000', class: 'fw-bold text-end'},
+                {text: '33,700', class: 'fw-bold text-end'},
+                {text: '36,100', class: 'fw-bold text-end'}
+            ]
+        ]"
+        :columns="[
+            {width: '120px'},
+            {align: 'end'},
+            {align: 'end'},
+            {align: 'end'},
+            {align: 'end'}
+        ]"
+        :bordered="true"
+        :striped="true"
+        :hover="false"
+    />
+
+    <br/>
+
+    {# Tabla con acciones y toggle #}
+    <twig:block-table
+        :headers="[
+            [
+                {text: 'Producto', scope: 'col'},
+                {text: 'Categoría', scope: 'col'},
+                {text: 'Stock', scope: 'col', align: 'center'},
+                {text: 'Precio', scope: 'col', align: 'end'}
+            ]
+        ]"
+        :rows="[
+            ['Laptop XPS', 'Computadoras', '15', '$1,299.99'],
+            ['Mouse Wireless', 'Accesorios', '45', '$29.99'],
+            ['Monitor 27\'\'', 'Pantallas', '8', '$299.99']
+        ]"
+        :actions="[
+            {
+                text: 'Exportar a Excel',
+                icon: 'fas fa-file-excel',
+                url: '/exportar/excel'
+            },
+            {
+                text: 'Exportar a PDF',
+                icon: 'fas fa-file-pdf',
+                url: '/exportar/pdf'
+            },
+            {type: 'divider'},
+            {
+                text: 'Imprimir',
+                icon: 'fas fa-print',
+                onclick: 'window.print()'
+            }
+        ]"
+        :toggleable="true"
+        :visible="true"
+        :maxHeight="300"
+        :hover="false"
+    />
+
+    <br/>
+
+    {# Tabla minimalista responsiva #}
+    <twig:block-table
+        :headers="[
+            [
+                {text: '#', scope: 'col'},
+                {text: 'Título', scope: 'col'},
+                {text: 'Fecha', scope: 'col'},
+                {text: 'Estado', scope: 'col'}
+            ]
+        ]"
+        :rows="[
+            ['1', 'Documento 1', '2024-02-22', '<span class=\'badge bg-success\'>Aprobado</span>'],
+            ['2', 'Documento 2', '2024-02-21', '<span class=\'badge bg-warning\'>Pendiente</span>'],
+            ['3', 'Documento 3', '2024-02-20', '<span class=\'badge bg-danger\'>Rechazado</span>']
+        ]"
+        :small="true"
+        :striped="false"
+        :bordered="false"
+        :hover="false"
+    />
 </div>
 {% endblock %}

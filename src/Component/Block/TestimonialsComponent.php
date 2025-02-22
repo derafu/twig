@@ -36,7 +36,7 @@ class TestimonialsComponent extends AbstractComponent
      * - image: Background image URL
      * - quote: Testimonial text
      * - author: Author name
-     * - company: Company name (optional)
+     * - organization: organization name (optional)
      * - url: Link URL (optional)
      * - position: Card position (center, left, right)
      *

@@ -1,40 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<twig:block-video
-    :video="[
+<twig:block-text-video
+    video_url="https://www.youtube.com/watch?v=v96l-cezK8I"
+    title="Lorem ipsum dolor sit amet"
+    content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.</p>"
+    :buttons="[
         {
-            title: '¿Pierdes tiempo facturando a mano?',
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            description: '<p>BillMySales se encarga de procesar los pedidos de la tienda y pasarlos a tu facturador favorito. Así te puedes concentrar en vender y <b>hacer crecer tu negocio</b>.</p>',
-            buttons: [
-                {
-                    text: '¡Regístrate GRATIS!',
-                    url: 'https://www.billmysales.com'
-                }
-            ],
-            size: 'normal',
-            align: 'center'
+            text: 'Derafu ORG',
+            url: 'https://www.derafu.org'
+        },
+        {
+            text: 'Example.com',
+            url: 'https://www.example.com'
         }
     ]"
 />
 
-<twig:block-video
-    :video="[
+<twig:block-text-video
+    video_url="https://www.youtube.com/watch?v=v96l-cezK8I"
+    title="Lorem ipsum dolor sit amet"
+    content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.</p>"
+    :buttons="[
         {
-            title: '¿Pierdes tiempo facturando a mano?',
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            description: '<p>BillMySales se encarga de procesar los pedidos de la tienda y pasarlos a tu facturador favorito. Así te puedes concentrar en vender y <b>hacer crecer tu negocio</b>.</p>',
-            buttons: [
-                {
-                    text: '¡Regístrate GRATIS!',
-                    url: 'https://www.billmysales.com'
-                }
-            ],
-            size: 'small',
-            align: 'center'
+            text: 'Example.com',
+            url: 'https://www.example.com'
         }
     ]"
+    video_position="left"
     theme="ocean-mystic"
 />
 {% endblock %}

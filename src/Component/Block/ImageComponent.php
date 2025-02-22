@@ -16,11 +16,11 @@ use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
-#[AsTwigComponent('block-photo')]
-class PhotoComponent extends AbstractComponent
+#[AsTwigComponent('block-image')]
+class ImageComponent extends AbstractComponent
 {
     /**
-     * Title of the photo section.
+     * Title of the image section.
      *
      * @var string
      */
@@ -28,7 +28,7 @@ class PhotoComponent extends AbstractComponent
     public string $title;
 
     /**
-     * URL of the photo image.
+     * URL of the image.
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class PhotoComponent extends AbstractComponent
     public string $image;
 
     /**
-     * Optional description text for the photo.
+     * Optional description text for the image.
      *
      * @var string|null
      */
@@ -61,7 +61,7 @@ class PhotoComponent extends AbstractComponent
     public string $align = 'center';
 
     /**
-     * Size of the photo section (small, medium, large).
+     * Size of the image section (small, medium, large).
      *
      * @var string
      */

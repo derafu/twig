@@ -1,41 +1,48 @@
 {# templates/components/block-video-grid.html.twig #}
-<div class="derafu-block-video-grid {{ style }}" id="{{ id }}">
-    <div class="derafu-block-video-grid__wrapper grid-cols-{{ cols }}">
-        {% for key, video in videos %}
-            <div class="derafu-block-video-grid__item{% if not video.card %} derafu-block-video-grid__item--simple{% endif %}" id="{{ id }}-{{ key }}">
-                {% if video.card %}
-                    {% if video.title %}
-                        <h2 class="derafu-block-video-grid__title">{{ video.title }}</h2>
-                    {% endif %}
-                {% endif %}
+<div class="derafu-block-video-grid {{ class }}" id="{{ id }}">
+    <div class="row g-4">
+        {% for video in videos %}
+            <div class="col-sm-6 {% if cols == 1 %}col-lg-12
+                {% elseif cols == 2 %}col-lg-6
+                {% elseif cols == 3 %}col-lg-4
+                {% elseif cols == 4 %}col-lg-3
+                {% else %}col-lg-2{% endif %}">
 
-                <div class="derafu-block-video-grid__media">
-                    <iframe
-                        class="derafu-block-video-grid__player"
-                        src="{{ video.video|replace({'watch?v=': 'embed/'}) }}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                <div class="derafu-block-video-grid__card
+                    {% if video.title is empty and video.description is empty %}border border-0{% endif %}"
+                >
+                    <div class="derafu-block-video-grid__media">
+                        <iframe
+                            class="derafu-block-video-grid__player"
+                            src="{{ video.video|replace({'watch?v=': 'embed/'}) }}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    {% if video.title or video.description %}
+                        <div class="derafu-block-video-grid__content">
+                            {% if video.title %}
+                                <h3 class="derafu-block-video-grid__title">{{ video.title }}</h3>
+                            {% endif %}
+
+                            {% if video.description %}
+                                <div class="derafu-block-video-grid__description">
+                                    {{ video.description|raw }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {% if video.button_text %}
+                        <div class="derafu-block-video-grid__footer">
+                            <a href="{{ video.button_url }}" class="derafu-block-video-grid__button btn {% if video.button_url is empty %}disabled{% endif %}" role="button">
+                                {{ video.button_text }}
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
-
-                {% if video.card %}
-                    {% if video.description %}
-                        <div class="derafu-block-video-grid__description">
-                            {{ video.description|raw }}
-                        </div>
-                    {% endif %}
-
-                    {% if video.buttons|length > 0 %}
-                        <div class="derafu-block-video-grid__buttons">
-                            {% for button in video.buttons %}
-                                <a href="{{ button.url }}" class="derafu-block-video-grid__button">
-                                    {{ button.text }}
-                                </a>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                {% endif %}
             </div>
         {% endfor %}
     </div>

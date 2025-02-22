@@ -24,7 +24,7 @@
 - **Content**: Cards, Features (Grid, List, Icon, Table), Text with Image/Video.
 - **Navigation**: Tabs, Steps, Timeline.
 - **Interaction**: Accordion, CTA (Call to Action).
-- **Showcasing**: Team, Testimonials, Hero, Photo.
+- **Showcasing**: Team, Testimonials, Hero, Image.
 - **Comparison**: Tables, Boxes, Comparison grids.
 
 ## Extensions

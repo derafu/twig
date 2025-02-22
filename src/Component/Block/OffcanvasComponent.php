@@ -16,29 +16,24 @@ use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
-/**
- * Modal Component for displaying popup dialogs in the application.
- *
- * This component creates a Bootstrap-based modal dialog that can be themed and configured
- * with different content, buttons, and styles.
- */
-#[AsTwigComponent('block-modal')]
-class ModalComponent extends AbstractComponent
+#[AsTwigComponent('block-offcanvas')]
+class OffcanvasComponent extends AbstractComponent
 {
     /**
-     * Modal size (sm, lg, xl, fullscreen).
+     * Position of the offcanvas (start, end, top, bottom).
+     * Default: start (left side).
      */
     #[ExposeInTemplate()]
-    public ?string $size = null;
+    public string $position = 'start';
 
     /**
-     * Modal title (optional).
+     * Offcanvas title (optional).
      */
     #[ExposeInTemplate()]
     public ?string $title = null;
 
     /**
-     * Modal content (supports HTML).
+     * Offcanvas content (supports HTML).
      */
     #[ExposeInTemplate()]
     public string $content;
@@ -50,25 +45,20 @@ class ModalComponent extends AbstractComponent
     public bool $showClose = true;
 
     /**
-     * Static backdrop (modal won't close on backdrop click).
+     * Enable backdrop.
      */
     #[ExposeInTemplate()]
-    public bool $staticBackdrop = false;
+    public bool $backdrop = true;
 
     /**
-     * Modal is vertically centered.
+     * Enable body scrolling while offcanvas is visible.
      */
     #[ExposeInTemplate()]
-    public bool $centered = false;
-
-    /**
-     * Scrollable content.
-     */
-    #[ExposeInTemplate()]
-    public bool $scrollable = false;
+    public bool $scroll = false;
 
     /**
      * Array of footer buttons.
+     *
      * Structure: [
      *   'text' => string,
      *   'type' => string (primary, secondary, etc),

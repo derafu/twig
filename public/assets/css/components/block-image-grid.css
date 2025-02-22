@@ -1,10 +1,9 @@
 .derafu-block-image-grid {
-    padding: var(--spacing-y, 2rem) 0;
+    margin: var(--spacing-y, 2rem) auto;
     background-color: var(--image-grid-bg);
 }
 
 .derafu-block-image-grid__item {
-    height: 120px;
     padding: 1.5rem;
     border: 1px solid var(--image-grid-border);
     border-radius: 0.5rem;

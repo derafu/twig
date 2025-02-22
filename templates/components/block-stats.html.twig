@@ -1,5 +1,5 @@
 {# templates/components/block-stats.html.twig #}
-<div class="derafu-block-stats {{ style }} derafu-block-stats--{{ text_position }}" id="{{ id }}">
+<div class="derafu-block-stats {{ class }} derafu-block-stats--{{ text_position }}" id="{{ id }}">
     <div class="row justify-content-center">
         {% for stat in stats %}
             {% set cols = stats|length %}

@@ -1,0 +1,28 @@
+{# templates/components/block-image.html.twig #}
+<div class="derafu-block-image {{ class }} derafu-block-image--{{ align }} derafu-block-image--{{ size }}" id="{{ id }}">
+    <div class="derafu-block-image__wrapper">
+        {% if title %}
+            <h2 class="derafu-block-image__title">{{ title }}</h2>
+        {% endif %}
+
+        <div class="derafu-block-image__image">
+            <img src="{{ image }}" alt="{{ title }}" class="img-fluid">
+        </div>
+
+        {% if description %}
+            <div class="derafu-block-image__description">
+                {{ description|raw }}
+            </div>
+        {% endif %}
+
+        {% if buttons|length > 0 %}
+            <div class="derafu-block-image__buttons">
+                {% for button in buttons %}
+                    <a href="{{ button.url }}" class="derafu-block-image__button">
+                        {{ button.text }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>

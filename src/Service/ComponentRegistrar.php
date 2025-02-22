@@ -273,8 +273,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
 
     private function getComponentName(string $componentClass): string
     {
-        // Extraer el nombre del componente de la clase usando reflexión o atributos
-        $reflection = new \ReflectionClass($componentClass);
+        // Extraer el nombre del componente de la clase usando reflexión o atributos.
+        $reflection = new ReflectionClass($componentClass);
         $attributes = $reflection->getAttributes(AsTwigComponent::class);
 
         if (!empty($attributes)) {

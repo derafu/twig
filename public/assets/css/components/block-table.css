@@ -1,38 +1,108 @@
-/* Estilos base de la tabla */
-.derafu-block-table .table {
+/* Contenedor principal */
+.derafu-block-table {
+    position: relative;
     width: 100%;
-    margin-bottom: 1rem;
-    border-collapse: collapse;
-    color: var(--table-text);
-    border-bottom: 1px solid var(--table-border);
 }
 
-/* Header */
-.derafu-block-table .table thead {
+/* Contenedor de acciones */
+.derafu-block-table__actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Estilos base de la tabla */
+.derafu-block-table .table {
+    margin-bottom: 0;
+    width: 100%;
+    color: var(--table-text);
+    background-color: var(--table-bg);
+    border-collapse: collapse;
+}
+
+/* Headers */
+.derafu-block-table .table > thead {
     background-color: var(--table-header-bg);
 }
 
-.derafu-block-table .table thead th {
-    padding: 1rem 0.75rem;
+.derafu-block-table .table > thead > tr > th {
+    background-color: var(--table-header-bg);
     color: var(--table-header-text);
     font-weight: 600;
-    border-bottom: none;
+    vertical-align: bottom;
+    border-bottom-width: 2px;
+}
+
+/* Modificadores de alineación */
+.derafu-block-table .text-start {
+    text-align: left;
+}
+
+.derafu-block-table .text-center {
+    text-align: center;
+}
+
+.derafu-block-table .text-end {
+    text-align: right;
+}
+
+/* Borders */
+.derafu-block-table .table-bordered {
+    border: 1px solid var(--table-border);
+}
+
+.derafu-block-table .table-bordered > :not(caption) > * > * {
+    border: 1px solid var(--table-border);
 }
 
 /* Striped rows */
-.derafu-block-table .table tbody tr:nth-child(odd) {
-    background-color: var(--table-row-alt);
+.derafu-block-table .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--table-stripe-bg);
 }
 
-/* Row hover */
+/* Hover */
 .derafu-block-table .table-hover > tbody > tr:hover > * {
-    color: var(--table-row-hover-text);
-    background-color: var(--table-row-hover-bg);
+    background-color: var(--table-hover-bg);
 }
 
-/* Celdas */
-.derafu-block-table .table td,
-.derafu-block-table .table th {
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--table-border);
+/* Caption */
+.derafu-block-table .table > caption {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: var(--table-text);
+    text-align: left;
+    caption-side: top;
+}
+
+/* Footer */
+.derafu-block-table .table > tfoot {
+    border-top: 2px solid var(--table-border);
+}
+
+/* Responsive container */
+.derafu-block-table .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tamaño pequeño */
+.derafu-block-table .table-sm > :not(caption) > * > * {
+    padding: 0.3rem;
+}
+
+/* Transiciones suaves */
+.derafu-block-table .table {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .derafu-block-table__actions {
+         flex-direction: column;
+         align-items: stretch;
+         gap: 0.5rem;
+    }
+
+    .derafu-block-table__actions .btn {
+         width: 100%;
+    }
 }

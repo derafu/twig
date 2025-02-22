@@ -1,8 +1,8 @@
 {# templates/components/block-boxes.html.twig #}
-<div class="derafu-block-boxes {{ style }} derafu-block-boxes--{{ align }}" id="{{ id }}>
+<div class="derafu-block-boxes {{ class }} derafu-block-boxes--{{ align }}" id="{{ id }}">
     <div class="row g-0">
         {% for box in boxes %}
-            <div class="col-md-{{ 12 / cols }}">
+            <div class="col-12 col-md-{{ 12 / cols }}">
                 <div class="derafu-block-boxes__box derafu-block-boxes__box--{{ loop.index }}">
                     {# Icon #}
                     <div class="derafu-block-boxes__icon-container">

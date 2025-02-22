@@ -1,5 +1,5 @@
 {# templates/components/block-team.html.twig #}
-<div class="derafu-block-team {{ style }} derafu-block-team--cols-{{ cols }} derafu-block-team--align-{{ align }}" id="{{ id }}">
+<div class="derafu-block-team {{ class }} derafu-block-team--cols-{{ cols }} derafu-block-team--align-{{ align }}" id="{{ id }}">
     <div class="row g-4">
         {% for member in members %}
             {% set cols = cols %}
@@ -26,7 +26,7 @@
                         {% if member.links is defined and member.links|length > 0 %}
                             <div class="derafu-block-team__links">
                                 {% for link in member.links %}
-                                    <a href="{{ link.url }}" class="derafu-block-team__link">
+                                    <a href="{{ link.url }}" class="derafu-block-team__link btn {% if link.url is empty %}disabled{% endif %}">
                                         {% if link.icon is defined and link.icon %}
                                             <i class="{{ link.icon }}"></i>
                                         {% endif %}

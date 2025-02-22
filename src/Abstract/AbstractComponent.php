@@ -52,7 +52,7 @@ abstract class AbstractComponent
      * @var string|null
      */
     #[ExposeInTemplate]
-    protected ?string $style = null;
+    protected ?string $class = null;
 
     /**
      * Container class for wrapping the component content.
@@ -104,12 +104,12 @@ abstract class AbstractComponent
     /**
      * Sets the component's CSS classes.
      *
-     * @param string $style Space-separated CSS classes.
+     * @param string $class Space-separated CSS classes.
      * @return static For method chaining.
      */
-    public function setStyle(string $style): static
+    public function setClass(string $class): static
     {
-        $this->style = $style;
+        $this->class = $class;
 
         return $this;
     }
@@ -119,11 +119,11 @@ abstract class AbstractComponent
      *
      * @return string
      */
-    public function getStyle(): string
+    public function getClass(): string
     {
         $theme = $this->theme ? (static::THEME_PREFIX . $this->theme) : '';
 
-        return trim($theme . ' ' . $this->container . ' ' . $this->style);
+        return trim($theme . ' ' . $this->container . ' ' . $this->class);
     }
 
     /**
@@ -171,7 +171,7 @@ abstract class AbstractComponent
      *
      * Falls back to the lowercase class name if no attribute is found.
      *
-     * @return static
+     * @return string
      */
     protected function getComponentName(): string
     {

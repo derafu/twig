@@ -20,7 +20,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class HeroComponent extends AbstractComponent
 {
     /**
-     * Size of the hero section (small, medium, large).
+     * Size of the hero section (mini, small, medium, large, full).
      *
      * @var string
      */
@@ -66,4 +66,13 @@ class HeroComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $buttons = [];
+
+    /**
+     * Background color for content wrapper.
+     * Example: 'rgba(255, 255, 255, 0.9)' or '#ffffff'.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $contentBackground = null;
 }

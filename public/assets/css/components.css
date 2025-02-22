@@ -1,15 +1,5 @@
 /* Asignación a componentes */
-.derafu-theme-default,
-.derafu-theme-amber-elegance,
-.derafu-theme-royal-sunset,
-.derafu-theme-sky-pro,
-.derafu-theme-sky-energy,
-.derafu-theme-sunrise-blue,
-.derafu-theme-earthstone,
-.derafu-theme-ocean-mystic,
-.derafu-theme-deep-blue,
-.derafu-theme-neo-crimson,
-.derafu-theme-crimson-dark {
+[class*="derafu-theme-"] {
     /* Accordion Component */
     --accordion-button-bg: var(--color-primary-light);
     --accordion-button-color: var(--color-primary-contrast);
@@ -128,20 +118,21 @@
     --hero-button-secondary-bg: transparent;
     --hero-button-secondary-text: var(--color-primary-contrast);
     --hero-button-secondary-border: var(--color-primary-contrast);
+    --hero-content-background-color: var(--color-primary-light);
 
     /* Image Grid Component */
     --image-grid-bg: var(--color-primary-contrast);
     --image-grid-border: rgba(0, 0, 0, 0.1);
     --image-grid-hover: rgba(0, 0, 0, 0.05);
 
-    /* Photo Component */
-    --photo-title: var(--color-primary);
-    --photo-text: var(--color-primary-dark);
-    --photo-shadow: rgba(0, 0, 0, 0.1);
-    --photo-button-bg: var(--color-primary);
-    --photo-button-text: var(--color-primary-contrast);
-    --photo-button-hover: var(--color-primary-dark);
-    --photo-button-hover-text: var(--color-primary-contrast);
+    /* Image Component */
+    --image-title: var(--color-primary);
+    --image-text: var(--color-primary-dark);
+    --image-shadow: rgba(0, 0, 0, 0.1);
+    --image-button-bg: var(--color-primary);
+    --image-button-text: var(--color-primary-contrast);
+    --image-button-hover: var(--color-primary-dark);
+    --image-button-hover-text: var(--color-primary-contrast);
 
     /* Stats Component */
     --stats-bg: var(--color-primary);
@@ -182,8 +173,8 @@
     --testimonial-card-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     --testimonial-quote-color: var(--color-primary);
     --testimonial-text-color: var(--color-primary-dark);
-    --testimonial-author-color: var(--color-secondary);
-    --testimonial-link-color: var(--color-primary);
+    --testimonial-author-color: var(--color-secondary-dark);
+    --testimonial-link-color: var(--color-secondary-light);
     --testimonial-indicator-color: var(--color-primary);
 
     /* Text-Image Component */
@@ -237,32 +228,18 @@
     --card-button-border: var(--color-primary);
 
     /* Modal Component */
-    --modal-bg: var(--color-primary-contrast);
-    --modal-overlay: rgba(0, 0, 0, 0.5);
-    --modal-border: rgba(0, 0, 0, 0.1);
-    --modal-shadow: rgba(0, 0, 0, 0.15);
-    --modal-title: var(--color-primary);
-    --modal-text: var(--color-primary-dark);
-    --modal-header-bg: white;
-    --modal-footer-bg: white;
-    --modal-button-primary-bg: var(--color-primary);
-    --modal-button-primary-text: var(--color-primary-contrast);
-    --modal-button-secondary-bg: var(--color-secondary);
-    --modal-button-secondary-text: var(--color-secondary-contrast);
-    --modal-close-button: var(--color-primary-dark);
-    --modal-button-hover: var(--color-primary-dark);
-    --modal-button-border: var(--color-primary);
-
+    --modal-border-color: #dee2e6;
 
     /* Table Component */
-    --table-header-bg: var(--color-primary);
-    --table-header-text: var(--color-primary);
-    --table-row-alt: var(--color-background-alt);
-    --table-row-hover-bg: var(--color-primary-light);
-    --table-row-hover-text: var(--color-primary-contrast);
-    --table-border: var(--color-primary-dark);
-    --table-text: var(--color-text);
 
+    --table-border: var(--color-primary-dark);
+    --table-bg: #ffffff;
+    --table-hover-bg: var(--color-secondary-light);
+    --table-hover-text: var(--color-secondary-contrast);
+    --table-header-bg: var(--color-primary);
+    --table-header-text: var(--color-primary-contrast);
+    --table-text: var(--color-text);
+    --table-stripe-bg: rgba(0, 0, 0, 0.02);
 
     /* Box Component */
     --box-bg: var(--color-primary-light);

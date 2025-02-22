@@ -2,20 +2,6 @@
 
 {% block body %}
 <twig:block-hero
-    title="Lorem ipsum"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    :buttons="[
-        {
-            text: 'Derafu ORG',
-            url: 'https://www.derafu.org'
-        },
-        {
-            text: 'Example.com',
-            url: 'https://www.example.com'
-        }
-    ]"
-/>
-<twig:block-hero
     background="{{ base_path }}/assets/img/block-hero.jpeg"
     title="Lorem ipsum"
     subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -28,7 +14,10 @@
     align="left"
     theme="amber-elegance"
 />
+
 <twig:block-hero
+    background="{{ base_path }}/assets/img/block-hero.jpeg"
+    contentBackground="true"
     title="Lorem ipsum"
     subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     :buttons="[
@@ -37,6 +26,58 @@
             url: 'https://www.derafu.org'
         }
     ]"
-    theme="neo-crimson"
+    align="left"
+    theme="amber-elegance"
 />
+
+<twig:block-hero
+    background="{{ base_path }}/assets/img/block-hero.jpeg"
+    title="Lorem ipsum"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    :buttons="[
+        {
+            text: 'Derafu ORG',
+            url: 'https://www.derafu.org'
+        }
+    ]"
+    align="right"
+    theme="amber-elegance"
+/>
+
+{% for theme, name in themes %}
+    <twig:block-hero
+        title="Theme: {{ name }}"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        :buttons="[
+            {
+                text: 'Derafu ORG',
+                url: 'https://www.derafu.org'
+            },
+            {
+                text: 'Example.com',
+                url: 'https://www.example.com'
+            }
+        ]"
+        theme="{{ theme }}"
+    />
+{% endfor %}
+{% set sizes = ['mini', 'small', 'medium', 'large', 'full'] %}
+{% set theme_keys = themes|keys %}
+{% for size in sizes %}
+    {% set theme_key = theme_keys[loop.index0] %}
+    <twig:block-hero
+        size="{{ size }}"
+        background="{{ base_path }}/assets/img/block-hero.jpeg"
+        title="Size: {{ size }} ({{ theme_keys[loop.index0] }})"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        :buttons="[
+            {
+                text: 'Example.com',
+                url: 'https://www.example.com'
+            }
+        ]"
+        align="right"
+        theme="{{ theme_keys[loop.index0] }}"
+    />
+{% endfor %}
 {% endblock %}

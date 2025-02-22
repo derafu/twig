@@ -37,14 +37,6 @@ class TextVideoComponent extends AbstractComponent
     public int $text_cols = 7;
 
     /**
-     * Number of columns for video section (Bootstrap grid).
-     *
-     * @var int
-     */
-    #[ExposeInTemplate()]
-    public int $video_cols = 5;
-
-    /**
      * Title of the text section.
      *
      * @var string
@@ -108,6 +100,8 @@ class TextVideoComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public bool $enable_privacy = true;
+
+    protected ?string $container = 'container';
 
     /**
      * Process component data before mount.

@@ -1,5 +1,5 @@
 {# templates/components/block-video.html.twig #}
-<div class="derafu-block-video {{ style }}">
+<div class="derafu-block-video {{ class }}">
     {% for key, video in video %}
         <div class="derafu-block-video__wrapper derafu-block-video--{{ video.align ?? 'center' }} derafu-block-video--{{ video.size ?? 'normal' }} derafu-block-video--{{ video.align ?? 'center' }}" id="{{ id }}-{{ key }}">
             {% if video.title %}

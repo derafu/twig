@@ -1,0 +1,41 @@
+/* Variables base */
+:root {
+    --offcanvas-button-gap: 0.5rem;
+}
+
+/* Estilos personalizados */
+.derafu-block-offcanvas__buttons {
+    display: flex;
+    gap: var(--offcanvas-button-gap);
+    margin-top: 1rem;
+}
+
+/* Variantes de posición */
+.offcanvas-start,
+.offcanvas-end {
+    --offcanvas-width: var(--custom-offcanvas-width, 400px);
+    width: var(--offcanvas-width) !important;
+}
+
+.offcanvas-top,
+.offcanvas-bottom {
+    height: var(--offcanvas-height, 30vh) !important;
+}
+
+/* Estilos del contenido */
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.offcanvas-header {
+    border-bottom: var(--offcanvas-border, 1px solid #dee2e6);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .offcanvas-start,
+    .offcanvas-end {
+        --offcanvas-width: 100vw;
+    }
+}

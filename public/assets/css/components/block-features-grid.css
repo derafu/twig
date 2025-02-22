@@ -1,5 +1,5 @@
 .derafu-block-features-grid {
-    padding: var(--spacing-y, 2rem) 0;
+    margin: var(--spacing-y, 2rem) auto;
 }
 
 .derafu-block-features-grid__row {

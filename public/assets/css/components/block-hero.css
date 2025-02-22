@@ -1,9 +1,11 @@
 /* Variables base */
 :root {
     /* Alturas según tamaño */
+    --hero-height-mini: 20vh;
     --hero-height-small: 40vh;
     --hero-height-medium: 60vh;
     --hero-height-large: 80vh;
+    --hero-height-full: 100vh;
 
     /* Espaciados */
     --hero-spacing-y: 2rem;
@@ -22,58 +24,69 @@
     color: var(--color-primary-contrast);
 }
 
+.derafu-block-hero__container {
+    width: 100%;
+}
+
 /* Tamaños */
+.derafu-block-hero--mini { min-height: var(--hero-height-mini); }
 .derafu-block-hero--small { min-height: var(--hero-height-small); }
 .derafu-block-hero--medium { min-height: var(--hero-height-medium); }
 .derafu-block-hero--large { min-height: var(--hero-height-large); }
+.derafu-block-hero--full { min-height: var(--hero-height-full); }
 
-/* Alineación */
-.derafu-block-hero--left { text-align: left; }
-.derafu-block-hero--center { text-align: center; }
-.derafu-block-hero--right { text-align: right; }
-
-/* Contenido */
+/* Contenido y alineación */
 .derafu-block-hero__content {
     padding: var(--hero-spacing-y) 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.derafu-block-hero__content--left {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.derafu-block-hero__content--center {
+    align-items: center;
+    text-align: center;
+}
+
+.derafu-block-hero__content--right {
+    align-items: flex-end;
+    text-align: right;
 }
 
 .derafu-block-hero__title {
     margin-bottom: 1rem;
     font-weight: bold;
+    color: var(--hero-title-color);
 }
 
 .derafu-block-hero__subtitle {
     margin-bottom: 2rem;
+    color: var(--hero-subtitle-color);
 }
 
 /* Botones */
 .derafu-block-hero__buttons {
     display: flex;
     gap: var(--hero-button-spacing);
-    justify-content: var(--hero-buttons-justify, center);
 }
 
-.derafu-block-hero--left .derafu-block-hero__buttons {
-    --hero-buttons-justify: flex-start;
+.derafu-block-hero__content--left .derafu-block-hero__buttons {
+    justify-content: flex-start;
 }
 
-.derafu-block-hero--right .derafu-block-hero__buttons {
-    --hero-buttons-justify: flex-end;
+.derafu-block-hero__content--center .derafu-block-hero__buttons {
+    justify-content: center;
 }
 
-.derafu-block-hero {
-    background-color: var(--hero-bg);
-    color: var(--hero-text);
+.derafu-block-hero__content--right .derafu-block-hero__buttons {
+    justify-content: flex-end;
 }
 
-.derafu-block-hero__title {
-    color: var(--hero-title-color);
-}
-
-.derafu-block-hero__subtitle {
-    color: var(--hero-subtitle-color);
-}
-
+/* Estilos de botones */
 .derafu-block-hero__button--primary {
     background-color: var(--hero-button-primary-bg);
     color: var(--hero-button-primary-text);
@@ -87,4 +100,35 @@
     background-color: var(--hero-button-secondary-bg);
     color: var(--hero-button-secondary-text);
     border: 2px solid var(--hero-button-secondary-border);
+}
+
+/* Colores de fondo y texto */
+.derafu-block-hero {
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
+}
+
+.derafu-block-hero__content--with-background {
+    position: relative;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.derafu-block-hero__content--with-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--hero-content-background-color, #ffffff);
+    opacity: var(--hero-content-background-opacity, 0.6);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+/* Aseguramos que el contenido esté por encima del fondo */
+.derafu-block-hero__content--with-background > * {
+    position: relative;
 }

@@ -23,7 +23,7 @@ class TeamComponent extends AbstractComponent
      * Array of team members configurations.
      *
      * Each member contains:
-     * - image: Member photo URL
+     * - image: Member image URL
      * - name: Member name
      * - role: Member role/position
      * - bio: Member biography (optional)

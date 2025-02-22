@@ -1,36 +1,44 @@
 {# templates/components/block-modal.html.twig #}
-<div class="derafu-block-modal {{ style }}" id="{{ id }}">
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                {% if modal.title %}
-                    <div class="modal-header">
-                        <h5 class="modal-title">{{ modal.title }}</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                {% endif %}
+<div class="modal fade"
+    id="{{ id }}"
+    tabindex="-1"
+    aria-labelledby="{{ id }}-label"
+    aria-hidden="true"
+    {% if staticBackdrop %}
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+    {% endif %}>
+    <div class="modal-dialog {{ size ? 'modal-' ~ size : '' }}
+        {{ centered ? 'modal-dialog-centered' : '' }}
+        {{ scrollable ? 'modal-dialog-scrollable' : '' }}">
+        <div class="modal-content">
+            {% if title or showClose %}
+                <div class="modal-header">
+                    {% if title %}
+                        <h5 class="modal-title" id="{{ id }}-label">{{ title }}</h5>
+                    {% endif %}
+                    {% if showClose %}
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    {% endif %}
+                </div>
+            {% endif %}
 
-                {% if modal.content %}
-                    <div class="modal-body">
-                        <p>{{ modal.content }}</p>
-                    </div>
-                {% endif %}
-
-                {% if modal.button_primary or modal.button_secondary %}
-                    <div class="modal-footer">
-                        {% if modal.button_secondary %}
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                {{ modal.button_secondary.text }}
-                            </button>
-                        {% endif %}
-                        {% if modal.button_primary %}
-                            <button type="button" class="btn btn-primary">
-                                {{ modal.button_primary.text }}
-                            </button>
-                        {% endif %}
-                    </div>
-                {% endif %}
+            <div class="modal-body">
+                {{ content|raw }}
             </div>
+
+            {% if buttons|length > 0 %}
+                <div class="modal-footer">
+                    {% for button in buttons %}
+                        <button type="button"
+                            class="btn btn-{{ button.type|default('secondary') }}"
+                            {% if button.dismiss|default(false) %}data-bs-dismiss="modal"{% endif %}
+                            {{ button.attributes|default('')|raw }}>
+                            {{ button.text }}
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

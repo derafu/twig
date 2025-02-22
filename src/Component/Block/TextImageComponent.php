@@ -36,14 +36,6 @@ class TextImageComponent extends AbstractComponent
     public int $text_cols = 7;
 
     /**
-     * Number of columns for image section (Bootstrap grid).
-     *
-     * @var int
-     */
-    #[ExposeInTemplate()]
-    public int $image_cols = 5;
-
-    /**
      * Title of the text section.
      *
      * @var string

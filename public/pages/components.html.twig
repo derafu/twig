@@ -1,260 +1,95 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container py-5">
-    <h1 class="display-6 mb-3">Derafu Twig Components</h1>
-    <p class="lead mb-5">A collection of UI components for building modern web interfaces.</p>
+<div class="container">
+    <h1 class="mb-4">Twig Components</h1>
+    <p class="lead mb-4">A collection of UI components for building easily web interfaces.</p>
 
-    {# Layout Components #}
-    <h2 class="h3 mb-4">Layout Components</h2>
-    <div class="row g-4 mb-5">
-        {% set layout_components = {
-            'Grid': {
-                'code': 'block-grid',
-                'description': 'Basic grid layout system for organizing content'
-            },
-            'Header': {
-                'code': 'block-header',
-                'description': 'Page header component with navigation options'
-            },
-            'Footer': {
-                'code': 'block-footer',
-                'description': 'Page footer component with various layouts'
-            },
-            'Box': {
-                'code': 'block-box',
-                'description': 'Simple box container for content'
-            }
-        } %}
+    {% set components = {
+        'Structure': {
+            'block-grid': { 'name': 'Grid', 'description': 'Basic grid layout system for organizing content.' },
+            'block-header': { 'name': 'Header', 'description': 'Page header component with navigation options.' },
+            'block-footer': { 'name': 'Footer', 'description': 'Page footer component with various layouts.' },
+            'block-tabs': { 'name': 'Tabs', 'description': 'Tabbed content interface, with horizontal and vertical layout.' }
+        },
+        'Content': {
+            'block-hero': { 'name': 'Hero', 'description': 'Eye-catching hero section for landing pages.' },
+            'block-steps': { 'name': 'Steps', 'description': 'Step-by-step guide component with variable steps and arrow design.' },
+            'block-timeline': { 'name': 'Timeline', 'description': 'Chronological event display with configurable alignment.' },
+            'block-table': { 'name': 'Table', 'description': 'Data table component with styling options.' },
+            'block-title': { 'name': 'Title', 'description': 'Customizable title component.' },
+            'block-box': { 'name': 'Box', 'description': 'Simple box container for content.' },
+            'block-card': { 'name': 'Card', 'description': 'Card component for content display.' },
+            'block-card-grid': { 'name': 'Card Grid', 'description': 'Grid layout for multiple cards.' }
+        },
+        'Media': {
+            'block-image': { 'name': 'Image', 'description': 'Enhanced image display component.' },
+            'block-image-grid': { 'name': 'Image Grid', 'description': 'Grid layout for image galleries.' },
+            'block-video': { 'name': 'Video', 'description': 'Video player component.' },
+            'block-video-grid': { 'name': 'Video Grid', 'description': 'Grid layout for multiple videos.' },
+            'block-text-image': { 'name': 'Text Image', 'description': 'Combined text and image layout.' },
+            'block-text-video': { 'name': 'Text Video', 'description': 'Combined text and video layout.' }
+        },
+        'Interactivity': {
+            'block-accordion': { 'name': 'Accordion', 'description': 'Collapsible content sections.' },
+            'block-modal': { 'name': 'Modal', 'description': 'Popup dialog windows.' },
+            'block-offcanvas': { 'name': 'Offcanvas', 'description': 'Hidden sidebars.' },
+            'block-alert': { 'name': 'Alert', 'description': 'Alert messages for user feedback.' },
+            'block-toast': { 'name': 'Toast', 'description': 'Notification messages.' }
+        },
+        'Promotional': {
+            'block-features-grid': { 'name': 'Features Grid', 'description': 'Grid layout for key features.' },
+            'block-features-icon': { 'name': 'Features Icon', 'description': 'Icon-based feature display.' },
+            'block-features-list': { 'name': 'Features List', 'description': 'List-style feature presentation.' },
+            'block-features-table': { 'name': 'Features Table', 'description': 'Tabular feature comparison.' },
+            'block-boxes': { 'name': 'Big Boxes', 'description': 'Large box display for information.' },
+            'block-stats': { 'name': 'Stats', 'description': 'Display of statistical data.' },
+            'block-cta': { 'name': 'CTA', 'description': 'Call-to-action component.' },
+            'block-comparison': { 'name': 'Comparison', 'description': 'Side-by-side comparison.' }
+        },
+        'Social': {
+            'block-quote': { 'name': 'Quote', 'description': 'Styled blockquote component.' },
+            'block-testimonials': { 'name': 'Testimonials', 'description': 'Display of testimonials or opinions.' },
+            'block-team': { 'name': 'Team', 'description': 'Showcase of team members.' }
+        }
+    } %}
 
-        {% for title, data in layout_components %}
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">{{ title }}</h3>
-                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
-                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
-                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col-md-2">
+            {% set components_list = [] %}
+            {% for category, blocks in components %}
+                {% for key, block in blocks %}
+                    {% set components_list = components_list|merge([{ 'id': key, 'name': block.name, 'description': block.description }]) %}
+                {% endfor %}
+            {% endfor %}
+            {% set sorted_components = components_list|sort((a, b) => a.name <=> b.name) %}
+            <div class="list-group">
+                {% for component in sorted_components %}
+                    <a class="list-group-item list-group-item-action" href="{{ base_path }}/demo/components/{{ component.id }}" data-bs-toggle="tooltip" title="{{ component.description }}">
+                        {{ component.name }}
+                    </a>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-
-    {# Content Components #}
-    <h2 class="h3 mb-4">Content Components</h2>
-    <div class="row g-4 mb-5">
-        {% set content_components = {
-            'Title': {
-                'code': 'block-title',
-                'description': 'Customizable title component'
-            },
-            'Hero': {
-                'code': 'block-hero',
-                'description': 'Eye-catching hero sections for landing pages'
-            },
-            'Card': {
-                'code': 'block-card',
-                'description': 'Versatile card component for content display'
-            },
-            'Card Grid': {
-                'code': 'block-card-grid',
-                'description': 'Grid layout for multiple cards'
-            },
-            'Quote': {
-                'code': 'block-quote',
-                'description': 'Styled blockquote component'
-            },
-            'Table': {
-                'code': 'block-table',
-                'description': 'Data table component with styling options'
-            },
-            'Steps': {
-                'code': 'block-steps',
-                'description': 'Step-by-step guide component'
-            },
-            'Timeline': {
-                'code': 'block-timeline',
-                'description': 'Chronological event display'
-            }
-        } %}
-
-        {% for title, data in content_components %}
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">{{ title }}</h3>
-                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
-                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
-                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
-                    </div>
+        </div>
+        <div class="col-md-10">
+            {% for group, items in components %}
+                <h2 class="h3 mb-4">{{ group }}</h2>
+                <div class="row g-4 mb-5">
+                    {% for code, data in items %}
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card h-100 shadow-sm">
+                                <img src="{{ base_path }}/assets/img/twig.png" class="card-img-top" alt="{{ data.name }}">
+                                <div class="card-body">
+                                    <h3 class="h5 card-title">{{ data.name }}</h3>
+                                    <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                                    <code class="d-block mb-3 p-2 bg-light">{{ code }}</code>
+                                    <a href="{{ base_path }}/demo/components/{{ code }}" class="btn btn-primary btn-sm">View Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-            </div>
-        {% endfor %}
-    </div>
-
-    {# Interactive Components #}
-    <h2 class="h3 mb-4">Interactive Components</h2>
-    <div class="row g-4 mb-5">
-        {% set interactive_components = {
-            'Accordion': {
-                'code': 'block-accordion',
-                'description': 'Collapsible content sections'
-            },
-            'Modal': {
-                'code': 'block-modal',
-                'description': 'Popup dialog windows'
-            },
-            'Tabs': {
-                'code': 'block-tabs',
-                'description': 'Tabbed content interface'
-            },
-            'Toast': {
-                'code': 'block-toast',
-                'description': 'Notification messages'
-            },
-            'Alert': {
-                'code': 'block-alert',
-                'description': 'Alert messages for user feedback'
-            },
-            'CTA': {
-                'code': 'block-cta',
-                'description': 'Call-to-action component'
-            }
-        } %}
-
-        {% for title, data in interactive_components %}
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">{{ title }}</h3>
-                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
-                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
-                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-
-    {# Feature Components #}
-    <h2 class="h3 mb-4">Feature Components</h2>
-    <div class="row g-4 mb-5">
-        {% set feature_components = {
-            'Features Grid': {
-                'code': 'block-features-grid',
-                'description': 'Grid layout for feature highlights'
-            },
-            'Features Icon': {
-                'code': 'block-features-icon',
-                'description': 'Icon-based feature display'
-            },
-            'Features List': {
-                'code': 'block-features-list',
-                'description': 'List-style feature presentation'
-            },
-            'Features Table': {
-                'code': 'block-features-table',
-                'description': 'Tabular feature comparison'
-            },
-            'Big Boxes': {
-                'code': 'block-boxes',
-                'description': 'Large feature box display'
-            },
-            'Stats': {
-                'code': 'block-stats',
-                'description': 'Statistical data display'
-            },
-            'Comparison': {
-                'code': 'block-comparison',
-                'description': 'Side-by-side comparison component'
-            }
-        } %}
-
-        {% for title, data in feature_components %}
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">{{ title }}</h3>
-                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
-                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
-                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-
-    {# Media Components #}
-    <h2 class="h3 mb-4">Media Components</h2>
-    <div class="row g-4 mb-5">
-        {% set media_components = {
-            'Image Grid': {
-                'code': 'block-image-grid',
-                'description': 'Grid layout for image galleries'
-            },
-            'Photo': {
-                'code': 'block-photo',
-                'description': 'Enhanced photo display component'
-            },
-            'Video': {
-                'code': 'block-video',
-                'description': 'Video player component'
-            },
-            'Video Grid': {
-                'code': 'block-video-grid',
-                'description': 'Grid layout for multiple videos'
-            },
-            'Text Image': {
-                'code': 'block-text-image',
-                'description': 'Combined text and image layout'
-            },
-            'Text Video': {
-                'code': 'block-text-video',
-                'description': 'Combined text and video layout'
-            }
-        } %}
-
-        {% for title, data in media_components %}
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">{{ title }}</h3>
-                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
-                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
-                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-
-    {# Testimonial Components #}
-    <h2 class="h3 mb-4">Testimonial Components</h2>
-    <div class="row g-4">
-        {% set testimonial_components = {
-            'Team': {
-                'code': 'block-team',
-                'description': 'Team member showcase'
-            },
-            'Testimonials': {
-                'code': 'block-testimonials',
-                'description': 'Customer testimonial display'
-            }
-        } %}
-
-        {% for title, data in testimonial_components %}
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">{{ title }}</h3>
-                        <p class="card-text text-muted mb-3">{{ data.description }}</p>
-                        <code class="d-block mb-3 p-2 bg-light">{{ data.code }}</code>
-                        <a href="demo/components/{{ data.code }}" class="btn btn-primary btn-sm">View Demo</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
 </div>
 {% endblock %}

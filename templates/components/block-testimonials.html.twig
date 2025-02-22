@@ -1,5 +1,5 @@
 {# templates/components/block-testimonials.html.twig #}
-<div class="derafu-block-testimonials {{ style }}" style="--testimonial-card-max-width: {{ maxWidth }}px; --testimonial-brightness: {{ brightness }}%; --testimonial-height: {{ height }}px;">
+<div class="derafu-block-testimonials {{ class }}" style="--testimonial-card-max-width: {{ maxWidth }}px; --testimonial-brightness: {{ brightness }}%; --testimonial-height: {{ height }}px;">
     <div id="{{ id }}" class="carousel slide" {% if autoplay %}data-bs-ride="carousel" data-bs-interval="{{ interval }}"{% endif %}>
         {% if showIndicators %}
         <div class="carousel-indicators">
@@ -34,11 +34,11 @@
                             {% endif %}
                             <div class="derafu-block-testimonials__author-info">
                                 {{ testimonial.author }}
-                                {% if testimonial.company is not empty %}
+                                {% if testimonial.organization is not empty %}
                                     {% if testimonial.url is not empty %}
-                                        • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.company }}</a>
+                                        • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.organization }}</a>
                                     {% else %}
-                                        • {{ testimonial.company }}
+                                        • {{ testimonial.organization }}
                                     {% endif %}
                                 {% else %}
                                 {% if testimonial.url is not empty %}

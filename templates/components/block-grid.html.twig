@@ -1,5 +1,5 @@
 {# templates/components/block-grid.html.twig #}
-<div class="derafu-block-grid {{ style }}" id="{{ id }}">
+<div class="derafu-block-grid {{ class }}" id="{{ id }}">
     {% if cols is not empty %}
         <div style="display: grid; grid-template-columns: repeat({{ cols }}, 1fr); gap: 10px;">
             {% for item in items %}
