@@ -1,6 +1,5 @@
 .derafu-block-card-grid {
     margin: var(--spacing-y, 2rem) auto;
-    background-color: var(--card-grid-bg);
 }
 
 .derafu-block-card-grid__card {
@@ -21,7 +20,6 @@
 
 .derafu-block-card-grid__image {
     width: 100%;
-    aspect-ratio: 16/9;
     overflow: hidden;
 }
 

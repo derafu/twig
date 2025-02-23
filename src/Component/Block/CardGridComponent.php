@@ -42,5 +42,7 @@ class CardGridComponent extends AbstractComponent
     #[ExposeInTemplate()]
     public int $cols = 4;
 
+    public ?int $offset = null;
+
     protected ?string $container = 'container';
 }

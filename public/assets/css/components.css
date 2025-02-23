@@ -19,7 +19,6 @@
     --boxes-button-hover: var(--color-secondary-dark);
 
     /* Card Grid Component */
-    --card-grid-bg: var(--color-primary-contrast);
     --card-bg: white;
     --card-border: rgba(0, 0, 0, 0.1);
     --card-shadow: rgba(0, 0, 0, 0.1);
@@ -216,7 +215,6 @@
     --alert-border-radius: 0.5rem;
 
     /* Card Component */
-    --card-grid-bg: var(--color-primary-contrast);
     --card-bg: white;
     --card-border: rgba(0, 0, 0, 0.1);
     --card-shadow: rgba(0, 0, 0, 0.1);

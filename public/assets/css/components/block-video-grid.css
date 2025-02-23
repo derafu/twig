@@ -1,6 +1,5 @@
 .derafu-block-video-grid {
     margin: var(--spacing-y, 2rem) auto;
-    background-color: var(--card-grid-bg);
 }
 
 .derafu-block-video-grid__card {
