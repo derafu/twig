@@ -39,14 +39,6 @@ Install the library using Composer:
 composer require derafu/twig
 ```
 
-## Example webpage
-
-Explore the variety of components default webpage, run:
-
-```bash
-php -S localhost:9000 -t public
-```
-
 ## Basic Usage
 
 1. Create the Twig environment with `TwigService` or register the components with `ComponentRegistrar`:
@@ -125,7 +117,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/derafu/twig/blob/main/LICENSE) file for details.
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ---
 

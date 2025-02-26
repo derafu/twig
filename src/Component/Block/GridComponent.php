@@ -34,6 +34,4 @@ class GridComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?int $cols = null;
-
-    protected ?string $container = 'container';
 }

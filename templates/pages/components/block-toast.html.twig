@@ -1,0 +1,13 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+{% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
+{% for type in types %}
+    <twig:block-toast
+        type="{{ type }}"
+        title="Toast type: {{ type }}"
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        time="5 mins ago"
+    />
+{% endfor %}
+{% endblock %}

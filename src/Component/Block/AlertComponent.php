@@ -38,8 +38,6 @@ class AlertComponent extends AbstractComponent
     #[ExposeInTemplate()]
     protected ?string $icon = null;
 
-    protected ?string $container = 'container';
-
     /**
      * Get the value of icon.
      */

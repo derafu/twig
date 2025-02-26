@@ -1,0 +1,28 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+<twig:block-image
+    title="¿Qué es Twig?"
+    image="{{ base_path }}/img/block-hero.jpeg"
+    description="<p>Una ramita.</p>"
+    :buttons="[
+        {
+            text: 'Aprende sobre Twig',
+            url: 'https://twig.symfony.com/'
+        }
+    ]"
+/>
+<twig:block-image
+    title="¿Qué es Twig?"
+    image="{{ base_path }}/img/block-hero.jpeg"
+    description="<p>Una ramita.</p>"
+    :buttons="[
+        {
+            text: 'Aprende sobre Twig',
+            url: 'https://twig.symfony.com/'
+        }
+    ]"
+    size="small"
+    theme="crimson-dark"
+/>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+{% for theme, name in themes %}
+    <twig:block-cta
+        title="Lorem ipsum dolor sit amet"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        button_text="Theme: {{ name }}"
+        button_url="https://www.example.com"
+        theme="{{ theme }}"
+    />
+    <br/>
+{% endfor %}
+{% endblock %}

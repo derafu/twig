@@ -50,6 +50,4 @@ class VideoGridComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public int $cols = 2;
-
-    protected ?string $container = 'container';
 }

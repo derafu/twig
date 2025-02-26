@@ -1,0 +1,13 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+{% for theme, name in themes %}
+    <twig:block-quote
+        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        author="John Doe"
+        source="Theme: {{ name }}"
+        image="/assets/img/block-hero.jpeg"
+        theme="{{ theme }}"
+    />
+{% endfor %}
+{% endblock %}

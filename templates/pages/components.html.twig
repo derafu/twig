@@ -1,0 +1,27 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Twig Components</h1>
+    <p class="lead mb-4">A collection of UI components for building easily web interfaces.</p>
+
+    {% for group, items in components %}
+        <h2 class="h3 mb-4">{{ group }}</h2>
+        <div class="row g-4 mb-5">
+            {% for code, data in items %}
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ base_path }}/img/twig.png" class="card-img-top" alt="{{ data.name }}">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">{{ data.name }}</h3>
+                            <p class="card-text text-muted mb-3">{{ data.description }}</p>
+                            <code class="d-block mb-3 p-2 bg-light">{{ code }}</code>
+                            <a href="{{ base_path }}/components/{{ code }}" class="btn btn-primary btn-sm">View Demo</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -34,6 +34,4 @@ class BoxComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?string $content = null;
-
-    protected ?string $container = 'container';
 }

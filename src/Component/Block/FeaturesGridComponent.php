@@ -34,6 +34,4 @@ class FeaturesGridComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $blocks = [];
-
-    protected ?string $container = 'container';
 }

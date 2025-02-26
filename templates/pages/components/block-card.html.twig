@@ -1,0 +1,14 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+{% for theme, name in themes %}
+    <twig:block-card
+        image="../../img/block-hero.jpeg"
+        title="Theme: {{ name }}"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        buttonText="More..."
+        buttonUrl="https://www.example.com"
+        theme="{{ theme }}"
+    />
+{% endfor %}
+{% endblock %}

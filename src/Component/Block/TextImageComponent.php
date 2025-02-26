@@ -67,6 +67,4 @@ class TextImageComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public string $image;
-
-    protected ?string $container = 'container';
 }

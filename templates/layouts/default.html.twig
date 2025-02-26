@@ -1,0 +1,163 @@
+{# layouts/default.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Derafu Twig{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ base_path }}/css/styles.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ base_path }}/js/app.min.js"></script>
+{% endblock %}
+
+{% set themes = {
+    'default': 'Default',
+    'amber-elegance': 'Amber Elegance',
+    'royal-sunset': 'Royal Sunset',
+    'sky-pro': 'Sky Pro',
+    'sky-energy': 'Sky Energy',
+    'sunrise-blue': 'Sunrise Blue',
+    'earthstone': 'Earthstone',
+    'ocean-mystic': 'Ocean Mystic',
+    'deep-blue': 'Deep Blue',
+    'neo-crimson': 'Neo Crimson',
+    'crimson-dark': 'Crimson Dark'
+} %}
+
+{% set components = {
+    'Structure': {
+        'block-grid': { 'name': 'Grid', 'description': 'Basic grid layout system for organizing content.' },
+        'block-header': { 'name': 'Header', 'description': 'Page header component with navigation options.' },
+        'block-footer': { 'name': 'Footer', 'description': 'Page footer component with various layouts.' },
+        'block-tabs': { 'name': 'Tabs', 'description': 'Tabbed content interface, with horizontal and vertical layout.' }
+    },
+    'Content': {
+        'block-hero': { 'name': 'Hero', 'description': 'Eye-catching hero section for landing pages.' },
+        'block-steps': { 'name': 'Steps', 'description': 'Step-by-step guide component with variable steps and arrow design.' },
+        'block-timeline': { 'name': 'Timeline', 'description': 'Chronological event display with configurable alignment.' },
+        'block-table': { 'name': 'Table', 'description': 'Data table component with styling options.' },
+        'block-title': { 'name': 'Title', 'description': 'Customizable title component.' },
+        'block-box': { 'name': 'Box', 'description': 'Simple box container for content.' },
+        'block-card': { 'name': 'Card', 'description': 'Card component for content display.' },
+        'block-card-grid': { 'name': 'Card Grid', 'description': 'Grid layout for multiple cards.' }
+    },
+    'Media': {
+        'block-image': { 'name': 'Image', 'description': 'Enhanced image display component.' },
+        'block-image-grid': { 'name': 'Image Grid', 'description': 'Grid layout for image galleries.' },
+        'block-video': { 'name': 'Video', 'description': 'Video player component.' },
+        'block-video-grid': { 'name': 'Video Grid', 'description': 'Grid layout for multiple videos.' },
+        'block-text-image': { 'name': 'Text Image', 'description': 'Combined text and image layout.' },
+        'block-text-video': { 'name': 'Text Video', 'description': 'Combined text and video layout.' }
+    },
+    'Interactivity': {
+        'block-accordion': { 'name': 'Accordion', 'description': 'Collapsible content sections.' },
+        'block-modal': { 'name': 'Modal', 'description': 'Popup dialog windows.' },
+        'block-offcanvas': { 'name': 'Offcanvas', 'description': 'Hidden sidebars.' },
+        'block-alert': { 'name': 'Alert', 'description': 'Alert messages for user feedback.' },
+        'block-toast': { 'name': 'Toast', 'description': 'Notification messages.' }
+    },
+    'Promotional': {
+        'block-features-grid': { 'name': 'Features Grid', 'description': 'Grid layout for key features.' },
+        'block-features-icon': { 'name': 'Features Icon', 'description': 'Icon-based feature display.' },
+        'block-features-list': { 'name': 'Features List', 'description': 'List-style feature presentation.' },
+        'block-features-table': { 'name': 'Features Table', 'description': 'Tabular feature comparison.' },
+        'block-boxes': { 'name': 'Big Boxes', 'description': 'Large box display for information.' },
+        'block-stats': { 'name': 'Stats', 'description': 'Display of statistical data.' },
+        'block-cta': { 'name': 'CTA', 'description': 'Call-to-action component.' },
+        'block-comparison': { 'name': 'Comparison', 'description': 'Side-by-side comparison.' }
+    },
+    'Social': {
+        'block-quote': { 'name': 'Quote', 'description': 'Styled blockquote component.' },
+        'block-testimonials': { 'name': 'Testimonials', 'description': 'Display of testimonials or opinions.' },
+        'block-team': { 'name': 'Team', 'description': 'Showcase of team members.' }
+    }
+} %}
+
+{% set components_dict = {} %}
+{% for category, unsorted_components in components %}
+    {% for code, component in unsorted_components %}
+        {% set components_dict = components_dict|merge({
+            (code): { 'name': component.name, 'description': component.description }
+        }) %}
+    {% endfor %}
+{% endfor %}
+{% set sorted_components = components_dict|sort((a, b) => a.name <=> b.name) %}
+
+{% block body %}
+    {% block header %}
+        {% include 'components/header.html.twig' %}
+    {% endblock %}
+
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <main class="col-md-10">
+                    {% if request.uri.path starts with '/components/' %}
+                        {% set component_key = request.uri.path|replace({'/components/': ''})|trim('/') %}
+                        {% if components_dict[component_key] is defined %}
+                            <h1>Block {{ components_dict[component_key].name }}</h1>
+                            <p class="mb-4">{{ components_dict[component_key].description }}</p>
+                        {% endif %}
+                    {% endif %}
+
+                    {% block content %}{% endblock %}
+
+                    {% set template_code = request.attributes['derafu.template_source_code'] %}
+                    {% if template_code is not empty %}
+                    <div class="mt-4 mb-4">
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            <pre><code class="language-twig">{{ template_code|e }}</code></pre>
+                        </div>
+                    </div>
+                    {% endif %}
+                </main>
+                <div class="col-md-2 py-4">
+                    <div class="list-group mb-4">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                              <div class="fw-bold">Package Info</div>
+                              <span class="smal text-muted">derafu/twig</span>
+                            </div>
+                        </li>
+                        <a class="list-group-item list-group-item-action {% if request.uri.path == base_path ~ '/' %}active{% endif %}" href="{{ base_path }}/">
+                            README
+                        </a>
+                    </div>
+
+                    <div class="list-group mb-4">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                              <div class="fw-bold">Themes</div>
+                              <span class="smal text-muted">Color Palettes</span>
+                            </div>
+                            <span class="badge text-bg-primary rounded-pill mt-3">{{ themes|length}}</span>
+                        </li>
+                        <a class="list-group-item list-group-item-action {% if request.uri.path == base_path ~ '/themes' %}active{% endif %}" href="{{ base_path }}/themes">
+                            Predefined Themes
+                        </a>
+                    </div>
+                    <div class="list-group mb-4">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                              <div class="fw-bold">Components</div>
+                              <span class="smal text-muted">Blocks</span>
+                            </div>
+                            <span class="badge text-bg-primary rounded-pill mt-3">{{ sorted_components|length}}</span>
+                        </li>
+                        {% for code, component in sorted_components %}
+                            <a class="list-group-item list-group-item-action {% if request.uri.path == base_path ~ '/components/' ~ code %}active{% endif %}" href="{{ base_path }}/components/{{ code }}" data-bs-toggle="tooltip" title="{{ component.description }}">
+                                {{ component.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'components/footer.html.twig' %}
+    {% endblock %}
+{% endblock %}

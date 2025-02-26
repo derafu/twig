@@ -1,0 +1,117 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+<twig:block-card-grid
+    :cards="[
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            description: 'Twig es una ramita'
+        }
+    ]"
+    :cols="3"
+/>
+
+<twig:block-card-grid
+    :cards="[
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        }
+    ]"
+    :cols="4"
+    theme="ocean-mystic"
+/>
+
+<twig:block-card-grid
+    :cards="[
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com',
+            offset: 4
+        }
+    ]"
+    theme="amber-elegance"
+    :cols="3"
+/>
+<twig:block-card-grid
+    :cards="[
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            description: 'Es una ramita.',
+            button_text: 'Aprende sobre Twig',
+            button_url: 'https://twig.symfony.com',
+            offset: 4
+        }
+    ]"
+    theme="deep-blue"
+    :cols="3"
+/>
+{% endblock %}

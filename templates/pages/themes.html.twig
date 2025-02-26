@@ -1,0 +1,32 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+<h1>{% block title %}Predefined Themes{% endblock %}</h1>
+<table class="table table-bordered predefined-themes">
+    <thead>
+        <tr>
+            <th rowspan="2">Theme</th>
+            <th colspan="4">Primary</th>
+            <th colspan="4">Secondary</th>
+            <th colspan="4">Tertiary</th>
+        </tr>
+        <tr>
+            <th>Normal</th><th>Light</th><th>Dark</th><th>Contrast</th>
+            <th>Normal</th><th>Light</th><th>Dark</th><th>Contrast</th>
+            <th>Normal</th><th>Light</th><th>Dark</th><th>Contrast</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for theme, name in themes %}
+            <tr class="derafu-theme-{{ theme }}">
+                <td>{{ name }}</td>
+                {% for type in ['primary', 'secondary', 'tertiary'] %}
+                    {% for variant in ['', '-light', '-dark', '-contrast'] %}
+                        <td><div class="color-box" style="background: var(--color-{{ type }}{{ variant }});" data-bs-toggle="tooltip" title=""></div></td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

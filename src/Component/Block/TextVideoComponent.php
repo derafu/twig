@@ -101,8 +101,6 @@ class TextVideoComponent extends AbstractComponent
     #[ExposeInTemplate()]
     public bool $enable_privacy = true;
 
-    protected ?string $container = 'container';
-
     /**
      * Process component data before mount.
      * Converts YouTube URL to embed format.

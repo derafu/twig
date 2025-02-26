@@ -1,0 +1,39 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+<twig:block-image-grid
+    :images="[
+        {
+            image: '../../img/block-hero.jpeg',
+            url: 'https://example1.com',
+            tooltip: 'Empresa 1'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            tooltip: 'Empresa 2'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            url: 'https://example1.com',
+            tooltip: 'Empresa 1'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            tooltip: 'Empresa 2'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+        }
+    ]"
+    :cols="4"
+/>
+{% endblock %}

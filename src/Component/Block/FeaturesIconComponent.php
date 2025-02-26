@@ -31,6 +31,4 @@ class FeaturesIconComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $features = [];
-
-    protected ?string $container = 'container';
 }

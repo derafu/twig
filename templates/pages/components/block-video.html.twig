@@ -1,0 +1,40 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+<twig:block-video
+    :video="[
+        {
+            title: 'Lorem ipsum dolor sit amet',
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            buttons: [
+                {
+                    text: 'Ver más',
+                    url: '#'
+                }
+            ],
+            size: 'normal',
+            align: 'center'
+        }
+    ]"
+/>
+
+<twig:block-video
+    :video="[
+        {
+            title: 'Lorem ipsum dolor sit amet',
+            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            buttons: [
+                {
+                    text: 'Ver más',
+                    url: '#'
+                }
+            ],
+            size: 'small',
+            align: 'center'
+        }
+    ]"
+    theme="ocean-mystic"
+/>
+{% endblock %}

@@ -38,6 +38,4 @@ class ComparisonComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $plans = [];
-
-    protected ?string $container = 'container';
 }

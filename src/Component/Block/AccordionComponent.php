@@ -32,6 +32,4 @@ class AccordionComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $items = [];
-
-    protected ?string $container = 'container';
 }

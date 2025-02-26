@@ -54,6 +54,4 @@ class TitleComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public bool $bottomBorder = true;
-
-    protected ?string $container = 'container';
 }

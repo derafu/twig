@@ -52,6 +52,4 @@ class TeamComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public string $align = 'center';
-
-    protected ?string $container = 'container';
 }

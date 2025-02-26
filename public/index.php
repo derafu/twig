@@ -1,51 +1,22 @@
 <?php
 
 declare(strict_types=1);
-require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Foundation - Base for Derafu's Projects.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
  * Licensed under the MIT License.
  * See LICENSE file for more details.
  */
 
-use Derafu\Twig\Service\TwigService;
+use Derafu\Http\Kernel;
+use Derafu\Kernel\Environment;
 
-$options = [
-    'paths' => [
-        __DIR__ . '/../templates',
-        __DIR__ . '/pages',
-    ],
-];
+require_once dirname(__DIR__) . '/app/bootstrap.php';
 
-$twigService = new TwigService($options);
-
-$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
-$template = (ltrim($_SERVER['REQUEST_URI'], '/') ?: 'index') . '.html.twig';
-$templateFilename = realpath(__DIR__ . '/pages/' . $template);
-
-if (!$templateFilename) {
-    echo $twigService->render('error404');
-} else {
-    $templateCode = str_starts_with($template, 'demo/components/')
-        ? file_get_contents($templateFilename)
-        : null
-    ;
-    if ($templateCode) {
-        $templateCode =
-            '{# derafu_twig:public/pages/' . $template . ' #}' . "\n\n"
-            . $templateCode
-        ;
-
-    }
-    $data = [
-        'base_path' => $basePath,
-        'html_twig' => $templateCode,
-    ];
-    if ($template === 'index.html.twig') {
-        $data['readme'] = file_get_contents('../README.md');
-    }
-    echo $twigService->render($template, $data);
-}
+return fn (array $context): Kernel => new Kernel(new Environment(
+    $context['APP_ENV'],
+    (bool) $context['APP_DEBUG'],
+    $context
+));

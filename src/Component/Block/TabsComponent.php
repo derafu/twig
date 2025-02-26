@@ -52,6 +52,4 @@ class TabsComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public int $cols = 2;
-
-    protected ?string $container = 'container';
 }

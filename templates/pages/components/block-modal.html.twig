@@ -1,0 +1,264 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+{# Modal simple #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-1">
+    Abrir Modal Simple
+</button>
+<twig:block-modal
+    id="modal-1"
+    title="Título del Modal"
+    content="<p>Este es un modal básico con título y botón de cerrar.</p>"
+    :buttons="[
+        {
+            text: 'Cerrar',
+            type: 'secondary',
+            dismiss: true
+        },
+        {
+            text: 'Guardar Cambios',
+            type: 'primary'
+        }
+    ]"
+/>
+
+{# Modal más complejo #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-2">
+    Abrir Modal Complejo
+</button>
+<twig:block-modal
+    id="modal-2"
+    title="Confirmación Requerida"
+    content="<p>Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?</p>"
+    size="lg"
+    centered="true"
+    staticBackdrop="true"
+    :buttons="[
+        {
+            text: 'Cancelar',
+            type: 'light',
+            dismiss: true
+        },
+        {
+            text: 'Sí, continuar',
+            type: 'danger',
+            attributes: 'onclick=\'handleConfirmation()\''
+        }
+    ]"
+/>
+
+{# Modal fullscreen con contenido scrollable #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-3">
+    Abrir Modal fullscreen con contenido scrollable
+</button>
+<twig:block-modal
+    id="modal-3"
+    title="Términos y Condiciones"
+    content="<div style='height: 1000px'>Contenido muy largo...</div>"
+    size="fullscreen"
+    scrollable="true"
+    :buttons="[
+        {
+            text: 'Aceptar',
+            type: 'success'
+        }
+    ]"
+/>
+
+{# Modal básico #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-basic">
+    Abrir Modal Básico
+</button>
+
+<twig:block-modal
+    id="modal-basic"
+    title="Modal Básico"
+    content="<p>Este es un modal simple con título y botón de cerrar.</p>"
+    :buttons="[
+        {
+            text: 'Cerrar',
+            type: 'secondary',
+            dismiss: true
+        }
+    ]"
+/>
+
+{# Modal sin botón de cerrar #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-no-close">
+    Modal sin X
+</button>
+
+<twig:block-modal
+    id="modal-no-close"
+    title="No puedes cerrarme fácilmente"
+    content="<p>Este modal no tiene el botón X para cerrar.</p>"
+    :showClose="false"
+    :buttons="[
+        {
+            text: 'Entendido',
+            type: 'warning',
+            dismiss: true
+        }
+    ]"
+/>
+
+{# Modal Static Backdrop #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-static">
+    Modal que no se Cierra
+</button>
+
+<twig:block-modal
+    id="modal-static"
+    title="Debes tomar una decisión"
+    content="<p>Este modal no se cerrará al hacer clic fuera de él. Debes usar uno de los botones.</p>"
+    staticBackdrop="true"
+    :buttons="[
+        {
+            text: 'Cancelar',
+            type: 'light',
+            dismiss: true
+        },
+        {
+            text: 'Aceptar',
+            type: 'danger',
+            dismiss: true
+        }
+    ]"
+/>
+
+{# Modal Centrado con Tamaño Small #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-sm-centered">
+    Modal SM Centrado
+</button>
+
+<twig:block-modal
+    id="modal-sm-centered"
+    title="Pequeño y Centrado"
+    content="<p>Un modal pequeño y centrado verticalmente.</p>"
+    size="sm"
+    centered="true"
+    :buttons="[
+        {
+            text: 'OK',
+            type: 'info',
+            dismiss: true
+        }
+    ]"
+/>
+
+{# Modal Grande con Scroll #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-lg-scroll">
+    Modal Grande con Scroll
+</button>
+
+<twig:block-modal
+    id="modal-lg-scroll"
+    title="Términos y Condiciones"
+    content="<div>
+        <h4>1. Introducción</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <h4>2. Uso del Servicio</h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+        <h4>3. Privacidad</h4>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco...</p>
+        <h4>4. Términos Legales</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit...</p>
+        <h4>5. Modificaciones</h4>
+        <p>Excepteur sint occaecat cupidatat non proident...</p>
+        <!-- Repetir contenido para demostrar scroll -->
+    </div>"
+    size="lg"
+    scrollable="true"
+    :buttons="[
+        {
+            text: 'Rechazar',
+            type: 'light',
+            dismiss: true
+        },
+        {
+            text: 'Aceptar Términos',
+            type: 'success',
+            dismiss: true
+        }
+    ]"
+/>
+
+{# Modal Extra Large con Formulario #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-xl-form">
+    Formulario en Modal XL
+</button>
+
+<twig:block-modal
+    id="modal-xl-form"
+    title="Registro de Usuario"
+    content="<form id='userForm'>
+        <div class='row'>
+            <div class='col-md-6 mb-3'>
+                <label for='firstName' class='form-label'>Nombre</label>
+                <input type='text' class='form-control' id='firstName' required>
+            </div>
+            <div class='col-md-6 mb-3'>
+                <label for='lastName' class='form-label'>Apellido</label>
+                <input type='text' class='form-control' id='lastName' required>
+            </div>
+        </div>
+        <div class='mb-3'>
+            <label for='email' class='form-label'>Email</label>
+            <input type='email' class='form-control' id='email' required>
+        </div>
+        <div class='mb-3'>
+            <label for='password' class='form-label'>Contraseña</label>
+            <input type='password' class='form-control' id='password' required>
+        </div>
+    </form>"
+    size="xl"
+    centered="true"
+    :buttons="[
+        {
+            text: 'Cancelar',
+            type: 'secondary',
+            dismiss: true
+        },
+        {
+            text: 'Registrar',
+            type: 'dark',
+            attributes: 'onclick=&quot;document.getElementById(\'userForm\').submit()&quot;'
+        }
+    ]"
+/>
+
+{# Modal Fullscreen #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-fullscreen">
+    Ver en Pantalla Completa
+</button>
+
+<twig:block-modal
+    id="modal-fullscreen"
+    title="Modo Pantalla Completa"
+    content="<div class='text-center'>
+        <h1 class='display-1'>👋</h1>
+        <p class='lead'>Este modal ocupa toda la pantalla</p>
+        <hr>
+        <p>Perfecto para contenido inmersivo o cuando necesitas mostrar mucha información.</p>
+    </div>"
+    size="fullscreen"
+    :buttons="[
+        {
+            text: 'Salir',
+            type: 'outline-primary',
+            dismiss: true
+        }
+    ]"
+/>
+
+{# Modal sin Footer #}
+<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-no-footer">
+    Modal sin Footer
+</button>
+
+<twig:block-modal
+    id="modal-no-footer"
+    title="Solo Contenido"
+    content="<p>Este modal no tiene botones en el footer, solo el botón de cerrar en el header.</p>"
+/>
+{% endblock %}

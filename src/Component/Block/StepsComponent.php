@@ -39,6 +39,4 @@ class StepsComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public string $arrow_type = 'curved';
-
-    protected ?string $container = 'container';
 }

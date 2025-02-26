@@ -56,6 +56,4 @@ class QuoteComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?string $image = null;
-
-    protected ?string $container = 'container';
 }

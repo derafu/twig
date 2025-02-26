@@ -39,6 +39,4 @@ class ImageGridComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public int $cols = 6;
-
-    protected ?string $container = 'container';
 }

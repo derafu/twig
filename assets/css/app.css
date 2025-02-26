@@ -1,0 +1,52 @@
+/* Base CSS */
+
+/* Import base CSS from derafu/twig package */
+@import 'derafu-twig.css';
+
+.code-container {
+    position: relative;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.copy-btn:hover {
+    background: #0056b3;
+}
+
+h1 {
+    margin: 24px 0 16px;
+    font-weight: 600;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    line-height: 1.25;
+    border-bottom: 1px solid #d7dde3;
+}
+
+table.predefined-themes {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+table.predefined-themes th, td {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+table.predefined-themes .color-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid black;
+}

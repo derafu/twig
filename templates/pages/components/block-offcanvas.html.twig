@@ -1,0 +1,134 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+{# Offcanvas Izquierda (start) #}
+<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-left">
+    Menú Izquierdo
+</button>
+
+<twig:block-offcanvas
+    id="offcanvas-left"
+    position="start"
+    title="Menú de Navegación"
+    content="<ul class='nav flex-column'>
+        <li class='nav-item'><a class='nav-link' href='#'>Inicio</a></li>
+        <li class='nav-item'><a class='nav-link' href='#'>Productos</a></li>
+        <li class='nav-item'><a class='nav-link' href='#'>Servicios</a></li>
+        <li class='nav-item'><a class='nav-link' href='#'>Contacto</a></li>
+    </ul>"
+/>
+
+{# Offcanvas Derecha con Formulario #}
+<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-right">
+    Editar Perfil
+</button>
+
+<twig:block-offcanvas
+    id="offcanvas-right"
+    position="end"
+    title="Editar Perfil"
+    content="<form id='profileForm'>
+        <div class='mb-3'>
+            <label class='form-label'>Nombre</label>
+            <input type='text' class='form-control'>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label'>Email</label>
+            <input type='email' class='form-control'>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label'>Bio</label>
+            <textarea class='form-control' rows='3'></textarea>
+        </div>
+    </form>"
+    :buttons="[
+        {
+            text: 'Cancelar',
+            type: 'light',
+            dismiss: true
+        },
+        {
+            text: 'Guardar',
+            type: 'success',
+            attributes: 'onclick=&quot;document.getElementById(\'profileForm\').submit()&quot;'
+        }
+    ]"
+/>
+
+{# Offcanvas Superior #}
+<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-top">
+    Notificaciones
+</button>
+
+<twig:block-offcanvas
+    id="offcanvas-top"
+    position="top"
+    title="Notificaciones"
+    scroll="true"
+    content="<div class='list-group'>
+        <a href='#' class='list-group-item list-group-item-action'>
+            <div class='d-flex w-100 justify-content-between'>
+                <h6 class='mb-1'>Nuevo mensaje</h6>
+                <small>3 mins ago</small>
+            </div>
+            <p class='mb-1'>Tienes un nuevo mensaje de soporte.</p>
+        </a>
+        <!-- Más notificaciones... -->
+    </div>"
+/>
+
+{# Offcanvas Inferior sin Backdrop #}
+<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-bottom">
+    Player de Música
+</button>
+
+<twig:block-offcanvas
+    id="offcanvas-bottom"
+    position="bottom"
+    :backdrop="false"
+    showClose="false"
+    content="<div class='d-flex align-items-center justify-content-between'>
+        <div class='d-flex align-items-center'>
+            <img src='{{ base_path }}/img/block-hero.jpeg' width='50' height='50' class='me-3'>
+            <div>
+                <h6 class='mb-0'>Nombre de la Canción</h6>
+                <small>Artista</small>
+            </div>
+        </div>
+        <div class='btn-group'>
+            <button class='btn btn-link'><i class='fas fa-backward'></i></button>
+            <button class='btn btn-link'><i class='fas fa-play'></i></button>
+            <button class='btn btn-link'><i class='fas fa-forward'></i></button>
+        </div>
+    </div>"
+/>
+
+{# Offcanvas con Scroll y Sin Backdrop #}
+<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll">
+    Documentación
+</button>
+
+<twig:block-offcanvas
+    id="offcanvas-scroll"
+    position="end"
+    title="Documentación"
+    scroll="true"
+    :backdrop="false"
+    content="<div>
+        <h4>Introducción</h4>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <h4>Guía de Inicio</h4>
+        <p>Sed do eiusmod tempor incididunt...</p>
+        <h4>Configuración</h4>
+        <p>Ut enim ad minim veniam...</p>
+        <!-- Más contenido para demostrar scroll -->
+    </div>"
+    :buttons="[
+        {
+            text: 'Cerrar',
+            type: 'secondary',
+            dismiss: true
+        }
+    ]"
+/>
+{% endblock %}

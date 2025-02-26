@@ -43,6 +43,4 @@ class CardGridComponent extends AbstractComponent
     public int $cols = 4;
 
     public ?int $offset = null;
-
-    protected ?string $container = 'container';
 }

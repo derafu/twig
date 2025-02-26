@@ -48,6 +48,4 @@ class TimelineComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?string $date_format = null;
-
-    protected ?string $container = 'container';
 }
