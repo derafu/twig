@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(TwigService::class)]
 class TwigServiceTest extends TestCase
 {
-    public function testDummyAssertTrue(): void
+    public function testSkipped(): void
     {
         $this->markTestSkipped('TODO: :)');
     }
