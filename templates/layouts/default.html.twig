@@ -146,6 +146,9 @@
                             </div>
                             <span class="badge text-bg-primary rounded-pill mt-3">{{ sorted_components|length}}</span>
                         </li>
+                        <a class="list-group-item list-group-item-action {% if request.uri.path == base_path ~ '/components' %}active{% endif %}" href="{{ base_path }}/components">
+                            All the Components
+                        </a>
                         {% for code, component in sorted_components %}
                             <a class="list-group-item list-group-item-action {% if request.uri.path == base_path ~ '/components/' ~ code %}active{% endif %}" href="{{ base_path }}/components/{{ code }}" data-bs-toggle="tooltip" title="{{ component.description }}">
                                 {{ component.name }}
