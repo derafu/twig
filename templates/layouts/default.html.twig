@@ -106,10 +106,7 @@
                     {% set template_code = request.attributes['derafu.template_source_code'] %}
                     {% if template_code is not empty %}
                     <div class="mt-4 mb-4">
-                        <div class="code-container">
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            <pre><code class="language-twig">{{ template_code|e }}</code></pre>
-                        </div>
+                        <pre><code class="line-numbers language-twig">{{ template_code|e }}</code></pre>
                     </div>
                     {% endif %}
                 </main>
