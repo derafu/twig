@@ -7,7 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/command-line/prism-command-line.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/match-braces/prism-match-braces.min.css" rel="stylesheet" />
     <link href="https://derafu.org/foundation/css/styles.min.css" rel="stylesheet" />
         <link href="css/styles.min.css" rel="stylesheet" />
 </head>
@@ -50,13 +54,13 @@
 </ul>
 <h2><a id="content-installation" href="index.html#content-installation" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Installation</h2>
 <p>Install the library using Composer:</p>
-<pre><code class="language-bash">composer require derafu/twig
+<pre><code class="line-numbers match-braces language-bash">composer require derafu/twig
 </code></pre>
 <h2><a id="content-basic-usage" href="index.html#content-basic-usage" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Basic Usage</h2>
 <ol>
 <li>Create the Twig environment with <code>TwigService</code> or register the components with <code>ComponentRegistrar</code>:</li>
 </ol>
-<pre><code class="language-php">use Derafu\Twig\Service\TwigService;
+<pre><code class="line-numbers match-braces language-php">use Derafu\Twig\Service\TwigService;
 
 $options = [
     'paths' =&gt; [
@@ -72,7 +76,7 @@ echo $twigService-&gt;render('example.html.twig');
 <ol start="2">
 <li>Use components in your Twig templates:</li>
 </ol>
-<pre><code class="language-twig">{# Example using a card grid component #}
+<pre><code class="line-numbers match-braces language-twig">{# Example using a card grid component #}
 &lt;twig:block-card-grid
     :cols=&quot;3&quot;
     :cards=&quot;[
@@ -89,7 +93,7 @@ echo $twigService-&gt;render('example.html.twig');
 <h2><a id="content-key-concepts" href="index.html#content-key-concepts" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Key Concepts</h2>
 <h3><a id="content-theme-system" href="index.html#content-theme-system" class="text-decoration-none small text-muted" aria-hidden="true" title="Permalink"><i class="fa-solid fa-link"></i> </a>Theme System</h3>
 <p>Components support theming through CSS variables:</p>
-<pre><code class="language-css">.derafu-theme-default {
+<pre><code class="line-numbers match-braces language-css">.derafu-theme-default {
     --color-primary: #0d6efd;
     --color-secondary: #6c757d;
     --color-tertiary: #198754;
@@ -272,8 +276,14 @@ echo $twigService-&gt;render('example.html.twig');
             <div id="footer-container"></div>
 <script src="https://derafu.org/foundation/js/derafu.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/command-line/prism-command-line.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/match-braces/prism-match-braces.min.js"></script>
         <script src="js/app.min.js"></script>
 </body>
 </html>
