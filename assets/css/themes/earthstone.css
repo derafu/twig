@@ -1,0 +1,120 @@
+:root {
+  /* Tipografía */
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-font-size-base: 1rem;
+  --bs-font-weight-normal: 400;
+  --bs-font-weight-bold: 700;
+  --bs-line-height-base: 1.5;
+  --bs-headings-font-weight: 500;
+
+  /* Colores principales */
+  --bs-primary: #3f4242;
+  --bs-primary-rgb: 63, 66, 66;
+  --bs-primary-subtle: #f5f5f5;
+  --bs-secondary: #d99008;
+  --bs-secondary-rgb: 217, 144, 8;
+  --bs-secondary-subtle: #fff8e6;
+
+  /* Otros colores base */
+  --bs-success: #28a745;
+  --bs-info: #17a2b8;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #343a40;
+
+  /* Variaciones para texto énfasis */
+  --bs-primary-text-emphasis: #1e2020;
+  --bs-secondary-text-emphasis: #805404;
+
+  /* Versiones emphasis*/
+  --bs-primary-emphasis: #2d3030;
+  --bs-secondary-emphasis: #ab7206;
+
+  /* Variaciones para fondos sutiles */
+  --bs-primary-bg-subtle: #e8e9e9;
+  --bs-secondary-bg-subtle: #fbeac9;
+
+  /* Variaciones para bordes sutiles */
+  --bs-primary-border-subtle: #c1c3c3;
+  --bs-secondary-border-subtle: #f2ca74;
+
+  /* Enlaces */
+  --bs-link-color: #d99008;
+  --bs-link-color-rgb: 217, 144, 8;
+  --bs-link-hover-color: #ab7206;
+  --bs-link-hover-color-rgb: 171, 114, 6;
+
+  /* Focus ring para elementos con focus */
+  --bs-focus-ring-color: rgba(217, 144, 8, 0.25);
+
+  /* Variables específicas de formularios */
+  --bs-form-valid-color: #198754;
+  --bs-form-valid-border-color: #198754;
+  --bs-form-invalid-color: #dc3545;
+  --bs-form-invalid-border-color: #dc3545;
+
+  /* Botones */
+  --bs-btn-font-weight: 400;
+  --bs-btn-border-radius: 0.35rem;
+  --bs-btn-padding-y: 0.375rem;
+  --bs-btn-padding-x: 1rem;
+
+  /* Variables generales de botones */
+  --bs-btn-color: var(--bs-light);
+
+  /* Botones primarios */
+  --bs-btn-primary-color: #fff;
+  --bs-btn-primary-bg: var(--bs-primary);
+  --bs-btn-primary-border-color: var(--bs-primary);
+  --bs-btn-primary-hover-color: #fff;
+  --bs-btn-primary-hover-bg: #323535;
+  --bs-btn-primary-hover-border-color: #2a2c2c;
+  --bs-btn-primary-focus-shadow-rgb: 63, 66, 66;
+  --bs-btn-primary-active-color: #fff;
+  --bs-btn-primary-active-bg: #2a2c2c;
+  --bs-btn-primary-active-border-color: #252727;
+  --bs-btn-primary-disabled-color: #fff;
+  --bs-btn-primary-disabled-bg: rgba(63, 66, 66, 0.65);
+  --bs-btn-primary-disabled-border-color: rgba(63, 66, 66, 0.65);
+
+  /* Botones secundarios */
+  --bs-btn-secondary-color: #fff;
+  --bs-btn-secondary-bg: var(--bs-secondary);
+  --bs-btn-secondary-border-color: var(--bs-secondary);
+  --bs-btn-secondary-hover-color: #fff;
+  --bs-btn-secondary-hover-bg: #ab7206;
+  --bs-btn-secondary-hover-border-color: #996606;
+  --bs-btn-secondary-focus-shadow-rgb: 217, 144, 8;
+  --bs-btn-secondary-active-color: #fff;
+  --bs-btn-secondary-active-bg: #996606;
+  --bs-btn-secondary-active-border-color: #805404;
+  --bs-btn-secondary-disabled-color: #fff;
+  --bs-btn-secondary-disabled-bg: rgba(217, 144, 8, 0.65);
+  --bs-btn-secondary-disabled-border-color: rgba(217, 144, 8, 0.65);
+
+  /* Bordes */
+  --bs-border-width: 1px;
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
+
+  /* Espaciado */
+  --bs-spacer: 1rem;
+  --bs-spacer-1: 0.25rem;
+  --bs-spacer-2: 0.5rem;
+  --bs-spacer-3: 1rem;
+  --bs-spacer-4: 1.5rem;
+  --bs-spacer-5: 3rem;
+
+  /* Sombras */
+  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+  /* Animaciones y transiciones */
+  --bs-transition-base: all 0.2s ease-in-out;
+  --bs-transition-fade: opacity 0.15s linear;
+  --bs-transition-collapse: height 0.35s ease;
+}
