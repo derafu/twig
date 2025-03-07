@@ -1,6 +1,21 @@
 /* Variables base */
 :root {
-    --offcanvas-button-gap: 0.5rem;
+    /* Buttons */
+    --offcanvas-button-gap: var(--spacing-xs);
+
+    /* Dimensions */
+    --offcanvas-width: var(--custom-offcanvas-width, 400px);
+    --offcanvas-height: var(--custom-offcanvas-height, 30vh);
+
+    /* Responsive */
+    --offcanvas-mobile-width: 100vw;
+    --offcanvas-mobile-breakpoint: 576px;
+
+    /* Bordes y separadores */
+    --offcanvas-border: var(--border-width, 1px) solid var(--gray-300, #dee2e6);
+
+    /* Espaciado */
+    --offcanvas-buttons-margin-top: var(--spacing-sm);
 }
 
 /* Estilos personalizados */

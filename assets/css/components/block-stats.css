@@ -1,3 +1,28 @@
+/* Variables base */
+:root {
+    /* Stats - Espaciado */
+    --stats-spacing: 2rem;
+
+    /* Stats - Colores */
+    --stats-bg: var(--bs-light, #f8f9fa);
+    --stats-number-color: var(--bs-primary, #0d6efd);
+    --stats-text-color: var(--bs-dark, #343a40);
+
+    /* Stats - Tipografía */
+    --stats-number-font-size: 3rem;
+    --stats-number-font-weight: bold;
+    --stats-number-line-height: 1.2;
+    --stats-number-margin: 0.5rem 0;
+    --stats-text-font-size: 1rem;
+    --stats-text-line-height: 1.4;
+    --stats-text-opacity: 0.9;
+
+    /* Stats - Responsive */
+    --stats-mobile-breakpoint: 768px;
+    --stats-mobile-number-font-size: 2.5rem;
+    --stats-mobile-item-padding: 1rem;
+}
+
 .derafu-block-stats {
     padding: var(--stats-spacing) 0;
     text-align: center;

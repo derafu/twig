@@ -1,3 +1,33 @@
+/* Variables base */
+:root {
+    /* Features List - General */
+    --spacing-y: 2rem;
+
+    /* Features List - Estructura */
+    --features-list-column-padding: 1rem;
+    --features-list-item-margin-bottom: 2rem;
+    --features-list-content-max-width: 80%;
+    --features-list-icon-padding: 0 1rem;
+    --features-list-divider-width: 1px;
+
+    /* Features List - Colores */
+    --features-list-divider-color: var(--bs-border-color, #dee2e6);
+    --features-list-icon-color: var(--bs-primary, #0d6efd);
+    --features-list-title-color: var(--bs-body-color, #212529);
+    --features-list-text-color: var(--bs-body-color, #212529);
+
+    /* Features List - Tipografía */
+    --features-list-icon-font-size: 2rem;
+    --features-list-title-font-size: 1.25rem;
+    --features-list-title-font-weight: 600;
+    --features-list-title-margin-bottom: 0.5rem;
+    --features-list-description-font-size: 0.9rem;
+    --features-list-description-line-height: 1.5;
+
+    /* Features List - Responsive */
+    --features-list-mobile-breakpoint: 768px;
+}
+
 .derafu-block-features-list {
     margin: var(--spacing-y, 2rem) auto;
 }

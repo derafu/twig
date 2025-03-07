@@ -1,3 +1,26 @@
+/* Variables de Bootstrap 5.3 en :root */
+:root {
+    --comparison-plan-bg: var(--bs-white, #fff);
+    --comparison-plan-border: var(--bs-border-color, #dee2e6);
+    --comparison-plan-shadow: var(--bs-light, #f8f9fa);
+
+    --comparison-title-bg: var(--bs-primary, #0d6efd);
+    --comparison-title-color: var(--bs-white, #fff);
+
+    --comparison-price: var(--bs-body-color, #212529);
+    --comparison-period: var(--bs-secondary, #6c757d);
+
+    --comparison-text: var(--bs-body-color, #212529);
+    --comparison-recommendation: var(--bs-dark, #212529);
+
+    --comparison-button-bg: var(--bs-primary, #0d6efd);
+    --comparison-button-text: var(--bs-white, #fff);
+    --comparison-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+
+    --comparison-highlighted-title-bg: var(--bs-secondary, #6c757d);
+    --comparison-highlighted-title-color: var(--bs-white, #fff);
+}
+
 /* Estilos del componente */
 .derafu-block-comparison {
     margin: var(--spacing-y, 2rem) auto;

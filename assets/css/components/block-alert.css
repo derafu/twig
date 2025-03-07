@@ -1,3 +1,22 @@
+/* Variables base */
+:root {
+    /* Alertas - Espaciado */
+    --alert-padding-left: var(--spacing-lg);
+
+    --alert-icon-left: var(--spacing-md);
+    --alert-icon-top: var(--spacing-md);
+    --alert-icon-width: 1rem;
+    --alert-icon-height: 1.5rem;
+    --alert-icon-border-radius: var(--border-radius-round);
+    --alert-icon-font-size: var(--font-size-lg);
+
+    /* Alerta Primary - Variables estandarizadas */
+    --alert-primary-color: var(--bs-primary, #0d6efd);
+    --alert-primary-bg: var(--bs-primary-bg-subtle, #cfe2ff);
+    --alert-primary-border: var(--bs-primary-border-subtle, #9ec5fe);
+    --alert-primary-icon-color: var(--bs-primary, #0d6efd);
+}
+
 .derafu-block-alert .alert {
     position: relative;
     padding-left: 3rem;
@@ -14,4 +33,15 @@
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
+}
+
+/* Estilos reutilizando las variables */
+.alert-primary {
+    --bs-alert-color: var(--alert-primary-color);
+    --bs-alert-bg: var(--alert-primary-bg);
+    --bs-alert-border-color: var(--alert-primary-border);
+}
+
+.derafu-block-alert .alert-primary .derafu-block-alert__icon {
+    color: var(--alert-primary-icon-color);
 }

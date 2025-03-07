@@ -1,4 +1,35 @@
-.derafu-block-testimonials {
+/* Variables de Testimonios */
+:root {
+    /* Estructura del Carrusel */
+    --carousel-control-width: var(--spacing-lg);
+    --carousel-control-margin: var(--spacing-xl);
+    --card-spacing: var(--spacing-lg);
+
+    /* Dimensiones y Apariencia */
+    --testimonial-height: 100%;
+    --testimonial-brightness: var(--filter-brightness, 0.7);
+
+    /* Tarjeta de Testimonio */
+    --testimonial-card-bg: #ffffffe6;
+    --testimonial-card-shadow: var(--shadow-md);
+    --testimonial-card-max-width: 50rem;
+
+    /* Colores de Texto */
+    --testimonial-text-color: var(--bs-gray-900, #212529);
+    --testimonial-link-color: var(--bs-primary, #0d6efd);
+    --testimonial-author-color: var(--bs-gray-900, #212529);
+    --testimonial-quote-color: var(--bs-primary, #0d6efd);
+
+    /* Indicadores del Carrusel */
+    --testimonial-indicator-color: var(--bs-gray-600, #6c757d);
+
+    /* Responsive */
+    --testimonial-mobile-padding: var(--spacing-md);
+    --testimonial-mobile-text-size: var(--font-size-base);
+    --testimonial-mobile-quote-icon-size: var(--font-size-lg);
+ }
+
+ .derafu-block-testimonials {
     width: 100%;
     --carousel-control-width: 48px;
     --carousel-control-margin: 100px;

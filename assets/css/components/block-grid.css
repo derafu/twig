@@ -1,3 +1,26 @@
+/* Variables base */
+:root {
+    /* Grid - Estructura */
+    --grid-gap: 20px;
+    --grid-column-gap: 10px;
+    --grid-item-padding: 20px;
+
+    /* Grid - Tamaños de columnas */
+    --grid-item-1-width: calc(100% - var(--grid-gap));
+    --grid-item-2-width: calc(50% - var(--grid-gap));
+    --grid-item-3-width: calc(33.33% - var(--grid-gap));
+    --grid-item-4-width: calc(25% - var(--grid-gap));
+    --grid-item-6-width: calc(16.66% - var(--grid-gap));
+
+    /* Grid - Colores (opcionales) */
+    --grid-item-bg: var(--bs-white, #fff);
+    --grid-item-border: var(--bs-border-color, #dee2e6);
+    --grid-item-text: var(--bs-primary, #0d6efd);
+
+    /* Grid - Responsive */
+    --grid-mobile-breakpoint: 768px;
+}
+
 .derafu-block-grid {
     width: 100%;
     display: flex;

@@ -1,3 +1,39 @@
+/* Variables base */
+:root {
+    /* Features Grid - General */
+    --spacing-y: 2rem;
+    --features-grid-gap: 1.5rem;
+    --features-grid-icon-size: 50px;
+    --features-grid-icon-border-radius: 50%;
+
+    /* Features Grid - Colores */
+    --features-grid-title-color: var(--bs-body-color, #212529);
+    --features-grid-subtitle-color: var(--bs-secondary, #6c757d);
+    --features-grid-text-color: var(--bs-body-color, #212529);
+    --features-grid-feature-title-color: var(--bs-body-color, #212529);
+    --features-grid-icon-bg: var(--bs-primary, #0d6efd);
+    --features-grid-icon-color: var(--bs-white, #fff);
+
+    /* Features Grid - Tipografía */
+    --features-grid-title-font-size: 1.5rem;
+    --features-grid-title-font-weight: bold;
+    --features-grid-title-margin-bottom: 0.5rem;
+    --features-grid-subtitle-font-size: 1rem;
+    --features-grid-feature-title-font-size: 1.1rem;
+    --features-grid-feature-title-font-weight: bold;
+    --features-grid-feature-title-margin-bottom: 0.5rem;
+    --features-grid-description-font-size: 0.9rem;
+    --features-grid-description-line-height: 1.5;
+
+    /* Features Grid - Estructura */
+    --features-grid-header-margin-bottom: 2rem;
+    --features-grid-feature-gap: 1rem;
+    --features-grid-blocks-padding: 1rem;
+
+    /* Features Grid - Responsive */
+    --features-grid-mobile-breakpoint: 768px;
+}
+
 .derafu-block-features-grid {
     margin: var(--spacing-y, 2rem) auto;
 }

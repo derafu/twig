@@ -1,3 +1,56 @@
+/* Variables base */
+:root {
+    /* Table - Estructura */
+    --table-padding: 0.75rem;
+    --table-border-width: 1px;
+    --table-border-width-header: 2px;
+    --table-margin-bottom: 1rem;
+    --table-transition-duration: 0.2s;
+    --table-sm-padding: 0.3rem;
+
+    /* Table - Colores */
+    --table-bg: var(--bs-table-bg, #ffffff);
+    --table-text: var(--bs-table-color, #212529);
+    --table-border: var(--bs-table-border-color, #dee2e6);
+    --table-header-bg: var(--bs-table-bg, #ffffff);
+    --table-header-text: var(--bs-table-color, #212529);
+    --table-stripe-bg: var(--bs-table-striped-bg, rgba(0, 0, 0, 0.05));
+    --table-hover-bg: var(--bs-table-hover-bg, rgba(0, 0, 0, 0.075));
+    --table-hover-text: var(--bs-table-hover-color, #212529);
+    --table-active-bg: var(--bs-table-active-bg, rgba(0, 0, 0, 0.1));
+
+    /* Table - Responsive */
+    --table-actions-gap: 0.5rem;
+    --table-mobile-breakpoint: 768px;
+
+    /* Variables para el botón primary dropdown */
+    --bs-primary: var(--bs-primary, #0d6efd);
+    --bs-primary-rgb: 13, 110, 253;
+
+    /* Estilos del botón principal */
+    --bs-btn-primary-color: var(--bs-white, #fff);
+    --bs-btn-primary-bg: var(--bs-primary, #0d6efd);
+    --bs-btn-primary-border-color: var(--bs-primary, #0d6efd);
+    --bs-btn-primary-hover-color: var(--bs-white, #fff);
+    --bs-btn-primary-hover-bg: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --bs-btn-primary-hover-border-color: var(--bs-btn-primary-hover-border-color, #0a58ca);
+    --bs-btn-primary-focus-shadow-rgb: var(--bs-btn-primary-focus-shadow-rgb, 49, 132, 253);
+    --bs-btn-primary-active-color: var(--bs-white, #fff);
+    --bs-btn-primary-active-bg: var(--bs-btn-primary-active-bg, #0a58ca);
+    --bs-btn-primary-active-border-color: var(--bs-btn-primary-active-border-color, #0a53be);
+
+    /* Estilos específicos para dropdown */
+    --bs-dropdown-link-hover-bg: var(--bs-gray-100, #f8f9fa);
+    --bs-dropdown-link-active-bg: var(--bs-primary, #0d6efd);
+    --bs-dropdown-link-active-color: var(--bs-white, #fff);
+    --bs-dropdown-border-color: var(--bs-border-color-translucent, rgba(0, 0, 0, 0.175));
+    --bs-dropdown-divider-bg: var(--bs-gray-200, #e9ecef);
+    --bs-dropdown-padding-y: 0.5rem;
+    --bs-dropdown-item-padding-x: 1rem;
+    --bs-dropdown-item-padding-y: 0.25rem;
+
+}
+
 /* Contenedor principal */
 .derafu-block-table {
     position: relative;
@@ -10,6 +63,13 @@
     justify-content: flex-end;
 }
 
+/* Estilos para el hover de botones en todas las resoluciones */
+.derafu-block-table__actions .btn-primary:hover,
+.derafu-block-table__actions .btn-primary:focus {
+    background-color: var(--bs-btn-primary-hover-bg);
+    border-color: var(--bs-btn-primary-hover-border-color);
+}
+
 /* Estilos base de la tabla */
 .derafu-block-table .table {
     margin-bottom: 0;
@@ -17,6 +77,7 @@
     color: var(--table-text);
     background-color: var(--table-bg);
     border-collapse: collapse;
+    transition: all var(--table-transition-duration) ease-in-out;
 }
 
 /* Headers */
@@ -62,6 +123,7 @@
 /* Hover */
 .derafu-block-table .table-hover > tbody > tr:hover > * {
     background-color: var(--table-hover-bg);
+    color: var(--table-hover-text);
 }
 
 /* Caption */
@@ -89,10 +151,6 @@
     padding: 0.3rem;
 }
 
-/* Transiciones suaves */
-.derafu-block-table .table {
-    transition: all 0.2s ease-in-out;
-}
 
 /* Media queries */
 @media (max-width: 768px) {
@@ -105,4 +163,5 @@
     .derafu-block-table__actions .btn {
          width: 100%;
     }
+
 }

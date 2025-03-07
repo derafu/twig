@@ -1,3 +1,29 @@
+/* Variables base */
+:root {
+    /* Image Grid - General */
+    --spacing-y: 2rem;
+
+    /* Image Grid - Colores */
+    --image-grid-bg: var(--bs-white, transparent);
+    --image-grid-border: var(--bs-border-color, #dee2e6);
+    --image-grid-hover: var(--bs-primary-subtle, #cfe2ff);
+
+    /* Image Grid - Estructura */
+    --image-grid-item-padding: 1.5rem;
+    --image-grid-item-border-radius: 0.5rem;
+    --image-grid-item-border-width: 1px;
+    --image-grid-hover-transform: translateY(-2px);
+
+    /* Image Grid - Imagen */
+    --image-grid-image-grayscale: 100%;
+    --image-grid-image-opacity: 0.7;
+    --image-grid-image-hover-grayscale: 0;
+    --image-grid-image-hover-opacity: 1;
+
+    /* Image Grid - Animaciones */
+    --image-grid-transition-duration: 0.3s;
+}
+
 .derafu-block-image-grid {
     margin: var(--spacing-y, 2rem) auto;
     background-color: var(--image-grid-bg);

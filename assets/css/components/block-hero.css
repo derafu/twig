@@ -10,6 +10,29 @@
     /* Espaciados */
     --hero-spacing-y: 2rem;
     --hero-button-spacing: 1rem;
+    --hero-content-with-bg-padding: 2rem;
+    --hero-content-with-bg-radius: 0.5rem;
+    --hero-content-with-bg-blur: 5px;
+    --hero-title-margin-bottom: 1rem;
+    --hero-subtitle-margin-bottom: 2rem;
+
+    /* Colores del Hero */
+    --hero-bg: var(--bs-primary, #0d6efd);
+    --hero-text: var(--bs-white, #fff);
+    --hero-title-color: var(--bs-white, #fff);
+    --hero-subtitle-color: var(--bs-white, #fff);
+
+    /* Colores de contenido con fondo */
+    --hero-content-background-color: var(--bs-secondary, #6c757d);
+    --hero-content-background-opacity: 0.6;
+
+    /* Colores de botones */
+    --hero-button-primary-bg: var(--bs-white, #fff);
+    --hero-button-primary-text: var(--bs-primary, #0d6efd);
+    --hero-button-primary-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --hero-button-secondary-bg: transparent;
+    --hero-button-secondary-text: var(--bs-white, #fff);
+    --hero-button-secondary-border: var(--bs-white, #fff);
 }
 
 /* Estilos base */

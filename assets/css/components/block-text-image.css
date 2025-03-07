@@ -1,8 +1,27 @@
-/* Variables estructurales */
+/* Variables base */
 :root {
+    /* Text-Image - Estructura */
     --text-image-spacing: 2rem;
     --text-image-button-gap: 1rem;
-}
+    --text-image-border-radius: 0.5rem;
+
+    /* Text-Image - Colores */
+    --text-image-title-color: var(--bs-dark, #343a40);
+    --text-image-text-color: var(--bs-white, #fff);
+    --text-image-button-bg: var(--bs-primary, #0d6efd);
+    --text-image-button-text: var(--bs-white, #fff);
+    --text-image-button-hover-bg: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --text-image-button-hover-text: var(--bs-white, #fff);
+    --text-image-shadow: rgba(0, 0, 0, 0.1);
+
+    /* Text-Image - Tipografía */
+    --text-image-title-font-weight: 700;
+    --text-image-text-line-height: 1.6;
+    --text-image-button-font-weight: 700;
+
+    /* Text-Image - Responsive */
+    --text-image-mobile-breakpoint: 768px;
+ }
 
 /* Estilos del componente */
 .derafu-block-text-image {
@@ -14,7 +33,7 @@
 }
 
 .derafu-block-text-image__title {
-    color: var(--color-primary);
+    color: var(--text-image-title-color);
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
@@ -36,8 +55,8 @@
 
 .derafu-block-text-image__button {
     display: inline-block;
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    background-color: var(--text-image-button-bg);
+    color: var(--text-image-text-color);
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     text-decoration: none;
@@ -46,8 +65,8 @@
 }
 
 .derafu-block-text-image__button:hover {
-    background-color: var(--color-primary-dark);
-    color: var(--color-primary-contrast);
+    background-color: var(--text-image-button-hover-bg);
+    color: var(--text-image-button-hover-text);
     text-decoration: none;
 }
 

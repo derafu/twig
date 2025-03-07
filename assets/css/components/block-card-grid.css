@@ -1,3 +1,42 @@
+/* Variables base */
+:root {
+    /* Card Grid - General */
+    --spacing-y: var(--spacing-lg);
+
+    /* Card - Estructura */
+    --card-border-radius: var(--border-radius-md);
+    --card-border-width: var(--border-width, 1px);
+    --card-box-shadow: transparent;
+    --card-hover-transform: translateY(-5px);
+    --card-transition-duration: 0.3s;
+
+  /* Card - Colores */
+  --card-bg: var(--bs-card-bg, #fff);
+  --card-border: var(--bs-border-color, #dee2e6);
+  --card-shadow: var(--bs-border-color-translucent, rgba(0,0,0,0.175));
+  --card-title: var(--bs-body-color, #212529);
+  --card-text: var(--bs-body-color, #212529);
+
+    /* Card - Contenido */
+    --card-content-padding: var(--spacing-md);
+    --card-title-font-size: var(--font-size-lg);
+    --card-title-font-weight: var(--font-weight-bold, 700);
+    --card-title-margin-bottom: var(--spacing-sm);
+    --card-description-font-size: var(--font-size-sm);
+    --card-description-line-height: 1.6;
+
+    /* Card - Footer */
+    --card-footer-padding: var(--spacing-md);
+    --card-footer-padding-top: 0;
+
+    /* Card - Botón */
+    --card-button-padding-y: var(--spacing-sm);
+    --card-button-padding-x: var(--spacing-md);
+    --card-button-border-radius: var(--border-radius-sm);
+    --card-button-bg: var(--bs-primary, #0d6efd);
+    --card-button-text: var(--bs-btn-color, #fff);
+    --card-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+}
 .derafu-block-card-grid {
     margin: var(--spacing-y, 2rem) auto;
 }

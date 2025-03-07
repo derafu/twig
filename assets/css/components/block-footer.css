@@ -1,3 +1,42 @@
+/* Variables base */
+:root {
+    /* Footer - Colores */
+    --footer-bg: var(--bs-secondary-bg, #f8f9fa);
+    --footer-text: var(--bs-secondary-color, #495057);
+    --footer-title: var(--bs-body-color, #212529);
+    --footer-link: var(--bs-primary, #0d6efd);
+    --footer-link-hover: var(--bs-link-hover-color, #0a58ca);
+    --footer-social-icon: var(--bs-secondary-color, #6c757d);
+    --footer-social-icon-hover: var(--bs-primary, #0d6efd);
+    --footer-social-icon-bg: var(--bs-light, #f8f9fa);
+    --footer-social-icon-bg-hover: var(--bs-primary-subtle, #cfe2ff);
+    --footer-bottom-bg: var(--bs-tertiary-bg, #e9ecef);
+    --footer-bottom-text: var(--bs-body-color, #212529);
+
+    /* Footer - Estructura */
+    --footer-padding-top: 4rem;
+    --footer-padding-bottom: 0;
+    --footer-title-margin-bottom: 1.5rem;
+    --footer-item-margin-bottom: 0.75rem;
+    --footer-social-gap: 1rem;
+    --footer-social-icon-size: 2.5em;
+    --footer-social-icon-border-radius: 50%;
+    --footer-bottom-padding: 1.5rem 0;
+    --footer-bottom-margin-top: 3rem;
+
+    /* Footer - Tipografía */
+    --footer-title-font-weight: 600;
+    --footer-bottom-font-size: 0.875rem;
+    --footer-transition-speed: 0.2s;
+
+    /* Footer - Responsive */
+    --footer-mobile-breakpoint: 768px;
+    --footer-mobile-padding-top: 3rem;
+    --footer-mobile-title-margin-bottom: 1rem;
+    --footer-mobile-links-margin-bottom: 2rem;
+    --footer-mobile-bottom-margin-bottom: 0.5rem;
+}
+
 .derafu-block-footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
@@ -19,6 +58,7 @@
 
 .derafu-block-footer__links li {
     margin-bottom: 0.75rem;
+    color: var(--footer-link);
 }
 
 .derafu-block-footer__links a {

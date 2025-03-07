@@ -1,3 +1,33 @@
+/* Variables base */
+:root {
+    /* Features Icon - General */
+    --spacing-y: 2rem;
+
+    /* Features Icon - Estructura */
+    --features-icon-row-gap: 2rem;
+    --features-icon-row-margin-bottom: 2rem;
+    --features-icon-size: 80px;
+    --features-icon-border-radius: 0.5rem;
+    --features-icon-margin-bottom: 1rem;
+
+    /* Features Icon - Colores */
+    --features-icon-icon-bg: var(--bs-primary, #0d6efd);
+    --features-icon-icon-color: var(--bs-white, #fff);
+    --features-icon-title-color: var(--bs-body-color, #212529);
+    --features-icon-text-color: var(--bs-body-color, #212529);
+
+    /* Features Icon - Tipografía */
+    --features-icon-icon-font-size: 1.5rem;
+    --features-icon-title-font-size: 1.25rem;
+    --features-icon-title-font-weight: 600;
+    --features-icon-title-margin-bottom: 0.5rem;
+    --features-icon-description-line-height: 1.5;
+
+    /* Features Icon - Responsive */
+    --features-icon-mobile-breakpoint: 768px;
+    --features-icon-mobile-row-gap: 1.5rem;
+}
+
 .derafu-block-features-icon {
     margin: var(--spacing-y, 2rem) auto;
 }

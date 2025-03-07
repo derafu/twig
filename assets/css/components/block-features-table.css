@@ -1,3 +1,38 @@
+/* Variables base */
+:root {
+    /* Features Table - General */
+    --features-table-margin-bottom: 1.5rem;
+
+    /* Features Table - Estructura */
+    --features-table-cell-padding: 1rem;
+    --features-table-icon-size: 2.5em;
+    --features-table-icon-border-radius: 50%;
+    --features-table-feature-gap: 1rem;
+    --features-table-content-gap: 0.25rem;
+
+    /* Features Table - Colores */
+    --features-table-border: var(--bs-border-color, #dee2e6);
+    --features-table-header-bg: var(--bs-primary, #0d6efd);
+    --features-table-header-text: var(--bs-white, #fff);
+    --features-table-icon-bg: var(--bs-light, #f8f9fa);
+    --features-table-icon-text: var(--bs-primary, #0d6efd);
+    --features-table-feature-text: var(--bs-body-color, #212529);
+    --features-table-description-text: var(--bs-body-color, #212529);
+    --features-table-check-color: var(--bs-success, #198754);
+    --features-table-cross-color: var(--bs-danger, #dc3545);
+
+    /* Features Table - Tipografía */
+    --features-table-header-font-weight: bold;
+    --features-table-feature-name-font-weight: bold;
+    --features-table-description-font-size: 0.875rem;
+    --features-table-icon-font-size: 1.2rem;
+
+    /* Features Table - Responsive */
+    --features-table-mobile-breakpoint: 768px;
+    --features-table-mobile-cell-padding: 0.75rem;
+    --features-table-mobile-icon-size: 2em;
+}
+
 .derafu-block-features-table {
     width: 100%;
     margin-bottom: 1.5rem;

@@ -1,8 +1,42 @@
 /* Base estructural */
 :root {
+    /* Espaciado y otras variables estructurales se mantienen igual */
     --boxes-padding: 2.5rem;
     --boxes-icon-size: 5rem;
     --boxes-gap: 0;
+
+    /* Colores de Fondo - usando colores Bootstrap */
+    --boxes-bg-1: var(--bs-light, #f8f9fa);
+    --boxes-bg-2: var(--bs-gray-200, #e9ecef);
+    --boxes-bg-3: var(--bs-gray-300, #dee2e6);
+    --boxes-text: var(--bs-body-color, #212529);
+
+    /* Icono - usando colores Bootstrap */
+    --boxes-icon-bg: var(--bs-white, #ffffff);
+    --boxes-icon-color: var(--bs-primary, #0d6efd);
+    --boxes-icon-margin-bottom: var(--spacing-md);
+
+    /* Tipografía - se mantiene igual */
+    --boxes-title-font-size: var(--font-size-xl);
+    --boxes-title-font-weight: var(--font-weight-bold, 700);
+    --boxes-title-margin-bottom: var(--spacing-sm);
+
+    --boxes-description-font-size: var(--font-size-base);
+    --boxes-description-line-height: 1.6;
+    --boxes-description-margin-bottom: var(--spacing-md);
+
+    /* Botón - usando colores Bootstrap */
+    --boxes-button-bg: var(--bs-primary, #0d6efd);
+    --boxes-button-text: var(--bs-white, #fff);
+    --boxes-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --boxes-button-padding-y: var(--spacing-sm);
+    --boxes-button-padding-x: var(--spacing-md);
+    --boxes-button-border-radius: var(--border-radius-sm);
+    --boxes-button-font-weight: var(--font-weight-bold, 700);
+    --boxes-button-transition: background-color 0.2s;
+
+    /* Responsive */
+    --boxes-mobile-breakpoint: 768px;
 }
 
 /* Estilos del componente */

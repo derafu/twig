@@ -1,3 +1,38 @@
+/* Variables base */
+:root {
+    /* Steps - General */
+    --spacing-y: var(--spacing-lg);
+
+    /* Steps - Estructura */
+    --steps-container-padding: var(--spacing-sm) 0;
+    --steps-step-padding: var(--spacing-sm);
+    --steps-step-min-width: 200px;
+    --steps-icon-size: calc(var(--spacing-lg) * 2);
+    --steps-icon-border-radius: var(--border-radius-round);
+    --steps-icon-margin-bottom: var(--spacing-sm);
+    --steps-title-margin-bottom: var(--spacing-xs);
+    --steps-arrow-width: calc(var(--spacing-lg) * 2);
+
+    /* Steps - Colores */
+    --steps-icon-bg: var(--bs-primary, #0d6efd);
+    --steps-icon-color: var(--bs-white, #fff);
+    --steps-title-color: var(--bs-gray-900, #212529);
+    --steps-text-color: var(--bs-dark, #343a40);
+    --steps-arrow-color: var(--bs-gray-600, #6c757d);
+
+    /* Steps - Tipografía */
+    --steps-icon-font-size: var(--font-size-lg);
+    --steps-title-font-size: var(--font-size-lg);
+    --steps-title-font-weight: var(--font-weight-semibold, 600);
+    --steps-description-font-size: var(--font-size-sm);
+    --steps-description-line-height: 1.5;
+
+    /* Steps - Responsive */
+    --steps-mobile-breakpoint: 768px;
+    --steps-mobile-container-padding-bottom: var(--spacing-sm);
+    --steps-mobile-arrow-width: calc(var(--spacing-lg) * 1);
+}
+
 .derafu-block-steps {
     margin: var(--spacing-y, 2rem) auto;
 }

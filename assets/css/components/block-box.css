@@ -1,10 +1,37 @@
+/* Variables base */
+:root {
+    /* Box - Espaciado */
+    --box-padding: var(--spacing-lg);
+    --box-margin-bottom: var(--spacing-lg);
+
+    /* Box - Estilos */
+    --box-border-radius: var(--border-radius-md);
+    --box-text-align: center;
+
+    /* Colores - usando variables de Bootstrap */
+    --box-background: var(--bs-primary, #0d6efd);
+    --box-color: var(--bs-white, #fff);
+    --box-border: var(--bs-primary, #0d6efd);
+
+    /* Box - Título */
+    --box-title-margin-bottom: var(--spacing-sm);
+    --box-title-font-size: var(--font-size-xl);
+    --box-title-color: var(--bs-white, #fff);
+    --box-title-font-weight: var(--font-weight-bold, 700);
+
+    /* Box - Contenido */
+    --box-content-margin-top: var(--spacing-xs);
+    --box-content-line-height: 1.6;
+    --box-content-color: var(--bs-white, #fff);
+}
+
 .derafu-block-box {
     text-align: center;
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 0.75rem;
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    background-color: var(--box-background);
+    color: var(--box-color);
 }
 
 .derafu-block-box__title {

@@ -1,7 +1,35 @@
+/* Variables base */
+:root {
+    /* Quote - Estructura */
+    --quote-padding: 2rem;
+    --quote-border-radius: 0.5rem;
+    --quote-margin-bottom: 1.5rem;
+    --quote-icon-size: 3rem;
+    --quote-icon-offset: 2rem;
+    --quote-content-margin-bottom: 1rem;
+    --quote-author-margin-top: 1rem;
+    --quote-author-image-size: 3.5rem;
+    --quote-author-image-margin: 1rem;
+
+    /* Quote - Colores */
+    --quote-bg: var(--bs-light, #f8f9fa);
+    --quote-content-color: var(--bs-gray-900, #403434);
+    --quote-author-name-color: var(--bs-gray-600, #6c757d);
+    --quote-author-source-color: var(--bs-primary, #0d6efd);
+    --quote-icon-color: var(--bs-primary, #0d6efd);
+    --quote-icon-opacity: 0.1;
+
+    /* Quote - Tipografía */
+    --quote-content-font-size: 1.25rem;
+    --quote-content-font-style: italic;
+    --quote-author-name-font-weight: 600;
+    --quote-author-source-font-size: 0.9rem;
+}
+
 .derafu-block-quote__content {
     font-size: 1.25rem;
     font-style: italic;
-    color: var(--color-primary);
+    color: var(--quote-content-color);
     margin-bottom: 1rem;
     position: relative;
     z-index: 1;
@@ -29,11 +57,11 @@
 
 .derafu-block-quote__author-name {
     font-weight: 600;
-    color: var(--color-primary-dark);
+    color: var(--quote-author-name-color);
 }
 
 .derafu-block-quote__author-source {
-    color: var(--color-secondary);
+    color: var(--quote-author-source-color);
     font-size: 0.9rem;
 }
 
@@ -42,7 +70,7 @@
     margin-bottom: 1.5rem;
     padding: 2rem;
     border-radius: 0.5rem;
-    background-color: var(--quote-bg, #f8f9fa);
+    background-color:  var(--quote-bg);
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -50,7 +78,7 @@
 
 .derafu-block-quote__icon {
     position: absolute;
-    color: var(--color-secondary);
+    color: var(--quote-icon-color);
     opacity: 0.1;
     font-size: 3rem;
 }

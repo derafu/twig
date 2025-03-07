@@ -1,3 +1,42 @@
+/* Variables base */
+:root {
+    /* Video Grid - General */
+    --video-grid-spacing-y: 2rem;
+    --video-grid-transition-duration: 0.3s;
+    --video-grid-hover-transform: translateY(-5px);
+
+    /* Video Grid - Estructura de la tarjeta */
+    --video-grid-card-border-radius: 0.5rem;
+    --video-grid-card-border-width: 1px;
+    --video-grid-card-box-shadow: 0 2px 4px;
+
+    /* Video Grid - Bootstrap Colors */
+    --video-grid-card-bg: var(--bs-white, #fff);
+    --video-grid-card-border: var(--bs-gray-200, #e9ecef);
+    --video-grid-card-shadow: var(--bs-gray-300, #dee2e6);
+    --video-grid-card-title: var(--bs-gray-900, #212529);
+    --video-grid-card-text: var(--bs-gray-600, #6c757d);
+
+    /* Video Grid - Contenido */
+    --video-grid-content-padding: 1.5rem;
+    --video-grid-title-font-size: 1.25rem;
+    --video-grid-title-font-weight: 700;
+    --video-grid-title-margin-bottom: 1rem;
+    --video-grid-description-font-size: 0.9rem;
+    --video-grid-description-line-height: 1.6;
+
+    /* Video Grid - Media */
+    --video-grid-aspect-ratio: 16/9;
+
+    /* Video Grid - Botón */
+    --video-grid-button-padding-y: 0.75rem;
+    --video-grid-button-padding-x: 1.5rem;
+    --video-grid-button-border-radius: 0.375rem;
+    --video-grid-button-bg: var(--bs-primary, #0d6efd);
+    --video-grid-button-text: var(--bs-white, #fff);
+    --video-grid-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+ }
+
 .derafu-block-video-grid {
     margin: var(--spacing-y, 2rem) auto;
 }
@@ -6,11 +45,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
+    background-color: var(--video-grid-card-bg);
+    border: 1px solid var(--video-grid-card-border);
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 2px 4px var(--card-shadow);
+    box-shadow: 0 2px 4px var(--video-grid-card-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -38,14 +77,14 @@
 }
 
 .derafu-block-video-grid__title {
-    color: var(--card-title);
+    color: var(--video-grid-card-title);
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 .derafu-block-video-grid__description {
-    color: var(--card-text);
+    color: var(--video-grid-card-text);
     font-size: 0.9rem;
     line-height: 1.6;
 }
@@ -59,7 +98,7 @@
     display: block;
     width: 100%;
     padding: 0.75rem 1.5rem;
-    background-color: var(--card-button-bg);
+    background-color: var(--video-grid-button-bg);
     color: var(--card-button-text);
     text-align: center;
     text-decoration: none;
@@ -68,7 +107,7 @@
 }
 
 .derafu-block-video-grid__button:hover {
-    background-color: var(--card-button-hover);
-    color: var(--card-button-text);
+    background-color: var(--video-grid-button-hover);
+    color: var(--video-grid-button-text);
     text-decoration: none;
 }

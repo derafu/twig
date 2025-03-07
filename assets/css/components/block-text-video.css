@@ -1,8 +1,31 @@
-/* Variables estructurales */
+/* Variables base */
 :root {
+    /* Text-Video - Estructura */
     --text-video-spacing: 2rem;
     --text-video-button-gap: 1rem;
-}
+    --text-video-border-radius: 0.5rem;
+
+    /* Text-Video - Colores */
+    --text-video-title-color: var(--bs-dark, #343a40);
+    --text-video-text-color: var(--bs-gray-900, #212529);
+    --text-video-button-bg: var(--bs-primary, #0d6efd);
+    --text-video-button-text: var(--bs-white, #fff);
+    --text-video-button-hover-bg: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --text-video-button-hover-text: var(--bs-white, #fff);
+
+    /* Text-Video - Tipografía */
+    --text-video-title-font-weight: 700;
+    --text-video-text-line-height: 1.6;
+    --text-video-button-font-weight: 700;
+
+    /* Text-Video - Aspect Ratios */
+    --text-video-ratio-16-9: 56.25%;
+    --text-video-ratio-4-3: 75%;
+    --text-video-ratio-1-1: 100%;
+
+    /* Text-Video - Responsive */
+    --text-video-mobile-breakpoint: 768px;
+ }
 
 /* Estilos del componente */
 .derafu-block-text-video {
@@ -14,7 +37,7 @@
 }
 
 .derafu-block-text-video__title {
-    color: var(--color-primary);
+    color: var(--text-video-title-color);
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
@@ -36,8 +59,8 @@
 
 .derafu-block-text-video__button {
     display: inline-block;
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    background-color: var(--text-video-button-bg);
+    color: var(--text-video-button-text);
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     text-decoration: none;
@@ -46,8 +69,8 @@
 }
 
 .derafu-block-text-video__button:hover {
-    background-color: var(--color-primary-dark);
-    color: var(--color-primary-contrast);
+    background-color: var(--text-video-button-hover-bg);
+    color: var(--text-video-button-hover-text);
     text-decoration: none;
 }
 

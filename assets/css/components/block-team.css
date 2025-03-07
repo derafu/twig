@@ -1,11 +1,46 @@
+/* Variables base */
 :root {
-    /* Team component sizes - el ancho determina el tamaño cuadrado */
-    --team-image-size-1: 300px; /* una columna */
-    --team-image-size-2: 250px; /* dos columnas */
-    --team-image-size-3: 200px; /* tres columnas */
-    --team-image-size-4: 180px; /* cuatro columnas */
-    --team-image-size-6: 150px; /* seis columnas */
-}
+    /* Team - Estructura */
+    --spacing-y: 2rem;
+    --team-border-radius: 1rem;
+    --team-padding: 2rem;
+    --team-hover-transform: translateY(-5px);
+    --team-transition-duration: 0.3s;
+
+    /* Team - Tamaños de imágenes según columnas */
+    --team-image-size-1: 12rem;
+    --team-image-size-2: 10rem;
+    --team-image-size-3: 9rem;
+    --team-image-size-4: 8rem;
+    --team-image-size-6: 6rem;
+
+    /* Team - Colores */
+    --team-bg: transparent;
+    --team-member-bg: var(--bs-white, #fff);
+    --team-image-shadow: rgba(0, 0, 0, 0.1);
+    --team-name-color: var(--bs-gray-900, #212529);
+    --team-role-color: var(--bs-gray-600, #6c757d);
+    --team-bio-color: var(--bs-gray-700, #495057);
+    --team-border-color: var(--bs-border-color, #dee2e6);
+
+    /* Team - Enlaces */
+    --team-link-color: var(--bs-primary, #0d6efd);
+    --team-link-bg: var(--bs-gray-200, #e9ecef);
+    --team-link-hover-text: var(--bs-white, #fff);
+    --team-link-hover-bg: var(--bs-primary, #0d6efd);
+    --team-link-border-radius: 2rem;
+    --team-link-gap: 0.5rem;
+
+    /* Team - Tipografía */
+    --team-name-font-size: 1.25rem;
+    --team-name-font-weight: 700;
+    --team-role-font-size: 0.9rem;
+    --team-role-font-weight: 500;
+    --team-role-letter-spacing: 0.5px;
+    --team-bio-font-size: 0.9rem;
+    --team-bio-line-height: 1.6;
+    --team-link-font-size: 0.9rem;
+ }
 
 /* Estilos del componente */
 .derafu-block-team {

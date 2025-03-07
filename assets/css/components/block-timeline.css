@@ -1,3 +1,37 @@
+/* Variables de Timeline */
+:root {
+    /* Espaciado */
+    --spacing-y: var(--spacing-lg);
+
+    /* Timeline Colores */
+    --timeline-line-color: var(--bs-gray-600, #6c757d);
+    --timeline-year-color: var(--bs-primary, #0d6efd);
+    --timeline-icon-color: var(--bs-primary, #0d6efd);
+    --timeline-title-color: var(--bs-gray-900, #212529);
+    --timeline-date-color: var(--bs-gray-600, #6c757d);
+    --timeline-text-color: var(--bs-gray-700, #495057);
+
+    /* Timeline Fondo y sombra */
+    --timeline-content-bg: var(--bs-white, #fff);
+    --timeline-content-shadow: var(--bs-border-color, #dee2e6);
+
+    /* Tipografía */
+    --timeline-year-font-size: var(--font-size-xl, 2rem);
+    --timeline-title-font-size: var(--font-size-lg, 1.25rem);
+    --timeline-title-font-weight: var(--font-weight-semibold, 600);
+    --timeline-date-font-size: var(--font-size-sm, 0.875rem);
+
+    /* Dimensiones y espaciado */
+    --timeline-line-width: 2px;
+    --timeline-event-width: 45%;
+    --timeline-mobile-event-margin: 2rem;
+    --timeline-content-padding: var(--spacing-md);
+    --timeline-content-border-radius: var(--border-radius-md);
+
+    /* Responsive */
+    --timeline-mobile-breakpoint: 768px;
+}
+
 .derafu-block-timeline {
     margin: var(--spacing-y, 2rem) auto;
     position: relative;
