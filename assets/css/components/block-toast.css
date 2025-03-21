@@ -7,21 +7,10 @@
     --toast-close-right: 1rem;
     --toast-close-size: 0.75rem;
     --toast-close-width: 2px;
-    --toast-header-padding-right: 2.5rem;
 
     /* Toast - Colores */
     --toast-bg: var(--bs-white, #fff);
-    --toast-header-bg: var(--bs-white, #fff);
     --toast-border-color: var(--bs-border-color, rgba(0, 0, 0, 0.1));
-    --toast-text-color: var(--bs-gray-900, #212529);
-    --toast-close-color: var(--bs-black, #000);
-
-
-    /* Toast - Animaciones */
-    --toast-transition: all 0.2s ease-in-out;
-
-    /* Toast - Z-index */
-    --toast-z-index: 1090;
 }
 
 /* Toast Base Styles */
@@ -36,39 +25,8 @@
     display: flex;
     align-items: center;
     padding: var(--toast-padding);
-    padding-right: var(--toast-header-padding-right);
+    padding-right: 2.5rem;
     position: relative;
-}
-
-/* Close Button Styles */
-.derafu-block-toast .btn-close {
-    position: absolute;
-    top: 50%;
-    right: var(--toast-close-right);
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.derafu-block-toast .btn-close:hover {
-    opacity: 1;
-}
-
-.derafu-block-toast .btn-close::before,
-.derafu-block-toast .btn-close::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 0.75rem;
-    background-color: var(--toast-close-color);
-    transform-origin: center;
-}
-
-.derafu-block-toast .btn-close::before {
-    transform: rotate(45deg);
-}
-
-.derafu-block-toast .btn-close::after {
-    transform: rotate(-45deg);
 }
 
 /* Toast Body */
