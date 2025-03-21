@@ -6,6 +6,9 @@
     --team-padding: 2rem;
     --team-hover-transform: translateY(-5px);
     --team-transition-duration: 0.3s;
+    --team-image-padding: 2rem 2rem 0;
+    --team-info-padding: 2rem;
+    --team-links-gap: 1rem;
 
     /* Team - Tamaños de imágenes según columnas */
     --team-image-size-1: 12rem;
@@ -23,6 +26,20 @@
     --team-bio-color: var(--bs-gray-700, #495057);
     --team-border-color: var(--bs-border-color, #dee2e6);
 
+    /* Team - Tipografía */
+    --team-name-font-size: 1.25rem;
+    --team-name-font-weight: 700;
+    --team-name-margin-bottom: 0.5rem;
+    --team-role-font-size: 0.9rem;
+    --team-role-font-weight: 500;
+    --team-role-letter-spacing: 0.5px;
+    --team-role-margin-bottom: 1rem;
+    --team-bio-font-size: 0.9rem;
+    --team-bio-line-height: 1.6;
+    --team-bio-margin-bottom: 1rem;
+    --team-bio-padding-bottom: 1rem;
+    --team-bio-border-bottom: 1px solid var(--team-border-color);
+
     /* Team - Enlaces */
     --team-link-color: var(--bs-primary, #0d6efd);
     --team-link-bg: var(--bs-gray-200, #e9ecef);
@@ -30,30 +47,24 @@
     --team-link-hover-bg: var(--bs-primary, #0d6efd);
     --team-link-border-radius: 2rem;
     --team-link-gap: 0.5rem;
-
-    /* Team - Tipografía */
-    --team-name-font-size: 1.25rem;
-    --team-name-font-weight: 700;
-    --team-role-font-size: 0.9rem;
-    --team-role-font-weight: 500;
-    --team-role-letter-spacing: 0.5px;
-    --team-bio-font-size: 0.9rem;
-    --team-bio-line-height: 1.6;
     --team-link-font-size: 0.9rem;
- }
+    --team-link-padding: 0.5rem 1rem;
+    --team-link-hover-transform: translateY(-2px);
+    --team-link-icon-size: 1.1em;
+}
 
 /* Estilos del componente */
 .derafu-block-team {
-    margin: var(--spacing-y, 2rem) auto;
+    margin: var(--spacing-y) auto;
     background-color: var(--team-bg);
 }
 
 .derafu-block-team__member {
-    background: white;
-    border-radius: 1rem;
+    background: var(--team-member-bg);
+    border-radius: var(--team-border-radius);
     overflow: hidden;
     box-shadow: 0 4px 20px var(--team-image-shadow);
-    transition: transform 0.3s ease;
+    transition: transform var(--team-transition-duration) ease;
     text-align: center; /* default */
 }
 
@@ -66,12 +77,12 @@
 }
 
 .derafu-block-team__member:hover {
-    transform: translateY(-5px);
+    transform: var(--team-hover-transform);
 }
 
 .derafu-block-team__image {
     position: relative;
-    padding: 2rem 2rem 0;
+    padding: var(--team-image-padding);
     display: flex;
 }
 
@@ -91,7 +102,7 @@
     width: var(--team-image-size-4); /* default */
     height: var(--team-image-size-4);
     object-fit: cover;
-    border-radius: 1rem;
+    border-radius: var(--team-border-radius);
 }
 
 /* Ajustes según número de columnas */
@@ -117,37 +128,37 @@
 }
 
 .derafu-block-team__info {
-    padding: 2rem;
-    background: white;
+    padding: var(--team-info-padding);
+    background: var(--team-member-bg);
 }
 
 .derafu-block-team__name {
     color: var(--team-name-color);
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    font-size: var(--team-name-font-size);
+    font-weight: var(--team-name-font-weight);
+    margin-bottom: var(--team-name-margin-bottom);
 }
 
 .derafu-block-team__role {
     color: var(--team-role-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
+    font-size: var(--team-role-font-size);
+    font-weight: var(--team-role-font-weight);
+    margin-bottom: var(--team-role-margin-bottom);
+    letter-spacing: var(--team-role-letter-spacing);
 }
 
 .derafu-block-team__bio {
     color: var(--team-bio-color);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--team-border-color);
+    font-size: var(--team-bio-font-size);
+    line-height: var(--team-bio-line-height);
+    margin-bottom: var(--team-bio-margin-bottom);
+    padding-bottom: var(--team-bio-padding-bottom);
+    border-bottom: var(--team-bio-border-bottom);
 }
 
 .derafu-block-team__links {
     display: flex;
-    gap: 1rem;
+    gap: var(--team-links-gap);
     flex-wrap: wrap;
 }
 
@@ -166,22 +177,22 @@
 .derafu-block-team__link {
     color: var(--team-link-color);
     text-decoration: none;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
+    font-size: var(--team-link-font-size);
+    padding: var(--team-link-padding);
+    border-radius: var(--team-link-border-radius);
     background: var(--team-link-bg);
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
+    gap: var(--team-link-gap);
+    transition: var(--team-transition-duration) ease;
 }
 
 .derafu-block-team__link:hover {
     color: var(--team-link-hover-text);
     background: var(--team-link-hover-bg);
-    transform: translateY(-2px);
+    transform: var(--team-link-hover-transform);
 }
 
 .derafu-block-team__link i {
-    font-size: 1.1em;
+    font-size: var(--team-link-icon-size);
 }

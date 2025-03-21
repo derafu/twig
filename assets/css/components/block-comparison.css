@@ -3,14 +3,28 @@
     --comparison-plan-bg: var(--bs-white, #fff);
     --comparison-plan-border: var(--bs-border-color, #dee2e6);
     --comparison-plan-shadow: var(--bs-light, #f8f9fa);
+    --comparison-plan-transition-duration: 0.3s;
+    --comparison-plan-hover-transform: translateY(-5px);
+    --comparison-plan-border-radius: 1rem;
 
+    --comparison-title-font-size: 1.5rem;
+    --comparison-title-font-weight: bold;
+
+    --comparison-price-font-size: 2.5rem;
+    --comparison-price-font-weight: bold;
+    --comparison-price: var(--bs-body-color, #212529);
+    --comparison-price-margin-top: 0.5rem;
+    --comparison-price-padding: 2rem;
+    --comparison-price-gap: 0.25rem;
+    --comparison-price-small-font-size: 50%;
     --comparison-title-bg: var(--bs-primary, #0d6efd);
     --comparison-title-color: var(--bs-white, #fff);
+    --comparison-title-padding: 1.5rem;
 
-    --comparison-price: var(--bs-body-color, #212529);
     --comparison-period: var(--bs-secondary, #6c757d);
 
     --comparison-text: var(--bs-body-color, #212529);
+
     --comparison-recommendation: var(--bs-dark, #212529);
 
     --comparison-button-bg: var(--bs-primary, #0d6efd);
@@ -19,6 +33,21 @@
 
     --comparison-highlighted-title-bg: var(--bs-secondary, #6c757d);
     --comparison-highlighted-title-color: var(--bs-white, #fff);
+
+    --comparison-features-padding: 2rem;
+
+    --comparison-footer-padding: 2rem;
+
+    --comparison-button-padding: 1rem;
+    --comparison-button-border-radius: 0.5rem;
+    --comparison-button-font-weight: bold;
+    --comparison-button-transition-duration: 0.3s;
+
+    --comparison-feature-gap: 1rem;
+    --comparison-feature-padding-y: 0.75rem;
+
+    --comparison-recommendation-font-size: 0.9rem;
+    --comparison-recommendation-margin-bottom: 1.5rem;
 }
 
 /* Estilos del componente */
@@ -32,63 +61,63 @@
     flex-direction: column;
     background-color: var(--comparison-plan-bg);
     border: 1px solid var(--comparison-plan-border);
-    border-radius: 1rem;
+    border-radius: var(--comparison-plan-border-radius);
     overflow: hidden;
     box-shadow: 0 4px 6px var(--comparison-plan-shadow);
-    transition: transform 0.3s ease;
+    transition: transform var(--comparison-plan-transition-duration) ease;
 }
 
 .derafu-block-comparison__plan:hover {
-    transform: translateY(-5px);
+    transform: var(--comparison-plan-hover-transform);
 }
 
 /* Title section */
 .derafu-block-comparison__title-section {
-    padding: 1.5rem;
+    padding: var(--comparison-title-padding);
     background-color: var(--comparison-title-bg);
     text-align: center;
 }
 
 .derafu-block-comparison__title {
     color: var(--comparison-title-color);
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: var(--comparison-title-font-size);
+    font-weight: var(--comparison-title-font-weight);
     margin: 0;
 }
 
 /* Price section */
 .derafu-block-comparison__price-section {
-    padding: 2rem;
+    padding: var(--comparison-price-padding);
     text-align: center;
     background-color: var(--comparison-plan-bg);
 }
 
 .derafu-block-comparison__price {
     color: var(--comparison-price);
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: var(--comparison-price-font-size);
+    font-weight: var(--comparison-price-font-weight);
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
+    gap: var(--comparison-price-gap);
 }
 
 .derafu-block-comparison__price small {
-    font-size: 50%;
+    font-size: var(--comparison-price-small-font-size);
     position: relative;
 }
 
 .derafu-block-comparison__period {
     color: var(--comparison-period);
     font-size: 1rem;
-    margin-top: 0.5rem;
+    margin-top: var(--comparison-price-margin-top);
 }
 
 /* Features */
 .derafu-block-comparison__features {
     flex: 1;
-    padding: 2rem;
+    padding: var(--comparison-features-padding);
     border-top: 1px solid var(--comparison-plan-border);
     border-bottom: 1px solid var(--comparison-plan-border);
 }
@@ -111,28 +140,28 @@
 
 /* Footer */
 .derafu-block-comparison__footer {
-    padding: 2rem;
+    padding: var(--comparison-footer-padding);
 }
 
 .derafu-block-comparison__recommendation {
     text-align: center;
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: var(--comparison-recommendation-font-size);
     color: var(--comparison-recommendation);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--comparison-recommendation-margin-bottom);
 }
 
 .derafu-block-comparison__button {
     display: block;
     width: 100%;
-    padding: 1rem;
+    padding: var(--comparison-button-padding);
     background-color: var(--comparison-button-bg);
     color: var(--comparison-button-text);
     text-align: center;
     text-decoration: none;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    border-radius: var(--comparison-button-border-radius);
+    font-weight: var(--comparison-button-font-weight);
+    transition: background-color var(--comparison-button-transition-duration) ease;
 }
 
 .derafu-block-comparison__button:hover {

@@ -4,7 +4,7 @@
     --table-padding: 0.75rem;
     --table-border-width: 1px;
     --table-border-width-header: 2px;
-    --table-margin-bottom: 1rem;
+    --table-margin-bottom: 0rem;
     --table-transition-duration: 0.2s;
     --table-sm-padding: 0.3rem;
 
@@ -22,10 +22,6 @@
     /* Table - Responsive */
     --table-actions-gap: 0.5rem;
     --table-mobile-breakpoint: 768px;
-
-    /* Variables para el botón primary dropdown */
-    --bs-primary: var(--bs-primary, #0d6efd);
-    --bs-primary-rgb: 13, 110, 253;
 
     /* Estilos del botón principal */
     --bs-btn-primary-color: var(--bs-white, #fff);
@@ -72,7 +68,7 @@
 
 /* Estilos base de la tabla */
 .derafu-block-table .table {
-    margin-bottom: 0;
+    margin-bottom: var(--table-margin-bottom);
     width: 100%;
     color: var(--table-text);
     background-color: var(--table-bg);
@@ -90,7 +86,7 @@
     color: var(--table-header-text);
     font-weight: 600;
     vertical-align: bottom;
-    border-bottom-width: 2px;
+    border-bottom-width: var(--table-border-width-header);
 }
 
 /* Modificadores de alineación */
@@ -108,11 +104,11 @@
 
 /* Borders */
 .derafu-block-table .table-bordered {
-    border: 1px solid var(--table-border);
+    border: var(--table-border-width) solid var(--table-border);
 }
 
 .derafu-block-table .table-bordered > :not(caption) > * > * {
-    border: 1px solid var(--table-border);
+    border: var(--table-border-width) solid var(--table-border);
 }
 
 /* Striped rows */
@@ -128,8 +124,8 @@
 
 /* Caption */
 .derafu-block-table .table > caption {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: var(--table-padding);
+    padding-bottom: var(--table-padding);
     color: var(--table-text);
     text-align: left;
     caption-side: top;
@@ -137,7 +133,7 @@
 
 /* Footer */
 .derafu-block-table .table > tfoot {
-    border-top: 2px solid var(--table-border);
+    border-top: var(--table-border-width-header) solid var(--table-border);
 }
 
 /* Responsive container */
@@ -148,7 +144,7 @@
 
 /* Tamaño pequeño */
 .derafu-block-table .table-sm > :not(caption) > * > * {
-    padding: 0.3rem;
+    padding: var(--table-sm-padding);
 }
 
 
@@ -157,7 +153,7 @@
     .derafu-block-table__actions {
          flex-direction: column;
          align-items: stretch;
-         gap: 0.5rem;
+         gap: var(--table-actions-gap);
     }
 
     .derafu-block-table__actions .btn {

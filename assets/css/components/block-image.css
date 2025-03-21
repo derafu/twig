@@ -66,7 +66,7 @@
 }
 
 .derafu-block-image__image img {
-    border-radius: 0.5rem;
+    border-radius: var(--image-border-radius);
     box-shadow: 0 4px 6px var(--image-shadow);
 }
 
@@ -77,7 +77,7 @@
 
 .derafu-block-image__buttons {
     display: flex;
-    gap: 1rem;
+    gap: var(--image-button-gap);
     justify-content: center;
 }
 
@@ -93,11 +93,11 @@
     display: inline-block;
     background-color: var(--image-button-bg);
     color: var(--image-button-text);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
+    padding: var(--image-button-padding);
+    border-radius: var(--image-button-border-radius);
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    font-weight: var(--image-button-font-weight);
+    transition: var(--image-button-transition);
 }
 
 .derafu-block-image__button:hover {

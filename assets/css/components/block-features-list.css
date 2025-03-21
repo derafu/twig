@@ -9,6 +9,7 @@
     --features-list-content-max-width: 80%;
     --features-list-icon-padding: 0 1rem;
     --features-list-divider-width: 1px;
+    --features-list-row-margin: -1rem;
 
     /* Features List - Colores */
     --features-list-divider-color: var(--bs-border-color, #dee2e6);
@@ -35,7 +36,7 @@
 .derafu-block-features-list__row {
     display: flex;
     flex-wrap: wrap;
-    margin: -1rem;
+    margin: var(--features-list-row-margin);
     position: relative;
 }
 
@@ -45,20 +46,20 @@
     top: 0;
     bottom: 0;
     left: 50%;
-    width: 1px;
-    background-color: var(--color-secondary-light);
+    width: var(--features-list-divider-width);
+    background-color: var(--features-list-divider-color);
     transform: translateX(-50%);
 }
 
 .derafu-block-features-list__column {
     flex: 1 1 50%;
-    padding: 1rem;
+    padding: var(--features-list-column-padding);
 }
 
 .derafu-block-features-list__item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 2rem;
+    margin-bottom: var(--features-list-item-margin-bottom);
 }
 
 .derafu-block-features-list__item--right {
@@ -68,31 +69,31 @@
 
 .derafu-block-features-list__content {
     flex: 1;
-    max-width: 80%;
+    max-width: var(--features-list-content-max-width);
 }
 
 .derafu-block-features-list__icon {
-    font-size: 2rem;
+    font-size: var(--features-list-icon-font-size);
     color: var(--features-list-icon-color);
-    padding: 0 1rem;
+    padding: var(--features-list-icon-padding);
     flex-shrink: 0;
 }
 
 .derafu-block-features-list__title {
     color: var(--features-list-title-color);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: var(--features-list-title-font-size);
+    font-weight: var(--features-list-title-font-weight);
+    margin-bottom: var(--features-list-title-margin-bottom);
 }
 
 .derafu-block-features-list__description {
     color: var(--features-list-text-color);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: var(--features-list-description-font-size);
+    line-height: var(--features-list-description-line-height);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: var(--features-list-mobile-breakpoint)) {
     .derafu-block-features-list__column {
         flex: 1 1 100%;
     }

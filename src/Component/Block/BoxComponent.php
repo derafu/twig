@@ -34,4 +34,12 @@ class BoxComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?string $content = null;
+
+    /**
+     * Rounded border of the box.
+     *
+     * @var bool
+     */
+    #[ExposeInTemplate()]
+    public bool $rounded = true;
 }

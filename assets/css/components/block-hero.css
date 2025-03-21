@@ -33,6 +33,14 @@
     --hero-button-secondary-bg: transparent;
     --hero-button-secondary-text: var(--bs-white, #fff);
     --hero-button-secondary-border: var(--bs-white, #fff);
+
+        /* Hero - Enlaces en el subtítulo */
+    --hero-link-color: var(--bs-warning, #ffc107);
+    --hero-link-hover-color: var(--bs-light, #f8f9fa);
+    --hero-link-font-weight: 500;
+    --hero-link-decoration: underline;
+
+    --hero-title-font-weight: bold;
 }
 
 /* Estilos base */
@@ -81,13 +89,13 @@
 }
 
 .derafu-block-hero__title {
-    margin-bottom: 1rem;
-    font-weight: bold;
+    margin-bottom: var(--hero-title-margin-bottom);
+    font-weight: var(--hero-title-font-weight);
     color: var(--hero-title-color);
 }
 
 .derafu-block-hero__subtitle {
-    margin-bottom: 2rem;
+    margin-bottom: var(--hero-subtitle-margin-bottom);
     color: var(--hero-subtitle-color);
 }
 
@@ -125,17 +133,12 @@
     border: 2px solid var(--hero-button-secondary-border);
 }
 
-/* Colores de fondo y texto */
-.derafu-block-hero {
-    background-color: var(--hero-bg);
-    color: var(--hero-text);
-}
 
 .derafu-block-hero__content--with-background {
     position: relative;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    backdrop-filter: blur(5px);
+    padding: var(--hero-content-with-bg-padding);
+    border-radius: var(--hero-content-with-bg-radius);
+    backdrop-filter: blur(var(--hero-content-with-bg-blur));
 }
 
 .derafu-block-hero__content--with-background::before {
@@ -154,4 +157,15 @@
 /* Aseguramos que el contenido esté por encima del fondo */
 .derafu-block-hero__content--with-background > * {
     position: relative;
+}
+.derafu-block-hero__subtitle a {
+    color: var(--hero-link-color);
+    text-decoration: var(--hero-link-decoration);
+    font-weight: var(--hero-link-font-weight);
+    transition: color 0.2s;
+}
+
+.derafu-block-hero__subtitle a:hover {
+    color: var(--hero-link-hover-color);
+    text-decoration: var(--hero-link-decoration);
 }

@@ -48,7 +48,7 @@
 
 .derafu-block-text-video__text p {
     margin-bottom: 1rem;
-    line-height: 1.6;
+    line-height: var(--text-video-text-line-height);
 }
 
 .derafu-block-text-video__buttons {

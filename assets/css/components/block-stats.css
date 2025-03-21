@@ -35,26 +35,26 @@
 
 .derafu-block-stats__number {
     color: var(--stats-number-color);
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1.2;
-    margin: 0.5rem 0;
+    font-size: var(--stats-number-font-size);
+    font-weight: var(--stats-number-font-weight);
+    line-height: var(--stats-number-line-height);
+    margin: var(--stats-number-margin);
 }
 
 .derafu-block-stats__text {
     color: var(--stats-text-color);
-    font-size: 1rem;
-    line-height: 1.4;
-    opacity: 0.9;  /* Sutilmente más suave que el número */
+    font-size: var(--stats-text-font-size);
+    line-height: var(--stats-text-line-height);
+    opacity: var(--stats-text-opacity);  /* Sutilmente más suave que el número */
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: var(--stats-mobile-breakpoint)) {
     .derafu-block-stats__number {
-        font-size: 2.5rem;
+        font-size: var(--stats-mobile-number-font-size);
     }
 
     .derafu-block-stats__item {
-        padding: 1rem;
+        padding: var(--stats-mobile-item-padding);
     }
 }
