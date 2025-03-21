@@ -23,7 +23,7 @@
                                                                                                 <h1>Block Quote</h1>
                             <p class="mb-4">Styled blockquote component.</p>
                                             
-                        <div class="derafu-block-quote " id="block-quote--67d43a8181698">
+                        <div class="derafu-block-quote " id="block-quote--67ddc27aae290">
     <div class="derafu-block-quote__container">
         <figure class="derafu-block-quote__figure">
             <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
@@ -33,7 +33,7 @@
                 <i class="fa-solid fa-quote-right"></i>
             </div>
             <blockquote class="derafu-block-quote__content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a></p>
             </blockquote>
             <div class="derafu-block-quote__author">
                                     <img src="../img/block-hero.jpeg"
@@ -57,7 +57,7 @@
 {% block content %}
 {% for theme, name in themes %}
     &lt;twig:block-quote
-        quote=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+        quote=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;a href=https://derafu.org/&gt;Link&lt;/a&gt;&quot;
         author=&quot;John Doe&quot;
         source=&quot;Theme: {{ name }}&quot;
         image=&quot;../../img/block-hero.jpeg&quot;
@@ -108,7 +108,7 @@
                               <div class="fw-bold">Components</div>
                               <span class="smal text-muted">Blocks</span>
                             </div>
-                            <span class="badge text-bg-primary rounded-pill mt-3">34</span>
+                            <span class="badge text-bg-primary rounded-pill mt-3">35</span>
                         </li>
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
@@ -175,6 +175,9 @@
                             </a>
                                                     <a class="list-group-item list-group-item-action active" href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
                                 Quote
+                            </a>
+                                                    <a class="list-group-item list-group-item-action " href="http://127.0.0.1:9000/components/block-scrollspy" data-bs-toggle="tooltip" title="Auto-updating navigation based on scroll position.">
+                                Scrollspy
                             </a>
                                                     <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
                                 Stats

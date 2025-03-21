@@ -23,9 +23,14 @@
                                                                                                 <h1>Block Box</h1>
                             <p class="mb-4">Simple box container for content.</p>
                                             
-                        <div class="derafu-block-box derafu-theme-bootstrap" id="block-box--67d43a800f4e3">
+                        <div class="derafu-block-box derafu-block-box__rounded derafu-theme-bootstrap" id="block-box--67ddc2792c89a">
     <h3 class="derafu-block-box__title">Theme: Bootstrap</h3>
-    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">bootstrap</a>"</div>
+</div>
+
+    <div class="derafu-block-box  " id="block-box--67ddc2792d310">
+    <h3 class="derafu-block-box__title">Another box</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="javascript:alert(&apos;Another box&apos;)">Link</a>"</div>
 </div>
 
 
@@ -38,10 +43,15 @@
 {% for theme, name in themes %}
     &lt;twig:block-box
         title=&quot;Theme: {{ name }}&quot;
-        content=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+        content=&#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &quot;&lt;a href=&quot;https://derafu.org/&quot;&gt;{{ theme }}&lt;/a&gt;&quot;&#039;
         theme=&quot;{{ theme }}&quot;
     /&gt;
 {% endfor %}
+    &lt;twig:block-box
+        :rounded=&quot;false&quot;
+        title=&quot;Another box&quot;
+        content=&#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &quot;&lt;a href=&quot;javascript:alert(&amp;apos;Another box&amp;apos;)&quot;&gt;Link&lt;/a&gt;&quot;&#039;
+    /&gt;
 {% endblock %}
 </code></pre>
                     </div>
@@ -86,7 +96,7 @@
                               <div class="fw-bold">Components</div>
                               <span class="smal text-muted">Blocks</span>
                             </div>
-                            <span class="badge text-bg-primary rounded-pill mt-3">34</span>
+                            <span class="badge text-bg-primary rounded-pill mt-3">35</span>
                         </li>
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
@@ -153,6 +163,9 @@
                             </a>
                                                     <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
                                 Quote
+                            </a>
+                                                    <a class="list-group-item list-group-item-action " href="http://127.0.0.1:9000/components/block-scrollspy" data-bs-toggle="tooltip" title="Auto-updating navigation based on scroll position.">
+                                Scrollspy
                             </a>
                                                     <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
                                 Stats
