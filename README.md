@@ -1,6 +1,11 @@
 # Derafu: Twig - UI Component and Extension Library
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/derafu/twig/main)
+![CI Workflow](https://github.com/derafu/twig/actions/workflows/ci.yml/badge.svg?branch=main&event=push)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/derafu/twig)
+![GitHub Issues](https://img.shields.io/github/issues-raw/derafu/twig)
+![Total Downloads](https://poser.pugx.org/derafu/twig/downloads)
+![Monthly Downloads](https://poser.pugx.org/derafu/twig/d/monthly)
 
 **Derafu Twig** is a comprehensive UI component library for Twig, designed to work standalone or with any PHP framework. Built with Bootstrap 5 and Font Awesome 6, it provides a collection of reusable, customizable components for rapid web development.
 
