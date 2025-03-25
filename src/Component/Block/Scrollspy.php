@@ -87,13 +87,13 @@ class ScrollspyComponent extends AbstractComponent
                     'title' => 'Default Section',
                     'content' => 'Default content for scrollspy section.',
                     'icon' => null,
-                    'badge' => null
-                ]
+                    'badge' => null,
+                ],
             ];
         }
 
         // Process and validate all sections.
-        $this->sections = array_map(function($section) {
+        $this->sections = array_map(function ($section) {
             // Generate ID if not provided.
             if (empty($section['id'])) {
                 $section['id'] = 'section-' . uniqid();
@@ -105,7 +105,7 @@ class ScrollspyComponent extends AbstractComponent
                 'title' => $section['title'] ?? 'Untitled',
                 'content' => $section['content'] ?? '',
                 'icon' => $section['icon'] ?? null,
-                'badge' => $section['badge'] ?? null
+                'badge' => $section['badge'] ?? null,
             ];
         }, $this->sections);
 
