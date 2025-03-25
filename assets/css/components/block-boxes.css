@@ -35,6 +35,12 @@
     --boxes-button-font-weight: var(--font-weight-bold, 700);
     --boxes-button-transition: background-color 0.2s;
 
+    /* Botón desactivado */
+    --boxes-button-disabled-bg: var(--bs-gray-300, #dee2e6);
+    --boxes-button-disabled-text: var(--bs-gray-600, #6c757d);
+    --boxes-button-disabled-opacity: 0.65;
+    --boxes-button-disabled-cursor: not-allowed;
+
     /* Responsive */
     --boxes-mobile-breakpoint: 768px;
 }
@@ -77,7 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--boxes-icon-margin-bottom);
 }
 
 .derafu-block-boxes__icon i {
@@ -91,15 +97,15 @@
 }
 
 .derafu-block-boxes__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: var(--boxes-title-font-size);
+    font-weight: var(--boxes-title-font-weight);
+    margin-bottom: var(--boxes-title-margin-bottom);
 }
 
 .derafu-block-boxes__description {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
+    margin-bottom: var(--boxes-description-margin-bottom);
+    font-size: var(--boxes-description-font-size);
+    line-height: var(--boxes-description-line-height);
 }
 
 /* Botón */
@@ -107,17 +113,26 @@
     display: inline-block;
     background-color: var(--boxes-button-bg);
     color: var(--boxes-button-text);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
+    padding: var(--boxes-button-padding-y) var(--boxes-button-padding-x);
+    border-radius: var(--boxes-button-border-radius);
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    font-weight: var(--boxes-button-font-weight);
+    transition: var(--boxes-button-transition);
 }
 
 .derafu-block-boxes__button:hover {
     background-color: var(--boxes-button-hover);
     color: var(--boxes-button-text);
     text-decoration: none;
+}
+
+/* Botón desactivado */
+.derafu-block-boxes__button.disabled {
+    background-color: var(--boxes-button-disabled-bg);
+    color: var(--boxes-button-disabled-text);
+    opacity: var(--boxes-button-disabled-opacity);
+    cursor: var(--boxes-button-disabled-cursor);
+    pointer-events: none;
 }
 
 /* Responsive */

@@ -38,7 +38,7 @@
  }
 
 .derafu-block-video-grid {
-    margin: var(--spacing-y, 2rem) auto;
+    margin: var(--video-grid-spacing-y) auto;
 }
 
 .derafu-block-video-grid__card {
@@ -47,7 +47,7 @@
     flex-direction: column;
     background-color: var(--video-grid-card-bg);
     border: 1px solid var(--video-grid-card-border);
-    border-radius: 0.5rem;
+    border-radius: var(--video-grid-card-border-radius);
     overflow: hidden;
     box-shadow: 0 2px 4px var(--video-grid-card-shadow);
     transition: transform 0.3s ease;
@@ -72,37 +72,37 @@
 }
 
 .derafu-block-video-grid__content {
-    padding: 1.5rem;
+    padding: var(--video-grid-content-padding);
     flex: 1;
 }
 
 .derafu-block-video-grid__title {
     color: var(--video-grid-card-title);
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: var(--video-grid-title-font-size);
+    font-weight: var(--video-grid-title-font-weight);
+    margin-bottom: var(--video-grid-title-margin-bottom);
 }
 
 .derafu-block-video-grid__description {
     color: var(--video-grid-card-text);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: var(--video-grid-description-font-size);
+    line-height: var(--video-grid-description-line-height);
 }
 
 .derafu-block-video-grid__footer {
-    padding: 1.5rem;
+    padding: var(--video-grid-content-padding);
     padding-top: 0;
 }
 
 .derafu-block-video-grid__button {
     display: block;
     width: 100%;
-    padding: 0.75rem 1.5rem;
+    padding: var(--video-grid-button-padding-y) var(--video-grid-button-padding-x);
     background-color: var(--video-grid-button-bg);
-    color: var(--card-button-text);
+    color: var(--video-grid-button-text);
     text-align: center;
     text-decoration: none;
-    border-radius: 0.375rem;
+    border-radius: var(--video-grid-button-border-radius);
     transition: background-color 0.3s ease;
 }
 

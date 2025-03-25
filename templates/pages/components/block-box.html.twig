@@ -4,8 +4,13 @@
 {% for theme, name in themes %}
     <twig:block-box
         title="Theme: {{ name }}"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">{{ theme }}</a>"'
         theme="{{ theme }}"
     />
 {% endfor %}
+    <twig:block-box
+        :rounded="false"
+        title="Another box"
+        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="javascript:alert(&apos;Another box&apos;)">Link</a>"'
+    />
 {% endblock %}

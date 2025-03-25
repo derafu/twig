@@ -14,12 +14,13 @@
                     {# Content #}
                     <div class="derafu-block-boxes__content">
                         <h3 class="derafu-block-boxes__title">{{ box.title }}</h3>
-                        <p class="derafu-block-boxes__description">{{ box.description }}</p>
+                        <p class="derafu-block-boxes__description">{{ box.description|raw }}</p>
                     </div>
 
                     {# Button #}
                     <div class="derafu-block-boxes__action">
-                        <a href="{{ box.button_url }}" class="derafu-block-boxes__button">
+                        <a href="{{ box.button_url }}"
+                            class="derafu-block-boxes__button {% if box.button_disabled is defined and box.button_disabled %}disabled{% endif %}"{% if box.button_disabled is defined and box.button_disabled %}aria-disabled="true" tabindex="-1"{% endif %}>
                             {{ box.button_text }}
                         </a>
                     </div>

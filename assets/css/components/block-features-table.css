@@ -35,7 +35,7 @@
 
 .derafu-block-features-table {
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: var( --features-table-margin-bottom);
 }
 
 .derafu-block-features-table__table {
@@ -47,9 +47,9 @@
 .derafu-block-features-table__header {
     background-color: var(--features-table-header-bg);
     color: var(--features-table-header-text);
-    padding: 1rem;
+    padding: var(--features-table-cell-padding);
     text-align: center;
-    font-weight: bold;
+    font-weight: var(--features-table-header-font-weight);
     border: 1px solid var(--features-table-border);
 }
 
@@ -58,7 +58,7 @@
 }
 
 .derafu-block-features-table__cell {
-    padding: 1rem;
+    padding: var(--features-table-cell-padding);
     text-align: center;
     border: 1px solid var(--features-table-border);
 }
@@ -70,15 +70,15 @@
 .derafu-block-features-table__feature {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--features-table-feature-gap);
 }
 
 .derafu-block-features-table__icon {
-    width: 2.5em;
-    height: 2.5em;
+    width: var(--features-table-icon-size);
+    height: var(--features-table-icon-size);
     background-color: var(--features-table-icon-bg);
     color: var(--features-table-icon-text);
-    border-radius: 50%;
+    border-radius: var(--features-table-icon-border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,27 +88,27 @@
 .derafu-block-features-table__feature-content {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--features-table-content-gap);
 }
 
 .derafu-block-features-table__feature-name {
-    font-weight: bold;
+    font-weight: var(--features-table-feature-name-font-weight);
     color: var(--features-table-feature-text);
 }
 
 .derafu-block-features-table__feature-description {
     color: var(--features-table-description-text);
-    font-size: 0.875rem;
+    font-size: var(--features-table-description-font-size);
 }
 
 .derafu-block-features-table__check {
-    color: #28a745;
-    font-size: 1.2rem;
+    color: var(--features-table-check-color);
+    font-size: var(--features-table-icon-font-size);
 }
 
 .derafu-block-features-table__cross {
-    color: #dc3545;
-    font-size: 1.2rem;
+    color: var(--features-table-cross-color);
+    font-size: var(--features-table-icon-font-size);
 }
 
 /* Responsive table */
@@ -118,13 +118,13 @@
     -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--features-table-mobile-breakpoint)) {
     .derafu-block-features-table__cell {
-        padding: 0.75rem;
+        padding: var(--features-table-mobile-cell-padding);
     }
 
     .derafu-block-features-table__icon {
-        width: 2em;
-        height: 2em;
+        width: var(--features-table-mobile-icon-size);
+        height: var(--features-table-mobile-icon-size);
     }
 }

@@ -1,17 +1,17 @@
 /* Variables base */
 :root {
     /* Steps - General */
-    --spacing-y: var(--spacing-lg);
+    --spacing-y: var(--spacing-lg, 2rem);
 
     /* Steps - Estructura */
-    --steps-container-padding: var(--spacing-sm) 0;
-    --steps-step-padding: var(--spacing-sm);
+    --steps-container-padding: var(--spacing-sm, 1rem) 0;
+    --steps-step-padding: var(--spacing-sm, 1rem);
     --steps-step-min-width: 200px;
-    --steps-icon-size: calc(var(--spacing-lg) * 2);
-    --steps-icon-border-radius: var(--border-radius-round);
-    --steps-icon-margin-bottom: var(--spacing-sm);
-    --steps-title-margin-bottom: var(--spacing-xs);
-    --steps-arrow-width: calc(var(--spacing-lg) * 2);
+    --steps-icon-size: calc(var(--spacing-lg, 2rem) * 2);
+    --steps-icon-border-radius: var(--border-radius-round, 50%);
+    --steps-icon-margin-bottom: var(--spacing-sm, 1rem);
+    --steps-title-margin-bottom: var(--spacing-xs, 0.5rem);
+    --steps-arrow-width: calc(var(--spacing-lg, 2rem) * 2);
 
     /* Steps - Colores */
     --steps-icon-bg: var(--bs-primary, #0d6efd);
@@ -21,16 +21,16 @@
     --steps-arrow-color: var(--bs-gray-600, #6c757d);
 
     /* Steps - Tipografía */
-    --steps-icon-font-size: var(--font-size-lg);
-    --steps-title-font-size: var(--font-size-lg);
+    --steps-icon-font-size: var(--font-size-lg, 1.5rem);
+    --steps-title-font-size: var(--font-size-lg, 1.25rem);
     --steps-title-font-weight: var(--font-weight-semibold, 600);
-    --steps-description-font-size: var(--font-size-sm);
+    --steps-description-font-size: var(--font-size-sm, 0.875rem);
     --steps-description-line-height: 1.5;
 
     /* Steps - Responsive */
     --steps-mobile-breakpoint: 768px;
-    --steps-mobile-container-padding-bottom: var(--spacing-sm);
-    --steps-mobile-arrow-width: calc(var(--spacing-lg) * 1);
+    --steps-mobile-container-padding-bottom: var(--spacing-sm, 1rem);
+    --steps-mobile-arrow-width: calc(var(--spacing-lg, 2rem) * 1);
 }
 
 .derafu-block-steps {
@@ -43,7 +43,7 @@
     justify-content: center;
     flex-wrap: nowrap;
     overflow-x: auto; /* Para permitir scroll en móvil */
-    padding: 1rem 0;
+    padding: var(--steps-container-padding);
 }
 
 .derafu-block-steps__step {
@@ -51,38 +51,38 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 200px; /* Ancho mínimo para móvil */
-    padding: 1rem;
+    min-width: var(--steps-step-min-width); /* Ancho mínimo para móvil */
+    padding: var(--steps-step-padding);
 }
 
 .derafu-block-steps__icon {
-    width: 60px;
-    height: 60px;
+    width: var(--steps-icon-size);
+    height: var(--steps-icon-size);
     background-color: var(--steps-icon-bg);
     color: var(--steps-icon-color);
-    border-radius: 50%;
+    border-radius: var(--steps-icon-border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: var(--steps-icon-margin-bottom);
+    font-size: var(--steps-icon-font-size);
 }
 
 .derafu-block-steps__title {
     color: var(--steps-title-color);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: var(--steps-title-font-size);
+    font-weight: var(--steps-title-font-weight);
+    margin-bottom: var(--steps-title-margin-bottom);
 }
 
 .derafu-block-steps__description {
     color: var(--steps-text-color);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: var(--steps-description-font-size);
+    line-height: var(--steps-description-line-height);
 }
 
 .derafu-block-steps__arrow {
-    width: 100px;
+    width: var(--steps-arrow-width);
     color: var(--steps-arrow-color);
     flex-shrink: 0;
 }
@@ -90,10 +90,18 @@
 /* Responsive */
 @media (max-width: 768px) {
     .derafu-block-steps__container {
-        padding-bottom: 1rem; /* Espacio para el scrollbar */
+        padding-bottom: var(--steps-mobile-container-padding-bottom); /* Espacio para el scrollbar */
     }
 
     .derafu-block-steps__arrow {
-        width: 50px; /* Flechas más pequeñas en móvil */
+        width: var(--steps-mobile-arrow-width); /* Flechas más pequeñas en móvil */
     }
+}
+.derafu-block-steps__description .btn {
+    padding: 0.4rem 4rem;
+    font-size: 0.875em;
+    vertical-align: baseline;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.8rem;
 }

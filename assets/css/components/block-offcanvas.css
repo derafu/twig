@@ -1,11 +1,11 @@
 /* Variables base */
 :root {
     /* Buttons */
-    --offcanvas-button-gap: var(--spacing-xs);
+    --offcanvas-button-gap: var(--spacing-xs, 0.5rem);
 
     /* Dimensions */
-    --offcanvas-width: var(--custom-offcanvas-width, 400px);
-    --offcanvas-height: var(--custom-offcanvas-height, 30vh);
+    --offcanvas-width: 400px;
+    --offcanvas-height: 30vh;
 
     /* Responsive */
     --offcanvas-mobile-width: 100vw;
@@ -15,26 +15,25 @@
     --offcanvas-border: var(--border-width, 1px) solid var(--gray-300, #dee2e6);
 
     /* Espaciado */
-    --offcanvas-buttons-margin-top: var(--spacing-sm);
+    --offcanvas-buttons-margin-top: var(--spacing-sm, 1rem);
 }
 
 /* Estilos personalizados */
 .derafu-block-offcanvas__buttons {
     display: flex;
     gap: var(--offcanvas-button-gap);
-    margin-top: 1rem;
+    margin-top: var(--offcanvas-buttons-margin-top);
 }
 
 /* Variantes de posición */
 .offcanvas-start,
 .offcanvas-end {
-    --offcanvas-width: var(--custom-offcanvas-width, 400px);
     width: var(--offcanvas-width) !important;
 }
 
 .offcanvas-top,
 .offcanvas-bottom {
-    height: var(--offcanvas-height, 30vh) !important;
+    height: var(--offcanvas-height) !important;
 }
 
 /* Estilos del contenido */
@@ -44,13 +43,13 @@
 }
 
 .offcanvas-header {
-    border-bottom: var(--offcanvas-border, 1px solid #dee2e6);
+    border-bottom: var(--offcanvas-border);
 }
 
 /* Responsive */
 @media (max-width: 576px) {
     .offcanvas-start,
     .offcanvas-end {
-        --offcanvas-width: 100vw;
+        width: var(--offcanvas-mobile-width);
     }
 }

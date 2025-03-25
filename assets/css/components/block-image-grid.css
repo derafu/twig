@@ -1,7 +1,7 @@
 /* Variables base */
 :root {
     /* Image Grid - General */
-    --spacing-y: 2rem;
+    --image-grid-spacing-y: 2rem;
 
     /* Image Grid - Colores */
     --image-grid-bg: var(--bs-white, transparent);
@@ -25,23 +25,23 @@
 }
 
 .derafu-block-image-grid {
-    margin: var(--spacing-y, 2rem) auto;
+    margin: var(--image-grid-spacing-y) auto;
     background-color: var(--image-grid-bg);
 }
 
 .derafu-block-image-grid__item {
-    padding: 1.5rem;
-    border: 1px solid var(--image-grid-border);
-    border-radius: 0.5rem;
+    padding: var(--image-grid-item-padding);
+    border: var(--image-grid-item-border-width) solid var(--image-grid-border);
+    border-radius: var(--image-grid-item-border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all var(--image-grid-transition-duration) ease;
 }
 
 .derafu-block-image-grid__item:hover {
     background-color: var(--image-grid-hover);
-    transform: translateY(-2px);
+    transform: var(--image-grid-hover-transform);
 }
 
 .derafu-block-image-grid__link {
@@ -56,12 +56,12 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    filter: grayscale(var(--image-grid-image-grayscale));
+    opacity: var(--image-grid-image-opacity);
+    transition: all var(--image-grid-transition-duration) ease;
 }
 
 .derafu-block-image-grid__item:hover .derafu-block-image-grid__image {
-    filter: grayscale(0);
-    opacity: 1;
+    filter: grayscale(var(--image-grid-image-hover-grayscale));
+    opacity: var(--image-grid-image-hover-opacity);
 }

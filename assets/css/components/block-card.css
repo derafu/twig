@@ -32,7 +32,7 @@
     --card-button-border-radius: 0.375rem;
     --card-button-bg: var(--bs-primary, #0d6efd);
     --card-button-text: var(--bs-white, #fff);
-    --card-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7)
+    --card-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
     --card-button-border: var(--bs-primary, #0d6efd);
 
     /* Card - Responsive */
@@ -50,15 +50,15 @@
     display: flex;
     flex-direction: column;
     background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 0.5rem;
+    border: var(--card-border-width) solid var(--card-border);
+    border-radius: var(--card-border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 4px var(--card-shadow);
-    transition: transform 0.3s ease;
+    box-shadow: var(--card-box-shadow);
+    transition: transform var(--card-transition-duration) ease;
 }
 
 .derafu-block-card .card:hover {
-    transform: translateY(-5px);
+    transform: var(--card-hover-transform);
 }
 
 /* Imagen */
@@ -69,36 +69,36 @@
 
 /* Cuerpo de la card */
 .derafu-block-card .card-body {
-    padding: 1.5rem;
+    padding: var(--card-padding);
     flex: 1;
 }
 
 /* Título */
 .derafu-block-card .card-title {
     color: var(--card-title);
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: var(--card-title-font-size);
+    font-weight: var(--card-title-font-weight);
+    margin-bottom: var(--card-title-margin-bottom);
 }
 
 /* Texto */
 .derafu-block-card .card-text {
     color: var(--card-text);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    font-size: var(--card-text-font-size);
+    line-height: var(--card-text-line-height);
+    margin-bottom: var(--card-text-margin-bottom);
 }
 
 /* Botón */
 .derafu-block-card .btn-primary {
     display: block;
     width: 100%;
-    padding: 0.75rem 1.5rem;
+    padding: var(--card-button-padding-y) var(--card-button-padding-x);
     background-color: var(--card-button-bg);
     color: var(--card-button-text);
     text-align: center;
     text-decoration: none;
-    border-radius: 0.375rem;
+    border-radius: var(--card-button-border-radius);
     transition: background-color 0.3s ease;
 }
 
@@ -109,13 +109,9 @@
 }
 .derafu-block-card .btn:active {
     background-color: var(--card-background-color);
-    border-color: none;
+    border-color: transparent;
 
 }
-.derafu-block-card .btn-primary {
-    border-color: none;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .derafu-block-card .card {

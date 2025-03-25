@@ -35,8 +35,8 @@
 }
 
 .derafu-block-accordion .accordion-button {
-    font-weight: 500;
-    padding: 1rem 1.25rem;
+    font-weight: var(--accordion-button-font-weight);
+    padding: var(--accordion-button-padding-y) var(--accordion-button-padding-x);
 }
 
 .derafu-block-accordion .accordion-button:not(.collapsed) {
@@ -55,11 +55,11 @@
 }
 
 .derafu-block-accordion .accordion-body {
-    padding: 1.5rem;
+    padding: var(--accordion-body-padding);
 }
 
 .derafu-block-accordion .accordion-body p {
-    margin-bottom: 1rem;
+    margin-bottom: var(--accordion-paragraph-margin-bottom);
 }
 
 .derafu-block-accordion .accordion-body p:last-child {

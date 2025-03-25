@@ -1,42 +1,29 @@
 /* Variables base */
 :root {
     /* Modal - Estructura */
-    --modal-margin: 1.75rem;
+    --modal-margin: 0rem;
     --modal-border-radius: 0.5rem;
     --modal-padding: 1rem;
 
     /* Modal - Colores */
-    --modal-bg: var(--bs-white, #fff);
     --modal-border-color: var(--bs-border-color, #dee2e6);
-    --modal-header-bg: var(--bs-white, #fff);
-    --modal-footer-bg: var(--bs-white, #fff);
-    --modal-backdrop: rgba(0, 0, 0, 0.5);
 
-    /* Variables de modal */
-    --bs-btn-modal-primary-bg: var(--bs-primary, #0d6efd);
-    --bs-btn-modal-primary-color: var(--bs-white, #fff);
-    --bs-btn-modal-primary-border-color: var(--bs-primary, #0d6efd);
-    --bs-btn-modal-primary-hover-bg: var(--bs-btn-primary-hover-bg, #0b5ed7);
-    --bs-btn-modal-primary-hover-color: var(--bs-white, #fff);
+    /* Modal - Botones */
+    --modal-btn-primary-bg: var(--bs-primary, #0d6efd);
+    --modal-btn-primary-color: var(--bs-white, #fff);
+    --modal-btn-primary-border-color: var(--bs-primary, #0d6efd);
+    --modal-btn-primary-hover-bg: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --modal-btn-primary-hover-color: var(--bs-white, #fff);
 
-    /* Modal - Sombras */
-    --modal-box-shadow: rgba(0, 0, 0, 0.2);
-
-    /* Modal - Animaciones */
-    --modal-transition-duration: 0.3s;
-
-    /* Modal - z-index */
-    --modal-z-index: 1050;
-    --modal-backdrop-z-index: 1040;
 }
 
 /* Solo estilos adicionales si se necesitan */
 .modal-dialog {
-    margin: var(--modal-margin, 1.75rem) auto;
+    margin: var(--modal-margin) auto;
 }
 
 .modal-content {
-    border-radius: var(--modal-border-radius, 0.5rem);
+    border-radius: var(--modal-border-radius);
 }
 
 .modal-header {
@@ -48,25 +35,25 @@
 }
 
 .modal-footer .btn-primary {
-    background-color: var(--bs-btn-modal-primary-bg);
-    color: var(--bs-btn-modal-primary-color);
-    border-color: var(--bs-btn-modal-primary-border-color);
+    background-color: var(--modal-btn-primary-bg);
+    color: var(--modal-btn-primary-color);
+    border-color: var(--modal-btn-primary-border-color);
 }
 
 .modal-footer .btn-primary:hover {
-    background-color: var(--bs-btn-modal-primary-hover-bg);
-    color: var(--bs-btn-modal-primary-hover-color);
+    background-color: var(--modal-btn-primary-hover-bg);
+    color: var(--modal-btn-primary-hover-color);
 }
 
 .modal-dialog.modal-fullscreen {
-    margin: 0;
-    padding: 0;
+    margin: var(--modal-margin);
+    padding: var(--modal-padding);
     max-width: 100%;
     min-height: 100vh;
 }
 
 .modal-dialog.modal-fullscreen .modal-content {
     border: 0;
-    border-radius: 0;
+    border-radius: var(--modal-border-radius);
     min-height: 100vh;
 }

@@ -1,5 +1,28 @@
-/* Variables base */
 :root {
+    /* === VARIABLES BASE (TOKENS) === */
+
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+
+    /* Bordes */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.75rem;
+    --border-radius-lg: 1rem;
+
+    /* Tipografía */
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+
+    /* Pesos de fuente */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* === VARIABLES DE COMPONENTES === */
+
     /* Box - Espaciado */
     --box-padding: var(--spacing-lg);
     --box-margin-bottom: var(--spacing-lg);
@@ -23,23 +46,39 @@
     --box-content-margin-top: var(--spacing-xs);
     --box-content-line-height: 1.6;
     --box-content-color: var(--bs-white, #fff);
+
+
+    /* Box - Links */
+    --box-link-color: var(--bs-white, #fff);
+    --box-link-hover-color: var(--bs-light, #f8f9fa);
 }
 
 .derafu-block-box {
-    text-align: center;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 0.75rem;
+    text-align: var(--box-text-align);
+    padding: var(--box-padding);
+    margin-bottom: var(--box-margin-bottom);
     background-color: var(--box-background);
     color: var(--box-color);
+    border-radius: 0;
 }
 
 .derafu-block-box__title {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: var(--box-title-margin-bottom);
+    font-size: var(--box-title-font-size);
 }
 
 .derafu-block-box__content {
-    margin-top: 0.5rem;
-    line-height: 1.6;
+    margin-top: var(--box-content-margin-top);
+    line-height: var(--box-content-line-height);
+}
+.derafu-block-box__rounded {
+    border-radius: var(--box-border-radius);
+}
+.derafu-block-box a {
+    color: var(--box-link-color, #fff);
+    text-decoration: underline;
+}
+
+.derafu-block-box a:hover {
+    color: var(--box-link-hover-color, #f8f9fa);
 }

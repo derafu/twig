@@ -14,22 +14,22 @@
     --title-border-color: var(--bs-secondary, #6c757d);
 }
 .derafu-block-title__wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: var(--title-margin-bottom);
 }
 
 .derafu-block-title__title {
     margin: 0;
-    line-height: 1.2;
+    line-height: var(--title-line-height);
     color: var(--title-text-color);
 }
 
 .derafu-block-title__subtitle {
-    margin: 0.5rem 0 0;
-    opacity: 0.7;
+    margin: var(--title-subtitle-margin-top);
+    opacity: var(--title-subtitle-opacity);
     color: var(--title-subtitle-color);
 }
 
 .derafu-block-title__wrapper--bordered {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--title-border-color);
+    padding-bottom: var(--title-border-padding-bottom);
+    border-bottom: var(--title-border-width) solid var(--title-border-color);
 }

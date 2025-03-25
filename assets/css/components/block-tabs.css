@@ -15,6 +15,7 @@
     --tab-border-radius: var(--bs-border-radius, 0.375rem);
     --tab-content-border-radius: var(--bs-border-radius-lg, 0.5rem);
     --tab-content-padding: 1.5rem;
+    --tab-gap: 0;
 
     /* Variables para los botones */
     --button-primary-bg: var(--bs-btn-primary-bg, #0d6efd);
@@ -33,32 +34,32 @@
 
 /* Horizontal tabs */
 .derafu-block-tabs .nav-pills:not(.flex-column) {
-    gap: 0;
+    gap: var(--tab-gap);
 }
 
 .derafu-block-tabs .nav-pills:not(.flex-column) .nav-link:first-child {
-    border-top-left-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
+    border-top-left-radius: var(--tab-border-radius);
+    border-bottom-left-radius: var(--tab-border-radius);
 }
 
 .derafu-block-tabs .nav-pills:not(.flex-column) .nav-link:last-child {
-    border-top-right-radius: 0.375rem;
-    border-bottom-right-radius: 0.375rem;
+    border-top-right-radius: var(--tab-border-radius);
+    border-bottom-right-radius: var(--tab-border-radius);
 }
 
 /* Vertical tabs */
 .derafu-block-tabs .nav-pills.flex-column {
-    gap: 0;
+    gap: var(--tab-gap);
 }
 
 .derafu-block-tabs .nav-pills.flex-column .nav-link:first-child {
-    border-top-left-radius: 0.375rem;
-    border-top-right-radius: 0.375rem;
+    border-top-left-radius: var(--tab-border-radius);
+    border-top-right-radius: var(--tab-border-radius);
 }
 
 .derafu-block-tabs .nav-pills.flex-column .nav-link:last-child {
-    border-bottom-left-radius: 0.375rem;
-    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: var(--tab-border-radius);
+    border-bottom-right-radius: var(--tab-border-radius);
 }
 
 .derafu-block-tabs .nav-link:hover:not(.active) {
@@ -74,8 +75,8 @@
 /* Content area */
 .derafu-block-tabs .tab-content {
     background-color: var(--tab-content-bg);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
+    border-radius: var(--tab-content-border-radius);
+    padding: var(--tab-content-padding);
 }
 
 .btn-primary {
