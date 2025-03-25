@@ -59,6 +59,7 @@
     margin-bottom: var(--box-margin-bottom);
     background-color: var(--box-background);
     color: var(--box-color);
+    border-radius: 0;
 }
 
 .derafu-block-box__title {

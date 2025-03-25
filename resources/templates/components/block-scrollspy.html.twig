@@ -1,0 +1,34 @@
+<div class="derafu-block-scrollspy row {% if class %}{{ class }}{% endif %}" style="{{ style|default('') }}">
+  <div class="derafu-block-scrollspy__list col-{{ cols }}">
+    <div id="{% if orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
+         class="list-group {% if orientation != 'vertical' %}list-group-{{ orientation }}{% endif %}">
+      {% for section in sections %}
+        <div class="derafu-block-scrollspy__list-item">
+          <a class="list-group-item list-group-item-action" href="#{{ section.id }}">
+            {% if section.icon %}<i class="fas {{ section.icon }} me-2"></i>{% endif %}
+            {{ section.title }}
+            {% if section.badge %}<span class="badge bg-primary float-end">{{ section.badge }}</span>{% endif %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="derafu-block-scrollspy__content col-{{ 12 - cols }}">
+    <div data-bs-spy="scroll"
+         style="height:{{ height }}; overflow-y: scroll;"
+         data-bs-target="#{% if orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
+         data-bs-offset="0"
+         data-bs-smooth-scroll="true"
+         class="scrollspy-example p-3"
+         tabindex="0">
+      {% for section in sections %}
+        <div id="{{ section.id }}" class="derafu-block-scrollspy__section mb-4">
+          <h4 class="mb-3 pb-2 border-bottom">{{ section.title }}</h4>
+          <div class="derafu-block-scrollspy__section-content">
+            {{ section.content|raw }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
