@@ -29,7 +29,7 @@
     /* Colores de botones */
     --hero-button-primary-bg: var(--bs-white, #fff);
     --hero-button-primary-text: var(--bs-primary, #0d6efd);
-    --hero-button-primary-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --hero-button-primary-hover: var(--bs-primary-emphasis, #0b5ed7);
     --hero-button-secondary-bg: transparent;
     --hero-button-secondary-text: var(--bs-white, #fff);
     --hero-button-secondary-border: var(--bs-white, #fff);
@@ -51,8 +51,8 @@
     position: relative;
     display: flex;
     align-items: center;
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
 }
 
 .derafu-block-hero__container {
