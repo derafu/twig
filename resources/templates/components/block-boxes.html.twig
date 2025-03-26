@@ -17,13 +17,15 @@
                         <p class="derafu-block-boxes__description">{{ box.description|raw }}</p>
                     </div>
 
-                    {# Button #}
-                    <div class="derafu-block-boxes__action">
-                        <a href="{{ box.button_url }}"
-                            class="derafu-block-boxes__button {% if box.button_disabled is defined and box.button_disabled %}disabled{% endif %}"{% if box.button_disabled is defined and box.button_disabled %}aria-disabled="true" tabindex="-1"{% endif %}>
-                            {{ box.button_text }}
-                        </a>
-                    </div>
+                    {# Button - Only show if button_text is not empty #}
+                    {% if box.button_text is defined and box.button_text is not empty %}
+                        <div class="derafu-block-boxes__action">
+                            <a href="{{ box.button_url }}"
+                                class="derafu-block-boxes__button {% if box.button_disabled is defined and box.button_disabled %}disabled{% endif %}"{% if box.button_disabled is defined and box.button_disabled %}aria-disabled="true" tabindex="-1"{% endif %}>
+                                {{ box.button_text }}
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
