@@ -23,7 +23,7 @@
                                                                                                 <h1>Block Comparison</h1>
                             <p class="mb-4">Side-by-side comparison.</p>
                                             
-                        <div class="derafu-block-comparison " id="block-comparison--67ed8aac51cd3">
+                        <div class="derafu-block-comparison " id="block-comparison--67eee3c1e203a">
     <div class="row g-4">
                     <div class="col-12 col-lg-4
                 ">
@@ -35,8 +35,8 @@
 
                                         <div class="derafu-block-comparison__price-section">
                         <div class="derafu-block-comparison__price">
-                            $20<small>.000</small>
-                        </div>
+                                                            $20<small>.000</small>
+                                                    </div>
                                                     <div class="derafu-block-comparison__period">/mes</div>
                                             </div>
 
@@ -76,8 +76,8 @@
 
                                         <div class="derafu-block-comparison__price-section">
                         <div class="derafu-block-comparison__price">
-                            $40.000
-                        </div>
+                                                            $40<small>.000</small>
+                                                    </div>
                                                     <div class="derafu-block-comparison__period">/mes</div>
                                             </div>
 
@@ -115,8 +115,8 @@
 
                                         <div class="derafu-block-comparison__price-section">
                         <div class="derafu-block-comparison__price">
-                            $ 80<small>.000</small>
-                        </div>
+                                                            $ 80<small>.000</small>
+                                                    </div>
                                                     <div class="derafu-block-comparison__period">/ mes</div>
                                             </div>
 
@@ -156,6 +156,95 @@
     </script>
 </div>
 
+   <div class="derafu-block-comparison " id="block-comparison--67eee3c1e4826">
+    <div class="row g-4">
+                    <div class="col-12 col-lg-6
+                ">
+
+                <div class="derafu-block-comparison__plan ">
+                                        <div class="derafu-block-comparison__title-section ">
+                        <h3 class="derafu-block-comparison__title">Android</h3>
+                    </div>
+
+                                        <div class="derafu-block-comparison__price-section">
+                        <div class="derafu-block-comparison__price">
+                                                                <i class="fa-brands fa-android fa-2x"></i>
+                                                    </div>
+                                            </div>
+
+                                        <div class="derafu-block-comparison__features">
+                                                    <div class="derafu-block-comparison__feature"
+                                                                >
+                                                                <span class="derafu-block-comparison__text">Utiliza la aplicación con múltiples <a href='https://www.libredte.cl'style='text-decoration: none;'>empresas</a></span>
+                            </div>
+                                                    <div class="derafu-block-comparison__feature"
+                                                                >
+                                                                <span class="derafu-block-comparison__text">Emite boletas, facturas y guías de despachos</span>
+                            </div>
+                                                    <div class="derafu-block-comparison__feature"
+                                                                >
+                                                                <span class="derafu-block-comparison__text">Punto de venta boleta fácil y de retail</span>
+                            </div>
+                                            </div>
+
+                                        <div class="derafu-block-comparison__footer">
+                                                    <div class="derafu-block-comparison__recommendation">Convierte tu dispositivo Android en un Punto de Venta con LibreDTE.</div>
+                                                <a href="block-comparison.html#" class="derafu-block-comparison__button">
+                            Instalación desde Google Play hasta Android 9
+                        </a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-12 col-lg-6
+                ">
+
+                <div class="derafu-block-comparison__plan derafu-block-comparison__plan--highlighted">
+                                        <div class="derafu-block-comparison__title-section derafu-block-comparison__title-section--highlighted">
+                        <h3 class="derafu-block-comparison__title">iOS</h3>
+                    </div>
+
+                                        <div class="derafu-block-comparison__price-section">
+                        <div class="derafu-block-comparison__price">
+                                                                <i class="fa-brands fa-apple fa-2x"></i>
+                                                    </div>
+                                            </div>
+
+                                        <div class="derafu-block-comparison__features">
+                                                    <div class="derafu-block-comparison__feature"
+                                                                >
+                                                                <span class="derafu-block-comparison__text">Utiliza la aplicación con múltiples empresas</span>
+                            </div>
+                                                    <div class="derafu-block-comparison__feature"
+                                                                >
+                                                                <span class="derafu-block-comparison__text">Emite boletas, facturas y guías de despachos</span>
+                            </div>
+                                                    <div class="derafu-block-comparison__feature"
+                                                                >
+                                                                <span class="derafu-block-comparison__text">Punto de venta boleta fácil y de retail</span>
+                            </div>
+                                            </div>
+
+                                        <div class="derafu-block-comparison__footer">
+                                                    <div class="derafu-block-comparison__recommendation">Revisa tu empresa y emite documentos tributarios fácilmente.</div>
+                                                <a href="block-comparison.html#" class="derafu-block-comparison__button">
+                            Instalación desde App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+            tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+</div>
+
+
 
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-comparison.html.twig #}
@@ -190,7 +279,7 @@
             },
             {
                 title: &#039;Plan Beta&#039;,
-                price: &#039;$40.000&#039;,
+                price: &#039;$40&lt;small&gt;.000&lt;/small&gt;&#039;,
                 period: &#039;/mes&#039;,
                 features: [
                     {
@@ -232,6 +321,49 @@
         ]&quot;
 
     /&gt;
+   &lt;twig:block-comparison
+        :plans=&quot;[
+            {
+                title: &#039;Android&#039;,
+                price_icon: &#039;fa-brands fa-android fa-2x&#039;,
+                features: [
+                    {
+                        text: &#039;Utiliza la aplicación con múltiples &lt;a href=\&#039;https://www.libredte.cl\&#039;style=\&#039;text-decoration: none;\&#039;&gt;empresas&lt;/a&gt;&#039;,
+                    },
+                    {
+                        text: &#039;Emite boletas, facturas y guías de despachos&#039;,
+                    },
+                    {
+                        text: &#039;Punto de venta boleta fácil y de retail&#039;,
+                    }
+                ],
+                recommendation: &#039;Convierte tu dispositivo Android en un Punto de Venta con LibreDTE.&#039;,
+                button_text: &#039;Instalación desde Google Play hasta Android 9&#039;,
+                button_url: &#039;#&#039;
+            },
+            {
+                title: &#039;iOS&#039;,
+                price_icon: &#039;fa-brands fa-apple fa-2x&#039;,
+                features: [
+                    {
+                        text: &#039;Utiliza la aplicación con múltiples empresas&#039;,
+                    },
+                    {
+                        text: &#039;Emite boletas, facturas y guías de despachos&#039;,
+                    },
+                    {
+                        text: &#039;Punto de venta boleta fácil y de retail&#039;,
+                    }
+                ],
+                recommendation: &#039;Revisa tu empresa y emite documentos tributarios fácilmente.&#039;,
+                button_text: &#039;Instalación desde App Store&#039;,
+                button_url: &#039;#&#039;,
+                highlighted: true
+            }
+        ]&quot;
+
+    /&gt;
+
 {% endfor %}
 {% endblock %}
 </code></pre>
