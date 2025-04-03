@@ -28,7 +28,7 @@
             },
             {
                 title: 'Plan Beta',
-                price: '$40.000',
+                price: '$40<small>.000</small>',
                 period: '/mes',
                 features: [
                     {
@@ -70,5 +70,48 @@
         ]"
 
     />
+   <twig:block-comparison
+        :plans="[
+            {
+                title: 'Android',
+                price_icon: 'fa-brands fa-android fa-2x',
+                features: [
+                    {
+                        text: 'Utiliza la aplicación con múltiples <a href=\'https://www.libredte.cl\'style=\'text-decoration: none;\'>empresas</a>',
+                    },
+                    {
+                        text: 'Emite boletas, facturas y guías de despachos',
+                    },
+                    {
+                        text: 'Punto de venta boleta fácil y de retail',
+                    }
+                ],
+                recommendation: 'Convierte tu dispositivo Android en un Punto de Venta con LibreDTE.',
+                button_text: 'Instalación desde Google Play hasta Android 9',
+                button_url: '#'
+            },
+            {
+                title: 'iOS',
+                price_icon: 'fa-brands fa-apple fa-2x',
+                features: [
+                    {
+                        text: 'Utiliza la aplicación con múltiples empresas',
+                    },
+                    {
+                        text: 'Emite boletas, facturas y guías de despachos',
+                    },
+                    {
+                        text: 'Punto de venta boleta fácil y de retail',
+                    }
+                ],
+                recommendation: 'Revisa tu empresa y emite documentos tributarios fácilmente.',
+                button_text: 'Instalación desde App Store',
+                button_url: '#',
+                highlighted: true
+            }
+        ]"
+
+    />
+
 {% endfor %}
 {% endblock %}
