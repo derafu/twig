@@ -15,7 +15,11 @@
                     {# Price section #}
                     <div class="derafu-block-comparison__price-section">
                         <div class="derafu-block-comparison__price">
-                            {{ plan.price|raw }}
+                            {% if plan.price_icon %}
+                                    <i class="{{ plan.price_icon }}"></i>
+                            {% else %}
+                                {{ plan.price|raw }}
+                            {% endif %}
                         </div>
                         {% if plan.period %}
                             <div class="derafu-block-comparison__period">{{ plan.period }}</div>
