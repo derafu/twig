@@ -1,6 +1,5 @@
-/* Variables de Testimonios */
 :root {
-    /* Estructura del Carrusel */
+    /* Carousel Structure */
     --carousel-control-width: 1.5rem;
     --carousel-control-margin: 2rem;
     --card-spacing: 1.5rem;
@@ -9,32 +8,40 @@
     --font-size-base: 1rem;
     --font-size-lg: 1.5rem;
 
-    /* Dimensiones y Apariencia */
+    /* Dimensions and Appearance */
     --testimonial-height: 100%;
     --testimonial-brightness: 0.7;
 
-    /* Tarjeta de Testimonio */
+    /* Testimonial Card */
     --testimonial-card-bg: #ffffffe6;
     --testimonial-card-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     --testimonial-card-max-width: 50rem;
 
-    /* Colores de Texto */
+    /* Text Colors */
     --testimonial-text-color: var(--bs-gray-900, #212529);
     --testimonial-link-color: var(--bs-primary, #0d6efd);
     --testimonial-author-color: var(--bs-gray-900, #212529);
     --testimonial-quote-color: var(--bs-primary, #0d6efd);
 
-    /* Indicadores del Carrusel */
+    /* Carousel Indicators */
     --testimonial-indicator-color: var(--bs-gray-600, #6c757d);
 
     /* Responsive */
     --testimonial-mobile-padding: var(--spacing-md);
     --testimonial-mobile-text-size: var(--font-size-base);
     --testimonial-mobile-quote-icon-size: var(--font-size-lg);
- }
 
- .derafu-block-testimonials {
+    /* Responsive Widths */
+    --testimonial-tablet-card-width: 85%;
+    --testimonial-mobile-card-width: 90%;
+    --testimonial-small-mobile-card-width: 95%;
+}
+
+/* Testimonials Block */
+.derafu-block-testimonials {
     width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .derafu-block-testimonials .carousel-item {
@@ -60,6 +67,8 @@
     max-width: var(--testimonial-card-max-width);
     width: 90%;
     text-align: center;
+    transition: all 0.3s ease;
+    z-index: 2;
 }
 
 .derafu-block-testimonials__card--center {
@@ -95,6 +104,7 @@
     color: var(--testimonial-text-color);
     margin-bottom: 1rem;
     line-height: 1.6;
+    transition: font-size 0.3s ease;
 }
 
 .derafu-block-testimonials__text a,
@@ -116,6 +126,7 @@
     font-size: 0.9rem;
     font-weight: bold;
     color: var(--testimonial-author-color);
+    transition: gap 0.3s ease, flex-direction 0.3s ease;
 }
 
 .derafu-block-testimonials__avatar {
@@ -123,31 +134,193 @@
     height: 3rem;
     border-radius: 50%;
     object-fit: cover;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
 .derafu-block-testimonials__author-info {
     text-align: left;
+    transition: text-align 0.3s ease;
+}
+
+.derafu-block-testimonials .carousel-indicators {
+    margin-bottom: 0.5rem;
+    z-index: 5;
 }
 
 .derafu-block-testimonials .carousel-indicators [data-bs-target] {
     background-color: var(--testimonial-indicator-color);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.derafu-block-testimonials .carousel-control-prev,
+.derafu-block-testimonials .carousel-control-next {
+    width: auto;
+    padding: 0 1rem;
+    z-index: 5;
 }
 
 .derafu-block-testimonials .carousel-control-prev-icon,
 .derafu-block-testimonials .carousel-control-next-icon {
     filter: invert(1);
+    width: 2rem;
+    height: 2rem;
+    background-size: 100%;
 }
 
-@media (max-width: 768px) {
+/* Large Screen Adjustments */
+@media (max-width: 1200px) {
+    .derafu-block-testimonials__card {
+        width: var(--testimonial-tablet-card-width);
+        padding: 1.75rem;
+    }
+
+    .derafu-block-testimonials__card--left {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .derafu-block-testimonials__card--right {
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .derafu-block-testimonials__text {
+        font-size: 1.05rem;
+    }
+}
+
+/* Tablet Adjustments */
+@media (max-width: 992px) {
     .derafu-block-testimonials__card {
         padding: 1.5rem;
+    }
+
+    .derafu-block-testimonials__quote-start-icon,
+    .derafu-block-testimonials__quote-end-icon {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
     }
 
     .derafu-block-testimonials__text {
         font-size: 1rem;
     }
 
-    .derafu-block-testimonials__quote-start-icon, .derafu-block-testimonials__quote-end-icon {
+    .derafu-block-testimonials .carousel-control-prev-icon,
+    .derafu-block-testimonials .carousel-control-next-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .derafu-block-testimonials__card {
+        width: var(--testimonial-mobile-card-width);
+        padding: 1.25rem;
+    }
+
+    .derafu-block-testimonials__quote-start-icon,
+    .derafu-block-testimonials__quote-end-icon {
         font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .derafu-block-testimonials__text {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .derafu-block-testimonials__author {
+        gap: 0.75rem;
+    }
+
+    .derafu-block-testimonials__avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .derafu-block-testimonials .carousel-control-prev-icon,
+    .derafu-block-testimonials .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .derafu-block-testimonials .carousel-indicators [data-bs-target] {
+        width: 8px;
+        height: 8px;
+        margin: 0 3px;
+    }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 576px) {
+    .derafu-block-testimonials__card {
+        width: var(--testimonial-small-mobile-card-width);
+        padding: 1rem;
+    }
+
+    .derafu-block-testimonials__quote-start-icon,
+    .derafu-block-testimonials__quote-end-icon {
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .derafu-block-testimonials__text {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .derafu-block-testimonials__author {
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .derafu-block-testimonials__avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .derafu-block-testimonials__author-info {
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .derafu-block-testimonials .carousel-control-prev,
+    .derafu-block-testimonials .carousel-control-next {
+        padding: 0 0.5rem;
+    }
+
+    .derafu-block-testimonials .carousel-control-prev-icon,
+    .derafu-block-testimonials .carousel-control-next-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+/* Extra Small Mobile Adjustments */
+@media (max-width: 375px) {
+    .derafu-block-testimonials__card {
+        padding: 0.75rem;
+    }
+
+    .derafu-block-testimonials__quote-start-icon,
+    .derafu-block-testimonials__quote-end-icon {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .derafu-block-testimonials__text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .derafu-block-testimonials__avatar {
+        width: 2rem;
+        height: 2rem;
     }
 }

@@ -1,6 +1,5 @@
-/* Variables base */
 :root {
-    /* Team - Estructura */
+    /* Team - Structure */
     --spacing-y: 2rem;
     --team-border-radius: 1rem;
     --team-padding: 2rem;
@@ -10,14 +9,15 @@
     --team-info-padding: 2rem;
     --team-links-gap: 1rem;
 
-    /* Team - Tamaños de imágenes según columnas */
+    /* Team - Image Sizes by Columns */
     --team-image-size-1: 12rem;
     --team-image-size-2: 10rem;
     --team-image-size-3: 9rem;
     --team-image-size-4: 8rem;
     --team-image-size-6: 6rem;
+    --team-mobile-image-size: 9rem; /* Mobile size */
 
-    /* Team - Colores */
+    /* Team - Colors */
     --team-bg: transparent;
     --team-member-bg: var(--bs-white, #fff);
     --team-image-shadow: rgba(0, 0, 0, 0.1);
@@ -26,7 +26,7 @@
     --team-bio-color: var(--bs-gray-700, #495057);
     --team-border-color: var(--bs-border-color, #dee2e6);
 
-    /* Team - Tipografía */
+    /* Team - Typography */
     --team-name-font-size: 1.25rem;
     --team-name-font-weight: 700;
     --team-name-margin-bottom: 0.5rem;
@@ -40,7 +40,7 @@
     --team-bio-padding-bottom: 1rem;
     --team-bio-border-bottom: 1px solid var(--team-border-color);
 
-    /* Team - Enlaces */
+    /* Team - Links */
     --team-link-color: var(--bs-primary, #0d6efd);
     --team-link-bg: var(--bs-gray-200, #e9ecef);
     --team-link-hover-text: var(--bs-white, #fff);
@@ -53,7 +53,7 @@
     --team-link-icon-size: 1.1em;
 }
 
-/* Estilos del componente */
+/* Component Styles */
 .derafu-block-team {
     margin: var(--spacing-y) auto;
     background-color: var(--team-bg);
@@ -105,23 +105,27 @@
     border-radius: var(--team-border-radius);
 }
 
-/* Ajustes según número de columnas */
+/* Column Number Adjustments */
 .derafu-block-team--cols-1 .derafu-block-team__image img {
     width: var(--team-image-size-1);
     height: var(--team-image-size-1);
 }
+
 .derafu-block-team--cols-2 .derafu-block-team__image img {
     width: var(--team-image-size-2);
     height: var(--team-image-size-2);
 }
+
 .derafu-block-team--cols-3 .derafu-block-team__image img {
     width: var(--team-image-size-3);
     height: var(--team-image-size-3);
 }
+
 .derafu-block-team--cols-4 .derafu-block-team__image img {
     width: var(--team-image-size-4);
     height: var(--team-image-size-4);
 }
+
 .derafu-block-team--cols-6 .derafu-block-team__image img {
     width: var(--team-image-size-6);
     height: var(--team-image-size-6);
@@ -195,4 +199,81 @@
 
 .derafu-block-team__link i {
     font-size: var(--team-link-icon-size);
+}
+
+/* Mobile Media Query */
+@media (max-width: 767px) {
+    .derafu-block-team {
+        display: grid;
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 1.5rem;
+        padding: 0 1rem; /* Lateral margin on mobile */
+    }
+
+    .derafu-block-team__member {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .derafu-block-team__image {
+        padding: 1.5rem 1.5rem 0;
+    }
+
+    .derafu-block-team__info {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .derafu-block-team__bio {
+        flex: 1;
+    }
+
+    /* Larger mobile image sizes */
+    .derafu-block-team--cols-1 .derafu-block-team__image img,
+    .derafu-block-team--cols-2 .derafu-block-team__image img,
+    .derafu-block-team--cols-3 .derafu-block-team__image img,
+    .derafu-block-team--cols-4 .derafu-block-team__image img,
+    .derafu-block-team--cols-6 .derafu-block-team__image img {
+        width: var(--team-mobile-image-size);
+        height: var(--team-mobile-image-size);
+    }
+
+    /* Mobile typography */
+    .derafu-block-team__name {
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .derafu-block-team__role {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .derafu-block-team__bio {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    /* Touch-friendly links */
+    .derafu-block-team__links {
+        gap: 0.8rem;
+        margin-top: auto;
+    }
+}
+
+/* Additional Optimizations for Very Small Devices */
+@media (max-width: 375px) {
+    .derafu-block-team__image {
+        padding: 1.25rem 1.25rem 0;
+    }
+
+    .derafu-block-team__info {
+        padding: 1.25rem;
+    }
 }

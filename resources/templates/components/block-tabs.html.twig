@@ -1,5 +1,8 @@
 {# templates/components/block-tabs.html.twig #}
-<div class="derafu-block-tabs {{ class }}" id="{{ id }}">
+<div class="derafu-block-tabs {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     {% if position == 'horizontal' %}
         <nav class="nav nav-pills nav-justified">
             {% for tab in tabs %}
@@ -18,7 +21,7 @@
                 </button>
             {% endfor %}
         </nav>
-        <div class="tab-content mt-3">
+        <div class="tab-content{% if with_shadow is defined and with_shadow %} with-shadow{% endif %}">
             {% for tab in tabs %}
                 <div class="tab-pane fade{% if (activeTab is null and loop.first) or activeTab == tab.id %} show active{% endif %}"
                     id="content-{{ tab.id }}"
@@ -51,7 +54,7 @@
                 </nav>
             </div>
             <div class="col">
-                <div class="tab-content">
+                <div class="tab-content{% if with_shadow is defined and with_shadow %} with-shadow{% endif %}">
                     {% for tab in tabs %}
                         <div class="tab-pane fade{% if (activeTab is null and loop.first) or activeTab == tab.id %} show active{% endif %}"
                             id="content-{{ tab.id }}"

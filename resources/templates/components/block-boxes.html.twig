@@ -1,5 +1,5 @@
 {# templates/components/block-boxes.html.twig #}
-<div class="derafu-block-boxes {{ class }} derafu-block-boxes--{{ align }}" id="{{ id }}">
+<div class="derafu-block-boxes {{ class }} derafu-block-boxes--{{ align }} {{ margin_top is defined ? 'mt-' ~ margin_top : '' }} {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }}" id="{{ id }}">
     <div class="row g-0">
         {% for box in boxes %}
             <div class="col-12 col-md-{{ 12 / cols }}">

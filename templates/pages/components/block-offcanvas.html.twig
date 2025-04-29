@@ -2,9 +2,11 @@
 
 {% block content %}
 {# Offcanvas Izquierda (start) #}
-<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-left">
-    Menú Izquierdo
-</button>
+<div class="mb-4">
+    <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-left">
+        Menú Izquierdo
+    </button>
+</div>
 
 <twig:block-offcanvas
     id="offcanvas-left"
@@ -19,9 +21,11 @@
 />
 
 {# Offcanvas Derecha con Formulario #}
-<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-right">
-    Editar Perfil
-</button>
+<div class="mt-2 mb-3">
+    <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-right">
+        Editar Perfil
+    </button>
+</div>
 
 <twig:block-offcanvas
     id="offcanvas-right"
@@ -56,9 +60,11 @@
 />
 
 {# Offcanvas Superior #}
-<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-top">
-    Notificaciones
-</button>
+<div class="mt-3 mb-4">
+    <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-top">
+        Notificaciones
+    </button>
+</div>
 
 <twig:block-offcanvas
     id="offcanvas-top"
@@ -78,9 +84,11 @@
 />
 
 {# Offcanvas Inferior sin Backdrop #}
-<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-bottom">
-    Player de Música
-</button>
+<div class="mt-2 mb-3">
+    <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-bottom">
+        Player de Música
+    </button>
+</div>
 
 <twig:block-offcanvas
     id="offcanvas-bottom"
@@ -104,9 +112,11 @@
 />
 
 {# Offcanvas con Scroll y Sin Backdrop #}
-<button class="btn btn-light d-block mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll">
-    Documentación
-</button>
+<div class="mt-2 mb-3">
+    <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll">
+        Documentación
+    </button>
+</div>
 
 <twig:block-offcanvas
     id="offcanvas-scroll"

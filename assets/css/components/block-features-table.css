@@ -1,5 +1,7 @@
-/* Variables base */
-:root {
+/*
+ * Features Table - Variables base
+ */
+ :root {
     /* Features Table - General */
     --features-table-margin-bottom: 1.5rem;
 
@@ -31,49 +33,65 @@
     --features-table-mobile-breakpoint: 768px;
     --features-table-mobile-cell-padding: 0.75rem;
     --features-table-mobile-icon-size: 2em;
-}
+  }
 
-.derafu-block-features-table {
+  /*
+   * Componente principal
+   */
+  .derafu-block-features-table {
     width: 100%;
-    margin-bottom: var( --features-table-margin-bottom);
-}
+    margin-bottom: var(--features-table-margin-bottom);
+  }
 
-.derafu-block-features-table__table {
+  /*
+   * Estructura de la tabla
+   */
+  .derafu-block-features-table__table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid var(--features-table-border);
-}
+  }
 
-.derafu-block-features-table__header {
+  /*
+   * Estilos para encabezados
+   */
+  .derafu-block-features-table__header {
     background-color: var(--features-table-header-bg);
     color: var(--features-table-header-text);
     padding: var(--features-table-cell-padding);
     text-align: center;
     font-weight: var(--features-table-header-font-weight);
     border: 1px solid var(--features-table-border);
-}
+  }
 
-.derafu-block-features-table__header--feature {
+  .derafu-block-features-table__header--feature {
     text-align: left;
-}
+  }
 
-.derafu-block-features-table__cell {
+  /*
+   * Estilos para celdas
+   */
+  .derafu-block-features-table__cell {
     padding: var(--features-table-cell-padding);
     text-align: center;
     border: 1px solid var(--features-table-border);
-}
+    vertical-align: middle;
+  }
 
-.derafu-block-features-table__cell--feature {
+  .derafu-block-features-table__cell--feature {
     text-align: left;
-}
+  }
 
-.derafu-block-features-table__feature {
+  /*
+   * Contenido de características
+   */
+  .derafu-block-features-table__feature {
     display: flex;
     align-items: flex-start;
     gap: var(--features-table-feature-gap);
-}
+  }
 
-.derafu-block-features-table__icon {
+  .derafu-block-features-table__icon {
     width: var(--features-table-icon-size);
     height: var(--features-table-icon-size);
     background-color: var(--features-table-icon-bg);
@@ -83,48 +101,79 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-}
+  }
 
-.derafu-block-features-table__feature-content {
+  .derafu-block-features-table__feature-content {
     display: flex;
     flex-direction: column;
     gap: var(--features-table-content-gap);
-}
+  }
 
-.derafu-block-features-table__feature-name {
+  .derafu-block-features-table__feature-name {
     font-weight: var(--features-table-feature-name-font-weight);
     color: var(--features-table-feature-text);
-}
+  }
 
-.derafu-block-features-table__feature-description {
+  .derafu-block-features-table__feature-description {
     color: var(--features-table-description-text);
     font-size: var(--features-table-description-font-size);
-}
+  }
 
-.derafu-block-features-table__check {
+  /*
+   * Indicadores de disponibilidad
+   */
+  .derafu-block-features-table__check {
     color: var(--features-table-check-color);
     font-size: var(--features-table-icon-font-size);
-}
+  }
 
-.derafu-block-features-table__cross {
+  .derafu-block-features-table__cross {
     color: var(--features-table-cross-color);
     font-size: var(--features-table-icon-font-size);
-}
+  }
 
-/* Responsive table */
-.table-responsive {
+  /*
+   * Responsive table con scroll horizontal
+   */
+  .table-responsive {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-}
+    margin-bottom: 1rem;
+  }
 
-@media (max-width: var(--features-table-mobile-breakpoint)) {
+  /*
+   * Personalización de scrollbar
+   */
+  .table-responsive::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .table-responsive::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 3px;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 3px;
+  }
+
+  /*
+   * Media queries para responsive
+   */
+  @media (max-width: 768px) {
     .derafu-block-features-table__cell {
-        padding: var(--features-table-mobile-cell-padding);
+      padding: var(--features-table-mobile-cell-padding);
     }
 
     .derafu-block-features-table__icon {
-        width: var(--features-table-mobile-icon-size);
-        height: var(--features-table-mobile-icon-size);
+      width: var(--features-table-mobile-icon-size);
+      height: var(--features-table-mobile-icon-size);
     }
-}
+
+    .derafu-block-features-table__header {
+      white-space: nowrap;
+    }
+  }
+  

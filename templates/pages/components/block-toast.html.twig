@@ -8,6 +8,25 @@
         title="Toast type: {{ type }}"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         time="5 mins ago"
+        margin_bottom="2"
     />
 {% endfor %}
+
+{# Ejemplo con márgenes personalizados #}
+<twig:block-toast
+    type="primary"
+    title="Título Personalizado"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    time="Just now"
+    margin_top="2"
+    margin_bottom="3"
+/>
+
+{# Ejemplo sin márgen superior #}
+<twig:block-toast
+    type="success"
+    title="Sin Márgen Superior"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    margin_top="0"
+/>
 {% endblock %}

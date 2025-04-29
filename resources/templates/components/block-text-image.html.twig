@@ -1,5 +1,10 @@
 {# templates/components/block-text-image.html.twig #}
-<div class="derafu-block-text-image {{ class }}" id="{{ id }}">
+<div class="derafu-block-text-image
+    {{ inside_tabs is defined and inside_tabs ? 'derafu-block-text-image--in-tabs' : '' }}
+    {{ margin_top is defined ? 'mt-' ~ margin_top : '' }}
+    {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }}
+    {{ class }}"
+    id="{{ id }}">
     <div class="row align-items-center">
         {# Text Column #}
         <div class="col-md-{{ text_cols }} {% if image_position == 'left' %}order-md-2{% endif %}">

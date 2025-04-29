@@ -1,10 +1,13 @@
 {# templates/components/block-features-table.html.twig #}
-<div class="derafu-block-features-table {{ class }}" id="{{ id }}">
+<div class="derafu-block-features-table {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     <div class="table-responsive">
         <table class="derafu-block-features-table__table">
             <thead>
                 <tr>
-                    <th class="derafu-block-features-table__header derafu-block-features-table__header--feature">{{ title }}</th>
+                    <th class="derafu-block-features-table__header derafu-block-features-table__header--feature">{{ title|raw }}</th>
                     {% for plan in features[0].values|keys %}
                         <th class="derafu-block-features-table__header">{{ plan }}</th>
                     {% endfor %}
@@ -19,7 +22,7 @@
                                     <i class="{{ feature.icon }}"></i>
                                 </span>
                                 <div class="derafu-block-features-table__feature-content">
-                                    <span class="derafu-block-features-table__feature-name">{{ feature.name }}</span>
+                                    <span class="derafu-block-features-table__feature-name">{{ feature.name|raw }}</span>
                                     {% if feature.description %}
                                         <small class="derafu-block-features-table__feature-description">{{ feature.description|raw }}</small>
                                     {% endif %}

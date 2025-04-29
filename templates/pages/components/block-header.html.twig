@@ -10,11 +10,11 @@
             url: '#'
         },
         {
-            text: 'Servicios',
-            icon: 'fa-solid fa-cube',
+            text: 'Soluciones',
+            icon: 'fa-solid fa-cubes',
             items: [
                 {
-                    text: 'Servicio Basic',
+                    text: 'Solución Básica',
                     icon: 'fa-solid fa-star',
                     url: '#'
                 },
@@ -22,157 +22,89 @@
                     type: 'divider'
                 },
                 {
-                    text: 'Servicio Plus',
-                    icon: 'fa-solid fa-stars',
+                    text: 'Solución Avanzada',
+                    icon: 'fa-solid fa-rocket',
                     items: [
                         {
-                            text: 'Características',
+                            text: 'Características Principales',
                             url: '#'
                         },
                         {
-                            icon: 'fa-solid fa-dollar-sign',
-                            text: 'Precios',
+                            icon: 'fa-solid fa-chart-line',
+                            text: 'Análisis',
                             url: '#'
                         },
                         {
                             type: 'divider'
                         },
                         {
-                            icon: 'fa-solid fa-book',
-                            text: 'Documentación',
+                            icon: 'fa-solid fa-book-open',
+                            text: 'Guía Completa',
                             url: '#'
                         }
                     ]
                 }
             ]
-        },
-        {
-            text: 'Productos',
-            icon: 'fa-solid fa-th-large',
-            sections: [
-                {
-                    title: 'Finance',
-                    links: [
-                        {
-                            text: 'Accounting',
-                            url: '#',
-                            icon: 'fa-solid fa-calculator'
-                        },
-                        {
-                            text: 'Invoicing',
-                            url: '#',
-                            icon: 'fa-solid fa-file-invoice'
-                        }
-                    ]
-                },
-                {
-                    title: 'Sales',
-                    links: [
-                        {
-                            text: 'CRM',
-                            url: '#',
-                            icon: 'fa-solid fa-users'
-                        },
-                        {
-                            text: 'Sales',
-                            url: '#',
-                            icon: 'fa-solid fa-chart-line'
-                        }
-                    ]
-                }
-            ],
-            footer: [
-                {
-                    icon: 'fa-brands fa-github',
-                    text: 'Derafu ORG',
-                    url: 'https://www.derafu.org'
-                },
-                {
-                    icon: 'fa-brands fa-github',
-                    text: 'View on Github',
-                    url: '#'
-                }
-            ],
         }
     ]"
     :rightNav="[
         {
-            text: 'Documentación',
+            text: 'Recursos',
             url: '#',
-            icon: 'fa-solid fa-book'
+            icon: 'fa-solid fa-toolbox'
         },
         {
-            text: 'Productos',
-            icon: 'fa-solid fa-th-large',
-            sections: [
-                {
-                    title: 'Finance',
-                    cols: 3,
-                    links: [
-                        {
-                            text: 'Accounting',
-                            url: '#',
-                            icon: 'fa-solid fa-calculator'
-                        },
-                        {
-                            text: 'Invoicing',
-                            url: '#',
-                            icon: 'fa-solid fa-file-invoice'
-                        }
-                    ]
-                },
-                {
-                    title: 'Sales',
-                    cols: 3,
-                    links: [
-                        {
-                            text: 'CRM',
-                            url: '#',
-                            icon: 'fa-solid fa-users'
-                        },
-                        {
-                            text: 'Sales',
-                            url: '#',
-                            icon: 'fa-solid fa-chart-line'
-                        }
-                    ]
-                }
-            ],
-            footer: [
-                {
-                    icon: 'fa-brands fa-github',
-                    text: 'Derafu ORG',
-                    url: 'https://www.derafu.org'
-                },
-                {
-                    icon: 'fa-brands fa-github',
-                    text: 'View on Github',
-                    url: '#'
-                }
-            ],
-        },
-        {
-            text: 'Soporte',
-            icon: 'fa-solid fa-headset',
+            text: 'Integraciones',
+            icon: 'fa-solid fa-plug',
             items: [
                 {
-                    text: 'Centro de Ayuda',
-                    icon: 'fa-solid fa-question-circle',
+                    text: 'Plataformas',
+                    icon: 'fa-solid fa-desktop',
                     url: '#'
                 },
                 {
-                    type: 'divider'
-                },
-                {
-                    text: 'Contacto',
-                    icon: 'fa-solid fa-envelope',
+                    text: 'API',
+                    icon: 'fa-solid fa-code',
                     url: '#'
                 }
             ]
         }
     ]"
-    ctaIcon="fa-solid fa-check"
-    ctaText="¡Probar GRATIS!"
+    ctaIcon="fa-solid fa-rocket"
+    ctaText="Comenzar"
     ctaUrl="#"
+    margin_bottom="4"
+/>
+
+<twig:block-header
+    logoImage="../../img/block-hero.jpeg"
+    logoHtml="<span class='fw-normal'>Otro</span><span class='fw-bold text-primary'>Ejemplo</span>"
+    :leftNav="[
+        {
+            text: 'Marketplace',
+            icon: 'fa-solid fa-shopping-cart',
+            sections: [
+                {
+                    title: 'Tecnología',
+                    links: [
+                        {
+                            text: 'Software',
+                            url: '#',
+                            icon: 'fa-solid fa-laptop-code'
+                        },
+                        {
+                            text: 'Hardware',
+                            url: '#',
+                            icon: 'fa-solid fa-server'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]"
+    ctaText="Explora"
+    ctaUrl="#"
+    margin_top="2"
+    margin_bottom="3"
 />
 {% endblock %}

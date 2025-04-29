@@ -1,5 +1,5 @@
 {# templates/components/block-box.html.twig #}
-<div class="derafu-block-box {{ rounded ? 'derafu-block-box__rounded' : '' }} {{ class }}" id="{{ id }}">
+<div class="derafu-block-box {{ rounded ? 'derafu-block-box__rounded' : '' }} {{ margin_top is defined ? 'mt-' ~ margin_top : '' }} {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }} {{ class }}" id="{{ id }}">
     <h3 class="derafu-block-box__title">{{ title }}</h3>
     <div class="derafu-block-box__content">{{ content | raw }}</div>
 </div>

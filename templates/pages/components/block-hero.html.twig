@@ -1,93 +1,90 @@
 {% extends 'layouts/default.html.twig' %}
 
+
 {% block content %}
 <twig:block-hero
-    background="{{ base_path }}/img/block-hero.jpeg"
-    title="Lorem ipsum"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    :buttons="[
-        {
-            text: 'Derafu ORG',
-            url: 'https://www.derafu.org'
-        }
-    ]"
-    align="left"
-
+   background="{{ base_path }}/img/block-hero.jpeg"
+   title="Lorem ipsum"
+   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+   :buttons="[
+       {
+           text: 'Derafu ORG',
+           url: 'https://www.derafu.org'
+       }
+   ]"
+   align="left"
+   margin_bottom="4"
 />
 
-<br/>
 
 <twig:block-hero
-    background="{{ base_path }}/img/block-hero.jpeg"
-    contentBackground="true"
-    title="Lorem ipsum"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a>"
-    :buttons="[
-        {
-            text: 'Derafu ORG',
-            url: 'https://www.derafu.org'
-        }
-    ]"
-    align="left"
-
+   background="{{ base_path }}/img/block-hero.jpeg"
+   contentBackground="true"
+   title="Lorem ipsum"
+   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a>"
+   :buttons="[
+       {
+           text: 'Derafu ORG',
+           url: 'https://www.derafu.org'
+       }
+   ]"
+   align="left"
+   margin_top="2"
+   margin_bottom="3"
 />
 
-<br/>
 
 <twig:block-hero
-    background="{{ base_path }}/img/block-hero.jpeg"
-    title="Lorem ipsum"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    :buttons="[
-        {
-            text: 'Derafu ORG',
-            url: 'https://www.derafu.org'
-        }
-    ]"
-    align="right"
-
+   background="{{ base_path }}/img/block-hero.jpeg"
+   title="Lorem ipsum"
+   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+   :buttons="[
+       {
+           text: 'Derafu ORG',
+           url: 'https://www.derafu.org'
+       }
+   ]"
+   align="right"
+   margin_top="0"
 />
 
-<br/>
 
 {% for theme, name in themes %}
-    <twig:block-hero
-        title="Theme: {{ name }}"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        :buttons="[
-            {
-                text: 'Derafu ORG',
-                url: 'https://www.derafu.org'
-            },
-            {
-                text: 'Example.com',
-                url: 'https://www.example.com'
-            }
-        ]"
-
-    />
-    <br/>
+   <twig:block-hero
+       title="Theme: {{ name }}"
+       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+       :buttons="[
+           {
+               text: 'Derafu ORG',
+               url: 'https://www.derafu.org'
+           },
+           {
+               text: 'Example.com',
+               url: 'https://www.example.com'
+           }
+       ]"
+       margin_bottom="2"
+   />
 {% endfor %}
+
 
 {% set sizes = ['mini', 'small', 'medium', 'large', 'full'] %}
 {% set theme_keys = themes|keys %}
 {% for size in sizes %}
-    {% set theme_key = theme_keys[loop.index0] %}
-    <twig:block-hero
-        size="{{ size }}"
-        background="{{ base_path }}/img/block-hero.jpeg"
-        title="Size: {{ size }} ({{ theme_keys[loop.index0] }})"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        :buttons="[
-            {
-                text: 'Example.com',
-                url: 'https://www.example.com'
-            }
-        ]"
-        align="right"
-
-    />
-    <br/>
+   {% set theme_key = theme_keys[loop.index0] %}
+   <twig:block-hero
+       size="{{ size }}"
+       background="{{ base_path }}/img/block-hero.jpeg"
+       title="Size: {{ size }} ({{ theme_keys[loop.index0] }})"
+       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+       :buttons="[
+           {
+               text: 'Example.com',
+               url: 'https://www.example.com'
+           }
+       ]"
+       align="right"
+       margin_top="2"
+   />
 {% endfor %}
-
 {% endblock %}

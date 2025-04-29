@@ -4,14 +4,16 @@
 <twig:block-image
     title="¿Qué es Twig?"
     image="{{ base_path }}/img/block-hero.jpeg"
-    description="<p>Una ramita. <a href=https://derafu.org/>Link</a></p>"
+    description="<p>Una <a href=https://derafu.org/>ramita</a>.</p>"
     :buttons="[
         {
             text: 'Aprende sobre Twig',
             url: 'https://twig.symfony.com/'
         }
     ]"
+    margin_bottom="4"
 />
+
 <twig:block-image
     title="¿Qué es Twig?"
     image="{{ base_path }}/img/block-hero.jpeg"
@@ -23,6 +25,7 @@
         }
     ]"
     size="small"
-
+    margin_top="2"
+    margin_bottom="3"
 />
 {% endblock %}

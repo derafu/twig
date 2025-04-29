@@ -37,7 +37,27 @@
                 description: 'Tus datos están protegidos con los más altos estándares de seguridad.'
             }
         ]"
+        margin_bottom="4"
+    />
 
+    {# Ejemplo adicional con márgenes personalizados #}
+    <twig:block-features-list
+        :features_left="[
+            {
+                icon: 'fa-solid fa-rocket',
+                title: 'Característica Especial 1',
+                description: 'Descripción de una característica especial en la columna izquierda.'
+            }
+        ]"
+        :features_right="[
+            {
+                icon: 'fa-solid fa-star',
+                title: 'Característica Especial 2',
+                description: 'Descripción de una característica especial en la columna derecha.'
+            }
+        ]"
+        margin_top="2"
+        margin_bottom="3"
     />
 {% endfor %}
 {% endblock %}

@@ -1,148 +1,158 @@
-/* Variables para Scrollspy */
-:root {
-    /* Scrollspy - Estructura */
-    --scrollspy-content-height: 100vh;
-    --scrollspy-content-padding: 1rem;
-    --scrollspy-transition-speed: 0.3s;
-    --scrollspy-border-radius: 0.375rem;
-    --scrollspy-section-spacing: 1.5rem;
-
-    /* Scrollspy - Colores */
-    --scrollspy-list-bg: var(--bs-white, #fff);
-    --scrollspy-list-hover-bg: var(--bs-gray-100, #f8f9fa);
-    --scrollspy-list-active-bg: var(--bs-primary, #0d6efd);
-    --scrollspy-list-active-color: var(--bs-white, #fff);
-    --scrollspy-list-text-color: var(--bs-gray-900, #212529);
-    --scrollspy-list-border-color: var(--bs-gray-300, #dee2e6);
-    --scrollspy-section-border-color: var(--bs-gray-200, #e9ecef);
-
-    /* Scrollspy - Tipografía */
-    --scrollspy-title-font-size: 1.25rem;
-    --scrollspy-list-font-size: 1rem;
-    --scrollspy-content-line-height: 1.6;
-}
-
-/* Estructura principal */
+/* General scrollspy styles */
 .derafu-block-scrollspy {
     display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
-    overflow: hidden;
-}
+  }
 
-/* Navegación lateral/superior */
-.derafu-block-scrollspy__list {
-    background-color: var(--scrollspy-list-bg);
-    border-right: 1px solid var(--scrollspy-list-border-color);
-    padding: 0;
-    border: none;
-}
+  /* Side navigation */
+  .derafu-block-scrollspy__list {
+    width: 25%;
+    background-color: var(--scrollspy-list-bg, #fff);
+    border-right: 1px solid var(--scrollspy-list-border-color, #dee2e6);
+    height: fit-content;
+    position: sticky;
+    top: 1rem;
+  }
 
-/* Elementos de navegación */
-.derafu-block-scrollspy__list-item {
-    margin: 0;
-}
-
-.derafu-block-scrollspy__list-item a {
-    color: var(--scrollspy-list-text-color);
-    font-size: var(--scrollspy-list-font-size);
+  /* Navigation elements */
+  .derafu-block-scrollspy__list-item a {
+    color: var(--scrollspy-list-text-color, #212529);
     display: block;
     padding: 0.75rem 1.25rem;
-    border-bottom: 1px solid var(--scrollspy-list-border-color);
+    border-bottom: 1px solid var(--scrollspy-list-border-color, #dee2e6);
     text-decoration: none;
-    transition: all var(--scrollspy-transition-speed) ease;
-}
+    transition: all 0.3s ease;
+  }
 
-.derafu-block-scrollspy__list-item:last-child a {
+  .derafu-block-scrollspy__list-item:last-child a {
     border-bottom: none;
-}
+  }
 
-.derafu-block-scrollspy__list-item a:hover {
-    background-color: var(--scrollspy-list-hover-bg);
+  .derafu-block-scrollspy__list-item a.active {
+    background-color: var(--scrollspy-list-active-bg, #0d6efd);
+    color: var(--scrollspy-list-active-color, #fff);
+  }
+
+  .derafu-block-scrollspy__list-item a:hover {
+    background-color: var(--scrollspy-list-hover-bg, #f8f9fa);
     text-decoration: none;
-}
+  }
 
-.derafu-block-scrollspy__list-item a.active {
-    background-color: var(--scrollspy-list-active-bg);
-    color: var(--scrollspy-list-active-color);
-    border-color: var(--scrollspy-list-active-bg);
-}
+  /* Content */
+  .derafu-block-scrollspy__content {
+    width: 75%;
+    padding: 0 1rem;
+    overflow: visible;
+  }
 
-/* Contenido */
-.derafu-block-scrollspy__content {
-    padding: 0;
-}
+  .scrollspy-example {
+    height: auto;
+    overflow: visible;
+    padding: 1rem;
+  }
 
-.scrollspy-example {
-    overflow-y: auto;
-    max-height: var(--scrollspy-content-height);
-    scrollbar-width: thin;
-}
+  /* Section styles */
+  .derafu-block-scrollspy__section {
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+    border-bottom: 1px solid var(--scrollspy-section-border-color, #e9ecef);
+    padding-bottom: 1rem;
+  }
 
-/* Estilos para secciones */
-.derafu-block-scrollspy__section {
-    margin-bottom: var(--scrollspy-section-spacing);
-}
-
-.derafu-block-scrollspy__section h4 {
-    font-size: var(--scrollspy-title-font-size);
-    font-weight: 600;
-    color: var(--bs-gray-800, #343a40);
-}
-
-.derafu-block-scrollspy__section-content {
-    color: var(--bs-gray-700, #495057);
-    line-height: var(--scrollspy-content-line-height);
-}
-
-/* Estilo para scrollbar en navegadores webkit */
-.scrollspy-example::-webkit-scrollbar {
-    width: 6px;
-}
-
-.scrollspy-example::-webkit-scrollbar-track {
-    background: var(--bs-gray-100, #f8f9fa);
-}
-
-.scrollspy-example::-webkit-scrollbar-thumb {
-    background: var(--bs-gray-400, #ced4da);
-    border-radius: 3px;
-}
-
-/* Soporte para orientación horizontal */
-.list-group-horizontal {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.list-group-horizontal .list-group-item {
-    border-right: 1px solid var(--scrollspy-list-border-color);
+  .derafu-block-scrollspy__section:last-child {
     border-bottom: none;
-    margin-right: 0;
-}
+    margin-bottom: 0;
+  }
 
-.list-group-horizontal .list-group-item:last-child {
-    border-right: none;
-}
+  .derafu-block-scrollspy__section h4 {
+    margin-bottom: 1rem;
+  }
 
-/* Responsive */
-@media (max-width: 768px) {
+  /* Media queries for mobile version - HORIZONTAL SCROLLSPY */
+  @media (max-width: 768px) {
     .derafu-block-scrollspy {
-        flex-direction: column;
+      flex-direction: column;
     }
 
-    .derafu-block-scrollspy__list,
-    .derafu-block-scrollspy__content {
-        width: 100% !important; /* Sobrescribe las clases col-* */
-    }
-
+    /* Horizontal menu on mobile */
     .derafu-block-scrollspy__list {
-        border-right: none;
-        border-bottom: 1px solid var(--scrollspy-list-border-color);
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid var(--scrollspy-list-border-color, #dee2e6);
+      display: flex;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: var(--scrollspy-list-bg, #fff);
+      padding: 0;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      scrollbar-width: none; /* Hide scrollbar in Firefox */
     }
 
-    .list-group-horizontal {
-        overflow-x: auto;
-        flex-wrap: nowrap;
+    .derafu-block-scrollspy__list::-webkit-scrollbar {
+      display: none; /* Hide scrollbar in Chrome/Safari */
     }
-}
+
+    .derafu-block-scrollspy__list-item {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    .derafu-block-scrollspy__list-item a {
+      white-space: nowrap;
+      padding: 0.75rem 1rem;
+      border-bottom: none;
+      border-right: 1px solid var(--scrollspy-list-border-color, #dee2e6);
+    }
+
+    .derafu-block-scrollspy__list-item:last-child a {
+      border-right: none;
+    }
+
+    /* Full-width content */
+    .derafu-block-scrollspy__content {
+      width: 100%;
+      padding: 1rem 0;
+    }
+
+    /* Visual indicator for horizontal scroll */
+    .derafu-block-scrollspy__list::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+      pointer-events: none;
+      opacity: 0.8;
+    }
+  }
+
+  /* Improvements for very small screens */
+  @media (max-width: 576px) {
+    .derafu-block-scrollspy__list-item a {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .derafu-block-scrollspy__section h4 {
+      font-size: 1.1rem;
+    }
+
+    .derafu-block-scrollspy__section-content {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Dark mode - if needed */
+  @media (prefers-color-scheme: dark) {
+    .derafu-block-scrollspy__list::after {
+      background: linear-gradient(90deg, rgba(33,37,41,0) 0%, rgba(33,37,41,1) 100%);
+    }
+  }
+  

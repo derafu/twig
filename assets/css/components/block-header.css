@@ -1,5 +1,7 @@
-/* Variables base */
-:root {
+/*
+ * Header - Variables base
+ */
+ :root {
     /* Header - Colores */
     --header-bg: var(--bs-white, #fff);
     --header-text: var(--bs-gray-dark, #384034);
@@ -30,48 +32,62 @@
     --header-mobile-breakpoint: 991.98px;
     --header-mobile-dropdown-padding: 0 1rem;
     --header-mobile-submenu-padding: 0 0 0 1.5rem;
-    --header-mobile-button-margin: 0.5rem 0 0 0;
-}
+    --header-mobile-button-margin: 0.5rem 0 1.5rem 0;
+    --header-mobile-bottom-spacing: 2rem;
+    --header-mobile-button-top-spacing: 1.5rem;
 
-.derafu-block-header {
+    /* Alineación del menú */
+    --menu-item-padding: 0.15rem;
+    --button-side-margin: 0;
+  }
+
+  /*
+   * Componente principal del header
+   */
+  .derafu-block-header {
     background-color: var(--header-bg);
-}
+    margin-bottom: 1rem;
+  }
 
-.derafu-block-header .navbar-brand img {
+  .derafu-block-header .navbar-brand img {
     height: auto;
-}
+  }
 
-/* Dropdown styling */
-.derafu-block-header .dropdown-menu {
+  /*
+   * Estilos de dropdown
+   */
+  .derafu-block-header .dropdown-menu {
     border-radius: var(--header-dropdown-radius);
     box-shadow: var(--header-dropdown-shadow);
     border: 1px solid var(--header-dropdown-border);
-}
+  }
 
-.derafu-block-header .dropdown-item:hover {
+  .derafu-block-header .dropdown-item:hover {
     background-color: var(--header-dropdown-hover-bg);
-}
+  }
 
-/* Mega dropdown specific styles */
-.derafu-block-header .mega-menu-wrapper {
+  /*
+   * Estilos específicos para mega dropdown
+   */
+  .derafu-block-header .mega-menu-wrapper {
     position: static;
-}
+  }
 
-.derafu-block-header .mega-dropdown {
+  .derafu-block-header .mega-dropdown {
     width: 100%;
     left: 0;
     right: 0;
     padding: var(--header-mega-padding);
-}
+  }
 
-.derafu-block-header .mega-dropdown .dropdown-header {
+  .derafu-block-header .mega-dropdown .dropdown-header {
     color: var(--header-mega-title);
     font-weight: bold;
     padding: var(--header-mega-title-padding);
     margin-bottom: var(--header-mega-title-margin);
-}
+  }
 
-.derafu-block-header .mega-dropdown-header {
+  .derafu-block-header .mega-dropdown-header {
     color: var(--header-mega-title);
     font-weight: bold;
     font-size: var(--header-mega-header-font-size);
@@ -79,84 +95,142 @@
     margin-bottom: var(--header-mega-header-margin);
     border-bottom: 1px solid var(--header-dropdown-border);
     text-align: center;
-}
+  }
 
-.derafu-block-header .mega-dropdown-footer {
+  .derafu-block-header .mega-dropdown-footer {
     margin-top: var(--header-mega-footer-margin);
     padding-top: var(--header-mega-footer-padding);
     border-top: 1px solid var(--header-dropdown-border);
     text-align: center;
-}
+  }
 
-.derafu-block-header .mega-dropdown-footer-item {
+  .derafu-block-header .mega-dropdown-footer-item {
     font-size: 0.8rem;
     text-decoration: none;
-}
+  }
 
-.derafu-block-header .mega-dropdown-footer-item:not(:last-child) {
+  .derafu-block-header .mega-dropdown-footer-item:not(:last-child) {
     margin-right: var(--header-mega-footer-item-margin);
-}
+  }
 
-/* Submenu positioning */
-.derafu-block-header .dropdown-menu .submenu {
+  /*
+   * Posicionamiento de submenús
+   */
+  .derafu-block-header .dropdown-menu .submenu {
     position: absolute;
     left: 100%;
     top: 0;
-}
+  }
 
-.derafu-block-header .dropstart .submenu {
+  .derafu-block-header .dropstart .submenu {
     left: auto;
     right: 100%;
-}
+  }
 
-.derafu-block-header .dropend:hover > .submenu,
-.derafu-block-header .dropstart:hover > .submenu {
+  .derafu-block-header .dropend:hover > .submenu,
+  .derafu-block-header .dropstart:hover > .submenu {
     display: block;
-}
+  }
 
-.derafu-block-header .submenu {
+  .derafu-block-header .submenu {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-}
+  }
 
-.derafu-block-header .dropend:hover > .submenu,
-.derafu-block-header .dropstart:hover > .submenu {
+  .derafu-block-header .dropend:hover > .submenu,
+  .derafu-block-header .dropstart:hover > .submenu {
     visibility: visible;
     opacity: 1;
-}
+  }
 
-/* Hover behavior */
-.derafu-block-header[data-dropdown-trigger="hover"] .dropdown:hover > .dropdown-menu {
+  /*
+   * Comportamiento al hover
+   */
+  .derafu-block-header[data-dropdown-trigger="hover"] .dropdown:hover > .dropdown-menu {
     display: block;
-}
+  }
 
-.derafu-block-header[data-dropdown-trigger="hover"] .dropend:hover > .submenu,
-.derafu-block-header[data-dropdown-trigger="hover"] .dropstart:hover > .submenu {
+  .derafu-block-header[data-dropdown-trigger="hover"] .dropend:hover > .submenu,
+  .derafu-block-header[data-dropdown-trigger="hover"] .dropstart:hover > .submenu {
     display: block;
-}
+  }
 
-/* Mobile adjustments */
-@media (max-width: var(--header-mobile-breakpoint)) {
+  /*
+   * Ajustes para móviles
+   */
+  @media (max-width: 991.98px) {
+    /* Estructura general */
+    .derafu-block-header {
+      margin-bottom: 2rem;
+    }
+
+    /* Dropdowns y mega menús */
     .derafu-block-header .mega-dropdown {
-        position: static;
-        box-shadow: none;
-        border: none;
-        padding: var(--header-mobile-dropdown-padding);
+      position: static;
+      box-shadow: none;
+      border: none;
+      padding: var(--header-mobile-dropdown-padding);
     }
 
     .derafu-block-header .dropdown-menu {
-        border: none;
-        box-shadow: none;
+      border: none;
+      box-shadow: none;
     }
 
     .derafu-block-header .dropdown-menu .submenu {
-        position: static;
-        padding-left: var(--header-mobile-submenu-padding);
+      position: static;
+      padding-left: var(--header-mobile-submenu-padding);
     }
 
-    .derafu-block-header .navbar-nav .btn {
-        margin-top: var(--header-mobile-button-margin);
-        width: 100%;
+    /* Alineación de elementos del menú */
+    .derafu-block-header .navbar-nav > li {
+      padding-left: var(--menu-item-padding);
+      padding-right: var(--menu-item-padding);
     }
-}
+
+    .derafu-block-header .navbar-nav .nav-link {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Estilos para botones */
+    .derafu-block-header .navbar-nav .btn,
+    .derafu-block-header a.btn-primary {
+      margin-top: var(--header-mobile-button-top-spacing);
+      margin-bottom: var(--header-mobile-bottom-spacing);
+      width: 100%;
+      margin-left: var(--button-side-margin);
+      margin-right: var(--button-side-margin);
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      text-align: center;
+    }
+
+    /* Iconos en menú móvil */
+    .derafu-block-header .navbar-nav i,
+    .derafu-block-header .navbar-nav svg {
+      margin-right: 0.25rem;
+    }
+
+    /* Ajustes del colapso del navbar */
+    .derafu-block-header .navbar-collapse.show,
+    .derafu-block-header .navbar-collapse.collapsing {
+      margin-bottom: 1rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Ajustes de espaciado */
+    .derafu-block-header .navbar {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .derafu-block-header .container,
+    .derafu-block-header .container-fluid {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+  

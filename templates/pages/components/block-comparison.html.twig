@@ -65,25 +65,26 @@
                 ],
                 recommendation: 'Recomendado para notarías.',
                 button_text: 'Registrarme',
-                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma',
+                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma'
             }
         ]"
-
+        margin_bottom="4"
     />
-   <twig:block-comparison
+
+    <twig:block-comparison
         :plans="[
             {
                 title: 'Android',
                 price_icon: 'fa-brands fa-android fa-2x',
                 features: [
                     {
-                        text: 'Utiliza la aplicación con múltiples <a href=\'https://www.libredte.cl\'style=\'text-decoration: none;\'>empresas</a>',
+                        text: 'Utiliza la aplicación con múltiples <a href=\'https://www.libredte.cl\'style=\'text-decoration: none;\'>empresas</a>'
                     },
                     {
-                        text: 'Emite boletas, facturas y guías de despachos',
+                        text: 'Emite boletas, facturas y guías de despachos'
                     },
                     {
-                        text: 'Punto de venta boleta fácil y de retail',
+                        text: 'Punto de venta boleta fácil y de retail'
                     }
                 ],
                 recommendation: 'Convierte tu dispositivo Android en un Punto de Venta con LibreDTE.',
@@ -95,13 +96,13 @@
                 price_icon: 'fa-brands fa-apple fa-2x',
                 features: [
                     {
-                        text: 'Utiliza la aplicación con múltiples empresas',
+                        text: 'Utiliza la aplicación con múltiples empresas'
                     },
                     {
-                        text: 'Emite boletas, facturas y guías de despachos',
+                        text: 'Emite boletas, facturas y guías de despachos'
                     },
                     {
-                        text: 'Punto de venta boleta fácil y de retail',
+                        text: 'Punto de venta boleta fácil y de retail'
                     }
                 ],
                 recommendation: 'Revisa tu empresa y emite documentos tributarios fácilmente.',
@@ -110,8 +111,7 @@
                 highlighted: true
             }
         ]"
-
+        margin_top="2"
     />
-
 {% endfor %}
 {% endblock %}

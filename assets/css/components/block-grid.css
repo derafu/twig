@@ -1,5 +1,7 @@
-/* Variables base */
-:root {
+/*
+ * Grid - Variables base
+ */
+ :root {
     /* Grid - Estructura */
     --grid-gap: 20px;
     --grid-column-gap: 10px;
@@ -19,28 +21,122 @@
 
     /* Grid - Responsive */
     --grid-mobile-breakpoint: 768px;
-}
 
-.derafu-block-grid {
+    /* Valores para sobreescritura responsive */
+    --grid-mobile-direction: column;
+    --grid-mobile-template: 1fr;
+    --grid-mobile-display: block;
+    --grid-mobile-width: 100%;
+    --grid-mobile-gap: 15px;
+    --grid-mobile-padding: 15px;
+    --grid-mobile-margin: 0;
+    --grid-mobile-flex: 0 0 100%;
+  }
+
+  /*
+   * Estilos generales
+   */
+  .derafu-block-grid {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: var(--grid-gap); /* Espaciado entre filas */
-}
+  }
 
-.derafu-block-grid__row {
-    display: flex;
-    width: 100%;
-    gap: var(--grid-column-gap); /* Espaciado entre columnas */
-}
-
-.derafu-block-grid__item {
+  .derafu-block-grid__item {
     padding: var(--grid-item-padding);
-}
+    box-sizing: border-box;
+  }
 
-/* Tamaños dinámicos */
-.derafu-block-grid__item--1 { flex: 1 1 calc(100% - var(--grid-gap)); } /* 1 item = ocupa todo */
-.derafu-block-grid__item--2 { flex: 1 1 calc(50% - var(--grid-gap)); } /* 2 items = mitad */
-.derafu-block-grid__item--3 { flex: 1 1 calc(33.33% - var(--grid-gap)); } /* 3 items = 1/3 cada uno */
-.derafu-block-grid__item--4 { flex: 1 1 calc(25% - var(--grid-gap)); } /* 4 items = 1/4 cada uno */
-.derafu-block-grid__item--6 { flex: 1 1 calc(16.66% - var(--grid-gap)); } /* 6 items = 1/6 cada uno */
+  /*
+   * Versión Flexbox del grid
+   */
+  .derafu-block-grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--grid-column-gap);
+    margin-bottom: var(--grid-gap);
+  }
+
+  /*
+   * Tamaños dinámicos para flexbox
+   */
+  .derafu-block-grid__item--1 {
+    flex: 0 0 100%;
+  }
+
+  .derafu-block-grid__item--2 {
+    flex: 0 0 calc(50% - var(--grid-column-gap)/2);
+  }
+
+  .derafu-block-grid__item--3 {
+    flex: 0 0 calc(33.33% - var(--grid-column-gap)*2/3);
+  }
+
+  .derafu-block-grid__item--4 {
+    flex: 0 0 calc(25% - var(--grid-column-gap)*3/4);
+  }
+
+  .derafu-block-grid__item--6 {
+    flex: 0 0 calc(16.66% - var(--grid-column-gap)*5/6);
+  }
+
+  /*
+   * Responsive para ambas versiones: Grid y Flexbox
+   */
+  @media (max-width: 768px) {
+    /* 1. Para la versión con CSS Grid */
+    .derafu-block-grid > div[style*="grid"] {
+      grid-template-columns: var(--grid-mobile-template);
+    }
+
+    /* 2. Para la versión con Flexbox */
+    .derafu-block-grid__row {
+      flex-direction: var(--grid-mobile-direction);
+      gap: var(--grid-mobile-gap);
+    }
+
+    /* Selector específico para aumentar especificidad sin !important */
+    .derafu-block-grid .derafu-block-grid__item--1,
+    .derafu-block-grid .derafu-block-grid__item--2,
+    .derafu-block-grid .derafu-block-grid__item--3,
+    .derafu-block-grid .derafu-block-grid__item--4,
+    .derafu-block-grid .derafu-block-grid__item--6 {
+      flex: var(--grid-mobile-flex);
+      max-width: var(--grid-mobile-width);
+    }
+
+    /* 3. Reducir padding en ambos casos */
+    .derafu-block-grid__item {
+      padding: var(--grid-mobile-padding);
+    }
+  }
+
+  /*
+   * Media query para casos extremos en dispositivos muy pequeños
+   */
+  @media (max-width: 576px) {
+    /* Forzar que cualquier grid dentro de derafu-block-grid sea vertical */
+    /* Aumentamos la especificidad sin !important */
+    body .derafu-block-grid > div {
+      display: var(--grid-mobile-display);
+    }
+
+    body .derafu-block-grid > div > div {
+      width: var(--grid-mobile-width);
+      margin-bottom: var(--grid-mobile-gap);
+    }
+
+    /* Reiniciar cualquier propiedad grid con mayor especificidad */
+    body .derafu-block-grid [style*="grid"] {
+      grid-template-columns: none;
+      display: var(--grid-mobile-display);
+    }
+
+    /* Forzar que cada item sea de ancho completo */
+    body .derafu-block-grid__item,
+    body .derafu-block-grid > div > div {
+      display: var(--grid-mobile-display);
+      width: var(--grid-mobile-width);
+      margin-left: var(--grid-mobile-margin);
+      margin-right: var(--grid-mobile-margin);
+    }
+  }
+  

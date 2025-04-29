@@ -1,14 +1,28 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
+    {# Example with individual margin controls #}
+    {% for theme, name in themes %}
+        <twig:block-card
+            image="../../img/block-hero.jpeg"
+            title="Theme: {{ name }}"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a>"
+            buttonText="More..."
+            buttonUrl="https://www.example.com"
+            marginTop="20px"
+            marginBottom="30px"
+            marginLeft="10px"
+            marginRight="10px"
+        />
+    {% endfor %}
+
+    {# Example with shorthand margin #}
     <twig:block-card
         image="../../img/block-hero.jpeg"
-        title="Theme: {{ name }}"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a>"
-        buttonText="More..."
+        title="Full Margin Example"
+        description="This card uses a shorthand margin of 15px on all sides."
+        buttonText="Click Me"
         buttonUrl="https://www.example.com"
-
+        margin="15px"
     />
-{% endfor %}
 {% endblock %}

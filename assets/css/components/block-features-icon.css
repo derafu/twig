@@ -1,37 +1,45 @@
-/* Variables base */
-:root {
-    /* Features Icon - General */
+/* ======================================
+   Base Variables
+   ====================================== */
+   :root {
+    /* Spacing */
     --spacing-y: 2rem;
 
-    /* Features Icon - Estructura */
+    /* Structure */
     --features-icon-row-gap: 2rem;
     --features-icon-row-margin-bottom: 2rem;
     --features-icon-size: 80px;
     --features-icon-border-radius: 0.5rem;
     --features-icon-margin-bottom: 1rem;
 
-    /* Features Icon - Colores */
+    /* Colors */
     --features-icon-icon-bg: var(--bs-primary, #0d6efd);
     --features-icon-icon-color: var(--bs-white, #fff);
     --features-icon-title-color: var(--bs-body-color, #212529);
     --features-icon-text-color: var(--bs-body-color, #212529);
 
-    /* Features Icon - Tipografía */
+    /* Typography */
     --features-icon-icon-font-size: 1.5rem;
     --features-icon-title-font-size: 1.25rem;
     --features-icon-title-font-weight: 600;
     --features-icon-title-margin-bottom: 0.5rem;
     --features-icon-description-line-height: 1.5;
 
-    /* Features Icon - Responsive */
+    /* Responsive */
     --features-icon-mobile-breakpoint: 768px;
     --features-icon-mobile-row-gap: 1.5rem;
 }
 
+/* ======================================
+   Component Container
+   ====================================== */
 .derafu-block-features-icon {
     margin: var(--spacing-y, 2rem) auto;
 }
 
+/* ======================================
+   Feature Row
+   ====================================== */
 .derafu-block-features-icon__row {
     display: flex;
     justify-content: flex-start;
@@ -39,10 +47,14 @@
     margin-bottom: var(--features-icon-row-margin-bottom);
 }
 
+/* Centered Variant */
 .derafu-block-features-icon__row--centered {
     justify-content: center;
 }
 
+/* ======================================
+   Feature Item
+   ====================================== */
 .derafu-block-features-icon__item {
     display: flex;
     flex-direction: column;
@@ -50,12 +62,16 @@
     text-align: center;
 }
 
+/* Width Variants */
 .derafu-block-features-icon__item--1 { width: 100%; }
 .derafu-block-features-icon__item--2 { width: calc(50% - 1rem); }
 .derafu-block-features-icon__item--3 { width: calc(33.333% - 1.334rem); }
 .derafu-block-features-icon__item--4 { width: calc(25% - 1.5rem); }
 .derafu-block-features-icon__item--6 { width: calc(16.666% - 1.667rem); }
 
+/* ======================================
+   Feature Icon
+   ====================================== */
 .derafu-block-features-icon__icon {
     width: var(--features-icon-size);
     height: var(--features-icon-size);
@@ -69,6 +85,9 @@
     font-size: var(--features-icon-icon-font-size);
 }
 
+/* ======================================
+   Feature Content
+   ====================================== */
 .derafu-block-features-icon__title {
     color: var(--features-icon-title-color);
     font-size: var(--features-icon-title-font-size);
@@ -81,14 +100,26 @@
     line-height: var(--features-icon-description-line-height);
 }
 
-/* Responsive */
-@media (max-width: var(--features-icon-mobile-breakpoint)) {
+/* ======================================
+   Responsive Styles
+   ====================================== */
+@media (max-width: 768px) {
     .derafu-block-features-icon__row {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
         gap: var(--features-icon-mobile-row-gap);
     }
 
     .derafu-block-features-icon__item {
-        width: 100% !important;
+        width: 100%; /* Occupy full width of column */
+    }
+
+    .derafu-block-features-icon__row--centered {
+        justify-content: center;
+    }
+
+    /* Force 2 columns even with odd number of elements */
+    .derafu-block-features-icon__row:not(.derafu-block-features-icon__row--centered) {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

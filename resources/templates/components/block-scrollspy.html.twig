@@ -1,7 +1,13 @@
-<div class="derafu-block-scrollspy row {% if class %}{{ class }}{% endif %}" style="{{ style|default('') }}">
-  <div class="derafu-block-scrollspy__list col-{{ cols }}">
+{# templates/components/block-scrollspy.html.twig #}
+<div class="derafu-block-scrollspy row {% if class %}{{ class }}{% endif %}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    style="{{ style|default('') }}">
+
+  {# Lista de navegación - se ajusta automáticamente según el dispositivo #}
+  <div class="derafu-block-scrollspy__list col-md-{{ cols }} col-12">
     <div id="{% if orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
-         class="list-group {% if orientation != 'vertical' %}list-group-{{ orientation }}{% endif %}">
+         class="list-group {% if orientation != 'vertical' %}list-group-{{ orientation }}{% else %}list-group-horizontal-md d-md-block{% endif %}">
       {% for section in sections %}
         <div class="derafu-block-scrollspy__list-item">
           <a class="list-group-item list-group-item-action" href="#{{ section.id }}">
@@ -13,9 +19,15 @@
       {% endfor %}
     </div>
   </div>
-  <div class="derafu-block-scrollspy__content col-{{ 12 - cols }}">
+
+  {# Contenido del scrollspy - sin altura fija en móvil #}
+  <div class="derafu-block-scrollspy__content col-md-{{ 12 - cols }} col-12">
     <div data-bs-spy="scroll"
-         style="height:{{ height }}; overflow-y: scroll;"
+         {% if orientation == 'horizontal' %}
+           data-bs-orientation="horizontal"
+         {% endif %}
+         style="height: {% if orientation == 'horizontal' %}{{ height }}{% else %}auto{% endif %};
+                overflow-y: {% if orientation == 'horizontal' %}scroll{% else %}visible{% endif %};"
          data-bs-target="#{% if orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
          data-bs-offset="0"
          data-bs-smooth-scroll="true"
@@ -32,3 +44,50 @@
     </div>
   </div>
 </div>
+
+{# Script para ajustar automáticamente la orientación del scrollspy en dispositivos móviles #}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const adjustScrollspy = function() {
+      const scrollspyContent = document.querySelector('.scrollspy-example');
+      const listGroup = document.querySelector('.derafu-block-scrollspy__list .list-group');
+
+      if (window.innerWidth <= 768) {
+        // En móvil: cambiar a horizontal y eliminar altura fija
+        scrollspyContent.setAttribute('data-bs-orientation', 'horizontal');
+        scrollspyContent.style.height = 'auto';
+        scrollspyContent.style.overflowY = 'visible';
+
+        // Asegurar que el menú es horizontal en móvil
+        if (!listGroup.classList.contains('list-group-horizontal')) {
+          listGroup.classList.add('list-group-horizontal');
+        }
+      } else {
+        // En desktop: mantener configuración original
+        {% if orientation == 'horizontal' %}
+          scrollspyContent.setAttribute('data-bs-orientation', 'horizontal');
+          scrollspyContent.style.height = '{{ height }}';
+          scrollspyContent.style.overflowY = 'scroll';
+        {% else %}
+          scrollspyContent.setAttribute('data-bs-orientation', 'vertical');
+          scrollspyContent.style.height = '{{ height }}';
+          scrollspyContent.style.overflowY = 'scroll';
+
+          // Asegurar que el menú es vertical en desktop si así se configuró
+          listGroup.classList.remove('list-group-horizontal');
+        {% endif %}
+      }
+
+      // Reiniciar scrollspy para aplicar cambios
+      var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'));
+      dataSpyList.forEach(function(dataSpyEl) {
+        bootstrap.ScrollSpy.getInstance(dataSpyEl)?.dispose();
+        new bootstrap.ScrollSpy(dataSpyEl);
+      });
+    };
+
+    // Ejecutar al cargar y al cambiar tamaño
+    adjustScrollspy();
+    window.addEventListener('resize', adjustScrollspy);
+  });
+</script>

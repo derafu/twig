@@ -1,6 +1,5 @@
-/* Variables base */
 :root {
-    /* Table - Estructura */
+    /* Table - Structure */
     --table-padding: 0.75rem;
     --table-border-width: 1px;
     --table-border-width-header: 2px;
@@ -8,7 +7,7 @@
     --table-transition-duration: 0.2s;
     --table-sm-padding: 0.3rem;
 
-    /* Table - Colores */
+    /* Table - Colors */
     --table-bg: var(--bs-table-bg, #ffffff);
     --table-text: var(--bs-table-color, #212529);
     --table-border: var(--bs-table-border-color, #dee2e6);
@@ -22,8 +21,12 @@
     /* Table - Responsive */
     --table-actions-gap: 0.5rem;
     --table-mobile-breakpoint: 768px;
+    --table-mobile-padding: 0.5rem;
+    --table-mobile-font-size: 0.9rem;
+    --table-mobile-header-font-size: 1rem;
+    --table-mobile-row-spacing: 1rem;
 
-    /* Estilos del botón principal */
+    /* Primary Button Styles */
     --bs-btn-primary-color: var(--bs-white, #fff);
     --bs-btn-primary-bg: var(--bs-primary, #0d6efd);
     --bs-btn-primary-border-color: var(--bs-primary, #0d6efd);
@@ -35,7 +38,7 @@
     --bs-btn-primary-active-bg: var(--bs-btn-primary-active-bg, #0a58ca);
     --bs-btn-primary-active-border-color: var(--bs-btn-primary-active-border-color, #0a53be);
 
-    /* Estilos específicos para dropdown */
+    /* Dropdown Specific Styles */
     --bs-dropdown-link-hover-bg: var(--bs-gray-100, #f8f9fa);
     --bs-dropdown-link-active-bg: var(--bs-primary, #0d6efd);
     --bs-dropdown-link-active-color: var(--bs-white, #fff);
@@ -44,29 +47,30 @@
     --bs-dropdown-padding-y: 0.5rem;
     --bs-dropdown-item-padding-x: 1rem;
     --bs-dropdown-item-padding-y: 0.25rem;
-
 }
 
-/* Contenedor principal */
+/* Main Container */
 .derafu-block-table {
     position: relative;
     width: 100%;
 }
 
-/* Contenedor de acciones */
+/* Actions Container */
 .derafu-block-table__actions {
     display: flex;
     justify-content: flex-end;
+    gap: var(--table-actions-gap);
+    margin-bottom: 1rem;
 }
 
-/* Estilos para el hover de botones en todas las resoluciones */
+/* Button Hover Styles */
 .derafu-block-table__actions .btn-primary:hover,
 .derafu-block-table__actions .btn-primary:focus {
     background-color: var(--bs-btn-primary-hover-bg);
     border-color: var(--bs-btn-primary-hover-border-color);
 }
 
-/* Estilos base de la tabla */
+/* Base Table Styles */
 .derafu-block-table .table {
     margin-bottom: var(--table-margin-bottom);
     width: 100%;
@@ -76,7 +80,7 @@
     transition: all var(--table-transition-duration) ease-in-out;
 }
 
-/* Headers */
+/* Table Headers */
 .derafu-block-table .table > thead {
     background-color: var(--table-header-bg);
 }
@@ -87,9 +91,10 @@
     font-weight: 600;
     vertical-align: bottom;
     border-bottom-width: var(--table-border-width-header);
+    white-space: nowrap;
 }
 
-/* Modificadores de alineación */
+/* Alignment Modifiers */
 .derafu-block-table .text-start {
     text-align: left;
 }
@@ -111,12 +116,12 @@
     border: var(--table-border-width) solid var(--table-border);
 }
 
-/* Striped rows */
+/* Striped Rows */
 .derafu-block-table .table-striped > tbody > tr:nth-of-type(odd) > * {
     background-color: var(--table-stripe-bg);
 }
 
-/* Hover */
+/* Hover Effect */
 .derafu-block-table .table-hover > tbody > tr:hover > * {
     background-color: var(--table-hover-bg);
     color: var(--table-hover-text);
@@ -136,28 +141,91 @@
     border-top: var(--table-border-width-header) solid var(--table-border);
 }
 
-/* Responsive container */
+/* Responsive Container */
 .derafu-block-table .table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 }
 
-/* Tamaño pequeño */
+.derafu-block-table .table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+
+.derafu-block-table .table-responsive::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.derafu-block-table .table-responsive::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Small Size */
 .derafu-block-table .table-sm > :not(caption) > * > * {
     padding: var(--table-sm-padding);
 }
 
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+    .derafu-block-table .table-responsive {
+        margin-bottom: 1rem;
+        border-radius: 0.25rem;
+    }
 
-/* Media queries */
+    .derafu-block-table .table > thead > tr > th,
+    .derafu-block-table .table > tbody > tr > td {
+        padding: 0.625rem;
+    }
+}
+
 @media (max-width: 768px) {
     .derafu-block-table__actions {
-         flex-direction: column;
-         align-items: stretch;
-         gap: var(--table-actions-gap);
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--table-actions-gap);
+        margin-bottom: 0.75rem;
     }
 
     .derafu-block-table__actions .btn {
-         width: 100%;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.95rem;
     }
 
+    /* Mobile Table Adjustments */
+    .derafu-block-table .table > thead > tr > th,
+    .derafu-block-table .table > tbody > tr > td {
+        padding: var(--table-mobile-padding);
+        font-size: var(--table-mobile-font-size);
+    }
+
+    .derafu-block-table .table > thead > tr > th {
+        font-size: var(--table-mobile-header-font-size);
+    }
+
+    /* Scroll Indicator */
+    .derafu-block-table .table-responsive::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8));
+        pointer-events: none;
+        opacity: 0.7;
+    }
+}
+
+/* Small Screen Card-like View */
+@media (max-width: 576px) {
+    .derafu-block-table .table {
+        font-size: 0.85rem;
+    }
+
+    .derafu-block-table .table > thead > tr > th,
+    .derafu-block-table .table > tbody > tr > td {
+        padding: 0.4rem;
+    }
 }

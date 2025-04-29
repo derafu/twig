@@ -1,9 +1,19 @@
-/* Variables base */
+/*
+ * Steps Block Responsive CSS
+ *
+ * Features:
+ * - Flexible and responsive step-by-step process display
+ * - Custom CSS variables for easy theming
+ * - Horizontal scrollable on mobile
+ * - Adaptive typography and layout
+ */
+
+/* Base Variables */
 :root {
-    /* Steps - General */
+    /* Spacing Variables */
     --spacing-y: var(--spacing-lg, 2rem);
 
-    /* Steps - Estructura */
+    /* Steps Structure Variables */
     --steps-container-padding: var(--spacing-sm, 1rem) 0;
     --steps-step-padding: var(--spacing-sm, 1rem);
     --steps-step-min-width: 200px;
@@ -13,26 +23,27 @@
     --steps-title-margin-bottom: var(--spacing-xs, 0.5rem);
     --steps-arrow-width: calc(var(--spacing-lg, 2rem) * 2);
 
-    /* Steps - Colores */
+    /* Color Variables */
     --steps-icon-bg: var(--bs-primary, #0d6efd);
     --steps-icon-color: var(--bs-white, #fff);
     --steps-title-color: var(--bs-gray-900, #212529);
     --steps-text-color: var(--bs-dark, #343a40);
     --steps-arrow-color: var(--bs-gray-600, #6c757d);
 
-    /* Steps - Tipografía */
+    /* Typography Variables */
     --steps-icon-font-size: var(--font-size-lg, 1.5rem);
     --steps-title-font-size: var(--font-size-lg, 1.25rem);
     --steps-title-font-weight: var(--font-weight-semibold, 600);
     --steps-description-font-size: var(--font-size-sm, 0.875rem);
     --steps-description-line-height: 1.5;
 
-    /* Steps - Responsive */
+    /* Responsive Variables */
     --steps-mobile-breakpoint: 768px;
     --steps-mobile-container-padding-bottom: var(--spacing-sm, 1rem);
     --steps-mobile-arrow-width: calc(var(--spacing-lg, 2rem) * 1);
 }
 
+/* Main Steps Block Container */
 .derafu-block-steps {
     margin: var(--spacing-y, 2rem) auto;
 }
@@ -42,8 +53,15 @@
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    overflow-x: auto; /* Para permitir scroll en móvil */
+    overflow-x: auto; /* Allow horizontal scrolling on mobile */
     padding: var(--steps-container-padding);
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Hide scrollbar in WebKit but maintain functionality */
+.derafu-block-steps__container::-webkit-scrollbar {
+    display: none;
 }
 
 .derafu-block-steps__step {
@@ -51,7 +69,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: var(--steps-step-min-width); /* Ancho mínimo para móvil */
+    min-width: var(--steps-step-min-width);
     padding: var(--steps-step-padding);
 }
 
@@ -85,23 +103,47 @@
     width: var(--steps-arrow-width);
     color: var(--steps-arrow-color);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .derafu-block-steps__container {
-        padding-bottom: var(--steps-mobile-container-padding-bottom); /* Espacio para el scrollbar */
-    }
-
-    .derafu-block-steps__arrow {
-        width: var(--steps-mobile-arrow-width); /* Flechas más pequeñas en móvil */
-    }
-}
+/* Button Styling within Description */
 .derafu-block-steps__description .btn {
     padding: 0.4rem 4rem;
     font-size: 0.875em;
     vertical-align: baseline;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    margin-top: 0.8rem;
+    margin: 0.8rem 0.5rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .derafu-block-steps__container {
+        padding-bottom: var(--steps-mobile-container-padding-bottom);
+    }
+
+    .derafu-block-steps__step {
+        /* Maintain original minimum width */
+        min-width: var(--steps-step-min-width);
+    }
+
+    .derafu-block-steps__arrow {
+        width: var(--steps-mobile-arrow-width);
+    }
+
+    .derafu-block-steps__description .btn {
+        display: inline-block;
+    }
+}
+
+/* Specific Improvements for Very Small Screens */
+@media (max-width: 480px) {
+    .derafu-block-steps__container {
+        justify-content: flex-start;
+    }
+
+    .derafu-block-steps__step {
+        /* Slightly smaller, but maintains readability */
+        min-width: 180px;
+    }
 }

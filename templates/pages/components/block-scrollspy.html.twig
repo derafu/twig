@@ -55,7 +55,7 @@
 {% endset %}
 
 {# Example 1: Vertical Scrollspy #}
-<div class="container mb-5">
+<div class="container">
     <h2 class="mt-5 mb-4">Scrollspy Vertical</h2>
     <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
@@ -64,7 +64,7 @@
         :sections="[
             {
                 'id': 'introduccion',
-                'title': 'Lorem',
+                'title': 'Lorem ipsum dolor sit amet',
                 'content': section_content_introduccion
             },
             {
@@ -76,26 +76,17 @@
                 'id': 'opciones',
                 'title': 'Lorem',
                 'content': section_content_opciones
-            },
-            {
-                'id': 'uso',
-                'title': 'Lorem',
-                'content': section_content_uso
-            },
-            {
-                'id': 'avanzado',
-                'title': 'Lorem',
-                'content': section_content_avanzado
             }
         ]"
         :cols="3"
         class="shadow-none"
         style="--scrollspy-list-active-bg: #0066cc;"
+        margin_bottom="4"
     />
 </div>
 
 {# Example 2: Horizontal Scrollspy #}
-<div class="container mb-5">
+<div class="container">
     <h2 class="mt-5 mb-4">Lorem ipsum</h2>
     <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
@@ -104,7 +95,7 @@
         :sections="[
             {
                 'id': 'introduccion-h',
-                'title': 'Lorem',
+                'title': 'Lorem Lorem ipsum dolor sit amet',
                 'content': section_content_introduccion,
             },
             {
@@ -121,13 +112,14 @@
                 'id': 'uso-h',
                 'title': 'Lorem',
                 'content': section_content_uso,
-
-            },
+            }
         ]"
         orientation="horizontal"
         :cols="12"
         class="shadow"
         style="--scrollspy-list-active-bg: #6610f2;"
+        margin_top="2"
+        margin_bottom="3"
     />
 </div>
 {% endblock %}

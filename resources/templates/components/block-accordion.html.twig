@@ -1,6 +1,10 @@
 {# templates/components/block-accordion.html.twig #}
-<div class="derafu-block-accordion {{ class }}">
-    <div class="accordion border" id="{{ id }}">
+<div class="derafu-block-accordion
+    {{ margin_top is defined ? 'mt-' ~ margin_top : '' }}
+    {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }}
+    {{ class }}"
+    id="{{ id }}">
+    <div class="accordion border" id="{{ id }}-accordion">
         {% for key, item in items %}
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -18,7 +22,7 @@
                 <div
                     id="{{ id }}-collapse-{{ key }}"
                     class="accordion-collapse collapse {% if item.active %}show{% endif %}"
-                    data-bs-parent="#{{ id }}"
+                    data-bs-parent="#{{ id }}-accordion"
                 >
                     <div class="accordion-body">
                         {{ item.content|raw }}

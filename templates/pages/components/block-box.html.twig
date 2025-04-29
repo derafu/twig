@@ -1,16 +1,17 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
-    <twig:block-box
-        title="Theme: {{ name }}"
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">{{ theme }}</a>"'
-        theme="{{ theme }}"
-    />
-{% endfor %}
-    <twig:block-box
-        :rounded="false"
-        title="Another box"
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="javascript:alert(&apos;Another box&apos;)">Link</a>"'
-    />
+<twig:block-box
+    title="Box con margen por defecto"
+    content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">link</a>"'
+    :rounded="true"
+/>
+
+<twig:block-box
+    title="Box con margen personalizado"
+    content="<p>Este box tiene margen superior reducido y margen inferior aumentado. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+    margin_top="1"
+    margin_bottom="4"
+    :rounded="false"
+/>
 {% endblock %}

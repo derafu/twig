@@ -1,15 +1,18 @@
 {# templates/components/block-cta.html.twig #}
-<div class="derafu-block-cta {{ class }}" id="{{ id }}">
+<div class="derafu-block-cta {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     <div class="derafu-block-cta__container container">
         <div class="derafu-block-cta__row row align-items-center">
             {# Text Section #}
-            <div class="col-md-{{ text_cols }} derafu-block-cta__content">
-                <h3 class="derafu-block-cta__title">{{ title }}</h3>
+            <div class="col-md-{{ text_cols|default(8) }} derafu-block-cta__content">
+                <h3 class="derafu-block-cta__title">{{ title|raw }}</h3>
                 <p class="derafu-block-cta__description">{{ description|raw }}</p>
             </div>
 
             {# Button Section #}
-            <div class="col-md-{{ button_cols }} derafu-block-cta__action">
+            <div class="col-md-{{ button_cols|default(4) }} derafu-block-cta__action">
                 <a href="{{ button_url }}" class="derafu-block-cta__button">
                     {{ button_text }}
                 </a>
