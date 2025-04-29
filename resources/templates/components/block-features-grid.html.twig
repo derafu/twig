@@ -1,10 +1,13 @@
 {# templates/components/block-features-grid.html.twig #}
-<div class="derafu-block-features-grid {{ class }}" id="{{ id }}">
+<div class="derafu-block-features-grid {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     <div class="derafu-block-features-grid__row">
         {% for block in blocks %}
             <div class="derafu-block-features-grid__block">
                 <div class="derafu-block-features-grid__header">
-                    <h3 class="derafu-block-features-grid__title">{{ block.title }}</h3>
+                    <h3 class="derafu-block-features-grid__title">{{ block.title|raw }}</h3>
                     <p class="derafu-block-features-grid__subtitle">{{ block.subtitle|raw }}</p>
                 </div>
 
@@ -15,7 +18,7 @@
                                 <i class="{{ feature.icon }}"></i>
                             </div>
                             <div class="derafu-block-features-grid__content">
-                                <h4 class="derafu-block-features-grid__feature-title">{{ feature.title }}</h4>
+                                <h4 class="derafu-block-features-grid__feature-title">{{ feature.title|raw  }}</h4>
                                 <div class="derafu-block-features-grid__description">
                                     {{ feature.description|raw }}
                                 </div>

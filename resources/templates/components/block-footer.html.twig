@@ -1,5 +1,8 @@
 {# templates/components/block-footer.html.twig #}
-<footer class="derafu-block-footer {{ class }}" id="{{ id }}">
+<footer class="derafu-block-footer {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     <div {% if fullWidth is empty %}class="container"{% endif %}>
         <div class="row">
             {# Column 1 #}

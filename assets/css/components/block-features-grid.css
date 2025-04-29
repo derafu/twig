@@ -1,13 +1,34 @@
-/* Variables base */
-:root {
-    /* Features Grid - General */
+/* ======================================
+   Base Variables
+   ====================================== */
+   :root {
+    /* Spacing & Structure */
     --spacing-y: 2rem;
     --features-grid-gap: 1.5rem;
+    --features-grid-header-margin-bottom: 2rem;
+    --features-grid-feature-gap: 1rem;
+    --features-grid-blocks-padding: 1rem;
+    --features-grid-row-margin: -1rem;
+
+    /* Typography - Main Title & Subtitle */
+    --features-grid-title-font-size: 1.5rem;
+    --features-grid-title-font-weight: bold;
+    --features-grid-title-margin-bottom: 0.5rem;
+    --features-grid-subtitle-font-size: 1rem;
+
+    /* Typography - Feature */
+    --features-grid-feature-title-font-size: 1.1rem;
+    --features-grid-feature-title-font-weight: bold;
+    --features-grid-feature-title-margin-bottom: 0.5rem;
+    --features-grid-description-font-size: 0.9rem;
+    --features-grid-description-line-height: 1.5;
+
+    /* Icon Styles */
     --features-grid-icon-size: 50px;
     --features-grid-icon-border-radius: 50%;
     --features-grid-icon-font-size: 1.25rem;
 
-    /* Features Grid - Colores */
+    /* Colors */
     --features-grid-title-color: var(--bs-body-color, #212529);
     --features-grid-subtitle-color: var(--bs-secondary, #6c757d);
     --features-grid-text-color: var(--bs-body-color, #212529);
@@ -15,26 +36,13 @@
     --features-grid-icon-bg: var(--bs-primary, #0d6efd);
     --features-grid-icon-color: var(--bs-white, #fff);
 
-    /* Features Grid - Tipografía */
-    --features-grid-title-font-size: 1.5rem;
-    --features-grid-title-font-weight: bold;
-    --features-grid-title-margin-bottom: 0.5rem;
-    --features-grid-subtitle-font-size: 1rem;
-    --features-grid-feature-title-font-size: 1.1rem;
-    --features-grid-feature-title-font-weight: bold;
-    --features-grid-feature-title-margin-bottom: 0.5rem;
-    --features-grid-description-font-size: 0.9rem;
-    --features-grid-description-line-height: 1.5;
-
-    /* Features Grid - Estructura */
-    --features-grid-header-margin-bottom: 2rem;
-    --features-grid-feature-gap: 1rem;
-    --features-grid-blocks-padding: 1rem;
-    --features-grid-row-margin: -1rem;
-    /* Features Grid - Responsive */
+    /* Breakpoints */
     --features-grid-mobile-breakpoint: 768px;
 }
 
+/* ======================================
+   Component Container
+   ====================================== */
 .derafu-block-features-grid {
     margin: var(--spacing-y, 2rem) auto;
 }
@@ -50,6 +58,9 @@
     padding: var(--features-grid-blocks-padding);
 }
 
+/* ======================================
+   Header Section
+   ====================================== */
 .derafu-block-features-grid__header {
     margin-bottom: var(--features-grid-header-margin-bottom);
 }
@@ -67,6 +78,9 @@
     margin: 0;
 }
 
+/* ======================================
+   Features Section
+   ====================================== */
 .derafu-block-features-grid__features {
     display: flex;
     flex-direction: column;
@@ -79,6 +93,7 @@
     gap: var(--features-grid-feature-gap);
 }
 
+/* Feature Icon */
 .derafu-block-features-grid__icon {
     width: var(--features-grid-icon-size);
     height: var(--features-grid-icon-size);
@@ -92,6 +107,7 @@
     font-size: var(--features-grid-icon-font-size);
 }
 
+/* Feature Content */
 .derafu-block-features-grid__feature-title {
     color: var(--features-grid-feature-title-color);
     font-size: var(--features-grid-feature-title-font-size);
@@ -105,9 +121,32 @@
     line-height: var(--features-grid-description-line-height);
 }
 
-/* Responsive */
-@media (max-width: var(--features-grid-mobile-breakpoint)) {
+/* ======================================
+   Responsive Styles
+   ====================================== */
+@media (max-width: 768px) {
+    .derafu-block-features-grid__row {
+        flex-direction: column;
+        margin: 0;
+    }
+
     .derafu-block-features-grid__block {
         flex: 1 1 100%;
+        padding: var(--features-grid-blocks-padding) 1rem;
+        margin-bottom: 2rem; /* Space between stacked blocks */
+    }
+
+    .derafu-block-features-grid__header {
+        text-align: center;
+    }
+
+    .derafu-block-features-grid__features {
+        align-items: stretch; /* Allow features to occupy full available width */
+    }
+
+    .derafu-block-features-grid__feature {
+        width: 100%;
+        max-width: 100%; /* Allow it to occupy the full container width */
+        text-align: left; /* Maintain left alignment for better readability */
     }
 }

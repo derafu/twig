@@ -1,3 +1,4 @@
+{# templates/components/block-header.html.twig #}
 {% macro render_menu_items(items, is_right = false) %}
     {% for item in items %}
         {% if item.type == 'link' %}
@@ -114,9 +115,14 @@
 
 {% import _self as menu %}
 
-<nav class="derafu-block-header navbar navbar-expand-lg {% if position != 'normal' %}{{ position }}{% endif %} {{ class }}"
+<nav class="derafu-block-header navbar navbar-expand-lg
+    {% if position != 'normal' %}{{ position }}{% endif %}
+    {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
      {% if backgroundColor %}style="background-color: {{ backgroundColor }};"{% endif %}
-     {% if dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %} id="{{ id }}">
+     {% if dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}
+     id="{{ id }}">
     <div {% if fullWidth is empty %}class="container"{% endif %}>
         {# Logo Section #}
         <a class="navbar-brand d-flex align-items-center" href="{{ logoUrl }}">

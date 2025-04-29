@@ -1,5 +1,8 @@
 {# templates/components/block-testimonials.html.twig #}
-<div class="derafu-block-testimonials {{ class }}" style="--testimonial-card-max-width: {{ maxWidth }}px; --testimonial-brightness: {{ brightness }}%; --testimonial-height: {{ height }}px;">
+<div class="derafu-block-testimonials {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    style="--testimonial-card-max-width: {{ maxWidth }}px; --testimonial-brightness: {{ brightness }}%; --testimonial-height: {{ height }}px;">
     <div id="{{ id }}" class="carousel slide" {% if autoplay %}data-bs-ride="carousel" data-bs-interval="{{ interval }}"{% endif %}>
         {% if showIndicators %}
         <div class="carousel-indicators">
@@ -41,11 +44,10 @@
                                         • {{ testimonial.organization }}
                                     {% endif %}
                                 {% else %}
-                                {% if testimonial.url is not empty %}
-                                    • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.url }}</a>
-                                {% else %}
+                                    {% if testimonial.url is not empty %}
+                                        • <a href="{{ testimonial.url }}" target="_blank">{{ testimonial.url }}</a>
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
                             </div>
                         </div>
                     </div>

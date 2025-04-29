@@ -5,13 +5,13 @@
     <twig:block-features-grid
         :blocks="[
             {
-                title: 'Theme',
+                title: 'Lorem',
                 subtitle: 'Descripción del primer bloque',
                 features: [
                     {
                         icon: 'fa-solid fa-cloud',
                         title: 'Característica 1',
-                        description: 'Descripción de la característica 1. <a href=\'https://derafu.org/\'>Link.</a>'
+                        description: 'Descripción de la <a href=\'https://derafu.org/\'>característica 1.</a>'
                     },
                     {
                         icon: 'fa-solid fa-cog',
@@ -26,8 +26,8 @@
                 ]
             },
             {
-                title: name,
-                subtitle: 'Descripción del segundo bloque',
+                title: 'Ipsum',
+                subtitle: 'Descripción del segundo <a href=\'https://derafu.org/\'>bloque</a>.',
                 features: [
                     {
                         icon: 'fa-solid fa-star',
@@ -36,7 +36,7 @@
                     },
                     {
                         icon: 'fa-solid fa-heart',
-                        title: 'Característica 2',
+                        title: 'Característica <a href=\'https://derafu.org/\'>2</a>',
                         description: 'Descripción de la característica 2.'
                     },
                     {
@@ -47,7 +47,7 @@
                 ]
             }
         ]"
-
+        margin_bottom="4"
     />
 {% endfor %}
 {% endblock %}

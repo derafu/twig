@@ -1,5 +1,8 @@
 {# templates/components/block-grid.html.twig #}
-<div class="derafu-block-grid {{ class }}" id="{{ id }}">
+<div class="derafu-block-grid {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     {% if cols is not empty %}
         <div style="display: grid; grid-template-columns: repeat({{ cols }}, 1fr); gap: 10px;">
             {% for item in items %}

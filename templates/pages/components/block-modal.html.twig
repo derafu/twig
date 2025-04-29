@@ -2,9 +2,11 @@
 
 {% block content %}
 {# Modal simple #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-1">
-    Abrir Modal Simple
-</button>
+<div class="mb-4">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-1">
+        Abrir Modal Simple
+    </button>
+</div>
 <twig:block-modal
     id="modal-1"
     title="Título del Modal"
@@ -23,9 +25,11 @@
 />
 
 {# Modal más complejo #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-2">
-    Abrir Modal Complejo
-</button>
+<div class="mt-2 mb-3">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-2">
+        Abrir Modal Complejo
+    </button>
+</div>
 <twig:block-modal
     id="modal-2"
     title="Confirmación Requerida"
@@ -48,9 +52,11 @@
 />
 
 {# Modal fullscreen con contenido scrollable #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-3">
-    Abrir Modal fullscreen con contenido scrollable
-</button>
+<div class="mt-3 mb-4">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-3">
+        Abrir Modal fullscreen con contenido scrollable
+    </button>
+</div>
 <twig:block-modal
     id="modal-3"
     title="Términos y Condiciones"
@@ -66,10 +72,11 @@
 />
 
 {# Modal básico #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-basic">
-    Abrir Modal Básico
-</button>
-
+<div class="mt-0">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-basic">
+        Abrir Modal Básico
+    </button>
+</div>
 <twig:block-modal
     id="modal-basic"
     title="Modal Básico"
@@ -84,10 +91,11 @@
 />
 
 {# Modal sin botón de cerrar #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-no-close">
-    Modal sin X
-</button>
-
+<div class="mt-2 mb-2">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-no-close">
+        Modal sin X
+    </button>
+</div>
 <twig:block-modal
     id="modal-no-close"
     title="No puedes cerrarme fácilmente"
@@ -103,10 +111,11 @@
 />
 
 {# Modal Static Backdrop #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-static">
-    Modal que no se Cierra
-</button>
-
+<div class="mt-3 mb-4">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-static">
+        Modal que no se Cierra
+    </button>
+</div>
 <twig:block-modal
     id="modal-static"
     title="Debes tomar una decisión"
@@ -127,10 +136,11 @@
 />
 
 {# Modal Centrado con Tamaño Small #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-sm-centered">
-    Modal SM Centrado
-</button>
-
+<div class="mt-2">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-sm-centered">
+        Modal SM Centrado
+    </button>
+</div>
 <twig:block-modal
     id="modal-sm-centered"
     title="Pequeño y Centrado"
@@ -147,25 +157,17 @@
 />
 
 {# Modal Grande con Scroll #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-lg-scroll">
-    Modal Grande con Scroll
-</button>
-
+<div class="mt-3 mb-4">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-lg-scroll">
+        Modal Grande con Scroll
+    </button>
+</div>
 <twig:block-modal
     id="modal-lg-scroll"
     title="Términos y Condiciones"
     content="<div>
         <h4>1. Introducción</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-        <h4>2. Uso del Servicio</h4>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-        <h4>3. Privacidad</h4>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco...</p>
-        <h4>4. Términos Legales</h4>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit...</p>
-        <h4>5. Modificaciones</h4>
-        <p>Excepteur sint occaecat cupidatat non proident...</p>
-        <!-- Repetir contenido para demostrar scroll -->
     </div>"
     size="lg"
     scrollable="true"
@@ -184,10 +186,11 @@
 />
 
 {# Modal Extra Large con Formulario #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-xl-form">
-    Formulario en Modal XL
-</button>
-
+<div class="mt-2 mb-3">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-xl-form">
+        Formulario en Modal XL
+    </button>
+</div>
 <twig:block-modal
     id="modal-xl-form"
     title="Registro de Usuario"
@@ -197,18 +200,6 @@
                 <label for='firstName' class='form-label'>Nombre</label>
                 <input type='text' class='form-control' id='firstName' required>
             </div>
-            <div class='col-md-6 mb-3'>
-                <label for='lastName' class='form-label'>Apellido</label>
-                <input type='text' class='form-control' id='lastName' required>
-            </div>
-        </div>
-        <div class='mb-3'>
-            <label for='email' class='form-label'>Email</label>
-            <input type='email' class='form-control' id='email' required>
-        </div>
-        <div class='mb-3'>
-            <label for='password' class='form-label'>Contraseña</label>
-            <input type='password' class='form-control' id='password' required>
         </div>
     </form>"
     size="xl"
@@ -228,18 +219,17 @@
 />
 
 {# Modal Fullscreen #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-fullscreen">
-    Ver en Pantalla Completa
-</button>
-
+<div class="mt-3 mb-4">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-fullscreen">
+        Ver en Pantalla Completa
+    </button>
+</div>
 <twig:block-modal
     id="modal-fullscreen"
     title="Modo Pantalla Completa"
     content="<div class='text-center'>
         <h1 class='display-1'>👋</h1>
         <p class='lead'>Este modal ocupa toda la pantalla</p>
-        <hr>
-        <p>Perfecto para contenido inmersivo o cuando necesitas mostrar mucha información.</p>
     </div>"
     size="fullscreen"
     :buttons="[
@@ -252,10 +242,11 @@
 />
 
 {# Modal sin Footer #}
-<button type="button" class="btn btn-light d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-no-footer">
-    Modal sin Footer
-</button>
-
+<div class="mt-2">
+    <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-no-footer">
+        Modal sin Footer
+    </button>
+</div>
 <twig:block-modal
     id="modal-no-footer"
     title="Solo Contenido"

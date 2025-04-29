@@ -87,11 +87,8 @@
         leftText="Copyright © Derafu ORG (Theme: {{ name }})"
         rightText="Todos los derechos reservados"
         socialIconsCircular="true"
-
-
+        margin_bottom="5"
     />
-
-    <div class="mt-5"></div>
 
     {# Ejemplo 2: Footer Minimalista con 2 columnas #}
     <twig:block-footer
@@ -121,11 +118,10 @@
         ]"
 
         leftText="© 2024 Derafu ORG (Theme: {{ name }})"
-
         theme="{{ theme }}"
+        margin_top="2"
+        margin_bottom="5"
     />
-
-    <div class="mt-5"></div>
 
     {# Ejemplo 3: Footer con énfasis en redes sociales #}
     <twig:block-footer
@@ -193,10 +189,8 @@
 
         leftText="Únete a nuestra comunidad (Theme: {{ name }})"
         rightText='<a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a>'
-
         theme="{{ theme }}"
+        margin_top="2"
     />
-
-    <div class="mt-5"></div>
 {% endfor %}
 {% endblock %}

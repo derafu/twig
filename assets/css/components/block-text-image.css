@@ -1,11 +1,10 @@
-/* Variables base */
 :root {
-    /* Text-Image - Estructura */
+    /* Text-Image - Structure */
     --text-image-spacing: 2rem;
     --text-image-button-gap: 1rem;
     --text-image-border-radius: 0.5rem;
 
-    /* Text-Image - Colores */
+    /* Text-Image - Colors */
     --text-image-title-color: var(--bs-dark, #343a40);
     --text-image-text-color: var(--bs-white, #fff);
     --text-image-button-bg: var(--bs-primary, #0d6efd);
@@ -14,16 +13,16 @@
     --text-image-button-hover-text: var(--bs-white, #fff);
     --text-image-shadow: rgba(0, 0, 0, 0.1);
 
-    /* Text-Image - Tipografía */
+    /* Text-Image - Typography */
     --text-image-title-font-weight: 700;
     --text-image-text-line-height: 1.6;
     --text-image-button-font-weight: 700;
 
     /* Text-Image - Responsive */
     --text-image-mobile-breakpoint: 768px;
- }
+}
 
-/* Estilos del componente */
+/* Component Styles */
 .derafu-block-text-image {
     padding: var(--text-image-spacing) 0;
 }
@@ -75,8 +74,29 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive */
+/* Tabs-specific Styles */
+.derafu-block-tabs .derafu-block-text-image {
+    margin-top: 0;
+}
+
+.derafu-block-tabs .derafu-block-text-image__title {
+    margin-top: 0.5rem;
+}
+
+.derafu-block-text-image--in-tabs {
+    padding-top: 0;
+}
+
+.derafu-block-text-image--in-tabs .derafu-block-text-image__content {
+    padding-top: 0.5rem;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .derafu-block-text-image {
+        padding: var(--text-image-spacing) 1rem;
+    }
+
     .derafu-block-text-image__content {
         padding: var(--text-image-spacing) 0;
     }
@@ -85,3 +105,17 @@
         margin-bottom: var(--text-image-spacing);
     }
 }
+
+/* Utility Classes for Margins */
+.derafu-block-text-image.mb-0 { margin-bottom: 0; }
+.derafu-block-text-image.mb-1 { margin-bottom: 0.25rem; }
+.derafu-block-text-image.mb-2 { margin-bottom: 0.5rem; }
+.derafu-block-text-image.mb-3 { margin-bottom: 1rem; }
+.derafu-block-text-image.mb-4 { margin-bottom: 1.5rem; }
+.derafu-block-text-image.mb-5 { margin-bottom: 3rem; }
+.derafu-block-text-image.mt-0 { margin-top: 0; }
+.derafu-block-text-image.mt-1 { margin-top: 0.25rem; }
+.derafu-block-text-image.mt-2 { margin-top: 0.5rem; }
+.derafu-block-text-image.mt-3 { margin-top: 1rem; }
+.derafu-block-text-image.mt-4 { margin-top: 1.5rem; }
+.derafu-block-text-image.mt-5 { margin-top: 3rem; }

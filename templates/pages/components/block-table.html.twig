@@ -29,11 +29,8 @@
                 'Pendiente': 'table-warning'
             }}
         ]"
-
+        margin_bottom="4"
     />
-
-    <br/>
-
 {% endfor %}
 
 {# Tabla con headers complejos y footer #}
@@ -75,9 +72,9 @@
     :bordered="true"
     :striped="true"
     :hover="false"
+    margin_top="2"
+    margin_bottom="3"
 />
-
-<br/>
 
 {# Tabla con acciones y toggle #}
 <twig:block-table
@@ -116,9 +113,8 @@
     :visible="true"
     :maxHeight="300"
     :hover="false"
+    margin="2"
 />
-
-<br/>
 
 {# Tabla minimalista responsiva #}
 <twig:block-table
@@ -139,5 +135,6 @@
     :striped="false"
     :bordered="false"
     :hover="false"
+    margin_top="0"
 />
 {% endblock %}

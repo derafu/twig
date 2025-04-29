@@ -1,5 +1,8 @@
 {# templates/components/block-steps.html.twig #}
-<div class="derafu-block-steps {{ class }}" id="{{ id }}">
+<div class="derafu-block-steps {{ class }}
+    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
+    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+    id="{{ id }}">
     <div class="derafu-block-steps__container">
         {% for step in steps %}
             {# Paso #}

@@ -27,9 +27,8 @@
             position: 'right'
         }
     ]"
+    margin_bottom="4"
 />
-
-<br/>
 
 <twig:block-testimonials
     :testimonials="[
@@ -49,7 +48,21 @@
             url: 'http://www.example.com'
         }
     ]"
-
     interval="2000"
+    margin_top="2"
+    margin_bottom="3"
+/>
+
+<twig:block-testimonials
+    :testimonials="[
+        {
+            image: '../../img/block-hero.jpeg',
+            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            author: 'John Doe',
+            avatar: '../../img/block-hero.jpeg',
+            organization: 'Lorem ipsum'
+        }
+    ]"
+    margin_top="0"
 />
 {% endblock %}
