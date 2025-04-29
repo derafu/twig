@@ -23,7 +23,9 @@
                                                                                                 <h1>Block Text Video</h1>
                             <p class="mb-4">Combined text and video layout.</p>
                                             
-                    <div class="derafu-block-text-video " id="block-text-video--67eee92e8a82d">
+                    <div class="derafu-block-text-video 
+        mb-4"
+    id="block-text-video--6810fc46b1cc0">
     <div class="row align-items-center">
                 <div class="col-12 col-md-7 ">
             <div class="derafu-block-text-video__content">
@@ -58,7 +60,9 @@
 </div>
 
 
-<div class="derafu-block-text-video " id="block-text-video--67eee92e8c10a">
+<div class="derafu-block-text-video 
+    mt-2    mb-3"
+    id="block-text-video--6810fc46b39b3">
     <div class="row align-items-center">
                 <div class="col-12 col-md-7 order-md-2">
             <div class="derafu-block-text-video__content">
@@ -75,6 +79,35 @@
         </div>
 
                 <div class="col-12 col-md-5 order-md-1">
+            <div class="derafu-block-text-video__media-wrapper">
+                <div class="derafu-block-text-video__media derafu-block-text-video__media--16-9">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/v96l-cezK8I"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="derafu-block-text-video 
+    mt-0    "
+    id="block-text-video--6810fc46b3b87">
+    <div class="row align-items-center">
+                <div class="col-12 col-md-7 ">
+            <div class="derafu-block-text-video__content">
+                <h2 class="derafu-block-text-video__title">Lorem ipsum dolor sit amet</h2>
+                <div class="derafu-block-text-video__text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet.</p>
+                </div>
+                            </div>
+        </div>
+
+                <div class="col-12 col-md-5 ">
             <div class="derafu-block-text-video__media-wrapper">
                 <div class="derafu-block-text-video__media derafu-block-text-video__media--16-9">
                     <iframe
@@ -110,6 +143,7 @@
             url: &#039;https://www.example.com&#039;
         }
     ]&quot;
+    margin_bottom=&quot;4&quot;
 /&gt;
 
 &lt;twig:block-text-video
@@ -123,7 +157,15 @@
         }
     ]&quot;
     video_position=&quot;left&quot;
+    margin_top=&quot;2&quot;
+    margin_bottom=&quot;3&quot;
+/&gt;
 
+&lt;twig:block-text-video
+    video_url=&quot;https://www.youtube.com/watch?v=v96l-cezK8I&quot;
+    title=&quot;Lorem ipsum dolor sit amet&quot;
+    content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet.&lt;/p&gt;&quot;
+    margin_top=&quot;0&quot;
 /&gt;
 {% endblock %}
 </code></pre>

@@ -25,10 +25,12 @@
                                             
                         
 
-<div class="derafu-block-table " id="block-table--67eee92e1a9fb">
+<div class="derafu-block-table 
+        mb-4"
+    id="block-table--6810fc4642bfa">
       
       <div class="table-responsive" >
-       <table id="table-block-table--67eee92e1a9fb"
+       <table id="table-block-table--6810fc4642bfa"
               class="table 
                      table-bordered
                      table-hover
@@ -184,15 +186,14 @@
 </div>
 
 
-    <br/>
 
 
-
-
-<div class="derafu-block-table " id="block-table--67eee92e20c5f">
+<div class="derafu-block-table 
+    mt-2    mb-3"
+    id="block-table--6810fc464934b">
       
       <div class="table-responsive" >
-       <table id="table-block-table--67eee92e20c5f"
+       <table id="table-block-table--6810fc464934b"
               class="table table-striped
                      table-bordered
                      
@@ -434,11 +435,11 @@
 </div>
 
 
-<br/>
 
 
-
-<div class="derafu-block-table " id="block-table--67eee92e212f7">
+<div class="derafu-block-table 
+        "
+    id="block-table--6810fc4649a2e">
              <div class="derafu-block-table__actions mb-3 text-end">
            <div class="dropdown">
                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
@@ -472,13 +473,13 @@
            </div>
 
                           <button type="button" class="btn btn-primary ms-2"
-                       onclick="document.getElementById('table-block-table--67eee92e212f7').classList.toggle('d-none')">
+                       onclick="document.getElementById('table-block-table--6810fc4649a2e').classList.toggle('d-none')">
                    <i class="fas fa-eye"></i>
                </button>
                   </div>
    
       <div class="table-responsive" style="max-height: 300px">
-       <table id="table-block-table--67eee92e212f7"
+       <table id="table-block-table--6810fc4649a2e"
               class="table 
                      table-bordered
                      
@@ -633,14 +634,14 @@
 </div>
 
 
-<br/>
 
 
-
-<div class="derafu-block-table " id="block-table--67eee92e21791">
+<div class="derafu-block-table 
+    mt-0    "
+    id="block-table--6810fc4649f0a">
       
       <div class="table-responsive" >
-       <table id="table-block-table--67eee92e21791"
+       <table id="table-block-table--6810fc4649f0a"
               class="table 
                      
                      
@@ -829,11 +830,8 @@
                 &#039;Pendiente&#039;: &#039;table-warning&#039;
             }}
         ]&quot;
-
+        margin_bottom=&quot;4&quot;
     /&gt;
-
-    &lt;br/&gt;
-
 {% endfor %}
 
 {# Tabla con headers complejos y footer #}
@@ -875,9 +873,9 @@
     :bordered=&quot;true&quot;
     :striped=&quot;true&quot;
     :hover=&quot;false&quot;
+    margin_top=&quot;2&quot;
+    margin_bottom=&quot;3&quot;
 /&gt;
-
-&lt;br/&gt;
 
 {# Tabla con acciones y toggle #}
 &lt;twig:block-table
@@ -916,9 +914,8 @@
     :visible=&quot;true&quot;
     :maxHeight=&quot;300&quot;
     :hover=&quot;false&quot;
+    margin=&quot;2&quot;
 /&gt;
-
-&lt;br/&gt;
 
 {# Tabla minimalista responsiva #}
 &lt;twig:block-table
@@ -939,6 +936,7 @@
     :striped=&quot;false&quot;
     :bordered=&quot;false&quot;
     :hover=&quot;false&quot;
+    margin_top=&quot;0&quot;
 /&gt;
 {% endblock %}
 </code></pre>

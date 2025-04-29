@@ -23,7 +23,9 @@
                                                                                                 <h1>Block Image</h1>
                             <p class="mb-4">Enhanced image display component.</p>
                                             
-                    <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium" id="block-image--67eee92d63540">
+                    <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium
+        mb-4"
+    id="block-image--6810fc45855bd">
     <div class="derafu-block-image__wrapper">
                     <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
@@ -32,7 +34,7 @@
         </div>
 
                     <div class="derafu-block-image__description">
-                <p>Una ramita. <a href=https://derafu.org/>Link</a></p>
+                <p>Una <a href=https://derafu.org/>ramita</a>.</p>
             </div>
         
                     <div class="derafu-block-image__buttons">
@@ -43,7 +45,10 @@
             </div>
 </div>
 
-<div class="derafu-block-image  derafu-block-image--center derafu-block-image--small" id="block-image--67eee92d64a4b">
+
+<div class="derafu-block-image  derafu-block-image--center derafu-block-image--small
+    mt-2    mb-3"
+    id="block-image--6810fc4586eec">
     <div class="derafu-block-image__wrapper">
                     <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
@@ -73,14 +78,16 @@
 &lt;twig:block-image
     title=&quot;¿Qué es Twig?&quot;
     image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
-    description=&quot;&lt;p&gt;Una ramita. &lt;a href=https://derafu.org/&gt;Link&lt;/a&gt;&lt;/p&gt;&quot;
+    description=&quot;&lt;p&gt;Una &lt;a href=https://derafu.org/&gt;ramita&lt;/a&gt;.&lt;/p&gt;&quot;
     :buttons=&quot;[
         {
             text: &#039;Aprende sobre Twig&#039;,
             url: &#039;https://twig.symfony.com/&#039;
         }
     ]&quot;
+    margin_bottom=&quot;4&quot;
 /&gt;
+
 &lt;twig:block-image
     title=&quot;¿Qué es Twig?&quot;
     image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
@@ -92,10 +99,10 @@
         }
     ]&quot;
     size=&quot;small&quot;
-
+    margin_top=&quot;2&quot;
+    margin_bottom=&quot;3&quot;
 /&gt;
-{% endblock %}
-</code></pre>
+{% endblock %}</code></pre>
                     </div>
                                     </main>
                 <div class="col-md-3 py-4">

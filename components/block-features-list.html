@@ -23,7 +23,9 @@
                                                                                                 <h1>Block Features List</h1>
                             <p class="mb-4">List-style feature presentation.</p>
                                             
-                        <div class="derafu-block-features-list " id="block-features-list--67eee92cceb16">
+                        <div class="derafu-block-features-list 
+        mb-4"
+    id="block-features-list--6810fc44f2ab0">
     <div class="derafu-block-features-list__row">
                 <div class="derafu-block-features-list__column derafu-block-features-list__column--left">
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
@@ -100,6 +102,41 @@
 </div>
 
 
+        <div class="derafu-block-features-list 
+    mt-2    mb-3"
+    id="block-features-list--6810fc44f4010">
+    <div class="derafu-block-features-list__row">
+                <div class="derafu-block-features-list__column derafu-block-features-list__column--left">
+                            <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
+                    <div class="derafu-block-features-list__content">
+                        <h3 class="derafu-block-features-list__title">Característica Especial 1</h3>
+                        <div class="derafu-block-features-list__description">
+                            Descripción de una característica especial en la columna izquierda.
+                        </div>
+                    </div>
+                    <div class="derafu-block-features-list__icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                </div>
+                    </div>
+
+                <div class="derafu-block-features-list__column derafu-block-features-list__column--right">
+                            <div class="derafu-block-features-list__item derafu-block-features-list__item--left">
+                    <div class="derafu-block-features-list__icon">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="derafu-block-features-list__content">
+                        <h3 class="derafu-block-features-list__title">Característica Especial 2</h3>
+                        <div class="derafu-block-features-list__description">
+                            Descripción de una característica especial en la columna derecha.
+                        </div>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</div>
+
+
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-features-list.html.twig #}
 
@@ -142,7 +179,27 @@
                 description: &#039;Tus datos están protegidos con los más altos estándares de seguridad.&#039;
             }
         ]&quot;
+        margin_bottom=&quot;4&quot;
+    /&gt;
 
+    {# Ejemplo adicional con márgenes personalizados #}
+    &lt;twig:block-features-list
+        :features_left=&quot;[
+            {
+                icon: &#039;fa-solid fa-rocket&#039;,
+                title: &#039;Característica Especial 1&#039;,
+                description: &#039;Descripción de una característica especial en la columna izquierda.&#039;
+            }
+        ]&quot;
+        :features_right=&quot;[
+            {
+                icon: &#039;fa-solid fa-star&#039;,
+                title: &#039;Característica Especial 2&#039;,
+                description: &#039;Descripción de una característica especial en la columna derecha.&#039;
+            }
+        ]&quot;
+        margin_top=&quot;2&quot;
+        margin_bottom=&quot;3&quot;
     /&gt;
 {% endfor %}
 {% endblock %}

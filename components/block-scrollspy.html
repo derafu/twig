@@ -28,17 +28,19 @@
 
 
 
-<div class="container mb-5">
+<div class="container">
     <h2 class="mt-5 mb-4">Scrollspy Vertical</h2>
     <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
-    <div class="derafu-block-scrollspy row shadow-none" style="--scrollspy-list-active-bg: #0066cc;">
-  <div class="derafu-block-scrollspy__list col-3">
+    <div class="derafu-block-scrollspy row shadow-none        mb-4"
+    style="--scrollspy-list-active-bg: #0066cc;">
+
+    <div class="derafu-block-scrollspy__list col-md-3 col-12">
     <div id="list-scrollspy-vertical"
-         class="list-group ">
+         class="list-group list-group-horizontal-md d-md-block">
               <div class="derafu-block-scrollspy__list-item">
           <a class="list-group-item list-group-item-action" href="block-scrollspy.html#introduccion">
-                        Lorem
+                        Lorem ipsum dolor sit amet
                       </a>
         </div>
               <div class="derafu-block-scrollspy__list-item">
@@ -51,28 +53,20 @@
                         Lorem
                       </a>
         </div>
-              <div class="derafu-block-scrollspy__list-item">
-          <a class="list-group-item list-group-item-action" href="block-scrollspy.html#uso">
-                        Lorem
-                      </a>
-        </div>
-              <div class="derafu-block-scrollspy__list-item">
-          <a class="list-group-item list-group-item-action" href="block-scrollspy.html#avanzado">
-                        Lorem
-                      </a>
-        </div>
           </div>
   </div>
-  <div class="derafu-block-scrollspy__content col-9">
+
+    <div class="derafu-block-scrollspy__content col-md-9 col-12">
     <div data-bs-spy="scroll"
-         style="height:100vh; overflow-y: scroll;"
+                  style="height: auto;
+                overflow-y: visible;"
          data-bs-target="#list-scrollspy-vertical"
          data-bs-offset="0"
          data-bs-smooth-scroll="true"
          class="scrollspy-example p-3"
          tabindex="0">
               <div id="introduccion" class="derafu-block-scrollspy__section mb-4">
-          <h4 class="mb-3 pb-2 border-bottom">Lorem</h4>
+          <h4 class="mb-3 pb-2 border-bottom">Lorem ipsum dolor sit amet</h4>
           <div class="derafu-block-scrollspy__section-content">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
@@ -109,51 +103,64 @@
 
           </div>
         </div>
-              <div id="uso" class="derafu-block-scrollspy__section mb-4">
-          <h4 class="mb-3 pb-2 border-bottom">Lorem</h4>
-          <div class="derafu-block-scrollspy__section-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-    <ol>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-    </ol>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-
-          </div>
-        </div>
-              <div id="avanzado" class="derafu-block-scrollspy__section mb-4">
-          <h4 class="mb-3 pb-2 border-bottom">Lorem</h4>
-          <div class="derafu-block-scrollspy__section-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-    <ul>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-    </ul>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-
-          </div>
-        </div>
           </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const adjustScrollspy = function() {
+      const scrollspyContent = document.querySelector('.scrollspy-example');
+      const listGroup = document.querySelector('.derafu-block-scrollspy__list .list-group');
+
+      if (window.innerWidth <= 768) {
+        // En móvil: cambiar a horizontal y eliminar altura fija
+        scrollspyContent.setAttribute('data-bs-orientation', 'horizontal');
+        scrollspyContent.style.height = 'auto';
+        scrollspyContent.style.overflowY = 'visible';
+
+        // Asegurar que el menú es horizontal en móvil
+        if (!listGroup.classList.contains('list-group-horizontal')) {
+          listGroup.classList.add('list-group-horizontal');
+        }
+      } else {
+        // En desktop: mantener configuración original
+                  scrollspyContent.setAttribute('data-bs-orientation', 'vertical');
+          scrollspyContent.style.height = '100vh';
+          scrollspyContent.style.overflowY = 'scroll';
+
+          // Asegurar que el menú es vertical en desktop si así se configuró
+          listGroup.classList.remove('list-group-horizontal');
+              }
+
+      // Reiniciar scrollspy para aplicar cambios
+      var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'));
+      dataSpyList.forEach(function(dataSpyEl) {
+        bootstrap.ScrollSpy.getInstance(dataSpyEl)?.dispose();
+        new bootstrap.ScrollSpy(dataSpyEl);
+      });
+    };
+
+    // Ejecutar al cargar y al cambiar tamaño
+    adjustScrollspy();
+    window.addEventListener('resize', adjustScrollspy);
+  });
+</script>
 </div>
 
-<div class="container mb-5">
+<div class="container">
     <h2 class="mt-5 mb-4">Lorem ipsum</h2>
     <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
-    <div class="derafu-block-scrollspy row shadow" style="--scrollspy-list-active-bg: #6610f2;">
-  <div class="derafu-block-scrollspy__list col-12">
+    <div class="derafu-block-scrollspy row shadow    mt-2    mb-3"
+    style="--scrollspy-list-active-bg: #6610f2;">
+
+    <div class="derafu-block-scrollspy__list col-md-12 col-12">
     <div id="list-scrollspy-horizontal"
          class="list-group list-group-horizontal">
               <div class="derafu-block-scrollspy__list-item">
           <a class="list-group-item list-group-item-action" href="block-scrollspy.html#introduccion-h">
-                        Lorem
+                        Lorem Lorem ipsum dolor sit amet
                       </a>
         </div>
               <div class="derafu-block-scrollspy__list-item">
@@ -173,16 +180,19 @@
         </div>
           </div>
   </div>
-  <div class="derafu-block-scrollspy__content col-0">
+
+    <div class="derafu-block-scrollspy__content col-md-0 col-12">
     <div data-bs-spy="scroll"
-         style="height:300px; overflow-y: scroll;"
+                    data-bs-orientation="horizontal"
+                  style="height: 300px;
+                overflow-y: scroll;"
          data-bs-target="#list-scrollspy-horizontal"
          data-bs-offset="0"
          data-bs-smooth-scroll="true"
          class="scrollspy-example p-3"
          tabindex="0">
               <div id="introduccion-h" class="derafu-block-scrollspy__section mb-4">
-          <h4 class="mb-3 pb-2 border-bottom">Lorem</h4>
+          <h4 class="mb-3 pb-2 border-bottom">Lorem Lorem ipsum dolor sit amet</h4>
           <div class="derafu-block-scrollspy__section-content">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
@@ -237,6 +247,43 @@
           </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const adjustScrollspy = function() {
+      const scrollspyContent = document.querySelector('.scrollspy-example');
+      const listGroup = document.querySelector('.derafu-block-scrollspy__list .list-group');
+
+      if (window.innerWidth <= 768) {
+        // En móvil: cambiar a horizontal y eliminar altura fija
+        scrollspyContent.setAttribute('data-bs-orientation', 'horizontal');
+        scrollspyContent.style.height = 'auto';
+        scrollspyContent.style.overflowY = 'visible';
+
+        // Asegurar que el menú es horizontal en móvil
+        if (!listGroup.classList.contains('list-group-horizontal')) {
+          listGroup.classList.add('list-group-horizontal');
+        }
+      } else {
+        // En desktop: mantener configuración original
+                  scrollspyContent.setAttribute('data-bs-orientation', 'horizontal');
+          scrollspyContent.style.height = '300px';
+          scrollspyContent.style.overflowY = 'scroll';
+              }
+
+      // Reiniciar scrollspy para aplicar cambios
+      var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'));
+      dataSpyList.forEach(function(dataSpyEl) {
+        bootstrap.ScrollSpy.getInstance(dataSpyEl)?.dispose();
+        new bootstrap.ScrollSpy(dataSpyEl);
+      });
+    };
+
+    // Ejecutar al cargar y al cambiar tamaño
+    adjustScrollspy();
+    window.addEventListener('resize', adjustScrollspy);
+  });
+</script>
 </div>
 
                                                             <div class="mt-4 mb-4">
@@ -299,7 +346,7 @@
 {% endset %}
 
 {# Example 1: Vertical Scrollspy #}
-&lt;div class=&quot;container mb-5&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
     &lt;h2 class=&quot;mt-5 mb-4&quot;&gt;Scrollspy Vertical&lt;/h2&gt;
     &lt;p class=&quot;mb-4&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.&lt;/p&gt;
 
@@ -308,7 +355,7 @@
         :sections=&quot;[
             {
                 &#039;id&#039;: &#039;introduccion&#039;,
-                &#039;title&#039;: &#039;Lorem&#039;,
+                &#039;title&#039;: &#039;Lorem ipsum dolor sit amet&#039;,
                 &#039;content&#039;: section_content_introduccion
             },
             {
@@ -320,26 +367,17 @@
                 &#039;id&#039;: &#039;opciones&#039;,
                 &#039;title&#039;: &#039;Lorem&#039;,
                 &#039;content&#039;: section_content_opciones
-            },
-            {
-                &#039;id&#039;: &#039;uso&#039;,
-                &#039;title&#039;: &#039;Lorem&#039;,
-                &#039;content&#039;: section_content_uso
-            },
-            {
-                &#039;id&#039;: &#039;avanzado&#039;,
-                &#039;title&#039;: &#039;Lorem&#039;,
-                &#039;content&#039;: section_content_avanzado
             }
         ]&quot;
         :cols=&quot;3&quot;
         class=&quot;shadow-none&quot;
         style=&quot;--scrollspy-list-active-bg: #0066cc;&quot;
+        margin_bottom=&quot;4&quot;
     /&gt;
 &lt;/div&gt;
 
 {# Example 2: Horizontal Scrollspy #}
-&lt;div class=&quot;container mb-5&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
     &lt;h2 class=&quot;mt-5 mb-4&quot;&gt;Lorem ipsum&lt;/h2&gt;
     &lt;p class=&quot;mb-4&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.&lt;/p&gt;
 
@@ -348,7 +386,7 @@
         :sections=&quot;[
             {
                 &#039;id&#039;: &#039;introduccion-h&#039;,
-                &#039;title&#039;: &#039;Lorem&#039;,
+                &#039;title&#039;: &#039;Lorem Lorem ipsum dolor sit amet&#039;,
                 &#039;content&#039;: section_content_introduccion,
             },
             {
@@ -365,16 +403,18 @@
                 &#039;id&#039;: &#039;uso-h&#039;,
                 &#039;title&#039;: &#039;Lorem&#039;,
                 &#039;content&#039;: section_content_uso,
-
-            },
+            }
         ]&quot;
         orientation=&quot;horizontal&quot;
         :cols=&quot;12&quot;
         class=&quot;shadow&quot;
         style=&quot;--scrollspy-list-active-bg: #6610f2;&quot;
+        margin_top=&quot;2&quot;
+        margin_bottom=&quot;3&quot;
     /&gt;
 &lt;/div&gt;
-{% endblock %}</code></pre>
+{% endblock %}
+</code></pre>
                     </div>
                                     </main>
                 <div class="col-md-3 py-4">

@@ -23,7 +23,9 @@
                                                                                                 <h1>Block CTA</h1>
                             <p class="mb-4">Call-to-action component.</p>
                                             
-                        <div class="derafu-block-cta " id="block-cta--67eee92c55cc4">
+                        <div class="derafu-block-cta 
+    mt-2    mb-3"
+    id="block-cta--6810fc447d65a">
     <div class="derafu-block-cta__container container">
         <div class="derafu-block-cta__row row align-items-center">
                         <div class="col-md-8 derafu-block-cta__content">
@@ -33,14 +35,13 @@
 
                         <div class="col-md-4 derafu-block-cta__action">
                 <a href="https://www.example.com" class="derafu-block-cta__button">
-                    Theme: Bootstrap
+                    Más información
                 </a>
             </div>
         </div>
     </div>
 </div>
 
-    <br/>
 
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-cta.html.twig #}
@@ -48,16 +49,14 @@
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
-{% for theme, name in themes %}
     &lt;twig:block-cta
         title=&quot;Lorem ipsum dolor sit amet&quot;
         description=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;a href=https://derafu.org/&gt;Link&lt;/a&gt;&quot;
-        button_text=&quot;Theme: {{ name }}&quot;
+        button_text=&quot;Más información&quot;
         button_url=&quot;https://www.example.com&quot;
-
+        margin_top=&quot;2&quot;
+        margin_bottom=&quot;3&quot;
     /&gt;
-    &lt;br/&gt;
-{% endfor %}
 {% endblock %}
 </code></pre>
                     </div>

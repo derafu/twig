@@ -23,7 +23,9 @@
                                                                                                 <h1>Block Comparison</h1>
                             <p class="mb-4">Side-by-side comparison.</p>
                                             
-                        <div class="derafu-block-comparison " id="block-comparison--67eee92c9042e">
+                        <div class="derafu-block-comparison 
+        mb-4"
+    id="block-comparison--6810fc44b7adc">
     <div class="row g-4">
                     <div class="col-12 col-lg-4
                 ">
@@ -156,7 +158,9 @@
     </script>
 </div>
 
-   <div class="derafu-block-comparison " id="block-comparison--67eee92c92c2a">
+    <div class="derafu-block-comparison 
+    mt-2    "
+    id="block-comparison--6810fc44ba5be">
     <div class="row g-4">
                     <div class="col-12 col-lg-6
                 ">
@@ -244,8 +248,6 @@
     </script>
 </div>
 
-
-
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-comparison.html.twig #}
 
@@ -316,25 +318,26 @@
                 ],
                 recommendation: &#039;Recomendado para notarías.&#039;,
                 button_text: &#039;Registrarme&#039;,
-                button_url: &#039;https://bhexpress.cl/usuarios/registrar?plan=gamma&#039;,
+                button_url: &#039;https://bhexpress.cl/usuarios/registrar?plan=gamma&#039;
             }
         ]&quot;
-
+        margin_bottom=&quot;4&quot;
     /&gt;
-   &lt;twig:block-comparison
+
+    &lt;twig:block-comparison
         :plans=&quot;[
             {
                 title: &#039;Android&#039;,
                 price_icon: &#039;fa-brands fa-android fa-2x&#039;,
                 features: [
                     {
-                        text: &#039;Utiliza la aplicación con múltiples &lt;a href=\&#039;https://www.libredte.cl\&#039;style=\&#039;text-decoration: none;\&#039;&gt;empresas&lt;/a&gt;&#039;,
+                        text: &#039;Utiliza la aplicación con múltiples &lt;a href=\&#039;https://www.libredte.cl\&#039;style=\&#039;text-decoration: none;\&#039;&gt;empresas&lt;/a&gt;&#039;
                     },
                     {
-                        text: &#039;Emite boletas, facturas y guías de despachos&#039;,
+                        text: &#039;Emite boletas, facturas y guías de despachos&#039;
                     },
                     {
-                        text: &#039;Punto de venta boleta fácil y de retail&#039;,
+                        text: &#039;Punto de venta boleta fácil y de retail&#039;
                     }
                 ],
                 recommendation: &#039;Convierte tu dispositivo Android en un Punto de Venta con LibreDTE.&#039;,
@@ -346,13 +349,13 @@
                 price_icon: &#039;fa-brands fa-apple fa-2x&#039;,
                 features: [
                     {
-                        text: &#039;Utiliza la aplicación con múltiples empresas&#039;,
+                        text: &#039;Utiliza la aplicación con múltiples empresas&#039;
                     },
                     {
-                        text: &#039;Emite boletas, facturas y guías de despachos&#039;,
+                        text: &#039;Emite boletas, facturas y guías de despachos&#039;
                     },
                     {
-                        text: &#039;Punto de venta boleta fácil y de retail&#039;,
+                        text: &#039;Punto de venta boleta fácil y de retail&#039;
                     }
                 ],
                 recommendation: &#039;Revisa tu empresa y emite documentos tributarios fácilmente.&#039;,
@@ -361,9 +364,8 @@
                 highlighted: true
             }
         ]&quot;
-
+        margin_top=&quot;2&quot;
     /&gt;
-
 {% endfor %}
 {% endblock %}
 </code></pre>

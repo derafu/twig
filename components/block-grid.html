@@ -26,7 +26,9 @@
                     
 
 
-<div class="derafu-block-grid " id="block-grid--67eee92d1f9e5">
+<div class="derafu-block-grid 
+        mb-4"
+    id="block-grid--6810fc4542b00">
             
                         
                                 
@@ -40,7 +42,9 @@
 
                         </div>
                                                                     <div class="derafu-block-grid__item derafu-block-grid__item--2">
-                                <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium" id="block-image--67eee92d1e4c9">
+                                <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium
+        "
+    id="block-image--6810fc45412fa">
     <div class="derafu-block-image__wrapper">
                     <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
@@ -67,7 +71,9 @@
                                                         </div>
 
 
-<div class="derafu-block-grid " id="block-grid--67eee92d225b8">
+<div class="derafu-block-grid 
+    mt-2    mb-3"
+    id="block-grid--6810fc4545acc">
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
                             <div class="derafu-block-grid__item">
                         <h2>Item 1</h2>
@@ -75,7 +81,9 @@
 
                 </div>
                             <div class="derafu-block-grid__item">
-                        <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium" id="block-image--67eee92d1e4c9">
+                        <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium
+        "
+    id="block-image--6810fc45412fa">
     <div class="derafu-block-image__wrapper">
                     <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
@@ -127,19 +135,24 @@
     /&gt;
 {% endset %}
 
+{# Ejemplo 1: Grid sin columnas especificadas #}
 &lt;twig:block-grid
     :items=&quot;[
         grid_item_1,
         grid_item_2,
     ]&quot;
+    margin_bottom=&quot;4&quot;
 /&gt;
 
+{# Ejemplo 2: Grid con 4 columnas #}
 &lt;twig:block-grid
     cols=&quot;4&quot;
     :items=&quot;[
         grid_item_1,
         grid_item_2,
     ]&quot;
+    margin_top=&quot;2&quot;
+    margin_bottom=&quot;3&quot;
 /&gt;
 {% endblock %}
 </code></pre>

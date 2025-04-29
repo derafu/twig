@@ -23,7 +23,9 @@
                                                                                                 <h1>Block Footer</h1>
                             <p class="mb-4">Page footer component with various layouts.</p>
                                             
-                            <footer class="derafu-block-footer " id="block-footer--67eee92d0444a">
+                            <footer class="derafu-block-footer 
+        mb-5"
+    id="block-footer--6810fc452766e">
     <div class="container">
         <div class="row">
                                         <div class="col">
@@ -138,9 +140,9 @@
     </footer>
 
 
-    <div class="mt-5"></div>
-
-        <footer class="derafu-block-footer derafu-theme-bootstrap" id="block-footer--67eee92d0c621">
+        <footer class="derafu-block-footer derafu-theme-bootstrap
+    mt-2    mb-5"
+    id="block-footer--6810fc452fa0f">
     <div class="container">
         <div class="row">
                                         <div class="col">
@@ -194,9 +196,9 @@
     </footer>
 
 
-    <div class="mt-5"></div>
-
-        <footer class="derafu-block-footer derafu-theme-bootstrap" id="block-footer--67eee92d0c84e">
+        <footer class="derafu-block-footer derafu-theme-bootstrap
+    mt-2    "
+    id="block-footer--6810fc452fc9a">
     <div class="container">
         <div class="row">
                                         <div class="col">
@@ -280,8 +282,6 @@
         </div>
     </footer>
 
-
-    <div class="mt-5"></div>
 
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-footer.html.twig #}
@@ -375,11 +375,8 @@
         leftText=&quot;Copyright © Derafu ORG (Theme: {{ name }})&quot;
         rightText=&quot;Todos los derechos reservados&quot;
         socialIconsCircular=&quot;true&quot;
-
-
+        margin_bottom=&quot;5&quot;
     /&gt;
-
-    &lt;div class=&quot;mt-5&quot;&gt;&lt;/div&gt;
 
     {# Ejemplo 2: Footer Minimalista con 2 columnas #}
     &lt;twig:block-footer
@@ -409,11 +406,10 @@
         ]&quot;
 
         leftText=&quot;© 2024 Derafu ORG (Theme: {{ name }})&quot;
-
         theme=&quot;{{ theme }}&quot;
+        margin_top=&quot;2&quot;
+        margin_bottom=&quot;5&quot;
     /&gt;
-
-    &lt;div class=&quot;mt-5&quot;&gt;&lt;/div&gt;
 
     {# Ejemplo 3: Footer con énfasis en redes sociales #}
     &lt;twig:block-footer
@@ -481,11 +477,9 @@
 
         leftText=&quot;Únete a nuestra comunidad (Theme: {{ name }})&quot;
         rightText=&#039;&lt;a href=&quot;#&quot;&gt;Política de Privacidad&lt;/a&gt; | &lt;a href=&quot;#&quot;&gt;Términos de Uso&lt;/a&gt;&#039;
-
         theme=&quot;{{ theme }}&quot;
+        margin_top=&quot;2&quot;
     /&gt;
-
-    &lt;div class=&quot;mt-5&quot;&gt;&lt;/div&gt;
 {% endfor %}
 {% endblock %}
 </code></pre>

@@ -25,7 +25,9 @@
                                             
                     
 
-<div class="derafu-block-tabs " id="block-tabs--67eee92e35354">
+<div class="derafu-block-tabs 
+        mb-4"
+    id="block-tabs--6810fc465dcee">
             <nav class="nav nav-pills nav-justified">
                             <button class="nav-link active"
                         id="tab-features"
@@ -50,13 +52,18 @@
                                         Información
                 </button>
                     </nav>
-        <div class="tab-content mt-3">
+        <div class="tab-content">
                             <div class="tab-pane fade show active"
                     id="content-features"
                     role="tabpanel"
                     aria-labelledby="tab-features"
                     tabindex="0">
-                        <div class="derafu-block-text-image " id="block-text-image--67eee92e33d61">
+                        <div class="derafu-block-text-image
+    derafu-block-text-image--in-tabs
+    
+    
+    "
+    id="block-text-image--6810fc465c103">
     <div class="row align-items-center">
                 <div class="col-md-7 ">
             <div class="derafu-block-text-image__content">
@@ -91,13 +98,16 @@
                     aria-labelledby="tab-info"
                     tabindex="0">
                         <h2>Información</h2>
-    <p>Contenido...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed....</p>
 
                 </div>
                     </div>
     </div>
 
-<div class="derafu-block-tabs " id="block-tabs--67eee92e38de5">
+
+<div class="derafu-block-tabs 
+    mt-2    mb-3"
+    id="block-tabs--6810fc4661d2c">
             <div class="row">
             <div class="col-3">
                 <nav class="nav nav-pills flex-column">
@@ -110,7 +120,7 @@
                                 aria-controls="content-features2"
                                 aria-selected="true">
                                                             <i class="fa-solid fa-list me-2"></i>
-                                                        Características
+                                                        hola
                         </button>
                                             <button class="nav-link text-start"
                                 id="tab-info2"
@@ -126,13 +136,18 @@
                                     </nav>
             </div>
             <div class="col">
-                <div class="tab-content">
+                <div class="tab-content with-shadow">
                                             <div class="tab-pane fade show active"
                             id="content-features2"
                             role="tabpanel"
                             aria-labelledby="tab-features2"
                             tabindex="0">
-                                <div class="derafu-block-text-image " id="block-text-image--67eee92e33d61">
+                                <div class="derafu-block-text-image
+    derafu-block-text-image--in-tabs
+    
+    
+    "
+    id="block-text-image--6810fc465c103">
     <div class="row align-items-center">
                 <div class="col-md-7 ">
             <div class="derafu-block-text-image__content">
@@ -167,7 +182,7 @@
                             aria-labelledby="tab-info2"
                             tabindex="0">
                                 <h2>Información</h2>
-    <p>Contenido...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed....</p>
 
                         </div>
                                     </div>
@@ -197,12 +212,13 @@
             }
         ]&quot;
         image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
+        :inside_tabs=&quot;true&quot;
     /&gt;
 {% endset %}
 
 {% set tab_content_2 %}
     &lt;h2&gt;Información&lt;/h2&gt;
-    &lt;p&gt;Contenido...&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed....&lt;/p&gt;
 {% endset %}
 
 &lt;twig:block-tabs
@@ -220,12 +236,14 @@
             &#039;content&#039;: tab_content_2
         }
     ]&quot;
+    margin_bottom=&quot;4&quot;
 /&gt;
+
 &lt;twig:block-tabs
     :tabs=&quot;[
         {
             &#039;id&#039;: &#039;features2&#039;,
-            &#039;title&#039;: &#039;Características&#039;,
+            &#039;title&#039;: &#039;hola&#039;,
             &#039;icon&#039;: &#039;fa-solid fa-list&#039;,
             &#039;content&#039;: tab_content_1
         },
@@ -238,6 +256,9 @@
     ]&quot;
     position=&quot;vertical&quot;
     :cols=&quot;3&quot;
+    margin_top=&quot;2&quot;
+    margin_bottom=&quot;3&quot;
+    :with_shadow=&quot;true&quot;
 /&gt;
 {% endblock %}
 </code></pre>

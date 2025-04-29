@@ -23,11 +23,13 @@
                                                                                                 <h1>Block Features Grid</h1>
                             <p class="mb-4">Grid layout for key features.</p>
                                             
-                        <div class="derafu-block-features-grid " id="block-features-grid--67eee92ca4684">
+                        <div class="derafu-block-features-grid 
+        mb-4"
+    id="block-features-grid--6810fc44cb6ce">
     <div class="derafu-block-features-grid__row">
                     <div class="derafu-block-features-grid__block">
                 <div class="derafu-block-features-grid__header">
-                    <h3 class="derafu-block-features-grid__title">Theme</h3>
+                    <h3 class="derafu-block-features-grid__title">Lorem</h3>
                     <p class="derafu-block-features-grid__subtitle">Descripción del primer bloque</p>
                 </div>
 
@@ -39,7 +41,7 @@
                             <div class="derafu-block-features-grid__content">
                                 <h4 class="derafu-block-features-grid__feature-title">Característica 1</h4>
                                 <div class="derafu-block-features-grid__description">
-                                    Descripción de la característica 1. <a href='https://derafu.org/'>Link.</a>
+                                    Descripción de la <a href='https://derafu.org/'>característica 1.</a>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +71,8 @@
             </div>
                     <div class="derafu-block-features-grid__block">
                 <div class="derafu-block-features-grid__header">
-                    <h3 class="derafu-block-features-grid__title">Bootstrap</h3>
-                    <p class="derafu-block-features-grid__subtitle">Descripción del segundo bloque</p>
+                    <h3 class="derafu-block-features-grid__title">Ipsum</h3>
+                    <p class="derafu-block-features-grid__subtitle">Descripción del segundo <a href='https://derafu.org/'>bloque</a>.</p>
                 </div>
 
                 <div class="derafu-block-features-grid__features">
@@ -90,7 +92,7 @@
                                 <i class="fa-solid fa-heart"></i>
                             </div>
                             <div class="derafu-block-features-grid__content">
-                                <h4 class="derafu-block-features-grid__feature-title">Característica 2</h4>
+                                <h4 class="derafu-block-features-grid__feature-title">Característica <a href='https://derafu.org/'>2</a></h4>
                                 <div class="derafu-block-features-grid__description">
                                     Descripción de la característica 2.
                                 </div>
@@ -123,13 +125,13 @@
     &lt;twig:block-features-grid
         :blocks=&quot;[
             {
-                title: &#039;Theme&#039;,
+                title: &#039;Lorem&#039;,
                 subtitle: &#039;Descripción del primer bloque&#039;,
                 features: [
                     {
                         icon: &#039;fa-solid fa-cloud&#039;,
                         title: &#039;Característica 1&#039;,
-                        description: &#039;Descripción de la característica 1. &lt;a href=\&#039;https://derafu.org/\&#039;&gt;Link.&lt;/a&gt;&#039;
+                        description: &#039;Descripción de la &lt;a href=\&#039;https://derafu.org/\&#039;&gt;característica 1.&lt;/a&gt;&#039;
                     },
                     {
                         icon: &#039;fa-solid fa-cog&#039;,
@@ -144,8 +146,8 @@
                 ]
             },
             {
-                title: name,
-                subtitle: &#039;Descripción del segundo bloque&#039;,
+                title: &#039;Ipsum&#039;,
+                subtitle: &#039;Descripción del segundo &lt;a href=\&#039;https://derafu.org/\&#039;&gt;bloque&lt;/a&gt;.&#039;,
                 features: [
                     {
                         icon: &#039;fa-solid fa-star&#039;,
@@ -154,7 +156,7 @@
                     },
                     {
                         icon: &#039;fa-solid fa-heart&#039;,
-                        title: &#039;Característica 2&#039;,
+                        title: &#039;Característica &lt;a href=\&#039;https://derafu.org/\&#039;&gt;2&lt;/a&gt;&#039;,
                         description: &#039;Descripción de la característica 2.&#039;
                     },
                     {
@@ -165,7 +167,7 @@
                 ]
             }
         ]&quot;
-
+        margin_bottom=&quot;4&quot;
     /&gt;
 {% endfor %}
 {% endblock %}

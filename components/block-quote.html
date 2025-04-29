@@ -23,7 +23,9 @@
                                                                                                 <h1>Block Quote</h1>
                             <p class="mb-4">Styled blockquote component.</p>
                                             
-                        <div class="derafu-block-quote " id="block-quote--67eee92db8d80">
+                        <div class="derafu-block-quote 
+        "
+    id="block-quote--6810fc45dd11d">
     <div class="derafu-block-quote__container">
         <figure class="derafu-block-quote__figure">
             <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
@@ -33,7 +35,7 @@
                 <i class="fa-solid fa-quote-right"></i>
             </div>
             <blockquote class="derafu-block-quote__content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href=https://derafu.org/>elit</a>.</p>
             </blockquote>
             <div class="derafu-block-quote__author">
                                     <img src="../img/block-hero.jpeg"
@@ -49,6 +51,55 @@
 </div>
 
 
+<div class="derafu-block-quote 
+    mt-2    mb-3"
+    id="block-quote--6810fc45de313">
+    <div class="derafu-block-quote__container">
+        <figure class="derafu-block-quote__figure">
+            <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="derafu-block-quote__icon derafu-block-quote__icon--right">
+                <i class="fa-solid fa-quote-right"></i>
+            </div>
+            <blockquote class="derafu-block-quote__content">
+                <p>Otra cita de ejemplo con márgenes personalizados.</p>
+            </blockquote>
+            <div class="derafu-block-quote__author">
+                                <div class="derafu-block-quote__author-info">
+                                            <span class="derafu-block-quote__author-name">Jane Smith</span>
+                                                                <span class="derafu-block-quote__author-source">Ejemplo de cita</span>
+                                    </div>
+            </div>
+        </figure>
+    </div>
+</div>
+
+
+<div class="derafu-block-quote 
+    mt-0    "
+    id="block-quote--6810fc45de469">
+    <div class="derafu-block-quote__container">
+        <figure class="derafu-block-quote__figure">
+            <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="derafu-block-quote__icon derafu-block-quote__icon--right">
+                <i class="fa-solid fa-quote-right"></i>
+            </div>
+            <blockquote class="derafu-block-quote__content">
+                <p>Una cita sin márgenes especiales.</p>
+            </blockquote>
+            <div class="derafu-block-quote__author">
+                                <div class="derafu-block-quote__author-info">
+                                            <span class="derafu-block-quote__author-name">Anonymous</span>
+                                                        </div>
+            </div>
+        </figure>
+    </div>
+</div>
+
+
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-quote.html.twig #}
 
@@ -57,15 +108,30 @@
 {% block content %}
 {% for theme, name in themes %}
     &lt;twig:block-quote
-        quote=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;a href=https://derafu.org/&gt;Link&lt;/a&gt;&quot;
+        quote=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing &lt;a href=https://derafu.org/&gt;elit&lt;/a&gt;.&quot;
         author=&quot;John Doe&quot;
         source=&quot;Theme: {{ name }}&quot;
         image=&quot;../../img/block-hero.jpeg&quot;
-
+        margin=&quot;4&quot;
     /&gt;
 {% endfor %}
-{% endblock %}
-</code></pre>
+
+{# Ejemplo con márgenes individuales #}
+&lt;twig:block-quote
+    quote=&quot;Otra cita de ejemplo con márgenes personalizados.&quot;
+    author=&quot;Jane Smith&quot;
+    source=&quot;Ejemplo de cita&quot;
+    margin_top=&quot;2&quot;
+    margin_bottom=&quot;3&quot;
+/&gt;
+
+{# Ejemplo sin márgenes #}
+&lt;twig:block-quote
+    quote=&quot;Una cita sin márgenes especiales.&quot;
+    author=&quot;Anonymous&quot;
+    margin_top=&quot;0&quot;
+/&gt;
+{% endblock %}</code></pre>
                     </div>
                                     </main>
                 <div class="col-md-3 py-4">

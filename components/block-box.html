@@ -23,14 +23,15 @@
                                                                                                 <h1>Block Box</h1>
                             <p class="mb-4">Simple box container for content.</p>
                                             
-                        <div class="derafu-block-box derafu-block-box__rounded derafu-theme-bootstrap" id="block-box--67eee92c442c7">
-    <h3 class="derafu-block-box__title">Theme: Bootstrap</h3>
-    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">bootstrap</a>"</div>
+                    <div class="derafu-block-box derafu-block-box__rounded   " id="block-box--6810fc446bc68">
+    <h3 class="derafu-block-box__title">Box con margen por defecto</h3>
+    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">link</a>"</div>
 </div>
 
-    <div class="derafu-block-box  " id="block-box--67eee92c44cdd">
-    <h3 class="derafu-block-box__title">Another box</h3>
-    <div class="derafu-block-box__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="javascript:alert(&apos;Another box&apos;)">Link</a>"</div>
+
+<div class="derafu-block-box  mt-1 mb-4 " id="block-box--6810fc446ca5e">
+    <h3 class="derafu-block-box__title">Box con margen personalizado</h3>
+    <div class="derafu-block-box__content"><p>Este box tiene margen superior reducido y margen inferior aumentado. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
 </div>
 
 
@@ -40,18 +41,19 @@
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
-{% for theme, name in themes %}
-    &lt;twig:block-box
-        title=&quot;Theme: {{ name }}&quot;
-        content=&#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &quot;&lt;a href=&quot;https://derafu.org/&quot;&gt;{{ theme }}&lt;/a&gt;&quot;&#039;
-        theme=&quot;{{ theme }}&quot;
-    /&gt;
-{% endfor %}
-    &lt;twig:block-box
-        :rounded=&quot;false&quot;
-        title=&quot;Another box&quot;
-        content=&#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &quot;&lt;a href=&quot;javascript:alert(&amp;apos;Another box&amp;apos;)&quot;&gt;Link&lt;/a&gt;&quot;&#039;
-    /&gt;
+&lt;twig:block-box
+    title=&quot;Box con margen por defecto&quot;
+    content=&#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &quot;&lt;a href=&quot;https://derafu.org/&quot;&gt;link&lt;/a&gt;&quot;&#039;
+    :rounded=&quot;true&quot;
+/&gt;
+
+&lt;twig:block-box
+    title=&quot;Box con margen personalizado&quot;
+    content=&quot;&lt;p&gt;Este box tiene margen superior reducido y margen inferior aumentado. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;&quot;
+    margin_top=&quot;1&quot;
+    margin_bottom=&quot;4&quot;
+    :rounded=&quot;false&quot;
+/&gt;
 {% endblock %}
 </code></pre>
                     </div>
