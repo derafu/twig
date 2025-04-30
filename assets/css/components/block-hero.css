@@ -12,7 +12,7 @@
     /* Spacing */
     --hero-spacing-y: 2rem;
     --hero-button-spacing: 1rem;
-    --hero-content-with-bg-padding: 2rem;
+    --hero-content-with-bg-padding: 4rem;
     --hero-content-with-bg-radius: 0.5rem;
     --hero-content-with-bg-blur: 5px;
     --hero-title-margin-bottom: 1rem;
@@ -111,6 +111,7 @@
   .derafu-block-hero__content--left {
     align-items: flex-start;
     text-align: left;
+    padding-left: 4rem;
   }
 
   .derafu-block-hero__content--center {
@@ -121,6 +122,7 @@
   .derafu-block-hero__content--right {
     align-items: flex-end;
     text-align: right;
+    padding-right: 4rem;
   }
 
   /*
@@ -311,4 +313,3 @@
       justify-content: center;
     }
   }
-  
