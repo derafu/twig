@@ -39,7 +39,8 @@
         "twig/string-extra": "^3.19",
         "twig/inky-extra": "^3.19",
         "symfony/string": "^7.2",
-        "derafu/markdown": "^1.0.1",
+        "derafu/routing": "dev-main",
+        "derafu/markdown": "dev-main",
         "derafu/foundation": "dev-main"
     },
     "scripts": {
