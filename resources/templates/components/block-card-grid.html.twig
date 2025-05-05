@@ -34,7 +34,12 @@
 
                     {% if card.button_text %}
                         <div class="derafu-block-card-grid__footer">
-                            <a href="{{ card.button_url }}" class="derafu-block-card-grid__button btn {% if card.button_url is empty %}disabled{% endif %}" role="button">
+                            <a href="{{ card.button_url }}"
+                            class="btn w-100
+                                    {% if card.button_color is defined and card.button_color %}btn-{{ card.button_color }}{% else %}btn-primary{% endif %}
+                                    {% if card.button_url is empty %}disabled{% endif %}"
+                            role="button"
+                            {% if card.button_style is defined and card.button_style %}style="{{ card.button_style }}"{% endif %}>
                                 {{ card.button_text }}
                             </a>
                         </div>
