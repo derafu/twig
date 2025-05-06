@@ -15,6 +15,7 @@ namespace Derafu\Twig\Extension;
 use Derafu\Routing\Contract\RouterInterface;
 use Derafu\Routing\Enum\UrlReferenceType;
 use Derafu\Routing\Exception\RouteNotFoundException;
+use LogicException;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -108,17 +109,24 @@ class RoutingExtension extends AbstractExtension
         array $parameters = [],
         bool $partial = true
     ): bool {
-        $contextPath = $this->router->getContext()->getPathInfo();
+        // Get context from router.
+        $context = $this->router->getContext();
+        if ($context === null) {
+            throw new LogicException('Routing context not set.');
+        }
+
+        // Get current path from context and route path from router.
+        $currentPath = $context->getBaseUrl() . $context->getPathInfo();
         $routePath = $this->getPath($name, $parameters);
 
         // Normalize removing trailing slashes.
-        $contextPath = rtrim($contextPath, '/');
+        $currentPath = rtrim($currentPath, '/');
         $routePath = rtrim($routePath, '/');
 
         // If partial match, compare by segments.
         if ($partial) {
             // Compare by segments.
-            $contextSegments = explode('/', ltrim($contextPath, '/'));
+            $contextSegments = explode('/', ltrim($currentPath, '/'));
             $routeSegments = explode('/', ltrim($routePath, '/'));
 
             // Only match if route is full prefix of the URI.
@@ -126,6 +134,6 @@ class RoutingExtension extends AbstractExtension
         }
 
         // If exact match, compare the full path.
-        return $contextPath === $routePath;
+        return $currentPath === $routePath;
     }
 }
