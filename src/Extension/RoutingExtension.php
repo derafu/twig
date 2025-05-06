@@ -45,6 +45,7 @@ class RoutingExtension extends AbstractExtension
         return [
             new TwigFunction('path', [$this, 'getPath']),
             new TwigFunction('url', [$this, 'getUrl']),
+            new TwigFunction('is_active_path', [$this, 'isActivePath']),
         ];
     }
 
@@ -92,5 +93,39 @@ class RoutingExtension extends AbstractExtension
             $parameters,
             UrlReferenceType::ABSOLUTE_URL
         );
+    }
+
+    /**
+     * Checks if the current path matches the given route.
+     *
+     * @param string $name The name of the route.
+     * @param array $parameters Parameters to pass to the route.
+     * @param bool $partial Whether to check for partial match.
+     * @return bool True if the current path matches the route, false otherwise.
+     */
+    public function isActivePath(
+        string $name,
+        array $parameters = [],
+        bool $partial = true
+    ): bool {
+        $contextPath = $this->router->getContext()->getPathInfo();
+        $routePath = $this->getPath($name, $parameters);
+
+        // Normalize removing trailing slashes.
+        $contextPath = rtrim($contextPath, '/');
+        $routePath = rtrim($routePath, '/');
+
+        // If partial match, compare by segments.
+        if ($partial) {
+            // Compare by segments.
+            $contextSegments = explode('/', ltrim($contextPath, '/'));
+            $routeSegments = explode('/', ltrim($routePath, '/'));
+
+            // Only match if route is full prefix of the URI.
+            return array_slice($contextSegments, 0, count($routeSegments)) === $routeSegments;
+        }
+
+        // If exact match, compare the full path.
+        return $contextPath === $routePath;
     }
 }
