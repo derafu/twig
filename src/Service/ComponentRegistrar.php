@@ -78,6 +78,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     ): array {
         $serviceLocator = $this->createServiceLocator($components);
         $factory = $this->createComponentFactory(
+            $twig,
             $components,
             $serviceLocator,
             $basicServices
@@ -108,6 +109,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     }
 
     private function createComponentFactory(
+        Environment $twig,
         array $components,
         ServiceLocator $serviceLocator,
         array $basicServices
@@ -118,7 +120,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
             $basicServices['propertyAccessor'],
             $basicServices['eventDispatcher'],
             $this->createComponentConfig($components),
-            $this->createComponentClassMap($components)
+            $this->createComponentClassMap($components),
+            $twig
         );
     }
 
