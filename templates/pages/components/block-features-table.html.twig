@@ -93,4 +93,92 @@
         margin_bottom="5"
     />
 {% endfor %}
+
+{# Nuevo ejemplo con encabezados de sección #}
+<h2 class="mt-5 mb-4">Ejemplo con Encabezados de Sección</h2>
+
+<twig:block-features-table
+    title="Comparativa de Planes"
+    :features="[
+        {
+            'isHeader': true,
+            'name': 'Acceso a APIs'
+        },
+        {
+            'icon': 'fa-solid fa-folder',
+            'name': 'API Contribuyentes',
+            'description': 'Consulta de datos tributarios',
+            'values': {
+                'Básico': true,
+                'Completo': true
+            }
+        },
+        {
+            'icon': 'fa-solid fa-file-invoice',
+            'name': 'API Documentos',
+            'description': 'Facturas y boletas electrónicas',
+            'values': {
+                'Básico': false,
+                'Completo': true
+            }
+        },
+        {
+            'isHeader': true,
+            'icon': 'fa-solid fa-chart-line',
+            'name': 'Límites y Cuotas'
+        },
+        {
+            'icon': 'fa-solid fa-clock',
+            'name': 'Consultas diarias',
+            'values': {
+                'Básico': '<span class=\'lead\'>500</span>',
+                'Completo': '<span class=\'lead\'>2.000</span>'
+            }
+        },
+        {
+            'icon': 'fa-solid fa-users',
+            'name': 'Usuarios simultáneos',
+            'values': {
+                'Básico': '<span class=\'lead\'>3</span>',
+                'Completo': '<span class=\'lead\'>10</span>'
+            }
+        },
+        {
+            'isHeader': true,
+            'name': 'Soporte Técnico'
+        },
+        {
+            'name': 'Soporte por email',
+            'values': {
+                'Básico': true,
+                'Completo': true
+            }
+        },
+        {
+            'icon': 'fa-solid fa-headset',
+            'name': 'Soporte telefónico',
+            'values': {
+                'Básico': false,
+                'Completo': true
+            }
+        },
+        {
+            'isHeader': true,
+            'icon': 'fa-solid fa-dollar',
+            'name': 'Precios'
+        },
+        {
+            'icon': 'fa-solid fa-money-bill',
+            'name': 'Costo mensual',
+            'description': '+ IVA',
+            'values': {
+                'Básico': '<span class=\'lead\'>$35.000</span>',
+                'Completo': '<span class=\'lead\'>$90.000</span>'
+            }
+        }
+    ]"
+    margin_top="2"
+    margin_bottom="5"
+/>
+
 {% endblock %}
