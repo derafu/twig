@@ -89,6 +89,14 @@
   text-align: left;
 }
 
+.derafu-block-features-table__cell a {
+  text-decoration: none;
+}
+
+.derafu-block-features-table__cell a:hover {
+  text-decoration: underline;
+}
+
 /*
  * Contenido de características
  */
