@@ -1,6 +1,12 @@
 {# templates/components/block-alert.html.twig #}
-<div class="derafu-block-alert {{ margin_top ? 'mt-' ~ margin_top : '' }} {{ margin_bottom ? 'mb-' ~ margin_bottom : '' }} {{ class }}">
-    <div class="alert alert-{{ type }} d-flex align-items-center" role="alert" id="{{ id }}">
+<div class="derafu-block-alert
+    {{ margin_top ? 'mt-' ~ margin_top : '' }}
+    {{ margin_bottom ? 'mb-' ~ margin_bottom : '' }}
+    {{ class }}
+    {{ container is not null ? 'container mx-auto' : 'w-full' }}"
+    {{ id is not null ? 'id="' ~ id ~ '"' : '' }}
+>
+    <div class="alert alert-{{ type }} d-flex align-items-center" role="alert">
         {% if icon %}
             <i class="{{ icon }} derafu-block-alert__icon"></i>
         {% endif %}

@@ -39,4 +39,28 @@ class StepsComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public string $arrow_type = 'curved';
+
+    /**
+     * Container class for the steps component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Unique identifier for the steps component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Additional CSS classes for the steps component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 }
