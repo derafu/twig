@@ -2,8 +2,10 @@
 <div class="derafu-block-accordion
     {{ margin_top is defined ? 'mt-' ~ margin_top : '' }}
     {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }}
-    {{ class }}"
-    id="{{ id }}">
+    {{ class }}
+    {{ container is not null ? 'container mx-auto' : 'w-full' }}"
+    {{ id is not null ? 'id="' ~ id ~ '"' : '' }}
+>
     <div class="accordion border" id="{{ id }}-accordion">
         {% for key, item in items %}
             <div class="accordion-item">

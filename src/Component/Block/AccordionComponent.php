@@ -32,4 +32,28 @@ class AccordionComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $items = [];
+
+    /**
+     * Container class for the accordion.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Unique identifier for the accordion component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Additional CSS classes for the accordion component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 }
