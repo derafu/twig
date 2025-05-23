@@ -3,7 +3,7 @@
  */
  :root {
     /* Structural Variables */
-    --image-spacing: 2rem;
+    --image-spacing: 1rem;
     --image-width-small: 400px;
     --image-width-medium: 800px;
     --image-width-large: 1200px;
@@ -212,4 +212,3 @@
       box-sizing: border-box;
     }
   }
-  
