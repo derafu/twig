@@ -113,6 +113,15 @@
     border-radius: var(--box-border-radius);
 }
 
+.derafu-block-box.container {
+    max-width: 1200px; /* o el ancho que uses para tu contenedor */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--box-padding);
+    padding-right: var(--box-padding);
+}
+
 /* ======================================
    Box Content Elements
    ====================================== */
