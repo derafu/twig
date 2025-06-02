@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 /**
  * Derafu: Twig - UI Component and Extension Library.
  *
@@ -7,17 +8,13 @@ declare(strict_types=1);
  * Licensed under the MIT License.
  * See LICENSE file for more details.
  */
+
 namespace Derafu\Twig\Component\Block;
+
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
-/**
- * Modal Component for displaying popup dialogs in the application.
- *
- * This component creates a Bootstrap-based modal dialog that can be themed and configured
- * with different content, buttons, and styles.
- */
 #[AsTwigComponent('block-modal')]
 class ModalComponent extends AbstractComponent
 {
