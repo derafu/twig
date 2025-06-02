@@ -33,6 +33,7 @@ class CardGridComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $cards = [];
+
     /**
      * Unique identifier for the card grid component.
      *

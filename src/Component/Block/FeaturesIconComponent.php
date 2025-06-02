@@ -24,7 +24,7 @@ class FeaturesIconComponent extends AbstractComponent
     #[ExposeInTemplate()]
     public array $features = [];
 
-     /**
+    /**
      * Unique identifier for the features icon component.
      *
      * @var string

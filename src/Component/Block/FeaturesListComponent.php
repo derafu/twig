@@ -19,7 +19,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('block-features-list')]
 class FeaturesListComponent extends AbstractComponent
 {
-        /**
+    /**
      * Array of features for the left side.
      *
      * Each feature contains:
@@ -69,5 +69,4 @@ class FeaturesListComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?string $class = null;
-
 }

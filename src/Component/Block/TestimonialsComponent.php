@@ -19,7 +19,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('block-testimonials')]
 class TestimonialsComponent extends AbstractComponent
 {
-        /**
+    /**
      * Array of testimonials configurations.
      *
      * Each testimonial contains:
@@ -34,7 +34,7 @@ class TestimonialsComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $testimonials = [];
-    
+
     /**
      * Unique identifier for the testimonials component.
      */

@@ -90,5 +90,4 @@ class CtaComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public int $button_cols = 4;
-
 }

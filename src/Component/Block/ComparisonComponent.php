@@ -19,7 +19,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('block-comparison')]
 class ComparisonComponent extends AbstractComponent
 {
-        /**
+    /**
      * Array of plans with their configurations.
      *
      * Each plan contains:
@@ -62,5 +62,4 @@ class ComparisonComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public ?string $class = null;
-
 }

@@ -33,6 +33,7 @@ class BoxesComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $boxes = [];
+
     /**
      * Unique identifier for the boxes component.
      *
