@@ -107,10 +107,26 @@
     margin-bottom: var(--features-list-title-margin-bottom);
 }
 
+.derafu-block-features-list__title a {
+    text-decoration: none;
+}
+
+.derafu-block-features-list__title a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-features-list__description {
     color: var(--features-list-text-color);
     font-size: var(--features-list-description-font-size);
     line-height: var(--features-list-description-line-height);
+}
+
+.derafu-block-features-list__description a {
+    text-decoration: none;
+}
+
+.derafu-block-features-list__description a:hover {
+    text-decoration: underline;
 }
 
 /* ======================================
@@ -124,6 +140,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.derafu-block-features-list.container {
+    max-width: 1400px; /* o el ancho que uses para tu contenedor */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md, 1.5rem);
+    padding-right: var(--spacing-md, 1.5rem);
 }
 
 /* ======================================

@@ -20,6 +20,30 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class CtaComponent extends AbstractComponent
 {
     /**
+     * Container class for the CTA component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Unique identifier for the CTA component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Additional CSS classes for the CTA component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Main title of the CTA.
      *
      * @var string
@@ -66,4 +90,5 @@ class CtaComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public int $button_cols = 4;
+
 }

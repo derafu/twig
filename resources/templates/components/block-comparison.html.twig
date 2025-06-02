@@ -1,8 +1,7 @@
 {# templates/components/block-comparison.html.twig #}
-<div class="derafu-block-comparison {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-comparison {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row g-4">
         {% for plan in plans %}
             <div class="col-12 {% if plans|length == 2 %}col-lg-6

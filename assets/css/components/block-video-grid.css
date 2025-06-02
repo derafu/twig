@@ -130,6 +130,14 @@
     overflow-wrap: break-word;
 }
 
+.derafu-block-video-grid__description a {
+    text-decoration: none;
+}
+
+.derafu-block-video-grid__description a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-video-grid__footer {
     padding: 0 var(--video-grid-content-padding) var(--video-grid-content-padding);
     margin-top: auto;

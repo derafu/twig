@@ -75,6 +75,15 @@
     overflow: hidden; /* Prevent content overflow */
   }
 
+  .derafu-block-image-grid.container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md, 1.5rem);
+    padding-right: var(--spacing-md, 1.5rem);
+}
+
   /* Compatibility for browsers that don't support aspect-ratio */
   @supports not (aspect-ratio: 16/9) {
     .derafu-block-image-grid__item::before {
@@ -230,4 +239,3 @@
       grid-template-columns: 1fr;
     }
   }
-  

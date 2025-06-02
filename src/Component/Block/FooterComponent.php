@@ -20,6 +20,30 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class FooterComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the footer component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the footer component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the footer component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Title for the first column.
      *
      * @var string|null
@@ -171,6 +195,11 @@ class FooterComponent extends AbstractComponent
     #[ExposeInTemplate()]
     public bool $socialIconsCircular = false;
 
+    /**
+     * Whether the footer should be full width.
+     *
+     * @var bool
+     */
     #[ExposeInTemplate()]
     public bool $fullWidth = false;
 }

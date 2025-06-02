@@ -1,8 +1,7 @@
 {# templates/components/block-tabs.html.twig #}
-<div class="derafu-block-tabs {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-tabs {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     {% if position == 'horizontal' %}
         <nav class="nav nav-pills nav-justified">
             {% for tab in tabs %}

@@ -2,6 +2,7 @@
 
 {% block content %}
 <twig:block-text-image
+    class="mt-5"
     image="{{ base_path }}/img/block-hero.jpeg"
     title="Lorem ipsum dolor sit amet"
     content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare <a href=https://derafu.org/>tellus</a> dignissim.</p>"
@@ -15,10 +16,9 @@
             url: 'https://www.example.com'
         }
     ]"
-    margin_top="0"
-    margin_bottom="1"
 />
 <twig:block-text-image
+    class="my-5"
     image="{{ base_path }}/img/block-hero.jpeg"
     title="Lorem ipsum dolor sit amet"
     content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.</p>"
@@ -29,6 +29,5 @@
         }
     ]"
     image_position="left"
-    margin_bottom="0"
 />
 {% endblock %}

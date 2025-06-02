@@ -20,6 +20,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class TabsComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the tabs component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the tabs component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Array of tab configurations.
      *
      * Each tab contains title and content.

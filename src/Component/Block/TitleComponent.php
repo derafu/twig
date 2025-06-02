@@ -26,6 +26,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class TitleComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the text-image component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the text-image component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * The title text (supports HTML)
      */
     #[ExposeInTemplate()]

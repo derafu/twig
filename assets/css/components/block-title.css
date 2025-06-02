@@ -54,6 +54,14 @@
     color: var(--title-subtitle-color);
 }
 
+.derafu-block-title__subtitle a {
+    text-decoration: none;
+}
+
+.derafu-block-title__subtitle a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-title__wrapper--bordered {
     padding-bottom: var(--title-border-padding-bottom);
     border-bottom: var(--title-border-width) solid var(--title-border-color);

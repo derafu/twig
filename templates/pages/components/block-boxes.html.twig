@@ -2,20 +2,21 @@
 
 {% block content %}
 <twig:block-boxes
+    class="mt-5"
     :boxes="[
         {
             icon: 'fa-solid fa-search',
             title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <a href=\'https://derafu.org/\'>Link</a>',
+            description: 'Lorem ipsum dolor sit amet, consectetur <a href=\'https://derafu.org/\'>adipiscing elit.</a>',
             button_text: 'Lorem ipsum',
             button_url: '#'
         }
     ]"
     cols="1"
-    margin_bottom="4"
 />
 
 <twig:block-boxes
+    class="my-5"
     :boxes="[
         {
             icon: 'fa-solid fa-search',
@@ -33,11 +34,10 @@
             button_disabled: true
         }
     ]"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-boxes
+    class="mb-5"
     :boxes="[
         {
             icon: 'fa-solid fa-search',
@@ -62,6 +62,5 @@
         }
     ]"
     cols="3"
-    margin_top="0"
 />
 {% endblock %}

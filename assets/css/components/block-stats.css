@@ -40,7 +40,8 @@
 
 /* Main Stats Block Container */
 .derafu-block-stats {
-    padding: var(--stats-spacing) var(--stats-horizontal-margin);
+    padding-block: var(--stats-spacing);
+    padding-inline: var(--stats-horizontal-margin);
     text-align: center;
     background-color: var(--stats-bg);
     border-radius: 8px;
@@ -92,6 +93,14 @@
     opacity: var(--stats-text-opacity);
     max-width: 150px;
     margin: 0 auto;
+}
+
+.derafu-block-stats__text a {
+    text-decoration: none;
+}
+
+.derafu-block-stats__text a:hover {
+    text-decoration: underline;
 }
 
 /* Specific Media Query for 769px - 1200px */

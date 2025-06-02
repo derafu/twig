@@ -82,7 +82,21 @@
     color: var(--quote-author-source-color);
     font-size: var(--quote-author-source-font-size);
   }
+  .derafu-block-quote__content a {
+    text-decoration: none;
+  }
 
+  .derafu-block-quote__content a:hover {
+    text-decoration: underline;
+  }
+
+  .derafu-block-quote__author-source a {
+    text-decoration: none;
+  }
+
+  .derafu-block-quote__author-source a:hover {
+    text-decoration: underline;
+  }
   /* Quote Container */
   .derafu-block-quote__figure {
     position: relative;
@@ -249,4 +263,3 @@
       font-size: 0.7rem;
     }
   }
-  

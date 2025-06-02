@@ -1,8 +1,7 @@
 {# templates/components/block-footer.html.twig #}
-<footer class="derafu-block-footer {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<footer class="{{ container ?? 'container-fluid' }} derafu-block-footer {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div {% if fullWidth is empty %}class="container"{% endif %}>
         <div class="row">
             {# Column 1 #}
@@ -46,7 +45,6 @@
             {# Column 2 #}
             {% if col2Title or col2Html or col2Links is not empty or col2SocialIcons is not empty %}
                 <div class="col">
-                    {# Similar structure to column 1 #}
                     {% if col2Title %}
                         <h5 class="derafu-block-footer__title mb-4">{{ col2Title }}</h5>
                     {% endif %}
@@ -85,7 +83,6 @@
             {# Column 3 #}
             {% if col3Title or col3Html or col3Links is not empty or col3SocialIcons is not empty %}
                 <div class="col">
-                    {# Similar structure to column 1 #}
                     {% if col3Title %}
                         <h5 class="derafu-block-footer__title mb-4">{{ col3Title }}</h5>
                     {% endif %}
@@ -124,7 +121,6 @@
             {# Column 4 #}
             {% if col4Title or col4Html or col4Links is not empty or col4SocialIcons is not empty %}
                 <div class="col">
-                    {# Similar structure to column 1 #}
                     {% if col4Title %}
                         <h5 class="derafu-block-footer__title mb-4">{{ col4Title }}</h5>
                     {% endif %}

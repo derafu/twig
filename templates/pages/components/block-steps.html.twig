@@ -2,6 +2,7 @@
 
 {% block content %}
 <twig:block-steps
+    class="mt-5"
     :steps="[
         {
             icon: 'fa-solid fa-list',
@@ -25,10 +26,10 @@
         }
     ]"
     arrow_type="straight"
-    margin_bottom="4"
 />
 
 <twig:block-steps
+    class="my-5"
     :steps="[
         {
             icon: 'fa-solid fa-list',
@@ -51,11 +52,10 @@
             description: 'Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.'
         }
     ]"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-steps
+    class="my-5"
     :steps="[
         {
             icon: 'fa-solid fa-list',
@@ -74,10 +74,11 @@
         }
     ]"
     arrow_type="straight"
-    margin_top="0"
+
 />
 
 <twig:block-steps
+    class="mb-5"
     :steps="[
         {
             icon: 'fa-solid fa-list',
@@ -95,6 +96,6 @@
             description: 'Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.'
         }
     ]"
-    margin="2"
+
 />
 {% endblock %}

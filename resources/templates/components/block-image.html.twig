@@ -1,11 +1,10 @@
 {# templates/components/block-image.html.twig #}
-<div class="derafu-block-image {{ class }} derafu-block-image--{{ align }} derafu-block-image--{{ size }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-image derafu-block-image--{{ align }} derafu-block-image--{{ size }} {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="derafu-block-image__wrapper">
         {% if title %}
-            <h2 class="derafu-block-image__title">{{ title }}</h2>
+            <h2 class="derafu-block-image__title">{{ title|raw }}</h2>
         {% endif %}
 
         <div class="derafu-block-image__image">

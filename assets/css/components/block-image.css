@@ -153,6 +153,22 @@
     text-decoration: none;
   }
 
+  .derafu-block-image__title a {
+    text-decoration: none;
+  }
+
+  .derafu-block-image__title a:hover {
+    text-decoration: underline;
+  }
+
+  .derafu-block-image__description a {
+    text-decoration: none;
+  }
+
+  .derafu-block-image__description a:hover {
+    text-decoration: underline;
+  }
+
   /*
    * Responsive Styles - Tablets and Small Desktops
    */

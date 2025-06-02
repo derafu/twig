@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 /**
  * Derafu: Twig - UI Component and Extension Library.
  *
@@ -9,9 +7,7 @@ declare(strict_types=1);
  * Licensed under the MIT License.
  * See LICENSE file for more details.
  */
-
 namespace Derafu\Twig\Component\Block;
-
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
@@ -25,6 +21,18 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('block-modal')]
 class ModalComponent extends AbstractComponent
 {
+    /**
+     * Additional CSS classes for the modal.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
     /**
      * Modal size (sm, lg, xl, fullscreen).
      */

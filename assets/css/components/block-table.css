@@ -107,6 +107,14 @@
     text-align: right;
 }
 
+.derafu-block-table .text-center a {
+    text-decoration: none;
+}
+
+.derafu-block-table .text-center a:hover {
+    text-decoration: underline;
+}
+
 /* Borders */
 .derafu-block-table .table-bordered {
     border: var(--table-border-width) solid var(--table-border);

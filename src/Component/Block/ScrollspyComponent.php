@@ -25,6 +25,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class ScrollspyComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the scrollspy component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the scrollspy component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Orientation of the scrollspy.
      * Values: 'vertical', 'horizontal'.
      */
@@ -59,12 +77,6 @@ class ScrollspyComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public int $cols = 4;
-
-    /**
-     * Custom classes to add to the component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
 
     /**
      * Custom inline styles to add to the component.

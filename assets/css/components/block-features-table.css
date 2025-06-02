@@ -191,6 +191,15 @@
   border-top: none;
 }
 
+.derafu-block-features-table.container {
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md, 1.5rem);
+  padding-right: var(--spacing-md, 1.5rem);
+}
+
 /*
  * Responsive table con scroll horizontal
  */

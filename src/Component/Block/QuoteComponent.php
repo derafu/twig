@@ -26,6 +26,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class QuoteComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the quote component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the quote component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * The quote text.
      *
      * @var string|null

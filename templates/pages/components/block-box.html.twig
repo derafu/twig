@@ -2,17 +2,17 @@
 
 {% block content %}
 <twig:block-box
-    title="Box con margen por defecto"
-    content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. "<a href="https://derafu.org/">link</a>"'
+    class="mt-5"
+    title="Box con esquinas curvas"
+    content='Lorem ipsum dolor sit amet, consectetur adipiscing "<a href="https://derafu.org/">elit</a>".'
     :rounded="true"
     container="container"
 />
 
 <twig:block-box
-    title="Box con margen personalizado"
-    content="<p>Este box tiene margen superior reducido y margen inferior aumentado. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
-    margin_top="1"
-    margin_bottom="4"
+    class="my-5"
+    title="Lorem ipsum dolor"
+    content="Este box tiene margen superior reducido y margen inferior aumentado. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     :rounded="false"
 />
 {% endblock %}

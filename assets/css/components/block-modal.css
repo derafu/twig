@@ -84,6 +84,14 @@
     overflow: hidden;
   }
 
+  .modal-content a {
+    text-decoration: none;
+  }
+
+  .modal-content a:hover {
+    text-decoration: underline;
+  }
+
   /*
    * Modal Header
    */
@@ -177,7 +185,14 @@
     border-radius: var(--modal-border-radius);
     min-height: 100vh;
   }
-
+  .modal.container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md, 1.5rem);
+    padding-right: var(--spacing-md, 1.5rem);
+}
   /*
    * Responsive Styles
    */
@@ -262,4 +277,3 @@
       margin-bottom: 0;
     }
   }
-  

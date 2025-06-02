@@ -1,13 +1,8 @@
 {# templates/components/block-card.html.twig #}
-<div class="derafu-block-card {{ class }}"
-     style="
-        {% if marginTop %}margin-top: {{ marginTop }};{% endif %}
-        {% if marginBottom %}margin-bottom: {{ marginBottom }};{% endif %}
-        {% if marginLeft %}margin-left: {{ marginLeft }};{% endif %}
-        {% if marginRight %}margin-right: {{ marginRight }};{% endif %}
-        {% if margin %}margin: {{ margin }};{% endif %}
-    ">
-    <div class="card" id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-card {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
+    <div class="card">
         {% if image %}
             <img src="{{ image }}" class="card-img-top" alt="{{ title }}">
         {% endif %}

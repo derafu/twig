@@ -24,10 +24,9 @@
 
 {% import _self as renderer %}
 
-<div class="derafu-block-table {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-table {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
    {# Actions Menu #}
    {% if actions|length > 0 %}
        <div class="derafu-block-table__actions mb-3 text-end">

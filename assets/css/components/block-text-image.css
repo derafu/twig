@@ -1,6 +1,6 @@
 :root {
     /* Text-Image - Structure */
-    --text-image-spacing: 2rem;
+    --text-image-spacing: 1.5rem;
     --text-image-button-gap: 1rem;
     --text-image-border-radius: 0.5rem;
 
@@ -29,6 +29,22 @@
 
 .derafu-block-text-image__content {
     padding: var(--text-image-spacing);
+}
+
+.derafu-block-text-image__content a {
+    text-decoration: none;
+}
+
+.derafu-block-text-image__content a:hover {
+    text-decoration: underline;
+}
+
+.derafu-block-text-image__buttons a {
+    text-decoration: none;
+}
+
+.derafu-block-text-image__buttons a:hover {
+    text-decoration: none;
 }
 
 .derafu-block-text-image__title {
@@ -68,7 +84,9 @@
     color: var(--text-image-button-hover-text);
     text-decoration: none;
 }
-
+.derafu-block-text-image__button a:hover {
+    text-decoration: none;
+}
 .derafu-block-text-image__image img {
     border-radius: var(--text-image-border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -105,17 +123,3 @@
         margin-bottom: var(--text-image-spacing);
     }
 }
-
-/* Utility Classes for Margins */
-.derafu-block-text-image.mb-0 { margin-bottom: 0; }
-.derafu-block-text-image.mb-1 { margin-bottom: 0.25rem; }
-.derafu-block-text-image.mb-2 { margin-bottom: 0.5rem; }
-.derafu-block-text-image.mb-3 { margin-bottom: 1rem; }
-.derafu-block-text-image.mb-4 { margin-bottom: 1.5rem; }
-.derafu-block-text-image.mb-5 { margin-bottom: 3rem; }
-.derafu-block-text-image.mt-0 { margin-top: 0; }
-.derafu-block-text-image.mt-1 { margin-top: 0.25rem; }
-.derafu-block-text-image.mt-2 { margin-top: 0.5rem; }
-.derafu-block-text-image.mt-3 { margin-top: 1rem; }
-.derafu-block-text-image.mt-4 { margin-top: 1.5rem; }
-.derafu-block-text-image.mt-5 { margin-top: 3rem; }

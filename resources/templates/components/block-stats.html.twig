@@ -1,21 +1,20 @@
 {# templates/components/block-stats.html.twig #}
-<div class="derafu-block-stats {{ class }} derafu-block-stats--{{ text_position }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-stats {{ class ?? '' }} derafu-block-stats--{{ text_position }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row justify-content-center">
         {% for stat in stats %}
             {% set cols = stats|length %}
             <div class="col-6 col-md-4 {% if cols == 4 %}col-lg-3{% elseif cols == 5 %}col-lg-20{% elseif cols >= 6 %}col-lg-2{% endif %}">
                 <div class="derafu-block-stats__item">
                     {% if text_position == 'top' %}
-                        <div class="derafu-block-stats__text">{{ stat.text }}</div>
+                        <div class="derafu-block-stats__text">{{ stat.text|raw }}</div>
                     {% endif %}
 
-                    <div class="derafu-block-stats__number">{{ stat.number }}</div>
+                    <div class="derafu-block-stats__number">{{ stat.number|raw }}</div>
 
                     {% if text_position == 'bottom' %}
-                        <div class="derafu-block-stats__text">{{ stat.text }}</div>
+                        <div class="derafu-block-stats__text">{{ stat.text|raw }}</div>
                     {% endif %}
                 </div>
             </div>

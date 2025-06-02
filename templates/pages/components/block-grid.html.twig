@@ -4,7 +4,7 @@
 
 {% set grid_item_1 %}
     <h2>Item 1</h2>
-    <p>Descripción... <a href="https://derafu.org/">Link</a></p>
+    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://derafu.org/">tempus gravida.</a></p>
 {% endset %}
 
 {% set grid_item_2 %}
@@ -21,23 +21,38 @@
     />
 {% endset %}
 
+{% set grid_item_3 %}
+    <twig:block-image
+        title="Lorem ipsum"
+        image="{{ base_path }}/img/block-hero.jpeg"
+        description="<p>Dolor sit amet</p>"
+        :buttons="[
+            {
+                text: 'Consectetur',
+                url: 'https://twig.symfony.com/'
+            }
+        ]"
+    />
+{% endset %}
+
 {# Ejemplo 1: Grid sin columnas especificadas #}
 <twig:block-grid
+    class="mt-5"
     :items="[
         grid_item_1,
         grid_item_2,
     ]"
-    margin_bottom="4"
 />
 
 {# Ejemplo 2: Grid con 4 columnas #}
 <twig:block-grid
+    class="my-5"
     cols="4"
     :items="[
         grid_item_1,
         grid_item_2,
+        grid_item_3,
+        grid_item_2,
     ]"
-    margin_top="2"
-    margin_bottom="3"
 />
 {% endblock %}

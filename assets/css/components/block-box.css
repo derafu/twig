@@ -127,8 +127,8 @@
    ====================================== */
 /* Links */
 .derafu-block-box a {
-    color: var(--box-link-color, #fff);
-    text-decoration: underline;
+    color: var(--bs-secondary);
+    text-decoration: none;
     transition: color 0.2s ease;
     font-weight: var(--font-weight-medium);
     word-break: break-word;
@@ -136,6 +136,7 @@
 
 .derafu-block-box a:hover {
     color: var(--box-link-hover-color, #f8f9fa);
+    text-decoration: underline;
 }
 
 /* Paragraphs */

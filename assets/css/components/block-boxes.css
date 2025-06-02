@@ -155,6 +155,14 @@
     line-height: var(--boxes-description-line-height);
 }
 
+.derafu-block-boxes__description a {
+    text-decoration: none;
+}
+
+.derafu-block-boxes__description a:hover {
+    text-decoration: underline;
+}
+
 /* ======================================
    Button Styles
    ====================================== */
@@ -243,6 +251,15 @@
 
 .derafu-block-boxes--right .derafu-block-boxes__action {
     justify-content: flex-end;
+}
+
+.derafu-block-boxes.container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--boxes-button-padding-x, 1.5rem);
+    padding-right: var(--boxes-button-padding-x, 1.5rem);
 }
 
 /* ======================================

@@ -2,22 +2,23 @@
 
 {% block content %}
 <twig:block-image
+    class="mt-5"
     title="¿Qué es Twig?"
     image="{{ base_path }}/img/block-hero.jpeg"
-    description="<p>Una <a href=https://derafu.org/>ramita</a>.</p>"
+    description="Una <a href=https://derafu.org/>ramita</a>."
     :buttons="[
         {
             text: 'Aprende sobre Twig',
             url: 'https://twig.symfony.com/'
         }
     ]"
-    margin_bottom="4"
 />
 
 <twig:block-image
-    title="¿Qué es Twig?"
+    class="my-5"
+    title="¿Qué es <a href=https://derafu.org/>Twig</a>?"
     image="{{ base_path }}/img/block-hero.jpeg"
-    description="<p>Una ramita.</p>"
+    description="Una ramita"
     :buttons="[
         {
             text: 'Aprende sobre Twig',
@@ -25,7 +26,5 @@
         }
     ]"
     size="small"
-    margin_top="2"
-    margin_bottom="3"
 />
 {% endblock %}

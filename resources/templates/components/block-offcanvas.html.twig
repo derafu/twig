@@ -1,9 +1,7 @@
 {# templates/components/block-offcanvas.html.twig #}
-<div class="offcanvas offcanvas-{{ position }} {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
+<div class="{{ container ?? 'container' }} offcanvas offcanvas-{{ position }} {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
     tabindex="-1"
-    id="{{ id }}"
     aria-labelledby="{{ id }}-label"
     {% if not backdrop %}data-bs-backdrop="false"{% endif %}
     {% if scroll %}data-bs-scroll="true"{% endif %}>

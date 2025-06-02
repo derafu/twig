@@ -3,6 +3,7 @@
 {% block content %}
 {% for theme, name in themes %}
     <twig:block-comparison
+        class="mt-5"
         :plans="[
             {
                 title: 'Plan Alfa',
@@ -68,17 +69,17 @@
                 button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma'
             }
         ]"
-        margin_bottom="4"
     />
 
     <twig:block-comparison
+        class="my-5"
         :plans="[
             {
                 title: 'Android',
                 price_icon: 'fa-brands fa-android fa-2x',
                 features: [
                     {
-                        text: 'Utiliza la aplicación con múltiples <a href=\'https://www.libredte.cl\'style=\'text-decoration: none;\'>empresas</a>'
+                        text: 'Utiliza la aplicación con múltiples <a href=\'https://www.libredte.cl\;\'>empresas</a>'
                     },
                     {
                         text: 'Emite boletas, facturas y guías de despachos'
@@ -111,7 +112,6 @@
                 highlighted: true
             }
         ]"
-        margin_top="2"
     />
 {% endfor %}
 {% endblock %}

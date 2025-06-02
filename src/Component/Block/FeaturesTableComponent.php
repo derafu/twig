@@ -20,14 +20,6 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class FeaturesTableComponent extends AbstractComponent
 {
     /**
-     * Title of the features table
-     *
-     * @var string
-     */
-    #[ExposeInTemplate()]
-    public string $title = 'Features';
-
-    /**
      * Features array containing the rows of the table
      *
      * Example structure:
@@ -46,4 +38,37 @@ class FeaturesTableComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $features = [];
+
+    /**
+     * Unique identifier for the features table component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the features table component.
+     * If null, defaults to 'container' when enabled.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the features table component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Title of the features table
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $title = 'Features';
 }

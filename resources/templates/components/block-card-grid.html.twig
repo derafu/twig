@@ -1,8 +1,7 @@
 {# templates/components/block-card-grid.html.twig #}
-<div class="derafu-block-card-grid {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-card-grid {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row g-4">
         {% for card in cards %}
             <div class="col-sm-6 {% if cols == 1 %}col-lg-12
@@ -10,9 +9,8 @@
                 {% elseif cols == 3 %}col-lg-4
                 {% elseif cols == 4 %}col-lg-3
                 {% else %}col-lg-2{% endif %}
-                {% if card.offset is not empty %}offset-lg-{{ card.offset }}{% endif %}
+                {% if offset is not null %}offset-lg-{{ offset }}{% endif %}
             ">
-
                 <div class="derafu-block-card-grid__card">
                     {% if card.image %}
                         <div class="derafu-block-card-grid__image">

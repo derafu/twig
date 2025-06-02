@@ -26,6 +26,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class TableComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the table component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the table component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Table header configuration.
      *
      * Structure per cell:

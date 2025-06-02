@@ -1,13 +1,12 @@
 {# templates/components/block-hero.html.twig #}
-<div class="derafu-block-hero derafu-block-hero--{{ size }} {{ class }}
-   {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-   {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-   {% if background is not empty %}style="background-image: url('{{ background }}')"{% endif %}
-   id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-hero derafu-block-hero--{{ size }} {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+    {% if background is not empty %}style="background-image: url('{{ background }}')"{% endif %}
+>
    <div class="derafu-block-hero__container container">
        <div class="derafu-block-hero__content derafu-block-hero__content--{{ align }}
            {% if contentBackground is not empty %}derafu-block-hero__content--with-background{% endif %}">
-           <h1 class="derafu-block-hero__title">{{ title }}</h1>
+           <h1 class="derafu-block-hero__title">{{ title|raw }}</h1>
            <div class="derafu-block-hero__subtitle">{{ subtitle|raw }}</div>
            {% if buttons is not empty %}
                <div class="derafu-block-hero__buttons">

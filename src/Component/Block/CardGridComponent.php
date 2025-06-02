@@ -33,6 +33,29 @@ class CardGridComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $cards = [];
+    /**
+     * Unique identifier for the card grid component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the card grid component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the card grid component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 
     /**
      * Number of columns in the grid layout (1, 2, 3, 4, or 6).
@@ -42,5 +65,11 @@ class CardGridComponent extends AbstractComponent
     #[ExposeInTemplate()]
     public int $cols = 4;
 
+    /**
+     * Optional offset for the grid columns.
+     *
+     * @var int|null
+     */
+    #[ExposeInTemplate()]
     public ?int $offset = null;
 }

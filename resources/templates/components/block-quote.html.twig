@@ -1,8 +1,7 @@
 {# templates/components/block-quote.html.twig #}
-<div class="derafu-block-quote {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-quote {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="derafu-block-quote__container">
         <figure class="derafu-block-quote__figure">
             <div class="derafu-block-quote__icon derafu-block-quote__icon--left">

@@ -244,6 +244,14 @@
     margin-top: 0.25rem;
 }
 
+.derafu-block-comparison__feature a {
+    text-decoration: none;
+}
+
+.derafu-block-comparison__feature a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-comparison__value {
     font-weight: bold;
 }
@@ -322,6 +330,15 @@
 .derafu-block-comparison__recommendation {
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+.derafu-block-comparison.container {
+    max-width: 1400px; /* o el ancho que uses para tu contenedor */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md, 1.5rem);
+    padding-right: var(--spacing-md, 1.5rem);
 }
 
 /* ======================================

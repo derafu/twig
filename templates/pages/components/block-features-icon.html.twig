@@ -3,15 +3,16 @@
 {% block content %}
 {# Caso 4 elementos (una fila de 4) #}
 <twig:block-features-icon
+    class="mt-5"
     :features="[
         {
             icon: 'fa-solid fa-cloud',
             title: 'Software as a Service',
-            description: 'LibreDTE es un software en la nube, requieres acceso a Internet para poder utilizarlo. <a href=https://derafu.org/>Link</a>'
+            description: 'LibreDTE es un software en la nube, requieres acceso a Internet para <a href=https://derafu.org/>poder utilizarlo.</a>'
         },
         {
             icon: 'fa-solid fa-money-bill',
-            title: 'Precio por empresa',
+            title: '<a href=https://derafu.org/>Precio</a> por empresa',
             description: 'El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.'
         },
         {
@@ -25,11 +26,11 @@
             description: 'Descripción de la característica 4.'
         }
     ]"
-    margin_bottom="4"
 />
 
 {# Caso 5 elementos (fila de 3 + fila de 2) #}
 <twig:block-features-icon
+    class="my-5"
     :features="[
         {
             icon: 'fa-solid fa-cloud',
@@ -57,12 +58,11 @@
             description: 'Descripción 5'
         }
     ]"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 {# Caso 8 elementos (dos filas de 4) #}
 <twig:block-features-icon
+    class="mb-5"
     :features="[
         {
             icon: 'fa-solid fa-cloud',
@@ -105,6 +105,5 @@
             description: 'Descripción 8'
         }
     ]"
-    margin_top="0"
 />
 {% endblock %}

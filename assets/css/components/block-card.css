@@ -171,6 +171,23 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.derafu-block-card.container {
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.derafu-block-card-grid__description a {
+  text-decoration: none;
+}
+
+.derafu-block-card-grid__description a:hover {
+  text-decoration: underline;
+}
+
 /* Estilos responsive */
 @media (max-width: 1199px) {
   .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {

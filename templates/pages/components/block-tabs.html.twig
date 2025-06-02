@@ -26,6 +26,7 @@
 {% endset %}
 
 <twig:block-tabs
+    class="mt-5"
     :tabs="[
         {
             'id': 'features',
@@ -40,10 +41,10 @@
             'content': tab_content_2
         }
     ]"
-    margin_bottom="4"
 />
 
 <twig:block-tabs
+    class="my-5"
     :tabs="[
         {
             'id': 'features2',
@@ -60,8 +61,6 @@
     ]"
     position="vertical"
     :cols="3"
-    margin_top="2"
-    margin_bottom="3"
     :with_shadow="true"
 />
 {% endblock %}

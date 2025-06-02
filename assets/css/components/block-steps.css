@@ -99,6 +99,14 @@
     line-height: var(--steps-description-line-height);
 }
 
+.derafu-block-steps__description a {
+    text-decoration: none;
+}
+
+.derafu-block-steps__description a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-steps__arrow {
     width: var(--steps-arrow-width);
     color: var(--steps-arrow-color);

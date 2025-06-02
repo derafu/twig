@@ -21,6 +21,24 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 class TextVideoComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the text-image component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the text-image component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Position of the video (right, left).
      *
      * @var string
@@ -103,11 +121,15 @@ class TextVideoComponent extends AbstractComponent
 
     /**
      * Process component data before mount.
-     * Converts YouTube URL to embed format.
+     * Converts YouTube URL to embed format and validates/generates ID.
      */
     #[PreMount]
     public function preMount(array $data): array
     {
+        // Ensure ID is set, either provided or generated
+        $data['id'] = $data['id'] ?? 'text-video-' . uniqid();
+
+        // YouTube URL processing (existing logic)
         if (isset($data['video_url'])) {
             preg_match(
                 '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/',

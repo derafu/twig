@@ -3,6 +3,7 @@
 {% block content %}
 {% for theme, name in themes %}
     <twig:block-features-table
+        class="mt-5"
         title="Características"
         :features="[
             {
@@ -89,15 +90,11 @@
                 }
             }
         ]"
-        margin_top="2"
-        margin_bottom="5"
     />
 {% endfor %}
 
-{# Nuevo ejemplo con encabezados de sección #}
-<h2 class="mt-5 mb-4">Ejemplo con Encabezados de Sección</h2>
-
 <twig:block-features-table
+    class="my-5"
     title="Comparativa de Planes"
     :features="[
         {
@@ -148,8 +145,6 @@
             }
         }
     ]"
-    margin_top="2"
-    margin_bottom="5"
 />
 
 {% endblock %}

@@ -148,6 +148,14 @@
     clear: both;
 }
 
+.derafu-block-timeline__description a {
+    text-decoration: none;
+}
+
+.derafu-block-timeline__description :hover {
+    text-decoration: underline;
+}
+
 /* Positioning Based on Line Position */
 .derafu-block-timeline__container--left .derafu-block-timeline__content {
     margin-left: 2rem;

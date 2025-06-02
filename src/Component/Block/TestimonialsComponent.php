@@ -19,17 +19,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('block-testimonials')]
 class TestimonialsComponent extends AbstractComponent
 {
-    /**
-     * Recommended width for background images.
-     */
-    public const RECOMMENDED_IMAGE_WIDTH = 1920;
-
-    /**
-     * Recommended height for background images.
-     */
-    public const RECOMMENDED_IMAGE_HEIGHT = 500;
-
-    /**
+        /**
      * Array of testimonials configurations.
      *
      * Each testimonial contains:
@@ -44,6 +34,34 @@ class TestimonialsComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $testimonials = [];
+    
+    /**
+     * Unique identifier for the testimonials component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the testimonials component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Recommended width for background images.
+     */
+    public const RECOMMENDED_IMAGE_WIDTH = 1920;
+
+    /**
+     * Recommended height for background images.
+     */
+    public const RECOMMENDED_IMAGE_HEIGHT = 500;
 
     /**
      * Enable automatic slideshow.

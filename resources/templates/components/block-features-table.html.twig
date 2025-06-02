@@ -1,8 +1,7 @@
 {# templates/components/block-features-table.html.twig #}
-<div class="derafu-block-features-table {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-features-table {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="table-responsive">
         <table class="derafu-block-features-table__table">
             <thead>
