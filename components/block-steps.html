@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Steps</h1>
                             <p class="mb-4">Step-by-step guide component with variable steps and arrow design.</p>
                                             
-                    <div class="derafu-block-steps 
-        mb-4"
-    id="block-steps--6830e544db5e9">
+                    <div class="container derafu-block-steps mt-5"
+    id="block-steps--683eeee096d11">
     <div class="derafu-block-steps__container">
                                 <div class="derafu-block-steps__step">
                 <div class="derafu-block-steps__icon">
@@ -104,9 +103,8 @@
 </div>
 
 
-<div class="derafu-block-steps 
-    mt-2    mb-3"
-    id="block-steps--6830e544dcc32">
+<div class="container derafu-block-steps my-5"
+    id="block-steps--683eeee098421">
     <div class="derafu-block-steps__container">
                                 <div class="derafu-block-steps__step">
                 <div class="derafu-block-steps__icon">
@@ -194,9 +192,8 @@
 </div>
 
 
-<div class="derafu-block-steps 
-    mt-0    "
-    id="block-steps--6830e544dcd67">
+<div class="container derafu-block-steps my-5"
+    id="block-steps--683eeee0984f6">
     <div class="derafu-block-steps__container">
                                 <div class="derafu-block-steps__step">
                 <div class="derafu-block-steps__icon">
@@ -254,9 +251,8 @@
 </div>
 
 
-<div class="derafu-block-steps 
-        "
-    id="block-steps--6830e544dce37">
+<div class="container derafu-block-steps mb-5"
+    id="block-steps--683eeee0985aa">
     <div class="derafu-block-steps__container">
                                 <div class="derafu-block-steps__step">
                 <div class="derafu-block-steps__icon">
@@ -327,6 +323,7 @@
 
 {% block content %}
 &lt;twig:block-steps
+    class=&quot;mt-5&quot;
     :steps=&quot;[
         {
             icon: &#039;fa-solid fa-list&#039;,
@@ -350,10 +347,10 @@
         }
     ]&quot;
     arrow_type=&quot;straight&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 &lt;twig:block-steps
+    class=&quot;my-5&quot;
     :steps=&quot;[
         {
             icon: &#039;fa-solid fa-list&#039;,
@@ -376,11 +373,10 @@
             description: &#039;Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.&#039;
         }
     ]&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
 /&gt;
 
 &lt;twig:block-steps
+    class=&quot;my-5&quot;
     :steps=&quot;[
         {
             icon: &#039;fa-solid fa-list&#039;,
@@ -399,10 +395,11 @@
         }
     ]&quot;
     arrow_type=&quot;straight&quot;
-    margin_top=&quot;0&quot;
+
 /&gt;
 
 &lt;twig:block-steps
+    class=&quot;mb-5&quot;
     :steps=&quot;[
         {
             icon: &#039;fa-solid fa-list&#039;,
@@ -420,7 +417,7 @@
             description: &#039;Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.&#039;
         }
     ]&quot;
-    margin=&quot;2&quot;
+
 /&gt;
 {% endblock %}</code></pre>
                     </div>

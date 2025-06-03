@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Features Grid</h1>
                             <p class="mb-4">Grid layout for key features.</p>
                                             
-                        <div class="derafu-block-features-grid 
-        mb-4"
-    id="block-features-grid--6830e54385d54">
+                        <div class="container derafu-block-features-grid my-5"
+    id="block-features-grid--683eeedf438df">
     <div class="derafu-block-features-grid__row">
                     <div class="derafu-block-features-grid__block">
                 <div class="derafu-block-features-grid__header">
@@ -123,6 +122,7 @@
 {% block content %}
 {% for theme, name in themes %}
     &lt;twig:block-features-grid
+        class=&quot;my-5&quot;
         :blocks=&quot;[
             {
                 title: &#039;Lorem&#039;,
@@ -167,7 +167,6 @@
                 ]
             }
         ]&quot;
-        margin_bottom=&quot;4&quot;
     /&gt;
 {% endfor %}
 {% endblock %}

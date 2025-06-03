@@ -23,14 +23,13 @@
                                                                                                 <h1>Block Card</h1>
                             <p class="mb-4">Card component for content display.</p>
                                             
-                                    <div class="derafu-block-card "
-     style="
-        margin-top: 20px;        margin-bottom: 30px;        margin-left: 10px;        margin-right: 10px;            ">
-    <div class="card" id="block-card--6830e543490ec">
+                                <div class="container derafu-block-card my-5"
+    id="block-card--683eeedf07e4f">
+    <div class="card">
                     <img src="../img/block-hero.jpeg" class="card-img-top" alt="Theme: Bootstrap">
                 <div class="card-body">
                             <h5 class="card-title">Theme: Bootstrap</h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a></p>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur <a href=https://derafu.org/>adipiscing elit.</a></p>
                                         <a href="https://www.example.com" class="btn btn-primary">
                     More...
                 </a>
@@ -39,52 +38,22 @@
 </div>
 
     
-        <div class="derafu-block-card "
-     style="
-                                        margin: 15px;    ">
-    <div class="card" id="block-card--6830e5434ac2e">
-                    <img src="../img/block-hero.jpeg" class="card-img-top" alt="Full Margin Example">
-                <div class="card-body">
-                            <h5 class="card-title">Full Margin Example</h5>
-                                        <p class="card-text">This card uses a shorthand margin of 15px on all sides.</p>
-                                        <a href="https://www.example.com" class="btn btn-primary">
-                    Click Me
-                </a>
-                    </div>
-    </div>
-</div>
-
-
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-card.html.twig #}
 
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
-    {# Example with individual margin controls #}
     {% for theme, name in themes %}
         &lt;twig:block-card
+            class=&quot;my-5&quot;
             image=&quot;../../img/block-hero.jpeg&quot;
             title=&quot;Theme: {{ name }}&quot;
-            description=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;a href=https://derafu.org/&gt;Link&lt;/a&gt;&quot;
+            description=&quot;Lorem ipsum dolor sit amet, consectetur &lt;a href=https://derafu.org/&gt;adipiscing elit.&lt;/a&gt;&quot;
             buttonText=&quot;More...&quot;
             buttonUrl=&quot;https://www.example.com&quot;
-            marginTop=&quot;20px&quot;
-            marginBottom=&quot;30px&quot;
-            marginLeft=&quot;10px&quot;
-            marginRight=&quot;10px&quot;
         /&gt;
     {% endfor %}
-
-    {# Example with shorthand margin #}
-    &lt;twig:block-card
-        image=&quot;../../img/block-hero.jpeg&quot;
-        title=&quot;Full Margin Example&quot;
-        description=&quot;This card uses a shorthand margin of 15px on all sides.&quot;
-        buttonText=&quot;Click Me&quot;
-        buttonUrl=&quot;https://www.example.com&quot;
-        margin=&quot;15px&quot;
-    /&gt;
 {% endblock %}
 </code></pre>
                     </div>

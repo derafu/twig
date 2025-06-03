@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Features Table</h1>
                             <p class="mb-4">Tabular feature comparison.</p>
                                             
-                        <div class="derafu-block-features-table 
-    mt-2    mb-5"
-    id="block-features-table--6830e543c2a63">
+                        <div class="container derafu-block-features-table mt-5"
+    id="block-features-table--683eeedf7f673">
     <div class="table-responsive">
         <table class="derafu-block-features-table__table">
             <thead>
@@ -240,11 +239,8 @@
 </div>
 
 
-<h2 class="mt-5 mb-4">Ejemplo con Encabezados de Sección</h2>
-
-<div class="derafu-block-features-table 
-    mt-2    mb-5"
-    id="block-features-table--6830e543c6614">
+<div class="container derafu-block-features-table my-5"
+    id="block-features-table--683eeedf83225">
     <div class="table-responsive">
         <table class="derafu-block-features-table__table">
             <thead>
@@ -369,6 +365,7 @@
 {% block content %}
 {% for theme, name in themes %}
     &lt;twig:block-features-table
+        class=&quot;mt-5&quot;
         title=&quot;Características&quot;
         :features=&quot;[
             {
@@ -455,15 +452,11 @@
                 }
             }
         ]&quot;
-        margin_top=&quot;2&quot;
-        margin_bottom=&quot;5&quot;
     /&gt;
 {% endfor %}
 
-{# Nuevo ejemplo con encabezados de sección #}
-&lt;h2 class=&quot;mt-5 mb-4&quot;&gt;Ejemplo con Encabezados de Sección&lt;/h2&gt;
-
 &lt;twig:block-features-table
+    class=&quot;my-5&quot;
     title=&quot;Comparativa de Planes&quot;
     :features=&quot;[
         {
@@ -514,8 +507,6 @@
             }
         }
     ]&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;5&quot;
 /&gt;
 
 {% endblock %}

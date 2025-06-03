@@ -25,10 +25,9 @@
                                             
                     
 
-<nav class="derafu-block-header navbar navbar-expand-lg
-        
-        mb-4"
-               id="block-header--6830e54417e31">
+<nav class="container derafu-block-header navbar navbar-expand-lg
+            "
+    id="block-header--683eeedfc8d8a">
     <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="block-header.html">
                             <img src="../img/block-hero.jpeg" alt="Logo" style="max-width: 150px;">
@@ -133,10 +132,9 @@
 
 
 
-<nav class="derafu-block-header navbar navbar-expand-lg
-        
-    mt-2    mb-3"
-               id="block-header--6830e5441f379">
+<nav class="container derafu-block-header navbar navbar-expand-lg
+            "
+    id="block-header--683eeedfcffbb">
     <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="block-header.html">
                             <img src="../img/block-hero.jpeg" alt="Logo" style="max-width: 150px;">
@@ -197,6 +195,7 @@
 
 {% block content %}
 &lt;twig:block-header
+    class=&quot;mt-0&quot;
     logoImage=&quot;../../img/block-hero.jpeg&quot;
     logoHtml=&quot;&lt;span class=&#039;fw-normal&#039;&gt;Libre&lt;/span&gt;&lt;span class=&#039;fw-bold text-primary&#039;&gt;DTE&lt;/span&gt;&quot;
     :leftNav=&quot;[
@@ -268,10 +267,10 @@
     ctaIcon=&quot;fa-solid fa-rocket&quot;
     ctaText=&quot;Comenzar&quot;
     ctaUrl=&quot;#&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 &lt;twig:block-header
+    class=&quot;my-5&quot;
     logoImage=&quot;../../img/block-hero.jpeg&quot;
     logoHtml=&quot;&lt;span class=&#039;fw-normal&#039;&gt;Otro&lt;/span&gt;&lt;span class=&#039;fw-bold text-primary&#039;&gt;Ejemplo&lt;/span&gt;&quot;
     :leftNav=&quot;[
@@ -299,8 +298,6 @@
     ]&quot;
     ctaText=&quot;Explora&quot;
     ctaUrl=&quot;#&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
 /&gt;
 {% endblock %}
 </code></pre>

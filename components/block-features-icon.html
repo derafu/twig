@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Features Icon</h1>
                             <p class="mb-4">Icon-based feature display.</p>
                                             
-                    <div class="derafu-block-features-icon 
-        mb-4"
-    id="block-features-icon--6830e54399526">
+                    <div class="container derafu-block-features-icon mt-5"
+    id="block-features-icon--683eeedf56afe">
     
                         
                 
@@ -39,14 +38,14 @@
                         </div>
                         <h3 class="derafu-block-features-icon__title">Software as a Service</h3>
                         <div class="derafu-block-features-icon__description">
-                            LibreDTE es un software en la nube, requieres acceso a Internet para poder utilizarlo. <a href=https://derafu.org/>Link</a>
+                            LibreDTE es un software en la nube, requieres acceso a Internet para <a href=https://derafu.org/>poder utilizarlo.</a>
                         </div>
                     </div>
                                                         <div class="derafu-block-features-icon__item derafu-block-features-icon__item--4">
                         <div class="derafu-block-features-icon__icon">
                             <i class="fa-solid fa-money-bill"></i>
                         </div>
-                        <h3 class="derafu-block-features-icon__title">Precio por empresa</h3>
+                        <h3 class="derafu-block-features-icon__title"><a href=https://derafu.org/>Precio</a> por empresa</h3>
                         <div class="derafu-block-features-icon__description">
                             El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.
                         </div>
@@ -73,10 +72,8 @@
 
                                                 </div>
 
-
-<div class="derafu-block-features-icon 
-    mt-2    mb-3"
-    id="block-features-icon--6830e5439c863">
+<div class="container derafu-block-features-icon my-5"
+    id="block-features-icon--683eeedf59e63">
     
             
                 
@@ -139,10 +136,8 @@
 
                                                 </div>
 
-
-<div class="derafu-block-features-icon 
-    mt-0    "
-    id="block-features-icon--6830e5439c9ac">
+<div class="container derafu-block-features-icon mb-5"
+    id="block-features-icon--683eeedf59f48">
     
                         
                 
@@ -232,7 +227,6 @@
 
                                                             </div>
 
-
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-features-icon.html.twig #}
 
@@ -241,15 +235,16 @@
 {% block content %}
 {# Caso 4 elementos (una fila de 4) #}
 &lt;twig:block-features-icon
+    class=&quot;mt-5&quot;
     :features=&quot;[
         {
             icon: &#039;fa-solid fa-cloud&#039;,
             title: &#039;Software as a Service&#039;,
-            description: &#039;LibreDTE es un software en la nube, requieres acceso a Internet para poder utilizarlo. &lt;a href=https://derafu.org/&gt;Link&lt;/a&gt;&#039;
+            description: &#039;LibreDTE es un software en la nube, requieres acceso a Internet para &lt;a href=https://derafu.org/&gt;poder utilizarlo.&lt;/a&gt;&#039;
         },
         {
             icon: &#039;fa-solid fa-money-bill&#039;,
-            title: &#039;Precio por empresa&#039;,
+            title: &#039;&lt;a href=https://derafu.org/&gt;Precio&lt;/a&gt; por empresa&#039;,
             description: &#039;El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.&#039;
         },
         {
@@ -263,11 +258,11 @@
             description: &#039;Descripción de la característica 4.&#039;
         }
     ]&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 {# Caso 5 elementos (fila de 3 + fila de 2) #}
 &lt;twig:block-features-icon
+    class=&quot;my-5&quot;
     :features=&quot;[
         {
             icon: &#039;fa-solid fa-cloud&#039;,
@@ -295,12 +290,11 @@
             description: &#039;Descripción 5&#039;
         }
     ]&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
 /&gt;
 
 {# Caso 8 elementos (dos filas de 4) #}
 &lt;twig:block-features-icon
+    class=&quot;mb-5&quot;
     :features=&quot;[
         {
             icon: &#039;fa-solid fa-cloud&#039;,
@@ -343,7 +337,6 @@
             description: &#039;Descripción 8&#039;
         }
     ]&quot;
-    margin_top=&quot;0&quot;
 /&gt;
 {% endblock %}
 </code></pre>

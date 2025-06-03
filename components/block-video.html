@@ -23,9 +23,9 @@
                                                                                                 <h1>Block Video</h1>
                             <p class="mb-4">Video player component.</p>
                                             
-                    <div class="derafu-block-video 
-        mb-4">
-            <div class="derafu-block-video__wrapper derafu-block-video--center derafu-block-video--normal derafu-block-video--center" id="block-video--6830e545bc089-0">
+                    <div class="container derafu-block-video mt-2"
+    id="block-video--683eeee1759f8">
+            <div class="derafu-block-video__wrapper derafu-block-video--center derafu-block-video--normal derafu-block-video--center" id="block-video--683eeee1759f8-0">
                             <h2 class="derafu-block-video__title">Lorem ipsum dolor sit amet</h2>
             
             <div class="derafu-block-video__media">
@@ -39,7 +39,7 @@
             </div>
 
                             <div class="derafu-block-video__description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <a href=https://www.billmysales.com/>Link</a>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <a href=https://www.billmysales.com/>nulla pariatur.</a>
                 </div>
             
                             <div class="derafu-block-video__buttons">
@@ -51,9 +51,9 @@
     </div>
 
 
-<div class="derafu-block-video 
-    mt-2    mb-3">
-            <div class="derafu-block-video__wrapper derafu-block-video--center derafu-block-video--small derafu-block-video--center" id="block-video--6830e545be592-0">
+<div class="container derafu-block-video my-2"
+    id="block-video--683eeee1780a0">
+            <div class="derafu-block-video__wrapper derafu-block-video--center derafu-block-video--small derafu-block-video--center" id="block-video--683eeee1780a0-0">
                             <h2 class="derafu-block-video__title">Lorem ipsum dolor sit amet</h2>
             
             <div class="derafu-block-video__media">
@@ -86,11 +86,12 @@
 
 {% block content %}
 &lt;twig:block-video
+    class=&quot;mt-2&quot;
     :video=&quot;[
         {
             title: &#039;Lorem ipsum dolor sit amet&#039;,
             video: &#039;https://www.youtube.com/watch?v=v96l-cezK8I&#039;,
-            description: &#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. &lt;a href=https://www.billmysales.com/&gt;Link&lt;/a&gt;&#039;,
+            description: &#039;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat &lt;a href=https://www.billmysales.com/&gt;nulla pariatur.&lt;/a&gt;&#039;,
             buttons: [
                 {
                     text: &#039;Ver más&#039;,
@@ -101,10 +102,10 @@
             align: &#039;center&#039;
         }
     ]&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 &lt;twig:block-video
+    class=&quot;my-2&quot;
     :video=&quot;[
         {
             title: &#039;Lorem ipsum dolor sit amet&#039;,
@@ -120,8 +121,6 @@
             align: &#039;center&#039;
         }
     ]&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
 /&gt;
 {% endblock %}
 </code></pre>

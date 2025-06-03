@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Comparison</h1>
                             <p class="mb-4">Side-by-side comparison.</p>
                                             
-                        <div class="derafu-block-comparison 
-        mb-4"
-    id="block-comparison--6830e54371d3c">
+                        <div class="container derafu-block-comparison mt-5"
+    id="block-comparison--683eeedf2f980">
     <div class="row g-4">
                     <div class="col-12 col-lg-4
                 ">
@@ -158,9 +157,9 @@
     </script>
 </div>
 
-    <div class="derafu-block-comparison 
-    mt-2    "
-    id="block-comparison--6830e5437493e">
+
+    <div class="container derafu-block-comparison my-5"
+    id="block-comparison--683eeedf326d3">
     <div class="row g-4">
                     <div class="col-12 col-lg-6
                 ">
@@ -179,7 +178,7 @@
                                         <div class="derafu-block-comparison__features">
                                                     <div class="derafu-block-comparison__feature"
                                                                 >
-                                                                <span class="derafu-block-comparison__text">Utiliza la aplicación con múltiples <a href='https://www.libredte.cl'style='text-decoration: none;'>empresas</a></span>
+                                                                <span class="derafu-block-comparison__text">Utiliza la aplicación con múltiples <a href='https://www.libredte.cl;'>empresas</a></span>
                             </div>
                                                     <div class="derafu-block-comparison__feature"
                                                                 >
@@ -248,6 +247,7 @@
     </script>
 </div>
 
+
                                                             <div class="mt-4 mb-4">
                         <pre><code class="line-numbers language-twig">{# derafu_twig:templates/pages/components/block-comparison.html.twig #}
 
@@ -256,6 +256,7 @@
 {% block content %}
 {% for theme, name in themes %}
     &lt;twig:block-comparison
+        class=&quot;mt-5&quot;
         :plans=&quot;[
             {
                 title: &#039;Plan Alfa&#039;,
@@ -321,17 +322,17 @@
                 button_url: &#039;https://bhexpress.cl/usuarios/registrar?plan=gamma&#039;
             }
         ]&quot;
-        margin_bottom=&quot;4&quot;
     /&gt;
 
     &lt;twig:block-comparison
+        class=&quot;my-5&quot;
         :plans=&quot;[
             {
                 title: &#039;Android&#039;,
                 price_icon: &#039;fa-brands fa-android fa-2x&#039;,
                 features: [
                     {
-                        text: &#039;Utiliza la aplicación con múltiples &lt;a href=\&#039;https://www.libredte.cl\&#039;style=\&#039;text-decoration: none;\&#039;&gt;empresas&lt;/a&gt;&#039;
+                        text: &#039;Utiliza la aplicación con múltiples &lt;a href=\&#039;https://www.libredte.cl\;\&#039;&gt;empresas&lt;/a&gt;&#039;
                     },
                     {
                         text: &#039;Emite boletas, facturas y guías de despachos&#039;
@@ -364,7 +365,6 @@
                 highlighted: true
             }
         ]&quot;
-        margin_top=&quot;2&quot;
     /&gt;
 {% endfor %}
 {% endblock %}

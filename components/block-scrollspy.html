@@ -32,8 +32,8 @@
     <h2 class="mt-5 mb-4">Scrollspy Vertical</h2>
     <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
-    <div class="derafu-block-scrollspy row shadow-none        mb-4"
-    style="--scrollspy-list-active-bg: #0066cc;">
+    <div class="container derafu-block-scrollspy row shadow-none mt-5"
+    id="block-scrollspy--683eeee06e632"    style="--scrollspy-list-active-bg: #0066cc;">
 
     <div class="derafu-block-scrollspy__list col-md-3 col-12">
     <div id="list-scrollspy-vertical"
@@ -146,21 +146,22 @@
     window.addEventListener('resize', adjustScrollspy);
   });
 </script>
+
 </div>
 
 <div class="container">
-    <h2 class="mt-5 mb-4">Lorem ipsum</h2>
+    <h2 class="mt-5 mb-4">Scrollspy Horizontal</h2>
     <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
-    <div class="derafu-block-scrollspy row shadow    mt-2    mb-3"
-    style="--scrollspy-list-active-bg: #6610f2;">
+    <div class="container derafu-block-scrollspy row shadow my-5"
+    id="block-scrollspy--683eeee071387"    style="--scrollspy-list-active-bg: #6610f2;">
 
     <div class="derafu-block-scrollspy__list col-md-12 col-12">
     <div id="list-scrollspy-horizontal"
          class="list-group list-group-horizontal">
               <div class="derafu-block-scrollspy__list-item">
           <a class="list-group-item list-group-item-action" href="block-scrollspy.html#introduccion-h">
-                        Lorem Lorem ipsum dolor sit amet
+                        Lorem ipsum dolor sit amet
                       </a>
         </div>
               <div class="derafu-block-scrollspy__list-item">
@@ -192,7 +193,7 @@
          class="scrollspy-example p-3"
          tabindex="0">
               <div id="introduccion-h" class="derafu-block-scrollspy__section mb-4">
-          <h4 class="mb-3 pb-2 border-bottom">Lorem Lorem ipsum dolor sit amet</h4>
+          <h4 class="mb-3 pb-2 border-bottom">Lorem ipsum dolor sit amet</h4>
           <div class="derafu-block-scrollspy__section-content">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
@@ -284,6 +285,7 @@
     window.addEventListener('resize', adjustScrollspy);
   });
 </script>
+
 </div>
 
                                                             <div class="mt-4 mb-4">
@@ -351,6 +353,7 @@
     &lt;p class=&quot;mb-4&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.&lt;/p&gt;
 
     &lt;twig:block-scrollspy
+        class=&quot;shadow-none mt-5&quot;
         height=&quot;100vh&quot;
         :sections=&quot;[
             {
@@ -370,23 +373,22 @@
             }
         ]&quot;
         :cols=&quot;3&quot;
-        class=&quot;shadow-none&quot;
         style=&quot;--scrollspy-list-active-bg: #0066cc;&quot;
-        margin_bottom=&quot;4&quot;
     /&gt;
 &lt;/div&gt;
 
 {# Example 2: Horizontal Scrollspy #}
 &lt;div class=&quot;container&quot;&gt;
-    &lt;h2 class=&quot;mt-5 mb-4&quot;&gt;Lorem ipsum&lt;/h2&gt;
+    &lt;h2 class=&quot;mt-5 mb-4&quot;&gt;Scrollspy Horizontal&lt;/h2&gt;
     &lt;p class=&quot;mb-4&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.&lt;/p&gt;
 
     &lt;twig:block-scrollspy
+        class=&quot;shadow my-5&quot;
         height=&quot;300px&quot;
         :sections=&quot;[
             {
                 &#039;id&#039;: &#039;introduccion-h&#039;,
-                &#039;title&#039;: &#039;Lorem Lorem ipsum dolor sit amet&#039;,
+                &#039;title&#039;: &#039;Lorem ipsum dolor sit amet&#039;,
                 &#039;content&#039;: section_content_introduccion,
             },
             {
@@ -407,10 +409,7 @@
         ]&quot;
         orientation=&quot;horizontal&quot;
         :cols=&quot;12&quot;
-        class=&quot;shadow&quot;
         style=&quot;--scrollspy-list-active-bg: #6610f2;&quot;
-        margin_top=&quot;2&quot;
-        margin_bottom=&quot;3&quot;
     /&gt;
 &lt;/div&gt;
 {% endblock %}

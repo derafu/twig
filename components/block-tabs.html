@@ -25,9 +25,8 @@
                                             
                     
 
-<div class="derafu-block-tabs 
-        mb-4"
-    id="block-tabs--6830e545199fe">
+<div class="container derafu-block-tabs mt-5"
+    id="block-tabs--683eeee0c831a">
             <nav class="nav nav-pills nav-justified">
                             <button class="nav-link active"
                         id="tab-features"
@@ -58,12 +57,8 @@
                     role="tabpanel"
                     aria-labelledby="tab-features"
                     tabindex="0">
-                        <div class="derafu-block-text-image
-    derafu-block-text-image--in-tabs
-    
-    
-    "
-    id="block-text-image--6830e54517e22">
+                        <div class="container derafu-block-text-image "
+    id="block-text-image--683eeee0c67df">
     <div class="row align-items-center">
                 <div class="col-md-7 ">
             <div class="derafu-block-text-image__content">
@@ -105,9 +100,8 @@
     </div>
 
 
-<div class="derafu-block-tabs 
-    mt-2    mb-3"
-    id="block-tabs--6830e5451d96f">
+<div class="container derafu-block-tabs my-5"
+    id="block-tabs--683eeee0cc285">
             <div class="row">
             <div class="col-3">
                 <nav class="nav nav-pills flex-column">
@@ -142,12 +136,8 @@
                             role="tabpanel"
                             aria-labelledby="tab-features2"
                             tabindex="0">
-                                <div class="derafu-block-text-image
-    derafu-block-text-image--in-tabs
-    
-    
-    "
-    id="block-text-image--6830e54517e22">
+                                <div class="container derafu-block-text-image "
+    id="block-text-image--683eeee0c67df">
     <div class="row align-items-center">
                 <div class="col-md-7 ">
             <div class="derafu-block-text-image__content">
@@ -222,6 +212,7 @@
 {% endset %}
 
 &lt;twig:block-tabs
+    class=&quot;mt-5&quot;
     :tabs=&quot;[
         {
             &#039;id&#039;: &#039;features&#039;,
@@ -236,10 +227,10 @@
             &#039;content&#039;: tab_content_2
         }
     ]&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 &lt;twig:block-tabs
+    class=&quot;my-5&quot;
     :tabs=&quot;[
         {
             &#039;id&#039;: &#039;features2&#039;,
@@ -256,8 +247,6 @@
     ]&quot;
     position=&quot;vertical&quot;
     :cols=&quot;3&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
     :with_shadow=&quot;true&quot;
 /&gt;
 {% endblock %}

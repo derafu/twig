@@ -23,12 +23,8 @@
                                                                                                 <h1>Block Text Image</h1>
                             <p class="mb-4">Combined text and image layout.</p>
                                             
-                    <div class="derafu-block-text-image
-    
-    mt-0
-    mb-1
-    "
-    id="block-text-image--6830e5455a669">
+                    <div class="container derafu-block-text-image mt-5"
+    id="block-text-image--683eeee115b2b">
     <div class="row align-items-center">
                 <div class="col-md-7 ">
             <div class="derafu-block-text-image__content">
@@ -55,12 +51,8 @@
     </div>
 </div>
 
-<div class="derafu-block-text-image
-    
-    
-    mb-0
-    "
-    id="block-text-image--6830e5455c245">
+<div class="container derafu-block-text-image my-5"
+    id="block-text-image--683eeee1175c6">
     <div class="row align-items-center">
                 <div class="col-md-7 order-md-2">
             <div class="derafu-block-text-image__content">
@@ -92,6 +84,7 @@
 
 {% block content %}
 &lt;twig:block-text-image
+    class=&quot;mt-5&quot;
     image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
     title=&quot;Lorem ipsum dolor sit amet&quot;
     content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.&lt;/p&gt;&lt;p&gt;Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare &lt;a href=https://derafu.org/&gt;tellus&lt;/a&gt; dignissim.&lt;/p&gt;&quot;
@@ -105,10 +98,9 @@
             url: &#039;https://www.example.com&#039;
         }
     ]&quot;
-    margin_top=&quot;0&quot;
-    margin_bottom=&quot;1&quot;
 /&gt;
 &lt;twig:block-text-image
+    class=&quot;my-5&quot;
     image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
     title=&quot;Lorem ipsum dolor sit amet&quot;
     content=&quot;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.&lt;/p&gt;&lt;p&gt;Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.&lt;/p&gt;&quot;
@@ -119,7 +111,6 @@
         }
     ]&quot;
     image_position=&quot;left&quot;
-    margin_bottom=&quot;0&quot;
 /&gt;
 {% endblock %}
 </code></pre>

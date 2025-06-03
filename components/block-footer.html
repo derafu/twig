@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Footer</h1>
                             <p class="mb-4">Page footer component with various layouts.</p>
                                             
-                            <footer class="derafu-block-footer 
-        mb-5"
-    id="block-footer--6830e543dab33">
+                            <footer class="container-fluid derafu-block-footer mt-5"
+    id="block-footer--683eeedf97197">
     <div class="container">
         <div class="row">
                                         <div class="col">
@@ -59,7 +58,7 @@
                                                         </div>
             
                                         <div class="col">
-                                                                <h5 class="derafu-block-footer__title mb-4">Productos de software</h5>
+                                            <h5 class="derafu-block-footer__title mb-4">Productos de software</h5>
                                                                                     <ul class="derafu-block-footer__links list-unstyled">
                                                             <li>
                                     <a href="block-footer.html#" >
@@ -83,7 +82,7 @@
                                                         </div>
             
                                         <div class="col">
-                                                                <h5 class="derafu-block-footer__title mb-4">Contáctanos</h5>
+                                            <h5 class="derafu-block-footer__title mb-4">Contáctanos</h5>
                                                                                     <ul class="derafu-block-footer__links list-unstyled">
                                                             <li>
                                     <a href="mailto:derafu-twig@example.com" >
@@ -107,7 +106,7 @@
                                                         </div>
             
                                         <div class="col">
-                                                                <h5 class="derafu-block-footer__title mb-4">Derafu ORG</h5>
+                                            <h5 class="derafu-block-footer__title mb-4">Derafu ORG</h5>
                                                                 <div class="derafu-block-footer__text mb-4"><p>Santa Cruz, Chile.</p><p>Desde Chile para todo el mundo con ❤️</p></div>
                                                                                     <div class="derafu-block-footer__social mt-4">
                                                             <a href="block-footer.html#"
@@ -140,9 +139,8 @@
     </footer>
 
 
-        <footer class="derafu-block-footer derafu-theme-bootstrap
-    mt-2    mb-5"
-    id="block-footer--6830e543e37f1">
+        <footer class="container-fluid derafu-block-footer derafu-theme-bootstrap  my-5"
+    id="block-footer--683eeedf9f998">
     <div class="container">
         <div class="row">
                                         <div class="col">
@@ -163,7 +161,7 @@
                                                         </div>
             
                                         <div class="col">
-                                                                <h5 class="derafu-block-footer__title mb-4">Enlaces Rápidos</h5>
+                                            <h5 class="derafu-block-footer__title mb-4">Enlaces Rápidos</h5>
                                                                                     <ul class="derafu-block-footer__links list-unstyled">
                                                             <li>
                                     <a href="block-footer.html#" >
@@ -196,9 +194,8 @@
     </footer>
 
 
-        <footer class="derafu-block-footer derafu-theme-bootstrap
-    mt-2    "
-    id="block-footer--6830e543e3a7a">
+        <footer class="container-fluid derafu-block-footer derafu-theme-bootstrap  mb-5"
+    id="block-footer--683eeedf9fbcb">
     <div class="container">
         <div class="row">
                                         <div class="col">
@@ -229,7 +226,7 @@
                                     </div>
             
                                         <div class="col">
-                                                                <h5 class="derafu-block-footer__title mb-4">Comunidad</h5>
+                                            <h5 class="derafu-block-footer__title mb-4">Comunidad</h5>
                                                                                     <ul class="derafu-block-footer__links list-unstyled">
                                                             <li>
                                     <a href="block-footer.html#" >
@@ -292,6 +289,7 @@
 {% for theme, name in themes %}
     {# Ejemplo 1: Footer Completo con 4 columnas #}
     &lt;twig:block-footer
+        class=&quot;mt-5&quot;
         col1Title=&quot;Enlaces útiles&quot;
         :col1Links=&quot;[
             {
@@ -375,11 +373,11 @@
         leftText=&quot;Copyright © Derafu ORG (Theme: {{ name }})&quot;
         rightText=&quot;Todos los derechos reservados&quot;
         socialIconsCircular=&quot;true&quot;
-        margin_bottom=&quot;5&quot;
     /&gt;
 
     {# Ejemplo 2: Footer Minimalista con 2 columnas #}
     &lt;twig:block-footer
+        class=&quot;my-5&quot;
         col1Title=&quot;Nuestra Empresa&quot;
         col1Html=&quot;&lt;p&gt;Soluciones de software innovadoras para empresas modernas.&lt;/p&gt;&quot;
         :col1Links=&quot;[
@@ -407,12 +405,11 @@
 
         leftText=&quot;© 2024 Derafu ORG (Theme: {{ name }})&quot;
         theme=&quot;{{ theme }}&quot;
-        margin_top=&quot;2&quot;
-        margin_bottom=&quot;5&quot;
     /&gt;
 
     {# Ejemplo 3: Footer con énfasis en redes sociales #}
     &lt;twig:block-footer
+        class=&quot;mb-5&quot;
         col1Title=&quot;Síguenos&quot;
         col1Html=&quot;&lt;p&gt;Mantente conectado con nosotros en redes sociales&lt;/p&gt;&quot;
         :col1SocialIcons=&quot;[
@@ -478,7 +475,6 @@
         leftText=&quot;Únete a nuestra comunidad (Theme: {{ name }})&quot;
         rightText=&#039;&lt;a href=&quot;#&quot;&gt;Política de Privacidad&lt;/a&gt; | &lt;a href=&quot;#&quot;&gt;Términos de Uso&lt;/a&gt;&#039;
         theme=&quot;{{ theme }}&quot;
-        margin_top=&quot;2&quot;
     /&gt;
 {% endfor %}
 {% endblock %}

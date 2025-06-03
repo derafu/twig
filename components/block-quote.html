@@ -23,9 +23,8 @@
                                                                                                 <h1>Block Quote</h1>
                             <p class="mb-4">Styled blockquote component.</p>
                                             
-                        <div class="derafu-block-quote 
-        "
-    id="block-quote--6830e5449c27f">
+                        <div class="container derafu-block-quote mt-5"
+    id="block-quote--683eeee0579ed">
     <div class="derafu-block-quote__container">
         <figure class="derafu-block-quote__figure">
             <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
@@ -51,9 +50,8 @@
 </div>
 
 
-<div class="derafu-block-quote 
-    mt-2    mb-3"
-    id="block-quote--6830e5449d46a">
+<div class="container derafu-block-quote my-5"
+    id="block-quote--683eeee058cd1">
     <div class="derafu-block-quote__container">
         <figure class="derafu-block-quote__figure">
             <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
@@ -68,7 +66,7 @@
             <div class="derafu-block-quote__author">
                                 <div class="derafu-block-quote__author-info">
                                             <span class="derafu-block-quote__author-name">Jane Smith</span>
-                                                                <span class="derafu-block-quote__author-source">Ejemplo de cita</span>
+                                                                <span class="derafu-block-quote__author-source"><a href=https://derafu.org/>Ejemplo de cita</a></span>
                                     </div>
             </div>
         </figure>
@@ -76,9 +74,8 @@
 </div>
 
 
-<div class="derafu-block-quote 
-    mt-0    "
-    id="block-quote--6830e5449d5bd">
+<div class="container derafu-block-quote mb-5"
+    id="block-quote--683eeee058d7d">
     <div class="derafu-block-quote__container">
         <figure class="derafu-block-quote__figure">
             <div class="derafu-block-quote__icon derafu-block-quote__icon--left">
@@ -108,28 +105,27 @@
 {% block content %}
 {% for theme, name in themes %}
     &lt;twig:block-quote
+        class=&quot;mt-5&quot;
         quote=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing &lt;a href=https://derafu.org/&gt;elit&lt;/a&gt;.&quot;
         author=&quot;John Doe&quot;
         source=&quot;Theme: {{ name }}&quot;
         image=&quot;../../img/block-hero.jpeg&quot;
-        margin=&quot;4&quot;
     /&gt;
 {% endfor %}
 
 {# Ejemplo con márgenes individuales #}
 &lt;twig:block-quote
+    class=&quot;my-5&quot;
     quote=&quot;Otra cita de ejemplo con márgenes personalizados.&quot;
     author=&quot;Jane Smith&quot;
-    source=&quot;Ejemplo de cita&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
+    source=&quot;&lt;a href=https://derafu.org/&gt;Ejemplo de cita&lt;/a&gt;&quot;
 /&gt;
 
 {# Ejemplo sin márgenes #}
 &lt;twig:block-quote
+    class=&quot;mb-5&quot;
     quote=&quot;Una cita sin márgenes especiales.&quot;
     author=&quot;Anonymous&quot;
-    margin_top=&quot;0&quot;
 /&gt;
 {% endblock %}</code></pre>
                     </div>

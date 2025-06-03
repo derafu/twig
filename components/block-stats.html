@@ -23,16 +23,15 @@
                                                                                                 <h1>Block Stats</h1>
                             <p class="mb-4">Display of statistical data.</p>
                                             
-                    <div class="derafu-block-stats  derafu-block-stats--bottom
-        mb-4"
-    id="block-stats--6830e544c7af9">
+                    <div class="container derafu-block-stats mt-5 derafu-block-stats--bottom"
+    id="block-stats--683eeee0834d1">
     <div class="row justify-content-center">
                                 <div class="col-6 col-md-4 col-lg-3">
                 <div class="derafu-block-stats__item">
                     
                     <div class="derafu-block-stats__number">$40.000</div>
 
-                                            <div class="derafu-block-stats__text">Precio base hasta cuota de 2.000 documentos</div>
+                                            <div class="derafu-block-stats__text">Precio base hasta cuota de 2.000 <a href=https://derafu.org/>documentos</a href></div>
                                     </div>
             </div>
                                 <div class="col-6 col-md-4 col-lg-3">
@@ -63,9 +62,8 @@
 </div>
 
 
-<div class="derafu-block-stats  derafu-block-stats--top
-    mt-2    mb-3"
-    id="block-stats--6830e544c918a">
+<div class="container derafu-block-stats my-5 derafu-block-stats--top"
+    id="block-stats--683eeee084bcc">
     <div class="row justify-content-center">
                                 <div class="col-6 col-md-4 col-lg-3">
                 <div class="derafu-block-stats__item">
@@ -103,9 +101,8 @@
 </div>
 
 
-<div class="derafu-block-stats  derafu-block-stats--bottom
-    mt-0    "
-    id="block-stats--6830e544c92fc">
+<div class="container derafu-block-stats my-5 derafu-block-stats--bottom"
+    id="block-stats--683eeee084ce1">
     <div class="row justify-content-center">
                                 <div class="col-6 col-md-4 col-lg-20">
                 <div class="derafu-block-stats__item">
@@ -151,9 +148,8 @@
 </div>
 
 
-<div class="derafu-block-stats  derafu-block-stats--bottom
-    mt-2    "
-    id="block-stats--6830e544c93ab">
+<div class="container derafu-block-stats mb-5 derafu-block-stats--bottom"
+    id="block-stats--683eeee084d87">
     <div class="row justify-content-center">
                                 <div class="col-6 col-md-4 col-lg-2">
                 <div class="derafu-block-stats__item">
@@ -214,10 +210,11 @@
 
 {% block content %}
 &lt;twig:block-stats
+    class=&quot;mt-5&quot;
     :stats=&quot;[
         {
             number: &#039;$40.000&#039;,
-            text: &#039;Precio base hasta cuota de 2.000 documentos&#039;
+            text: &#039;Precio base hasta cuota de 2.000 &lt;a href=https://derafu.org/&gt;documentos&lt;/a href&gt;&#039;
         },
         {
             number: &#039;$15&#039;,
@@ -232,10 +229,10 @@
             text: &#039;Uptime garantizado&#039;
         }
     ]&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 &lt;twig:block-stats
+    class=&quot;my-5&quot;
     :stats=&quot;[
         {
             number: &#039;$40.000&#039;,
@@ -255,11 +252,10 @@
         }
     ]&quot;
     text_position=&quot;top&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
 /&gt;
 
 &lt;twig:block-stats
+    class=&quot;my-5&quot;
     :stats=&quot;[
         {
             number: &#039;$40.000&#039;,
@@ -282,10 +278,10 @@
             text: &#039;Uptime garantizado&#039;
         }
     ]&quot;
-    margin_top=&quot;0&quot;
 /&gt;
 
 &lt;twig:block-stats
+    class=&quot;mb-5&quot;
     :stats=&quot;[
         {
             number: &#039;1.000&#039;,
@@ -312,7 +308,7 @@
             text: &#039;Países&#039;
         }
     ]&quot;
-    margin_top=&quot;2&quot;
+
 /&gt;
 {% endblock %}</code></pre>
                     </div>

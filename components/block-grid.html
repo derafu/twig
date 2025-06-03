@@ -26,9 +26,9 @@
                     
 
 
-<div class="derafu-block-grid 
-        mb-4"
-    id="block-grid--6830e54402a95">
+
+<div class="container-fluid derafu-block-grid mt-5"
+    id="block-grid--683eeedfb37f6">
             
                         
                                 
@@ -38,13 +38,12 @@
                 <div class="derafu-block-grid__row">
                                                                     <div class="derafu-block-grid__item derafu-block-grid__item--2">
                                 <h2>Item 1</h2>
-    <p>Descripción... <a href="https://derafu.org/">Link</a></p>
+    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://derafu.org/">tempus gravida.</a></p>
 
                         </div>
                                                                     <div class="derafu-block-grid__item derafu-block-grid__item--2">
-                                <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium
-        "
-    id="block-image--6830e54401240">
+                                <div class="container derafu-block-image derafu-block-image--center derafu-block-image--medium "
+    id="block-image--683eeedfb1e51">
     <div class="derafu-block-image__wrapper">
                     <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
@@ -71,19 +70,65 @@
                                                         </div>
 
 
-<div class="derafu-block-grid 
-    mt-2    mb-3"
-    id="block-grid--6830e54405955">
+<div class="container-fluid derafu-block-grid my-5"
+    id="block-grid--683eeedfb67d1">
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
                             <div class="derafu-block-grid__item">
                         <h2>Item 1</h2>
-    <p>Descripción... <a href="https://derafu.org/">Link</a></p>
+    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://derafu.org/">tempus gravida.</a></p>
 
                 </div>
                             <div class="derafu-block-grid__item">
-                        <div class="derafu-block-image  derafu-block-image--center derafu-block-image--medium
-        "
-    id="block-image--6830e54401240">
+                        <div class="container derafu-block-image derafu-block-image--center derafu-block-image--medium "
+    id="block-image--683eeedfb1e51">
+    <div class="derafu-block-image__wrapper">
+                    <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
+        
+        <div class="derafu-block-image__image">
+            <img src="../img/block-hero.jpeg" alt="¿Qué es Twig?" class="img-fluid">
+        </div>
+
+                    <div class="derafu-block-image__description">
+                <p>Una ramita.</p>
+            </div>
+        
+                    <div class="derafu-block-image__buttons">
+                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button">
+                        Aprende sobre Twig
+                    </a>
+                            </div>
+            </div>
+</div>
+
+
+                </div>
+                            <div class="derafu-block-grid__item">
+                        <div class="container derafu-block-image derafu-block-image--center derafu-block-image--medium "
+    id="block-image--683eeedfb3713">
+    <div class="derafu-block-image__wrapper">
+                    <h2 class="derafu-block-image__title">Lorem ipsum</h2>
+        
+        <div class="derafu-block-image__image">
+            <img src="../img/block-hero.jpeg" alt="Lorem ipsum" class="img-fluid">
+        </div>
+
+                    <div class="derafu-block-image__description">
+                <p>Dolor sit amet</p>
+            </div>
+        
+                    <div class="derafu-block-image__buttons">
+                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button">
+                        Consectetur
+                    </a>
+                            </div>
+            </div>
+</div>
+
+
+                </div>
+                            <div class="derafu-block-grid__item">
+                        <div class="container derafu-block-image derafu-block-image--center derafu-block-image--medium "
+    id="block-image--683eeedfb1e51">
     <div class="derafu-block-image__wrapper">
                     <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
         
@@ -118,7 +163,7 @@
 
 {% set grid_item_1 %}
     &lt;h2&gt;Item 1&lt;/h2&gt;
-    &lt;p&gt;Descripción... &lt;a href=&quot;https://derafu.org/&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet &lt;a href=&quot;https://derafu.org/&quot;&gt;tempus gravida.&lt;/a&gt;&lt;/p&gt;
 {% endset %}
 
 {% set grid_item_2 %}
@@ -135,24 +180,39 @@
     /&gt;
 {% endset %}
 
+{% set grid_item_3 %}
+    &lt;twig:block-image
+        title=&quot;Lorem ipsum&quot;
+        image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
+        description=&quot;&lt;p&gt;Dolor sit amet&lt;/p&gt;&quot;
+        :buttons=&quot;[
+            {
+                text: &#039;Consectetur&#039;,
+                url: &#039;https://twig.symfony.com/&#039;
+            }
+        ]&quot;
+    /&gt;
+{% endset %}
+
 {# Ejemplo 1: Grid sin columnas especificadas #}
 &lt;twig:block-grid
+    class=&quot;mt-5&quot;
     :items=&quot;[
         grid_item_1,
         grid_item_2,
     ]&quot;
-    margin_bottom=&quot;4&quot;
 /&gt;
 
 {# Ejemplo 2: Grid con 4 columnas #}
 &lt;twig:block-grid
+    class=&quot;my-5&quot;
     cols=&quot;4&quot;
     :items=&quot;[
         grid_item_1,
         grid_item_2,
+        grid_item_3,
+        grid_item_2,
     ]&quot;
-    margin_top=&quot;2&quot;
-    margin_bottom=&quot;3&quot;
 /&gt;
 {% endblock %}
 </code></pre>
