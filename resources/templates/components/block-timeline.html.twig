@@ -1,17 +1,16 @@
 {# templates/components/block-timeline.html.twig #}
-<div class="derafu-block-timeline {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-timeline {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="derafu-block-timeline__container derafu-block-timeline__container--{{ line_position }}">
         <div class="derafu-block-timeline__line"></div>
 
         <div class="derafu-block-timeline__events">
             {% set currentYear = null %}
             {% for event in events %}
-                {% set year = event.date matches '/^\\d{4}$/' ? event.date : event.date|date('Y') %}
-                {% set showFullDate = event.date matches '/^\\d{4}-\\d{2}-\\d{2}$/' %}
-                {% set showMonthYear = event.date matches '/^\\d{4}\\d{2}$/' or event.date matches '/^\\d{4}-\\d{2}$/' %}
+                {% set year = event.date matches '/^\d{4}$/' ? event.date : event.date|date('Y') %}
+                {% set showFullDate = event.date matches '/^\d{4}-\d{2}-\d{2}$/' %}
+                {% set showMonthYear = event.date matches '/^\d{4}\d{2}$/' or event.date matches '/^\d{4}-\d{2}$/' %}
 
                 {# Mostrar año si es nuevo #}
                 {% if year != currentYear %}

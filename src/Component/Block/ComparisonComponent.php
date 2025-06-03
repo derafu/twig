@@ -38,4 +38,28 @@ class ComparisonComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $plans = [];
+
+    /**
+     * Unique identifier for the comparison component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the comparison component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the comparison component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 }

@@ -1,8 +1,7 @@
 {# templates/components/block-features-grid.html.twig #}
-<div class="derafu-block-features-grid {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-features-grid {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="derafu-block-features-grid__row">
         {% for block in blocks %}
             <div class="derafu-block-features-grid__block">

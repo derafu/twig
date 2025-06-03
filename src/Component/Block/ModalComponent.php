@@ -26,6 +26,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class ModalComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the modal.
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Additional CSS classes for the modal.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Modal size (sm, lg, xl, fullscreen).
      */
     #[ExposeInTemplate()]

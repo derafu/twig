@@ -20,6 +20,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class OffcanvasComponent extends AbstractComponent
 {
     /**
+     * Optional unique identifier for the offcanvas.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the offcanvas.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Position of the offcanvas (start, end, top, bottom).
      * Default: start (left side).
      */

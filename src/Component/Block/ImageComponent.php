@@ -20,6 +20,30 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class ImageComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the image component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the image component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the image component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Title of the image section.
      *
      * @var string

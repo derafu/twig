@@ -160,6 +160,14 @@
     border-bottom: var(--team-bio-border-bottom);
 }
 
+.derafu-block-team__bio a {
+    text-decoration: none;
+}
+
+.derafu-block-team__bio a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-team__links {
     display: flex;
     gap: var(--team-links-gap);

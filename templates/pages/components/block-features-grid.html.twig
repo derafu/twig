@@ -3,6 +3,7 @@
 {% block content %}
 {% for theme, name in themes %}
     <twig:block-features-grid
+        class="my-5"
         :blocks="[
             {
                 title: 'Lorem',
@@ -47,7 +48,6 @@
                 ]
             }
         ]"
-        margin_bottom="4"
     />
 {% endfor %}
 {% endblock %}

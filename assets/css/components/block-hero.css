@@ -57,6 +57,7 @@
    * Base hero component styles
    */
   .derafu-block-hero {
+    width: 100vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,6 +75,15 @@
     padding-right: 1rem;
     max-width: 100%;
   }
+
+  .derafu-block-hero.container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md, 1.5rem);
+    padding-right: var(--spacing-md, 1.5rem);
+}
 
   /*
    * Size variants
@@ -219,18 +229,22 @@
     position: relative;
   }
 
+  .derafu-block-hero__title a {
+    text-decoration: none;
+  }
+
+  .derafu-block-hero__title a:hover {
+    text-decoration: var(--hero-link-decoration);
+  }
+
   /*
    * Subtitle links
    */
   .derafu-block-hero__subtitle a {
-    color: var(--hero-link-color);
-    text-decoration: var(--hero-link-decoration);
-    font-weight: var(--hero-link-font-weight);
-    transition: color 0.2s;
+    text-decoration: none;
   }
 
   .derafu-block-hero__subtitle a:hover {
-    color: var(--hero-link-hover-color);
     text-decoration: var(--hero-link-decoration);
   }
 

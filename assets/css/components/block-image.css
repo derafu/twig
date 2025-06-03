@@ -3,7 +3,7 @@
  */
  :root {
     /* Structural Variables */
-    --image-spacing: 2rem;
+    --image-spacing: 1rem;
     --image-width-small: 400px;
     --image-width-medium: 800px;
     --image-width-large: 1200px;
@@ -153,6 +153,22 @@
     text-decoration: none;
   }
 
+  .derafu-block-image__title a {
+    text-decoration: none;
+  }
+
+  .derafu-block-image__title a:hover {
+    text-decoration: underline;
+  }
+
+  .derafu-block-image__description a {
+    text-decoration: none;
+  }
+
+  .derafu-block-image__description a:hover {
+    text-decoration: underline;
+  }
+
   /*
    * Responsive Styles - Tablets and Small Desktops
    */
@@ -212,4 +228,3 @@
       box-sizing: border-box;
     }
   }
-  

@@ -2,10 +2,11 @@
 
 {% block content %}
 <twig:block-stats
+    class="mt-5"
     :stats="[
         {
             number: '$40.000',
-            text: 'Precio base hasta cuota de 2.000 documentos'
+            text: 'Precio base hasta cuota de 2.000 <a href=https://derafu.org/>documentos</a href>'
         },
         {
             number: '$15',
@@ -20,10 +21,10 @@
             text: 'Uptime garantizado'
         }
     ]"
-    margin_bottom="4"
 />
 
 <twig:block-stats
+    class="my-5"
     :stats="[
         {
             number: '$40.000',
@@ -43,11 +44,10 @@
         }
     ]"
     text_position="top"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-stats
+    class="my-5"
     :stats="[
         {
             number: '$40.000',
@@ -70,10 +70,10 @@
             text: 'Uptime garantizado'
         }
     ]"
-    margin_top="0"
 />
 
 <twig:block-stats
+    class="mb-5"
     :stats="[
         {
             number: '1.000',
@@ -100,6 +100,6 @@
             text: 'Países'
         }
     ]"
-    margin_top="2"
+
 />
 {% endblock %}

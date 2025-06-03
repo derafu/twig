@@ -20,6 +20,30 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class CardComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the card component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the card component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the card component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Optional card image URL.
      */
     #[ExposeInTemplate()]

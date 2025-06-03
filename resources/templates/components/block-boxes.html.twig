@@ -1,33 +1,38 @@
 {# templates/components/block-boxes.html.twig #}
-<div class="derafu-block-boxes {{ class }} derafu-block-boxes--{{ align }} {{ margin_top is defined ? 'mt-' ~ margin_top : '' }} {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }}" id="{{ id }}">
-    <div class="row g-0">
-        {% for box in boxes %}
-            <div class="col-12 col-md-{{ 12 / cols }}">
-                <div class="derafu-block-boxes__box derafu-block-boxes__box--{{ loop.index }}">
-                    {# Icon #}
-                    <div class="derafu-block-boxes__icon-container">
-                        <div class="derafu-block-boxes__icon">
-                            <i class="{{ box.icon }}"></i>
+<div class="{{ container ?? 'container' }}">
+    <div
+        class="derafu-block-boxes {{ class ?? '' }} derafu-block-boxes--{{ align }}"
+        {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+    >
+        <div class="row g-0">
+            {% for box in boxes %}
+                <div class="col-12 col-md-{{ 12 / cols }}">
+                    <div class="derafu-block-boxes__box derafu-block-boxes__box--{{ loop.index }}">
+                        {# Icon #}
+                        <div class="derafu-block-boxes__icon-container">
+                            <div class="derafu-block-boxes__icon">
+                                <i class="{{ box.icon }}"></i>
+                            </div>
                         </div>
-                    </div>
 
-                    {# Content #}
-                    <div class="derafu-block-boxes__content">
-                        <h3 class="derafu-block-boxes__title">{{ box.title }}</h3>
-                        <p class="derafu-block-boxes__description">{{ box.description|raw }}</p>
-                    </div>
-
-                    {# Button - Only show if button_text is not empty #}
-                    {% if box.button_text is defined and box.button_text is not empty %}
-                        <div class="derafu-block-boxes__action">
-                            <a href="{{ box.button_url }}"
-                                class="derafu-block-boxes__button {% if box.button_disabled is defined and box.button_disabled %}disabled{% endif %}"{% if box.button_disabled is defined and box.button_disabled %}aria-disabled="true" tabindex="-1"{% endif %}>
-                                {{ box.button_text }}
-                            </a>
+                        {# Content #}
+                        <div class="derafu-block-boxes__content">
+                            <h3 class="derafu-block-boxes__title">{{ box.title }}</h3>
+                            <p class="derafu-block-boxes__description">{{ box.description|raw }}</p>
                         </div>
-                    {% endif %}
+
+                        {# Button - Only show if button_text is not empty #}
+                        {% if box.button_text is defined and box.button_text is not empty %}
+                            <div class="derafu-block-boxes__action">
+                                <a href="{{ box.button_url }}"
+                                    class="derafu-block-boxes__button {% if box.button_disabled is defined and box.button_disabled %}disabled{% endif %}"{% if box.button_disabled is defined and box.button_disabled %}aria-disabled="true" tabindex="-1"{% endif %}>
+                                    {{ box.button_text }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>

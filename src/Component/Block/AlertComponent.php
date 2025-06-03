@@ -39,6 +39,30 @@ class AlertComponent extends AbstractComponent
     protected ?string $icon = null;
 
     /**
+     * Container class for the alert component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Unique identifier for the alert component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Additional CSS classes for the alert component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Get the value of icon.
      */
     public function getIcon()

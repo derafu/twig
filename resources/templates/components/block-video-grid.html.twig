@@ -1,8 +1,7 @@
 {# templates/components/block-video-grid.html.twig #}
-<div class="derafu-block-video-grid {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-video-grid {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row g-4">
         {% for video in videos %}
             <div class="col-sm-6 {% if cols == 1 %}col-lg-12

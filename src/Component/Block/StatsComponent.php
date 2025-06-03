@@ -20,6 +20,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class StatsComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the stats component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the stats component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Array of statistics configurations.
      * Each stat contains: {number, text}
      *

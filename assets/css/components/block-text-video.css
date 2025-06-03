@@ -1,6 +1,6 @@
 :root {
     /* Text-Video - Structure */
-    --text-video-spacing: 2rem;
+    --text-video-spacing: 1rem;
     --text-video-button-gap: 1rem;
     --text-video-border-radius: 0.5rem;
 
@@ -40,6 +40,22 @@
 
 .derafu-block-text-video__content {
     padding-right: var(--text-video-spacing);
+}
+
+.derafu-block-text-video__content a {
+    text-decoration: none;
+}
+
+.derafu-block-text-video__content a:hover {
+    text-decoration: underline;
+}
+
+.derafu-block-text-video__buttons a {
+    text-decoration: none;
+}
+
+.derafu-block-text-video__buttons a:hover {
+    text-decoration: none;
 }
 
 .derafu-block-text-video__title {

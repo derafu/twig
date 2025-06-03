@@ -5,31 +5,9 @@
   {% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
   {% for type in types %}
     <twig:block-alert
+      class="my-5"
       type="{{ type }}"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      margin_top="{{ loop.first ? '2' : '' }}"
-      margin_bottom="{{ loop.last ? '4' : '' }}"
     />
   {% endfor %}
-
-  <h2>Ejemplo 2: Cómo controlar el espacio entre alertas</h2>
-
-  <twig:block-alert
-    type="primary"
-    content="<strong>Espaciado normal</strong>: Esta alerta usa el margen predeterminado."
-  />
-
-  <twig:block-alert
-    type="success"
-    content="<strong>Espaciado aumentado</strong>: Esta alerta tiene un margen superior de 4 unidades, creando más espacio respecto a la alerta anterior."
-    margin_top="4"
-    margin_bottom="4"
-  />
-
-  <twig:block-alert
-    type="danger"
-    content="<strong>Espaciado personalizado</strong>: Esta alerta tiene un margen superior reducido (1) y un margen inferior aumentado (5)."
-    margin_top="1"
-    margin_bottom="5"
-  />
 {% endblock %}

@@ -20,6 +20,24 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class TeamComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the team component.
+     */
+    #[ExposeInTemplate()]
+    public string $id;
+
+    /**
+     * Additional CSS classes for the team component.
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
+     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
      * Array of team members configurations.
      *
      * Each member contains:

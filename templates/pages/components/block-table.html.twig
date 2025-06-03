@@ -4,6 +4,7 @@
 {# Tabla básica #}
 {% for theme, name in themes %}
     <twig:block-table
+        class="mt-5"
         caption="Theme: {{ name }}"
         :headers="[
             [
@@ -29,12 +30,13 @@
                 'Pendiente': 'table-warning'
             }}
         ]"
-        margin_bottom="4"
+
     />
 {% endfor %}
 
 {# Tabla con headers complejos y footer #}
 <twig:block-table
+    class="my-5"
     caption="Reporte de Ventas 2024"
     :headers="[
         [
@@ -72,12 +74,12 @@
     :bordered="true"
     :striped="true"
     :hover="false"
-    margin_top="2"
-    margin_bottom="3"
+
 />
 
 {# Tabla con acciones y toggle #}
 <twig:block-table
+    class="my-5"
     :headers="[
         [
             {text: 'Producto', scope: 'col'},
@@ -113,11 +115,11 @@
     :visible="true"
     :maxHeight="300"
     :hover="false"
-    margin="2"
 />
 
 {# Tabla minimalista responsiva #}
 <twig:block-table
+    class="mb-5"
     :headers="[
         [
             {text: '#', scope: 'col'},
@@ -135,6 +137,5 @@
     :striped="false"
     :bordered="false"
     :hover="false"
-    margin_top="0"
 />
 {% endblock %}

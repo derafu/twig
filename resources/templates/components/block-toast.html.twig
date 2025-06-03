@@ -1,8 +1,7 @@
 {# templates/components/block-toast.html.twig #}
-<div class="derafu-block-toast {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-toast {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="toast show bg-{{ type }} border-{{ type }}" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             {% if icon %}

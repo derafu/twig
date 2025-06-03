@@ -2,6 +2,7 @@
 
 {% block content %}
 <twig:block-card-grid
+    class="mt-5"
     :cards="[
         {
             image: '../../img/block-hero.jpeg',
@@ -23,10 +24,10 @@
         }
     ]"
     :cols="3"
-    margin_bottom="4"
 />
 
 <twig:block-card-grid
+    class="my-5"
     :cards="[
         {
             image: '../../img/block-hero.jpeg',
@@ -58,11 +59,10 @@
         }
     ]"
     :cols="4"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-card-grid
+    class="mb-5"
     :cards="[
         {
             image: '../../img/block-hero.jpeg',
@@ -74,6 +74,5 @@
         }
     ]"
     :cols="3"
-    margin_top="0"
 />
 {% endblock %}

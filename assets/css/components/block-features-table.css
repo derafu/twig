@@ -89,6 +89,14 @@
   text-align: left;
 }
 
+.derafu-block-features-table__cell a {
+  text-decoration: none;
+}
+
+.derafu-block-features-table__cell a:hover {
+  text-decoration: underline;
+}
+
 /*
  * Contenido de características
  */
@@ -181,6 +189,15 @@
 
 .derafu-block-features-table__row--header + .derafu-block-features-table__row {
   border-top: none;
+}
+
+.derafu-block-features-table.container {
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md, 1.5rem);
+  padding-right: var(--spacing-md, 1.5rem);
 }
 
 /*

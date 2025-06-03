@@ -3,8 +3,9 @@
 
 {% block content %}
 <twig:block-hero
+   class="mt-5"
    background="{{ base_path }}/img/block-hero.jpeg"
-   title="Lorem ipsum"
+   title="Lorem <a href=https://derafu.org/>ipsum</a>"
    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
    :buttons="[
        {
@@ -13,15 +14,15 @@
        }
    ]"
    align="left"
-   margin_bottom="4"
 />
 
 
 <twig:block-hero
+   class="my-5"
    background="{{ base_path }}/img/block-hero.jpeg"
    contentBackground="true"
    title="Lorem ipsum"
-   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href=https://derafu.org/>Link</a>"
+   subtitle="Lorem ipsum dolor sit amet, consectetur <a href=https://derafu.org/>adipiscing elit.</a>"
    :buttons="[
        {
            text: 'Derafu ORG',
@@ -29,12 +30,11 @@
        }
    ]"
    align="left"
-   margin_top="2"
-   margin_bottom="3"
 />
 
 
 <twig:block-hero
+   class="my-5"
    background="{{ base_path }}/img/block-hero.jpeg"
    title="Lorem ipsum"
    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -45,12 +45,12 @@
        }
    ]"
    align="right"
-   margin_top="0"
 />
 
 
 {% for theme, name in themes %}
    <twig:block-hero
+       class="my-5"
        title="Theme: {{ name }}"
        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
        :buttons="[
@@ -63,7 +63,6 @@
                url: 'https://www.example.com'
            }
        ]"
-       margin_bottom="2"
    />
 {% endfor %}
 
@@ -73,6 +72,7 @@
 {% for size in sizes %}
    {% set theme_key = theme_keys[loop.index0] %}
    <twig:block-hero
+       class="mb-5"
        size="{{ size }}"
        background="{{ base_path }}/img/block-hero.jpeg"
        title="Size: {{ size }} ({{ theme_keys[loop.index0] }})"
@@ -84,7 +84,6 @@
            }
        ]"
        align="right"
-       margin_top="2"
    />
 {% endfor %}
 {% endblock %}

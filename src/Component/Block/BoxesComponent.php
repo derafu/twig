@@ -35,6 +35,30 @@ class BoxesComponent extends AbstractComponent
     public array $boxes = [];
 
     /**
+     * Unique identifier for the boxes component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the boxes component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the boxes component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Number of columns in the layout (2 or 3).
      *
      * @var int

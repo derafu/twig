@@ -1,15 +1,14 @@
 {# templates/components/block-features-list.html.twig #}
-<div class="derafu-block-features-list {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-features-list {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="derafu-block-features-list__row">
         {# Left column #}
         <div class="derafu-block-features-list__column derafu-block-features-list__column--left">
             {% for feature in features_left %}
                 <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
                     <div class="derafu-block-features-list__content">
-                        <h3 class="derafu-block-features-list__title">{{ feature.title }}</h3>
+                        <h3 class="derafu-block-features-list__title">{{ feature.title|raw }}</h3>
                         <div class="derafu-block-features-list__description">
                             {{ feature.description|raw }}
                         </div>
@@ -29,7 +28,7 @@
                         <i class="{{ feature.icon }}"></i>
                     </div>
                     <div class="derafu-block-features-list__content">
-                        <h3 class="derafu-block-features-list__title">{{ feature.title }}</h3>
+                        <h3 class="derafu-block-features-list__title">{{ feature.title|raw }}</h3>
                         <div class="derafu-block-features-list__description">
                             {{ feature.description|raw }}
                         </div>

@@ -20,6 +20,30 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class HeroComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the hero component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the hero component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the hero component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * Size of the hero section (mini, small, medium, large, full).
      *
      * @var string

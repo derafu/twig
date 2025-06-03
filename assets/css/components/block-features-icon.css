@@ -95,9 +95,34 @@
     margin-bottom: var(--features-icon-title-margin-bottom);
 }
 
+.derafu-block-features-icon__title a {
+    text-decoration: none;
+}
+
+.derafu-block-features-icon__title a:hover {
+    text-decoration: underline;
+}
+
 .derafu-block-features-icon__description {
     color: var(--features-icon-text-color);
     line-height: var(--features-icon-description-line-height);
+}
+
+.derafu-block-features-icon__description a {
+    text-decoration: none;
+}
+
+.derafu-block-features-icon__description a:hover {
+    text-decoration: underline;
+}
+
+.derafu-block-features-icon.container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--features-icon-row-gap, 2rem);
+    padding-right: var(--features-icon-row-gap, 2rem);
 }
 
 /* ======================================

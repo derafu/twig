@@ -2,11 +2,12 @@
 
 {% block content %}
 <twig:block-video-grid
+    class="mt-2"
     :videos="[
         {
             video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
             title: 'Lorem ipsum',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href=https://www.billmysales.com/>Link</a>',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore <a href=https://www.billmysales.com/>magna aliqua.</a>',
             button_text: 'Ver más',
             button_url: '#'
         },
@@ -26,10 +27,10 @@
         }
     ]"
     :cols="3"
-    margin_bottom="4"
 />
 
 <twig:block-video-grid
+    class="my-5"
     :videos="[
         {
             video: 'https://www.youtube.com/watch?v=v96l-cezK8I'
@@ -39,17 +40,15 @@
         }
     ]"
     :cols="2"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-video-grid
+    class="mb-5"
     :videos="[
         {
             video: 'https://www.youtube.com/watch?v=v96l-cezK8I'
         }
     ]"
     :cols="1"
-    margin_top="0"
 />
 {% endblock %}

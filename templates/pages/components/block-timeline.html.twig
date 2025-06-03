@@ -2,6 +2,7 @@
 
 {% block content %}
 <twig:block-timeline
+    class="mt-5"
     :events="[
         {
             date: '2023-06-15',
@@ -22,17 +23,17 @@
             icon: 'fa-solid fa-globe'
         },
         {
-            date: '2021',
+            date: '2021-05',
             title: 'Nuevos Productos',
             description: 'Creación de BHExpress, ContaFi y <a href=https://www.billmysales.com>BillMySales</a>.',
             icon: 'fa-solid fa-briefcase'
         }
     ]"
     line_position="center"
-    margin_bottom="4"
 />
 
 <twig:block-timeline
+    class="my-5"
     :events="[
         {
             date: '2023-06-15',
@@ -53,18 +54,17 @@
             icon: 'fa-solid fa-globe'
         },
         {
-            date: '2021',
+            date: '2021-05',
             title: 'Nuevos Productos',
             description: 'Creación de BHExpress, ContaFi y BillMySales.',
             icon: 'fa-solid fa-briefcase'
         }
     ]"
     line_position="left"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-timeline
+    class="mb-5"
     :events="[
         {
             date: '2023-06-15',
@@ -85,13 +85,12 @@
             icon: 'fa-solid fa-globe'
         },
         {
-            date: '2021',
+            date: '2021-05',
             title: 'Nuevos Productos',
             description: 'Creación de BHExpress, ContaFi y BillMySales.',
             icon: 'fa-solid fa-briefcase'
         }
     ]"
     line_position="right"
-    margin_top="0"
 />
 {% endblock %}

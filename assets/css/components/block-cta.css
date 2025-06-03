@@ -91,6 +91,15 @@
     align-items: center;
 }
 
+.derafu-block-cta.container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md, 1.5rem);
+    padding-right: var(--spacing-md, 1.5rem);
+}
+
 /* ======================================
    Content Area
    ====================================== */
@@ -120,7 +129,7 @@
 /* Links in description */
 .derafu-block-cta__description a {
     color: var(--cta-link-color);
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: var(--cta-link-font-weight);
     transition: color var(--cta-button-transition);
     word-break: break-word;

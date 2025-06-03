@@ -2,12 +2,13 @@
 
 {% block content %}
 <twig:block-team
+    class="mt-5"
     :members="[
         {
             name: 'John Doe',
             role: 'Fundador',
             image: '../../img/block-hero.jpeg',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing <a href=https://derafu.org/>elit.</a href>',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -23,10 +24,10 @@
         }
     ]"
     :cols="1"
-    margin_bottom="4"
 />
 
 <twig:block-team
+    class="my-5"
     :members="[
         {
             name: 'John Doe',
@@ -61,11 +62,10 @@
         }
     ]"
     :cols="2"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-team
+    class="my-5"
     :members="[
         {
             name: 'John Doe',
@@ -113,10 +113,10 @@
         }
     ]"
     :cols="3"
-    margin_top="0"
 />
 
 <twig:block-team
+    class="mb-5"
     :members="[
         {
             name: 'John Doe',
@@ -143,9 +143,34 @@
                     url: 'https://www.example.com'
                 }
             ]
+        },
+                {
+            name: 'Saul Goodman',
+            role: 'RRHH',
+            image: '../../img/block-hero.jpeg',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            links: [
+                {
+                    icon: 'fa-brands fa-linkedin',
+                    text: 'LinkedIn',
+                    url: 'https://www.example.com'
+                }
+            ]
+        },
+        {
+            name: 'Mike Johnson',
+            role: 'Desarrollador',
+            image: '../../img/block-hero.jpeg',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            links: [
+                {
+                    icon: 'fa-brands fa-github',
+                    text: 'GitHub',
+                    url: 'https://www.example.com'
+                }
+            ]
         }
     ]"
     :cols="4"
-    margin="2"
 />
 {% endblock %}

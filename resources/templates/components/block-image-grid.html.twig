@@ -1,8 +1,7 @@
 {# templates/components/block-image-grid.html.twig #}
-<div class="derafu-block-image-grid {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-image-grid {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row g-4">
         {% for image in images %}
             <div class="col-6 col-md-4 {% if cols == 4 %}col-lg-3{% else %}col-lg-2{% endif %}">

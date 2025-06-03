@@ -1,6 +1,6 @@
 :root {
     /* Video - Structure */
-    --video-padding: 4rem;
+    --video-padding: 2rem;
     --video-spacing: 2rem;
     --video-border-radius: 0.5rem;
     --video-max-width: 1000px;
@@ -91,6 +91,14 @@
     line-height: 1.5;
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+.derafu-block-video__description a {
+    text-decoration: none;
+}
+
+.derafu-block-video__description a:hover {
+    text-decoration: underline;
 }
 
 .derafu-block-video__buttons {

@@ -21,6 +21,30 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 class HeaderComponent extends AbstractComponent
 {
     /**
+     * Unique identifier for the header component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the header component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the header component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
+
+    /**
      * URL for the logo link.
      *
      * @var string
@@ -116,6 +140,11 @@ class HeaderComponent extends AbstractComponent
     #[ExposeInTemplate()]
     public ?string $backgroundColor = null;
 
+    /**
+     * Whether the header should be full width.
+     *
+     * @var bool
+     */
     #[ExposeInTemplate()]
     public bool $fullWidth = false;
 

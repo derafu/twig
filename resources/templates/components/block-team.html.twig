@@ -1,8 +1,7 @@
 {# templates/components/block-team.html.twig #}
-<div class="derafu-block-team {{ class }} derafu-block-team--cols-{{ cols }} derafu-block-team--align-{{ align }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-team {{ class ?? '' }} derafu-block-team--cols-{{ cols }} derafu-block-team--align-{{ align }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row g-4">
         {% for member in members %}
             {% set cols = cols %}
@@ -23,7 +22,7 @@
                         <div class="derafu-block-team__role">{{ member.role }}</div>
 
                         {% if member.bio is defined and member.bio %}
-                            <div class="derafu-block-team__bio">{{ member.bio }}</div>
+                            <div class="derafu-block-team__bio">{{ member.bio|raw }}</div>
                         {% endif %}
 
                         {% if member.links is defined and member.links|length > 0 %}

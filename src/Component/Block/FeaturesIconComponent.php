@@ -2,14 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * Derafu: Twig - UI Component and Extension Library.
- *
- * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.org>
- * Licensed under the MIT License.
- * See LICENSE file for more details.
- */
-
 namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
@@ -31,4 +23,29 @@ class FeaturesIconComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $features = [];
+
+    /**
+     * Unique identifier for the features icon component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the features icon component.
+     * If null, defaults to 'container' when enabled.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the features icon component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 }

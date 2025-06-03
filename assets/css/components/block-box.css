@@ -113,13 +113,22 @@
     border-radius: var(--box-border-radius);
 }
 
+.derafu-block-box.container {
+    max-width: 1400px; /* o el ancho que uses para tu contenedor */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--box-padding);
+    padding-right: var(--box-padding);
+}
+
 /* ======================================
    Box Content Elements
    ====================================== */
 /* Links */
 .derafu-block-box a {
-    color: var(--box-link-color, #fff);
-    text-decoration: underline;
+    color: var(--bs-secondary);
+    text-decoration: none;
     transition: color 0.2s ease;
     font-weight: var(--font-weight-medium);
     word-break: break-word;
@@ -127,6 +136,7 @@
 
 .derafu-block-box a:hover {
     color: var(--box-link-hover-color, #f8f9fa);
+    text-decoration: underline;
 }
 
 /* Paragraphs */

@@ -42,4 +42,28 @@ class BoxComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public bool $rounded = true;
+
+    /**
+     * Container class for the box.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Unique identifier for the box component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Additional CSS classes for the box component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 }

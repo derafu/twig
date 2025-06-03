@@ -44,4 +44,29 @@ class FeaturesListComponent extends AbstractComponent
      */
     #[ExposeInTemplate()]
     public array $features_right = [];
+
+    /**
+     * Unique identifier for the features list component.
+     *
+     * @var string
+     */
+    #[ExposeInTemplate()]
+    public string $id = '';
+
+    /**
+     * Container class for the features list component.
+     * If null, defaults to 'container' when enabled.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $container = null;
+
+    /**
+     * Additional CSS classes for the features list component.
+     *
+     * @var string|null
+     */
+    #[ExposeInTemplate()]
+    public ?string $class = null;
 }

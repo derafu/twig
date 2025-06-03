@@ -1,7 +1,7 @@
 {# templates/components/block-video.html.twig #}
-<div class="derafu-block-video {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}">
+<div class="{{ container ?? 'container' }} derafu-block-video {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     {% for key, video in video %}
         <div class="derafu-block-video__wrapper derafu-block-video--{{ video.align ?? 'center' }} derafu-block-video--{{ video.size ?? 'normal' }} derafu-block-video--{{ video.align ?? 'center' }}" id="{{ id }}-{{ key }}">
             {% if video.title %}

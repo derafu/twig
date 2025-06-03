@@ -3,27 +3,26 @@
 {% block content %}
 {% for theme, name in themes %}
     <twig:block-quote
+        class="mt-5"
         quote="Lorem ipsum dolor sit amet, consectetur adipiscing <a href=https://derafu.org/>elit</a>."
         author="John Doe"
         source="Theme: {{ name }}"
         image="../../img/block-hero.jpeg"
-        margin="4"
     />
 {% endfor %}
 
 {# Ejemplo con márgenes individuales #}
 <twig:block-quote
+    class="my-5"
     quote="Otra cita de ejemplo con márgenes personalizados."
     author="Jane Smith"
-    source="Ejemplo de cita"
-    margin_top="2"
-    margin_bottom="3"
+    source="<a href=https://derafu.org/>Ejemplo de cita</a>"
 />
 
 {# Ejemplo sin márgenes #}
 <twig:block-quote
+    class="mb-5"
     quote="Una cita sin márgenes especiales."
     author="Anonymous"
-    margin_top="0"
 />
 {% endblock %}

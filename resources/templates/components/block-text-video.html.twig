@@ -1,8 +1,7 @@
 {# templates/components/block-text-video.html.twig #}
-<div class="derafu-block-text-video {{ class }}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    id="{{ id }}">
+<div class="{{ container ?? 'container' }} derafu-block-text-video {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="row align-items-center">
         {# Text Column #}
         <div class="col-12 col-md-{{ text_cols }} {% if video_position == 'left' %}order-md-2{% endif %}">

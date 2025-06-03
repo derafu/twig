@@ -1,14 +1,14 @@
 {# templates/components/block-modal.html.twig #}
-<div class="modal fade {{ class }}"
-    id="{{ id }}"
+<div class="{{ container ?? 'container' }} modal fade {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
     tabindex="-1"
     aria-labelledby="{{ id }}-label"
     aria-hidden="true"
     {% if staticBackdrop %}
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
+        data-bs-backdrop="static" data-bs-keyboard="false"
     {% endif %}>
-    <div class="modal-dialog {{ size ? 'modal-' ~ size : '' }}
+    <div class="modal-dialog
+        {{ size ? 'modal-' ~ size : '' }}
         {{ centered ? 'modal-dialog-centered' : '' }}
         {{ scrollable ? 'modal-dialog-scrollable' : '' }}">
         <div class="modal-content">
@@ -22,11 +22,9 @@
                     {% endif %}
                 </div>
             {% endif %}
-
             <div class="modal-body">
                 {{ content|raw }}
             </div>
-
             {% if buttons|length > 0 %}
                 <div class="modal-footer">
                     {% for button in buttons %}

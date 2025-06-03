@@ -1,8 +1,8 @@
 {# templates/components/block-scrollspy.html.twig #}
-<div class="derafu-block-scrollspy row {% if class %}{{ class }}{% endif %}
-    {% if margin_top is defined %}mt-{{ margin_top }}{% endif %}
-    {% if margin_bottom is defined %}mb-{{ margin_bottom }}{% endif %}"
-    style="{{ style|default('') }}">
+<div class="{{ container ?? 'container' }} derafu-block-scrollspy row {{ class ?? '' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+    {% if style is not null %}style="{{ style }}"{% endif %}
+>
 
   {# Lista de navegación - se ajusta automáticamente según el dispositivo #}
   <div class="derafu-block-scrollspy__list col-md-{{ cols }} col-12">

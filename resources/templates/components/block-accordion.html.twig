@@ -1,9 +1,9 @@
 {# templates/components/block-accordion.html.twig #}
 <div class="derafu-block-accordion
-    {{ margin_top is defined ? 'mt-' ~ margin_top : '' }}
-    {{ margin_bottom is defined ? 'mb-' ~ margin_bottom : '' }}
-    {{ class }}"
-    id="{{ id }}">
+    {{ class ?? '' }}
+    {{ container is not null ? container : 'w-full' }}"
+    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+>
     <div class="accordion border" id="{{ id }}-accordion">
         {% for key, item in items %}
             <div class="accordion-item">

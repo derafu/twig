@@ -4,6 +4,7 @@
 {% for theme, name in themes %}
     {# Ejemplo 1: Footer Completo con 4 columnas #}
     <twig:block-footer
+        class="mt-5"
         col1Title="Enlaces útiles"
         :col1Links="[
             {
@@ -87,11 +88,11 @@
         leftText="Copyright © Derafu ORG (Theme: {{ name }})"
         rightText="Todos los derechos reservados"
         socialIconsCircular="true"
-        margin_bottom="5"
     />
 
     {# Ejemplo 2: Footer Minimalista con 2 columnas #}
     <twig:block-footer
+        class="my-5"
         col1Title="Nuestra Empresa"
         col1Html="<p>Soluciones de software innovadoras para empresas modernas.</p>"
         :col1Links="[
@@ -119,12 +120,11 @@
 
         leftText="© 2024 Derafu ORG (Theme: {{ name }})"
         theme="{{ theme }}"
-        margin_top="2"
-        margin_bottom="5"
     />
 
     {# Ejemplo 3: Footer con énfasis en redes sociales #}
     <twig:block-footer
+        class="mb-5"
         col1Title="Síguenos"
         col1Html="<p>Mantente conectado con nosotros en redes sociales</p>"
         :col1SocialIcons="[
@@ -190,7 +190,6 @@
         leftText="Únete a nuestra comunidad (Theme: {{ name }})"
         rightText='<a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a>'
         theme="{{ theme }}"
-        margin_top="2"
     />
 {% endfor %}
 {% endblock %}

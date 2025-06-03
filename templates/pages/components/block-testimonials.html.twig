@@ -2,6 +2,7 @@
 
 {% block content %}
 <twig:block-testimonials
+    class="mt-5"
     :testimonials="[
         {
             image: '../../img/block-hero.jpeg',
@@ -27,14 +28,14 @@
             position: 'right'
         }
     ]"
-    margin_bottom="4"
 />
 
 <twig:block-testimonials
+    class="my-5"
     :testimonials="[
         {
             image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=https://derafu.org/>tempus gravida.</a href>',
             author: 'John Doe',
             avatar: '../../img/block-hero.jpeg',
             organization: 'Lorem ipsum',
@@ -49,11 +50,10 @@
         }
     ]"
     interval="2000"
-    margin_top="2"
-    margin_bottom="3"
 />
 
 <twig:block-testimonials
+    class="mb-5"
     :testimonials="[
         {
             image: '../../img/block-hero.jpeg',
@@ -63,6 +63,5 @@
             organization: 'Lorem ipsum'
         }
     ]"
-    margin_top="0"
 />
 {% endblock %}
