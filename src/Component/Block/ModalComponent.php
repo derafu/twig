@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * Derafu: Twig - UI Component and Extension Library.
  *
@@ -8,7 +9,9 @@ declare(strict_types=1);
  * Licensed under the MIT License.
  * See LICENSE file for more details.
  */
+
 namespace Derafu\Twig\Component\Block;
+
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
