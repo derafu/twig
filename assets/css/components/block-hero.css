@@ -40,7 +40,6 @@
     --hero-link-color: var(--bs-warning, #ffc107);
     --hero-link-hover-color: var(--bs-light, #f8f9fa);
     --hero-link-font-weight: 500;
-    --hero-link-decoration: underline;
 
     --hero-title-font-weight: bold;
 
@@ -234,7 +233,7 @@
   }
 
   .derafu-block-hero__title a:hover {
-    text-decoration: var(--hero-link-decoration);
+    text-decoration: underline;
   }
 
   /*
@@ -245,12 +244,20 @@
   }
 
   .derafu-block-hero__subtitle a:hover {
-    text-decoration: var(--hero-link-decoration);
+    text-decoration: underline;
   }
 
   /*
    * Responsive media queries
    */
+
+   @media (max-width: 1200px) {
+    .derafu-block-hero {
+      background-image: none !important; /* Elimina cualquier imagen de fondo */
+      background-color: var(--bs-primary) !important; /* Usa el color primario como fondo */
+    }
+  }
+  
   @media (max-width: 991.98px) {
     /* Height reduction */
     .derafu-block-hero--mini {
