@@ -5,7 +5,7 @@
         <table class="derafu-block-features-table__table">
             <thead>
                 <tr>
-                    <th class="derafu-block-features-table__header derafu-block-features-table__header--feature">{{ title|raw }}</th>
+                    <th class="derafu-block-features-table__header derafu-block-features-table__header--feature">{{ this.title|raw }}</th>
                     {% for plan in features|filter(feature => feature.values is defined)|first.values|keys %}
                         <th class="derafu-block-features-table__header">{{ plan }}</th>
                     {% endfor %}
@@ -13,13 +13,13 @@
             </thead>
             <tbody>
                 {% for feature in features %}
-                    {% if feature.isHeader is defined and feature.isHeader %}
+                    {% if feature.isHeader %}
                         {# Esta es una fila de encabezado de sección #}
                         <tr class="derafu-block-features-table__row derafu-block-features-table__row--header">
                             <td class="derafu-block-features-table__cell derafu-block-features-table__cell--header"
                                 colspan="{{ features|filter(feature => feature.values is defined)|first.values|keys|length + 1 }}">
-                                <div class="derafu-block-features-table__section-header {% if feature.icon is defined and feature.icon %}has-icon{% endif %}">
-                                    {% if feature.icon is defined and feature.icon %}
+                                <div class="derafu-block-features-table__section-header {% if feature.icon %}has-icon{% endif %}">
+                                    {% if feature.icon %}
                                     <span class="derafu-block-features-table__icon">
                                         <i class="{{ feature.icon }}"></i>
                                     </span>
@@ -32,22 +32,22 @@
                         {# Esta es una fila de característica normal #}
                         <tr class="derafu-block-features-table__row">
                             <td class="derafu-block-features-table__cell derafu-block-features-table__cell--feature">
-                                <div class="derafu-block-features-table__feature {% if feature.icon is defined and feature.icon %}has-icon{% endif %}">
-                                    {% if feature.icon is defined and feature.icon %}
+                                <div class="derafu-block-features-table__feature {% if feature.icon %}has-icon{% endif %}">
+                                    {% if feature.icon %}
                                     <span class="derafu-block-features-table__icon">
                                         <i class="{{ feature.icon }}"></i>
                                     </span>
                                     {% endif %}
                                     <div class="derafu-block-features-table__feature-content">
                                         <span class="derafu-block-features-table__feature-name">{{ feature.title|raw }}</span>
-                                        {% if feature.content is defined and feature.content %}
+                                        {% if feature.content %}
                                             <small class="derafu-block-features-table__feature-content">{{ feature.content|raw }}</small>
                                         {% endif %}
                                     </div>
                                 </div>
                             </td>
-                            {% if feature.values is defined %}
-                                {% for plan in features|filter(feature => feature.values is defined)|first.values|keys %}
+                            {% if feature.values %}
+                                {% for plan in features|filter(feature => feature.values)|first.values|keys %}
                                     <td class="derafu-block-features-table__cell">
                                         {% if feature.values[plan] is defined %}
                                             {% set value = feature.values[plan] %}

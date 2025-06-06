@@ -77,13 +77,6 @@ class TextVideoComponent extends AbstractComponent
     private bool $showControls = true;
 
     /**
-     * Show video title.
-     *
-     * @var bool
-     */
-    private bool $showTitle = false;
-
-    /**
      * Use privacy-enhanced mode (youtube-nocookie.com).
      *
      * @var bool
@@ -270,29 +263,6 @@ class TextVideoComponent extends AbstractComponent
     public function setShowControls(bool $showControls): static
     {
         $this->showControls = $showControls;
-
-        return $this;
-    }
-
-    /**
-     * Gets whether video title is shown.
-     *
-     * @return bool Whether title is shown.
-     */
-    public function getShowTitle(): bool
-    {
-        return $this->showTitle;
-    }
-
-    /**
-     * Sets whether video title is shown.
-     *
-     * @param bool $showTitle Whether to show title.
-     * @return static
-     */
-    public function setShowTitle(bool $showTitle): static
-    {
-        $this->showTitle = $showTitle;
 
         return $this;
     }
