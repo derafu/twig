@@ -13,10 +13,9 @@
 
 - 🎨 **Rich Component Library**: Extensive collection of UI components including headers, footers, cards, grids, and more.
 - 🎯 **Framework Agnostic**: Works with any PHP framework or standalone Twig.
-- 🔧 **Highly Customizable**: Theme support with CSS variables for easy styling.
+- 🔧 **Highly Customizable**: Support for Bootstrap CSS variables for easy styling.
 - 📱 **Responsive Design**: All components are mobile-first and fully responsive.
 - 🧩 **Modular Architecture**: Components can be used independently or combined.
-- 🎭 **Theme System**: Built-in theme support with easy customization.
 - 📦 **Bootstrap 5 Integration**: Leverages Bootstrap's grid system and utilities.
 - 🎟️ **Font Awesome 6**: Integrated icon support.
 - 🏷️ **MIT License**: Open-source and free to use.
@@ -71,27 +70,17 @@ echo $twigService->render('example.html.twig');
     :cols="3"
     :cards="[
         {
-            'image': 'path/to/image.jpg',
-            'title': 'Card Title',
-            'description': 'Card description text',
-            'button_text': 'Learn More',
-            'button_url': '#'
+            image: 'path/to/image.jpg',
+            title: 'Card Title',
+            content: 'Card content text',
+            buttonText: 'Learn More',
+            buttonUrl: '#'
         }
     ]"
 />
 ```
 
 ## Key Concepts
-
-### Theme System
-Components support theming through CSS variables:
-```css
-.derafu-theme-default {
-    --color-primary: #0d6efd;
-    --color-secondary: #6c757d;
-    --color-tertiary: #198754;
-}
-```
 
 ### Component Structure
 

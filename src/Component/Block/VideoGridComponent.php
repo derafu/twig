@@ -14,13 +14,12 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Video Grid Component for displaying multiple videos in a grid layout.
  *
  * This component creates a responsive grid of video blocks with optional
- * titles, descriptions, and action buttons.
+ * titles, contents, and action buttons.
  */
 #[AsTwigComponent('block-video-grid')]
 class VideoGridComponent extends AbstractComponent
@@ -32,7 +31,7 @@ class VideoGridComponent extends AbstractComponent
      *
      *   - title: Video title (optional).
      *   - video: YouTube URL (required).
-     *   - description: Video description (optional, supports HTML).
+     *   - content: Video content (optional, supports HTML).
      *   - buttons: Array of action buttons (optional).
      *      - text: Button text.
      *      - url: Button URL.
@@ -40,32 +39,58 @@ class VideoGridComponent extends AbstractComponent
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $videos = [];
-
-    /**
-     * Unique identifier for the text-image component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the text-image component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    private array $videos = [];
 
     /**
      * Number of columns in the grid layout.
      *
      * @var int
      */
-    #[ExposeInTemplate()]
-    public int $cols = 2;
+    private int $cols = 2;
+
+    /**
+     * Gets the array of videos.
+     *
+     * @return array<int,array> The array of videos.
+     */
+    public function getVideos(): array
+    {
+        return $this->videos;
+    }
+
+    /**
+     * Sets the array of videos.
+     *
+     * @param array<int,array> $videos The array of videos.
+     * @return static
+     */
+    public function setVideos(array $videos): static
+    {
+        $this->videos = $videos;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number of columns in the grid layout.
+     *
+     * @return int The number of columns in the grid layout.
+     */
+    public function getCols(): int
+    {
+        return $this->cols;
+    }
+
+    /**
+     * Sets the number of columns in the grid layout.
+     *
+     * @param int $cols The number of columns in the grid layout.
+     * @return static
+     */
+    public function setCols(int $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
+    }
 }

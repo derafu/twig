@@ -1,53 +1,53 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
-    <twig:block-features-grid
-        class="my-5"
-        :blocks="[
-            {
-                title: 'Lorem',
-                subtitle: 'Descripción del primer bloque',
-                features: [
-                    {
-                        icon: 'fa-solid fa-cloud',
-                        title: 'Característica 1',
-                        description: 'Descripción de la <a href=\'https://derafu.org/\'>característica 1.</a>'
-                    },
-                    {
-                        icon: 'fa-solid fa-cog',
-                        title: 'Característica 2',
-                        description: 'Descripción de la característica 2.'
-                    },
-                    {
-                        icon: 'fa-solid fa-users',
-                        title: 'Característica 3',
-                        description: 'Descripción de la característica 3.'
-                    }
-                ]
-            },
-            {
-                title: 'Ipsum',
-                subtitle: 'Descripción del segundo <a href=\'https://derafu.org/\'>bloque</a>.',
-                features: [
-                    {
-                        icon: 'fa-solid fa-star',
-                        title: 'Característica 1',
-                        description: 'Descripción de la característica 1.'
-                    },
-                    {
-                        icon: 'fa-solid fa-heart',
-                        title: 'Característica <a href=\'https://derafu.org/\'>2</a>',
-                        description: 'Descripción de la característica 2.'
-                    },
-                    {
-                        icon: 'fa-solid fa-bell',
-                        title: 'Característica 3',
-                        description: 'Descripción de la característica 3.'
-                    }
-                ]
-            }
-        ]"
-    />
-{% endfor %}
+
+<twig:block-features-grid
+    class="my-4"
+    :blocks="[
+        {
+            title: 'Lorem',
+            subtitle: 'First block subtitle',
+            features: [
+                {
+                    icon: 'fa-solid fa-cloud',
+                    title: 'Feature 1',
+                    content: 'Content of <a href=\'https://www.example.com/\' target=\'_blank\'>feature 1.</a>'
+                },
+                {
+                    icon: 'fa-solid fa-cog',
+                    title: 'Feature 2',
+                    content: 'Content of feature 2.'
+                },
+                {
+                    icon: 'fa-solid fa-users',
+                    title: 'Feature 3',
+                    content: 'Content of feature 3.'
+                }
+            ]
+        },
+        {
+            title: 'Ipsum',
+            subtitle: 'Subtitle of the second <a href=\'https://www.example.com/\' target=\'_blank\'>block</a>.',
+            features: [
+                {
+                    icon: 'fa-solid fa-star',
+                    title: 'Feature 1',
+                    content: 'Content of feature 1.'
+                },
+                {
+                    icon: 'fa-solid fa-heart',
+                    title: 'Feature <a href=\'https://www.example.com/\' target=\'_blank\'>2</a>',
+                    content: 'Content of feature 2.'
+                },
+                {
+                    icon: 'fa-solid fa-bell',
+                    title: 'Feature 3',
+                    content: 'Content of feature 3.'
+                }
+            ]
+        }
+    ]"
+/>
+
 {% endblock %}

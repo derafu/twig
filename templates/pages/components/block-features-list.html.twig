@@ -1,44 +1,43 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
-    <twig:block-features-list
-        class="my-5"
-        :features_left="[
-            {
-                icon: 'fa-solid fa-laptop',
-                title: 'Aplicación <a href=https://derafu.org/>Web.</a>',
-                description: 'Con emisión de documentos en forma individual y <a href=https://derafu.org/>masiva.</a>'
-            },
-            {
-                icon: 'fa-solid fa-chart-line',
-                title: 'Reportes',
-                description: 'Gráficos y estadísticas para visualizar tus datos de manera sencilla.'
-            },
-            {
-                icon: 'fa-solid fa-cogs',
-                title: 'Configuración',
-                description: 'Personaliza la aplicación según tus necesidades específicas.'
-            }
-        ]"
-        :features_right="[
-            {
-                icon: 'fa-solid fa-cubes',
-                title: 'Productos y Servicios',
-                description: 'Codifica tus productos y servicios para emitir rápidamente y sin errores.'
-            },
-            {
-                icon: 'fa-solid fa-cloud-download',
-                title: 'Respaldo',
-                description: 'Descarga tus datos cada vez que los requieras.'
-            },
-            {
-                icon: 'fa-solid fa-shield',
-                title: 'Seguridad',
-                description: 'Tus datos están protegidos con los más altos estándares de seguridad.'
-            }
-        ]"
-    />
 
-{% endfor %}
+<twig:block-features-list
+    class="my-4"
+    :featuresLeft="[
+        {
+            icon: 'fa-solid fa-laptop fa-fw',
+            title: 'Aplicación <a href=\'https://www.example.com/\' target=\'_blank\'>Web.</a>',
+            content: 'Con emisión de documentos en forma individual y <a href=\'https://www.example.com/\' target=\'_blank\'>masiva.</a>'
+        },
+        {
+            icon: 'fa-solid fa-chart-line fa-fw',
+            title: 'Reportes',
+            content: 'Gráficos y estadísticas para visualizar tus datos de manera sencilla.'
+        },
+        {
+            icon: 'fa-solid fa-cogs fa-fw',
+            title: 'Configuración',
+            content: 'Personaliza la aplicación según tus necesidades específicas.'
+        }
+    ]"
+    :featuresRight="[
+        {
+            icon: 'fa-solid fa-cubes fa-fw',
+            title: 'Productos y Servicios',
+            content: 'Codifica tus productos y servicios para emitir rápidamente y sin errores.'
+        },
+        {
+            icon: 'fa-solid fa-cloud-download fa-fw',
+            title: 'Respaldo',
+            content: 'Descarga tus datos cada vez que los requieras.'
+        },
+        {
+            icon: 'fa-solid fa-shield fa-fw',
+            title: 'Seguridad',
+            content: 'Tus datos están protegidos con los más altos estándares de seguridad.'
+        }
+    ]"
+/>
+
 {% endblock %}

@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-box')]
 class BoxComponent extends AbstractComponent
@@ -24,46 +23,58 @@ class BoxComponent extends AbstractComponent
      *
      * @var string
      */
-    #[ExposeInTemplate()]
-    public string $title;
+    private string $title;
 
     /**
      * Content text of the box (supports HTML).
      *
      * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $content = null;
+    private ?string $content = null;
 
     /**
-     * Rounded border of the box.
+     * Gets the title of the box.
      *
-     * @var bool
+     * @return string
      */
-    #[ExposeInTemplate()]
-    public bool $rounded = true;
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
 
     /**
-     * Container class for the box.
+     * Sets the title of the box.
      *
-     * @var string|null
+     * @param string $title The title of the box.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
 
     /**
-     * Unique identifier for the box component.
+     * Gets the content of the box.
      *
-     * @var string
+     * @return string|null
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
 
     /**
-     * Additional CSS classes for the box component.
+     * Sets the content of the box.
      *
-     * @var string|null
+     * @param string $content The content of the box.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+    public function setContent(string $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
 }

@@ -92,12 +92,12 @@
     --comparison-mobile-footer-padding: 1.5rem;
     --comparison-small-footer-padding: 1.25rem;
 
-    /* Recommendation */
-    --comparison-recommendation: var(--bs-dark, #212529);
-    --comparison-recommendation-font-size: 0.9rem;
-    --comparison-recommendation-margin-bottom: 1.5rem;
-    --comparison-mobile-recommendation-font-size: 0.8125rem;
-    --comparison-mobile-recommendation-margin-bottom: 1.25rem;
+    /* Note */
+    --comparison-note: var(--bs-dark, #212529);
+    --comparison-note-font-size: 0.9rem;
+    --comparison-note-margin-bottom: 1.5rem;
+    --comparison-mobile-note-font-size: 0.8125rem;
+    --comparison-mobile-note-margin-bottom: 1.25rem;
 
     /* Button */
     --comparison-button-bg: var(--bs-primary, #0d6efd);
@@ -263,12 +263,12 @@
     padding: var(--comparison-footer-padding);
 }
 
-.derafu-block-comparison__recommendation {
+.derafu-block-comparison__note {
     text-align: center;
     font-style: italic;
-    font-size: var(--comparison-recommendation-font-size);
-    color: var(--comparison-recommendation);
-    margin-bottom: var(--comparison-recommendation-margin-bottom);
+    font-size: var(--comparison-note-font-size);
+    color: var(--comparison-note);
+    margin-bottom: var(--comparison-note-margin-bottom);
 }
 
 .derafu-block-comparison__button {
@@ -327,13 +327,12 @@
 .derafu-block-comparison__title,
 .derafu-block-comparison__period,
 .derafu-block-comparison__feature,
-.derafu-block-comparison__recommendation {
+.derafu-block-comparison__note {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
 .derafu-block-comparison.container {
-    max-width: 1400px; /* o el ancho que uses para tu contenedor */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -463,9 +462,9 @@
         padding: var(--comparison-mobile-footer-padding);
     }
 
-    .derafu-block-comparison__recommendation {
-        font-size: var(--comparison-mobile-recommendation-font-size);
-        margin-bottom: var(--comparison-mobile-recommendation-margin-bottom);
+    .derafu-block-comparison__note {
+        font-size: var(--comparison-mobile-note-font-size);
+        margin-bottom: var(--comparison-mobile-note-margin-bottom);
     }
 
     .derafu-block-comparison__button {

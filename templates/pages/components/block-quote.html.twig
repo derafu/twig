@@ -1,28 +1,28 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
-    <twig:block-quote
-        class="mt-5"
-        quote="Lorem ipsum dolor sit amet, consectetur adipiscing <a href=https://derafu.org/>elit</a>."
-        author="John Doe"
-        source="Theme: {{ name }}"
-        image="../../img/block-hero.jpeg"
-    />
-{% endfor %}
 
-{# Ejemplo con márgenes individuales #}
 <twig:block-quote
-    class="my-5"
-    quote="Otra cita de ejemplo con márgenes personalizados."
-    author="Jane Smith"
-    source="<a href=https://derafu.org/>Ejemplo de cita</a>"
+    class="my-4"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing <a href='https://www.example.com/' target='_blank'>elit</a>."
+    author="John Doe"
+    note="Quote"
+    image="../../img/block-hero.jpeg"
 />
 
-{# Ejemplo sin márgenes #}
+{# Example with individual margins #}
 <twig:block-quote
-    class="mb-5"
-    quote="Una cita sin márgenes especiales."
+    class="my-4"
+    content="Another example quote with custom margins."
+    author="Jane Smith"
+    note="<a href='https://www.example.com/' target='_blank'>Quote example</a>"
+/>
+
+{# Example without margins #}
+<twig:block-quote
+    class="my-4"
+    content="A quote without special margins."
     author="Anonymous"
 />
+
 {% endblock %}

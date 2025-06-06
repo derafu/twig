@@ -1,39 +1,16 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-team
-    class="mt-5"
-    :members="[
-        {
-            name: 'John Doe',
-            role: 'Fundador',
-            image: '../../img/block-hero.jpeg',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing <a href=https://derafu.org/>elit.</a href>',
-            links: [
-                {
-                    icon: 'fa-brands fa-linkedin',
-                    text: 'LinkedIn',
-                    url: 'https://www.example.com'
-                },
-                {
-                    icon: 'fa-brands fa-github',
-                    text: 'GitHub',
-                    url: 'https://www.example.com'
-                }
-            ]
-        }
-    ]"
+    class="my-4"
     :cols="1"
-/>
-
-<twig:block-team
-    class="my-5"
     :members="[
         {
             name: 'John Doe',
-            role: 'Fundador',
+            role: 'Founder',
             image: '../../img/block-hero.jpeg',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing <a href=\'https://www.example.com/\' target=\'_blank\'>elit.</a href>',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -46,30 +23,17 @@
                     url: 'https://www.example.com'
                 }
             ]
-        },
-        {
-            name: 'Jane Smith',
-            role: 'Co-Fundadora',
-            image: '../../img/block-hero.jpeg',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            links: [
-                {
-                    icon: 'fa-brands fa-linkedin',
-                    text: 'LinkedIn',
-                    url: 'https://www.example.com'
-                }
-            ]
         }
     ]"
+/>
+
+<twig:block-team
+    class="my-4"
     :cols="2"
-/>
-
-<twig:block-team
-    class="my-5"
     :members="[
         {
             name: 'John Doe',
-            role: 'Fundador',
+            role: 'Founder',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -87,7 +51,45 @@
         },
         {
             name: 'Jane Smith',
-            role: 'Co-Fundadora',
+            role: 'Co-Founder',
+            image: '../../img/block-hero.jpeg',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            links: [
+                {
+                    icon: 'fa-brands fa-linkedin',
+                    text: 'LinkedIn',
+                    url: 'https://www.example.com'
+                }
+            ]
+        }
+    ]"
+/>
+
+<twig:block-team
+    class="my-4"
+    :cols="3"
+    :members="[
+        {
+            name: 'John Doe',
+            role: 'Founder',
+            image: '../../img/block-hero.jpeg',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            links: [
+                {
+                    icon: 'fa-brands fa-linkedin',
+                    text: 'LinkedIn',
+                    url: 'https://www.example.com'
+                },
+                {
+                    icon: 'fa-brands fa-github',
+                    text: 'GitHub',
+                    url: 'https://www.example.com'
+                }
+            ]
+        },
+        {
+            name: 'Jane Smith',
+            role: 'Co-Founder',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -100,7 +102,7 @@
         },
         {
             name: 'Mike Johnson',
-            role: 'Desarrollador',
+            role: 'Developer',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -112,15 +114,15 @@
             ]
         }
     ]"
-    :cols="3"
 />
 
 <twig:block-team
-    class="mb-5"
+    class="my-4"
+    :cols="4"
     :members="[
         {
             name: 'John Doe',
-            role: 'Fundador',
+            role: 'Founder',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -133,7 +135,7 @@
         },
         {
             name: 'Jane Smith',
-            role: 'Co-Fundadora',
+            role: 'Co-Founder',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -144,9 +146,9 @@
                 }
             ]
         },
-                {
+        {
             name: 'Saul Goodman',
-            role: 'RRHH',
+            role: 'HR',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -159,7 +161,7 @@
         },
         {
             name: 'Mike Johnson',
-            role: 'Desarrollador',
+            role: 'Developer',
             image: '../../img/block-hero.jpeg',
             bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             links: [
@@ -171,6 +173,6 @@
             ]
         }
     ]"
-    :cols="4"
 />
+
 {% endblock %}

@@ -12,11 +12,9 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Exception;
 
-use Exception;
-
 /**
- * Custom exception for Derafu Twig.
+ * Component exception for Derafu Twig.
  */
-class TwigException extends Exception
+class TwigComponentException extends TwigException
 {
 }

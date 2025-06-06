@@ -60,7 +60,6 @@
 .derafu-block-alert {
     margin-bottom: var(--alert-margin-bottom);
     width: 100%;
-    max-width: 100%;
 }
 
 .derafu-block-alert .alert {
@@ -142,7 +141,6 @@
 .derafu-block-alert.mt-5 { margin-top: 3rem; }
 
 .derafu-block-alert.container {
-    max-width: 1400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -245,7 +243,6 @@
 /* Landscape Orientation - Mobile */
 @media (max-width: 576px) and (orientation: landscape) {
     .derafu-block-alert .alert {
-        max-width: 100%;
         padding-right: 2rem; /* More space on the right */
     }
 }

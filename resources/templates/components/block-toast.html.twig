@@ -1,23 +1,26 @@
 {# templates/components/block-toast.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-toast {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+
+<div
+    class="derafu-block-toast {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
 >
-    <div class="toast show bg-{{ type }} border-{{ type }}" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast show bg-{{ this.type }} border-{{ this.type }}" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
-            {% if icon %}
-                <i class="{{ icon }} derafu-block-toast__icon me-2"></i>
+            {% if this.icon %}
+                <i class="{{ this.icon }} derafu-block-toast__icon me-2"></i>
             {% endif %}
-            {% if title %}
-                <strong class="me-auto text-body-{{ type }}">{{ title }}</strong>
+            {% if this.title %}
+                <strong class="me-auto text-body-{{ this.type }}">{{ this.title }}</strong>
             {% endif %}
-            {% if time %}
-                <small class="text-body-secondary">{{ time }}</small>
+            {% if this.time %}
+                <small class="text-body-secondary">{{ this.time }}</small>
             {% endif %}
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        {% if content %}
+        {% if this.content %}
             <div class="toast-body">
-                {{ content }}
+                {{ this.content }}
             </div>
         {% endif %}
     </div>

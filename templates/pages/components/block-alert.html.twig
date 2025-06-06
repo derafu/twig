@@ -1,13 +1,13 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-  <h2>Ejemplo 1: Serie de alertas con diversos tipos</h2>
-  {% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
-  {% for type in types %}
+
+{% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
+{% for type in types %}
     <twig:block-alert
-      class="my-5"
-      type="{{ type }}"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        type="{{ type }}"
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />
-  {% endfor %}
+{% endfor %}
+
 {% endblock %}

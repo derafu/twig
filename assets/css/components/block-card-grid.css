@@ -73,13 +73,13 @@
     --card-mobile-title-margin-bottom: 0.75rem;
     --card-small-title-margin-bottom: 0.5rem;
 
-    /* Card Description */
-    --card-description-font-size: var(--font-size-sm, 0.875rem);
-    --card-description-line-height: 1.6;
-    --card-tablet-description-font-size: 0.8125rem;
-    --card-mobile-description-font-size: 0.75rem;
-    --card-tablet-description-line-height: 1.5;
-    --card-mobile-description-line-height: 1.4;
+    /* Card Content */
+    --card-content-font-size: var(--font-size-sm, 0.875rem);
+    --card-content-line-height: 1.6;
+    --card-tablet-content-font-size: 0.8125rem;
+    --card-mobile-content-font-size: 0.75rem;
+    --card-tablet-content-line-height: 1.5;
+    --card-mobile-content-line-height: 1.4;
 
     /* Card Footer */
     --card-footer-padding: var(--spacing-md, 1.5rem);
@@ -191,10 +191,10 @@
     line-height: 1.3;
 }
 
-.derafu-block-card-grid__description {
+.derafu-block-card-grid__content {
     color: var(--card-text);
-    font-size: var(--card-description-font-size);
-    line-height: var(--card-description-line-height);
+    font-size: var(--card-content-font-size);
+    line-height: var(--card-content-line-height);
     flex: 1;
 }
 
@@ -254,12 +254,10 @@
 .derafu-block-card-grid img,
 .derafu-block-card-grid video,
 .derafu-block-card-grid iframe {
-    max-width: 100%;
     height: auto;
 }
 
 .derafu-block-card-grid.container {
-    max-width: 1400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -311,9 +309,9 @@
         margin-bottom: var(--card-tablet-title-margin-bottom);
     }
 
-    .derafu-block-card-grid__description {
-        font-size: var(--card-tablet-description-font-size);
-        line-height: var(--card-tablet-description-line-height);
+    .derafu-block-card-grid__content {
+        font-size: var(--card-tablet-content-font-size);
+        line-height: var(--card-tablet-content-line-height);
     }
 
     .derafu-block-card-grid__footer {
@@ -357,9 +355,9 @@
         margin-bottom: var(--card-mobile-title-margin-bottom);
     }
 
-    .derafu-block-card-grid__description {
-        font-size: var(--card-mobile-description-font-size);
-        line-height: var(--card-mobile-description-line-height);
+    .derafu-block-card-grid__content {
+        font-size: var(--card-mobile-content-font-size);
+        line-height: var(--card-mobile-content-line-height);
     }
 
     .derafu-block-card-grid__footer {

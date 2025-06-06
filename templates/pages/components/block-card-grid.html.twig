@@ -1,78 +1,80 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-card-grid
-    class="mt-5"
-    :cards="[
-        {
-            image: '../../img/block-hero.jpeg',
-            title: 'Twig',
-            description: 'Es una ramita. <a href=\'https://derafu.org/\'>Link</a>',
-            button_text: 'Aprende sobre Twig',
-            button_url: 'https://twig.symfony.com',
-            button_color: 'primary'
-        },
-        {
-            title: 'Twig',
-            description: 'Es una ramita.',
-            button_text: 'Aprende sobre Twig',
-            button_url: 'https://twig.symfony.com'
-        },
-        {
-            image: '../../img/block-hero.jpeg',
-            description: 'Twig es una ramita'
-        }
-    ]"
+    class="my-4"
     :cols="3"
-/>
-
-<twig:block-card-grid
-    class="my-5"
     :cards="[
         {
             image: '../../img/block-hero.jpeg',
             title: 'Twig',
-            description: 'Es una ramita.',
-            button_text: 'Aprende sobre Twig',
-            button_url: 'https://twig.symfony.com'
+            content: 'It is a twig. <a href=\'https://www.example.com/\' target=\'_blank\'>Link</a>',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+            buttonColor: 'primary'
+        },
+        {
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com'
         },
         {
             image: '../../img/block-hero.jpeg',
-            title: 'Twig',
-            description: 'Es una ramita.',
-            button_text: 'Aprende sobre Twig',
-            button_url: 'https://twig.symfony.com',
-        },
-        {
-            image: '../../img/block-hero.jpeg',
-            title: 'Twig',
-            description: 'Es una ramita.',
-            button_text: 'Aprende sobre Twig',
-        },
-        {
-            image: '../../img/block-hero.jpeg',
-            title: 'Twig',
-            description: 'Es una ramita.',
-            button_text: 'Aprende sobre Twig',
-            button_url: 'https://twig.symfony.com',
-            button_color: 'success'
+            content: 'Twig is a twig'
         }
     ]"
-    :cols="4"
 />
 
 <twig:block-card-grid
-    class="mb-5"
+    class="my-4"
+    :cols="4"
     :cards="[
         {
             image: '../../img/block-hero.jpeg',
             title: 'Twig',
-            description: 'Es una ramita.',
-            button_text: 'Aprende sobre Twig',
-            button_url: 'https://twig.symfony.com',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com'
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+        },
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+            buttonColor: 'success'
+        }
+    ]"
+/>
+
+<twig:block-card-grid
+    class="my-4"
+    :cols="3"
+    :cards="[
+        {
+            image: '../../img/block-hero.jpeg',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
             offset: 4
         }
     ]"
-    :cols="3"
 />
+
 {% endblock %}

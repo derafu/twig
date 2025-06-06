@@ -1,81 +1,74 @@
 {% extends 'layouts/default.html.twig' %}
 
-
 {% block content %}
+
 <twig:block-hero
-   class="mt-5"
+   class="my-4"
+   align="left"
    background="{{ base_path }}/img/block-hero.jpeg"
-   title="Lorem <a href=https://derafu.org/>ipsum</a>"
+   title="Lorem <a href='https://www.example.com/' target='_blank'>ipsum</a>"
    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
    :buttons="[
        {
-           text: 'Derafu ORG',
-           url: 'https://www.derafu.org'
+           text: 'Example.com',
+           url: 'https://www.example.com'
        }
    ]"
-   align="left"
 />
 
-
 <twig:block-hero
-   class="my-5"
+   class="my-4"
+   align="left"
    background="{{ base_path }}/img/block-hero.jpeg"
    contentBackground="true"
    title="Lorem ipsum"
-   subtitle="Lorem ipsum dolor sit amet, consectetur <a href=https://derafu.org/>adipiscing elit.</a>"
+   subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
    :buttons="[
        {
-           text: 'Derafu ORG',
-           url: 'https://www.derafu.org'
+           text: 'Example.com',
+           url: 'https://www.example.com'
        }
    ]"
-   align="left"
 />
 
-
 <twig:block-hero
-   class="my-5"
+   class="my-4"
+   align="right"
    background="{{ base_path }}/img/block-hero.jpeg"
    title="Lorem ipsum"
    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
    :buttons="[
        {
-           text: 'Derafu ORG',
-           url: 'https://www.derafu.org'
+           text: 'Example.com',
+           url: 'https://www.example.com'
        }
    ]"
-   align="right"
 />
 
-
-{% for theme, name in themes %}
-   <twig:block-hero
-       class="my-5"
-       title="Theme: {{ name }}"
-       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-       :buttons="[
-           {
-               text: 'Derafu ORG',
-               url: 'https://www.derafu.org'
-           },
-           {
-               text: 'Example.com',
-               url: 'https://www.example.com'
-           }
-       ]"
-   />
-{% endfor %}
-
+<twig:block-hero
+    class="my-4"
+    title="Hero"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    :buttons="[
+        {
+            text: 'Example.com 1',
+            url: 'https://www.example.com'
+        },
+        {
+            text: 'Example.com 2',
+            url: 'https://www.example.com'
+        }
+    ]"
+/>
 
 {% set sizes = ['mini', 'small', 'medium', 'large', 'full'] %}
-{% set theme_keys = themes|keys %}
 {% for size in sizes %}
-   {% set theme_key = theme_keys[loop.index0] %}
    <twig:block-hero
-       class="mb-5"
+       class="my-4"
+       align="right"
        size="{{ size }}"
        background="{{ base_path }}/img/block-hero.jpeg"
-       title="Size: {{ size }} ({{ theme_keys[loop.index0] }})"
+       title="Size: {{ size }}"
        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
        :buttons="[
            {
@@ -83,7 +76,7 @@
                url: 'https://www.example.com'
            }
        ]"
-       align="right"
    />
 {% endfor %}
+
 {% endblock %}

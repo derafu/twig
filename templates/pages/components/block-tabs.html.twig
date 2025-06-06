@@ -1,66 +1,68 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 {% set tab_content_1 %}
     <twig:block-text-image
         title="Lorem ipsum dolor sit amet"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed."
         :buttons="[
             {
-                text: 'Conoce más',
+                text: 'Learn more',
                 url: 'https://www.example.com'
             },
             {
-                text: 'Solicita un período de prueba GRATIS',
+                text: 'Request a FREE trial period',
                 url: 'https://www.example.com'
             }
         ]"
         image="{{ base_path }}/img/block-hero.jpeg"
-        :inside_tabs="true"
+        :insideTabs="true"
     />
 {% endset %}
 
 {% set tab_content_2 %}
-    <h2>Información</h2>
+    <h2>Information</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed....</p>
 {% endset %}
 
 <twig:block-tabs
-    class="mt-5"
+    class="my-4"
     :tabs="[
         {
-            'id': 'features',
-            'title': 'Características',
-            'icon': 'fa-solid fa-list',
-            'content': tab_content_1
+            id: 'features',
+            title: 'Features',
+            icon: 'fa-solid fa-list',
+            content: tab_content_1
         },
         {
-            'id': 'info',
-            'title': 'Información',
-            'icon': 'fa-solid fa-info-circle',
-            'content': tab_content_2
+            id: 'info',
+            title: 'Information',
+            icon: 'fa-solid fa-info-circle',
+            content: tab_content_2
         }
     ]"
 />
 
 <twig:block-tabs
-    class="my-5"
+    class="my-4"
+    position="vertical"
+    :withShadow="true"
+    :cols="3"
     :tabs="[
         {
-            'id': 'features2',
-            'title': 'hola',
-            'icon': 'fa-solid fa-list',
-            'content': tab_content_1
+            id: 'features2',
+            title: 'hello',
+            icon: 'fa-solid fa-list',
+            content: tab_content_1
         },
         {
-            'id': 'info2',
-            'title': 'Información',
-            'icon': 'fa-solid fa-info-circle',
-            'content': tab_content_2
+            id: 'info2',
+            title: 'Information',
+            icon: 'fa-solid fa-info-circle',
+            content: tab_content_2
         }
     ]"
-    position="vertical"
-    :cols="3"
-    :with_shadow="true"
 />
+
 {% endblock %}

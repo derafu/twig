@@ -1,13 +1,14 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 {# Define the contents for the sections #}
-{% set section_content_introduccion %}
+{% set section_content_introduction %}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 {% endset %}
 
-{% set section_content_caracteristicas %}
+{% set section_content_features %}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <ul>
@@ -19,7 +20,7 @@
     </ul>
 {% endset %}
 
-{% set section_content_opciones %}
+{% set section_content_options %}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <ul>
         <li><code>Lorem</code>: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
@@ -31,7 +32,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 {% endset %}
 
-{% set section_content_uso %}
+{% set section_content_usage %}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <ol>
         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
@@ -43,7 +44,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 {% endset %}
 
-{% set section_content_avanzado %}
+{% set section_content_advanced %}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     <ul>
         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
@@ -55,68 +56,61 @@
 {% endset %}
 
 {# Example 1: Vertical Scrollspy #}
-<div class="container">
-    <h2 class="mt-5 mb-4">Scrollspy Vertical</h2>
-    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+<twig:block-scrollspy
+    class="shadow-none mt-5"
+    style="--scrollspy-list-active-bg: #0066cc;"
+    height="100vh"
+    :cols="3"
+    :sections="[
+        {
+            id: 'introduction',
+            title: 'Lorem ipsum dolor sit amet',
+            content: section_content_introduction
+        },
+        {
+            id: 'features',
+            title: 'Lorem',
+            content: section_content_features
+        },
+        {
+            id: 'options',
+            title: 'Lorem',
+            content: section_content_options
+        }
+    ]"
+/>
 
-    <twig:block-scrollspy
-        class="shadow-none mt-5"
-        height="100vh"
-        :sections="[
-            {
-                'id': 'introduccion',
-                'title': 'Lorem ipsum dolor sit amet',
-                'content': section_content_introduccion
-            },
-            {
-                'id': 'caracteristicas',
-                'title': 'Lorem',
-                'content': section_content_caracteristicas
-            },
-            {
-                'id': 'opciones',
-                'title': 'Lorem',
-                'content': section_content_opciones
-            }
-        ]"
-        :cols="3"
-        style="--scrollspy-list-active-bg: #0066cc;"
-    />
-</div>
+<hr class="my-5"/>
 
 {# Example 2: Horizontal Scrollspy #}
-<div class="container">
-    <h2 class="mt-5 mb-4">Scrollspy Horizontal</h2>
-    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+<twig:block-scrollspy
+    class="shadow my-5"
+    style="--scrollspy-list-active-bg: #6610f2;"
+    height="300px"
+    orientation="horizontal"
+    :cols="12"
+    :sections="[
+        {
+            id: 'introduction-h',
+            title: 'Lorem ipsum dolor sit amet',
+            content: section_content_introduction,
+        },
+        {
+            id: 'features-h',
+            title: 'Lorem',
+            content: section_content_features,
+        },
+        {
+            id: 'options-h',
+            title: 'Lorem',
+            content: section_content_options,
+        },
+            {
+            id: 'usage-h',
+            title: 'Lorem',
+            content: section_content_usage,
+        }
+    ]"
+/>
 
-    <twig:block-scrollspy
-        class="shadow my-5"
-        height="300px"
-        :sections="[
-            {
-                'id': 'introduccion-h',
-                'title': 'Lorem ipsum dolor sit amet',
-                'content': section_content_introduccion,
-            },
-            {
-                'id': 'caracteristicas-h',
-                'title': 'Lorem',
-                'content': section_content_caracteristicas,
-            },
-            {
-                'id': 'opciones-h',
-                'title': 'Lorem',
-                'content': section_content_opciones,
-            },
-             {
-                'id': 'uso-h',
-                'title': 'Lorem',
-                'content': section_content_uso,
-            }
-        ]"
-        orientation="horizontal"
-        :cols="12"
-        style="--scrollspy-list-active-bg: #6610f2;"
-    />
-</div>
 {% endblock %}

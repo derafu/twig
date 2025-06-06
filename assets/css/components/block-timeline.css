@@ -142,17 +142,17 @@
     font-size: 0.875rem;
 }
 
-.derafu-block-timeline__description {
+.derafu-block-timeline__text {
     color: var(--timeline-text-color);
     line-height: 1.5;
     clear: both;
 }
 
-.derafu-block-timeline__description a {
+.derafu-block-timeline__text a {
     text-decoration: none;
 }
 
-.derafu-block-timeline__description :hover {
+.derafu-block-timeline__text a:hover {
     text-decoration: underline;
 }
 

@@ -1,21 +1,22 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-header
     class="mt-0"
     logoImage="../../img/block-hero.jpeg"
-    logoHtml="<span class='fw-normal'>Libre</span><span class='fw-bold text-primary'>DTE</span>"
+    logoText="<span class='fw-normal'>Soft</span><span class='fw-bold text-primary'>ware</span>"
     :leftNav="[
         {
-            text: 'Inicio',
+            text: 'Home',
             url: '#'
         },
         {
-            text: 'Soluciones',
+            text: 'Solutions',
             icon: 'fa-solid fa-cubes',
             items: [
                 {
-                    text: 'Solución Básica',
+                    text: 'Basic Solution',
                     icon: 'fa-solid fa-star',
                     url: '#'
                 },
@@ -23,16 +24,16 @@
                     type: 'divider'
                 },
                 {
-                    text: 'Solución Avanzada',
+                    text: 'Advanced Solution',
                     icon: 'fa-solid fa-rocket',
                     items: [
                         {
-                            text: 'Características Principales',
+                            text: 'Main Features',
                             url: '#'
                         },
                         {
                             icon: 'fa-solid fa-chart-line',
-                            text: 'Análisis',
+                            text: 'Analysis',
                             url: '#'
                         },
                         {
@@ -40,7 +41,7 @@
                         },
                         {
                             icon: 'fa-solid fa-book-open',
-                            text: 'Guía Completa',
+                            text: 'Complete Guide',
                             url: '#'
                         }
                     ]
@@ -50,16 +51,16 @@
     ]"
     :rightNav="[
         {
-            text: 'Recursos',
+            text: 'Resources',
             url: '#',
             icon: 'fa-solid fa-toolbox'
         },
         {
-            text: 'Integraciones',
+            text: 'Integrations',
             icon: 'fa-solid fa-plug',
             items: [
                 {
-                    text: 'Plataformas',
+                    text: 'Platforms',
                     icon: 'fa-solid fa-desktop',
                     url: '#'
                 },
@@ -72,21 +73,21 @@
         }
     ]"
     ctaIcon="fa-solid fa-rocket"
-    ctaText="Comenzar"
+    ctaText="Get Started"
     ctaUrl="#"
 />
 
 <twig:block-header
-    class="my-5"
+    class="my-4"
     logoImage="../../img/block-hero.jpeg"
-    logoHtml="<span class='fw-normal'>Otro</span><span class='fw-bold text-primary'>Ejemplo</span>"
+    logoText="<span class='fw-normal'>Another</span><span class='fw-bold text-primary'>Example</span>"
     :leftNav="[
         {
             text: 'Marketplace',
             icon: 'fa-solid fa-shopping-cart',
             sections: [
                 {
-                    title: 'Tecnología',
+                    title: 'Technology',
                     links: [
                         {
                             text: 'Software',
@@ -103,7 +104,8 @@
             ]
         }
     ]"
-    ctaText="Explora"
+    ctaText="Explore"
     ctaUrl="#"
 />
+
 {% endblock %}

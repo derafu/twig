@@ -1,14 +1,14 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-    {% for theme, name in themes %}
-        <twig:block-card
-            class="my-5"
-            image="../../img/block-hero.jpeg"
-            title="Theme: {{ name }}"
-            description="Lorem ipsum dolor sit amet, consectetur <a href=https://derafu.org/>adipiscing elit.</a>"
-            buttonText="More..."
-            buttonUrl="https://www.example.com"
-        />
-    {% endfor %}
+
+<twig:block-card
+    class="my-4"
+    image="../../img/block-hero.jpeg"
+    title="Card"
+    content="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
+    buttonText="More..."
+    buttonUrl="https://www.example.com/"
+/>
+
 {% endblock %}

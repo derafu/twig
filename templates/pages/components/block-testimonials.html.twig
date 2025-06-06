@@ -1,29 +1,30 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-testimonials
-    class="mt-5"
+    class="my-4"
     :testimonials="[
         {
-            image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            background: '../../img/block-hero.jpeg',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
             author: 'John Doe',
-            avatar: '../../img/block-hero.jpeg',
-            organization: 'Lorem ipsum',
+            image: '../../img/block-hero.jpeg',
+            note: 'Lorem ipsum',
             url: 'https://www.example.com'
         },
         {
-            image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            background: '../../img/block-hero.jpeg',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
             author: 'John Doe',
-            organization: 'Lorem ipsum',
+            note: 'Lorem ipsum',
             position: 'left'
         },
         {
-            image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            background: '../../img/block-hero.jpeg',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
             author: 'John Doe',
-            avatar: '../../img/block-hero.jpeg',
+            image: '../../img/block-hero.jpeg',
             url: 'http://www.example.com',
             position: 'right'
         }
@@ -31,37 +32,38 @@
 />
 
 <twig:block-testimonials
-    class="my-5"
+    class="my-4"
+    interval="2000"
     :testimonials="[
         {
-            image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=https://derafu.org/>tempus gravida.</a href>',
+            background: '../../img/block-hero.jpeg',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=\'https://www.example.com/\' target=\'_blank\'>tempus gravida.</a href>',
             author: 'John Doe',
-            avatar: '../../img/block-hero.jpeg',
-            organization: 'Lorem ipsum',
+            image: '../../img/block-hero.jpeg',
+            note: 'Lorem ipsum',
             url: 'http://www.example.com'
         },
         {
-            image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            background: '../../img/block-hero.jpeg',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
             author: 'John Doe',
-            avatar: '../../img/block-hero.jpeg',
+            image: '../../img/block-hero.jpeg',
             url: 'http://www.example.com'
         }
     ]"
-    interval="2000"
 />
 
 <twig:block-testimonials
-    class="mb-5"
+    class="my-4"
     :testimonials="[
         {
-            image: '../../img/block-hero.jpeg',
-            quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            background: '../../img/block-hero.jpeg',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
             author: 'John Doe',
-            avatar: '../../img/block-hero.jpeg',
-            organization: 'Lorem ipsum'
+            image: '../../img/block-hero.jpeg',
+            note: 'Lorem ipsum'
         }
     ]"
 />
+
 {% endblock %}

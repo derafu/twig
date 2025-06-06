@@ -1,4 +1,4 @@
-{% macro render_menu_items(items, is_right = false) %}
+{% macro render_menu_items(items, isRight = false) %}
     {% for item in items %}
         {% if item.type == 'link' %}
             <li class="nav-item">
@@ -17,12 +17,12 @@
                     {% endif %}
                     {{ item.text }}
                 </a>
-                <ul class="dropdown-menu {% if is_right %}dropdown-menu-end{% endif %}">
+                <ul class="dropdown-menu {% if isRight %}dropdown-menu-end{% endif %}">
                     {% for subitem in item.items %}
                         {% if subitem.type == 'divider' %}
                             <li><hr class="dropdown-divider"></li>
                         {% elseif subitem.type == 'submenu' %}
-                            <li class="{% if is_right %}dropstart{% else %}dropend{% endif %}">
+                            <li class="{% if isRight %}dropstart{% else %}dropend{% endif %}">
                                 <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                     {% if subitem.icon is not empty %}
                                         <i class="{{ subitem.icon }} me-1"></i>
@@ -114,20 +114,21 @@
 
 {% import _self as menu %}
 
-<nav class="{{ container ?? 'container' }} derafu-block-header navbar navbar-expand-lg
-    {% if position != 'normal' %}{{ position }}{% endif %}
-    {% if backgroundColor %}style="background-color: {{ backgroundColor }};"{% endif %}
-    {% if dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+<nav class="derafu-block-header {{ attributes.render('class') }} navbar navbar-expand-lg
+    {% if this.position != 'normal' %}{{ this.position }}{% endif %}
+    {% if this.backgroundColor %}style="background-color: {{ this.backgroundColor }};"{% endif %}
+    {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}"
+    {{ attributes }}
+    id="{{ this.id }}"
 >
-    <div {% if fullWidth is empty %}class="container"{% endif %}>
+    <div {% if this.fullWidth is empty %}class="container"{% endif %}>
         {# Logo Section #}
-        <a class="navbar-brand d-flex align-items-center" href="{{ logoUrl }}">
-            {% if logoImage %}
-                <img src="{{ logoImage }}" alt="Logo" style="max-width: {{ logoMaxWidth }}px;">
+        <a class="navbar-brand d-flex align-items-center" href="{{ this.logoUrl }}">
+            {% if this.logoImage %}
+                <img src="{{ this.logoImage }}" alt="Logo" style="max-width: {{ this.logoMaxWidth }}px;">
             {% endif %}
-            {% if logoHtml %}
-                <span class="ms-2">{{ logoHtml|raw }}</span>
+            {% if this.logoText %}
+                <span class="ms-2">{{ this.logoText|raw }}</span>
             {% endif %}
         </a>
 
@@ -140,21 +141,21 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             {# Left Navigation #}
             <ul class="navbar-nav me-auto">
-                {{ menu.render_menu_items(leftNav) }}
+                {{ menu.render_menu_items(this.leftNav) }}
             </ul>
 
             {# Right Navigation #}
             <ul class="navbar-nav">
-                {{ menu.render_menu_items(rightNav, true) }}
+                {{ menu.render_menu_items(this.rightNav, true) }}
 
                 {# CTA Button #}
-                {% if ctaText and ctaUrl %}
+                {% if this.ctaText and this.ctaUrl %}
                     <li class="nav-item ms-2">
-                        <a href="{{ ctaUrl }}" class="btn btn-primary">
-                            {% if ctaIcon is not empty %}
-                                <i class="{{ ctaIcon }} me-1"></i>
+                        <a href="{{ this.ctaUrl }}" class="btn btn-primary">
+                            {% if this.ctaIcon is not empty %}
+                                <i class="{{ this.ctaIcon }} me-1"></i>
                             {% endif %}
-                            {{ ctaText }}
+                            {{ this.ctaText }}
                         </a>
                     </li>
                 {% endif %}

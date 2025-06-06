@@ -1,38 +1,40 @@
 {# templates/components/block-video.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-video {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+
+<div
+    class="derafu-block-video {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
 >
-    {% for key, video in video %}
-        <div class="derafu-block-video__wrapper derafu-block-video--{{ video.align ?? 'center' }} derafu-block-video--{{ video.size ?? 'normal' }} derafu-block-video--{{ video.align ?? 'center' }}" id="{{ id }}-{{ key }}">
-            {% if video.title %}
-                <h2 class="derafu-block-video__title">{{ video.title }}</h2>
-            {% endif %}
+    <div class="derafu-block-video__wrapper derafu-block-video--{{ this.align ?? 'center' }} derafu-block-video--{{ this.size ?? 'normal' }} derafu-block-video--{{ this.align ?? 'center' }}">
+        {% if this.title %}
+            <h2 class="derafu-block-video__title">{{ this.title }}</h2>
+        {% endif %}
 
-            <div class="derafu-block-video__media">
-                <iframe
-                    class="derafu-block-video__player"
-                    src="{{ video.video|replace({'watch?v=': 'embed/'}) }}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            {% if video.description %}
-                <div class="derafu-block-video__description">
-                    {{ video.description|raw }}
-                </div>
-            {% endif %}
-
-            {% if video.buttons|length > 0 %}
-                <div class="derafu-block-video__buttons">
-                    {% for button in video.buttons %}
-                        <a href="{{ button.url }}" class="derafu-block-video__button">
-                            {{ button.text }}
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        <div class="derafu-block-video__media">
+            <iframe
+                class="derafu-block-video__player"
+                src="{{ this.video|replace({'watch?v=': 'embed/'}) }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            >
+            </iframe>
         </div>
-    {% endfor %}
+
+        {% if this.content %}
+            <div class="derafu-block-video__content">
+                {{ this.content|raw }}
+            </div>
+        {% endif %}
+
+        {% if this.buttons|length > 0 %}
+            <div class="derafu-block-video__buttons">
+                {% for button in this.buttons %}
+                    <a href="{{ button.url }}" class="derafu-block-video__button">
+                        {{ button.text }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 </div>

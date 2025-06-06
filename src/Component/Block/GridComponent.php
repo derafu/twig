@@ -14,48 +14,67 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-grid')]
 class GridComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the grid component.
-     *
-     * @var string
-     */
-    #[ExposeInTemplate()]
-    public string $id = '';
-
-    /**
-     * Container class for the grid component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
-    /**
-     * Additional CSS classes for the grid component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
      * Array of items to display in the grid.
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $items;
+    private array $items;
 
     /**
      * Number of columns in the grid layout.
      *
      * @var int|null
      */
-    #[ExposeInTemplate()]
-    public ?int $cols = null;
+    private ?int $cols = null;
+
+    /**
+     * Gets the array of items to display in the grid.
+     *
+     * @return array The array of items.
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
+     * Sets the array of items to display in the grid.
+     *
+     * @param array $items The array of items.
+     * @return static
+     */
+    public function setItems(array $items): static
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number of columns in the grid layout.
+     *
+     * @return int|null The number of columns.
+     */
+    public function getCols(): ?int
+    {
+        return $this->cols;
+    }
+
+    /**
+     * Sets the number of columns in the grid layout.
+     *
+     * @param int|null $cols The number of columns.
+     * @return static
+     */
+    public function setCols(?int $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
+    }
 }

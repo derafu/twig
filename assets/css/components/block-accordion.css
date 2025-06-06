@@ -38,24 +38,6 @@
    ====================================== */
 .derafu-block-accordion {
     margin: var(--spacing-y, 2rem) auto;
-    max-width: 100%;
-}
-
-/* Accordion - Item */
-.derafu-block-accordion .accordion-item {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0;
-    transition: all 0.2s ease-in-out;
-}
-
-.derafu-block-accordion .accordion-item:first-of-type {
-    border-top-left-radius: 0.375rem;
-    border-top-right-radius: 0.375rem;
-}
-
-.derafu-block-accordion .accordion-item:last-of-type {
-    border-bottom-left-radius: 0.375rem;
-    border-bottom-right-radius: 0.375rem;
 }
 
 /* Accordion - Button */
@@ -122,7 +104,6 @@
 }
 
 .derafu-block-accordion.container {
-    max-width: 1400px; /* o el ancho que uses para tu contenedor */
     width: 100%;
     margin-left: auto;
     margin-right: auto;

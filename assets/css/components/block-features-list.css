@@ -8,7 +8,6 @@
     /* Structure */
     --features-list-column-padding: 1rem;
     --features-list-item-margin-bottom: 2rem;
-    --features-list-content-max-width: 80%;
     --features-list-icon-padding: 0 1rem;
     --features-list-divider-width: 1px;
     --features-list-row-margin: -1rem;
@@ -24,8 +23,8 @@
     --features-list-title-font-size: 1.25rem;
     --features-list-title-font-weight: 600;
     --features-list-title-margin-bottom: 0.5rem;
-    --features-list-description-font-size: 0.9rem;
-    --features-list-description-line-height: 1.5;
+    --features-list-content-font-size: 0.9rem;
+    --features-list-content-line-height: 1.5;
 
     /* Breakpoints */
     --features-list-mobile-breakpoint: 768px;
@@ -97,7 +96,6 @@
    ====================================== */
 .derafu-block-features-list__content {
     flex: 1;
-    max-width: var(--features-list-content-max-width);
 }
 
 .derafu-block-features-list__title {
@@ -115,17 +113,17 @@
     text-decoration: underline;
 }
 
-.derafu-block-features-list__description {
+.derafu-block-features-list__content {
     color: var(--features-list-text-color);
-    font-size: var(--features-list-description-font-size);
-    line-height: var(--features-list-description-line-height);
+    font-size: var(--features-list-content-font-size);
+    line-height: var(--features-list-content-line-height);
 }
 
-.derafu-block-features-list__description a {
+.derafu-block-features-list__content a {
     text-decoration: none;
 }
 
-.derafu-block-features-list__description a:hover {
+.derafu-block-features-list__content a:hover {
     text-decoration: underline;
 }
 
@@ -143,7 +141,6 @@
 }
 
 .derafu-block-features-list.container {
-    max-width: 1400px; /* o el ancho que uses para tu contenedor */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -209,7 +206,7 @@
         font-size: 1.2rem;
     }
 
-    .derafu-block-features-list__description {
+    .derafu-block-features-list__content {
         font-size: 0.9rem;
     }
 

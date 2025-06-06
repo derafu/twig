@@ -1,26 +1,28 @@
 {# templates/components/block-image.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-image derafu-block-image--{{ align }} derafu-block-image--{{ size }} {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+<div
+    class="derafu-block-image derafu-block-image--{{ align }} derafu-block-image--{{ size }} {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
 >
     <div class="derafu-block-image__wrapper">
-        {% if title %}
-            <h2 class="derafu-block-image__title">{{ title|raw }}</h2>
+        {% if this.title %}
+            <h2 class="derafu-block-image__title">{{ this.title|raw }}</h2>
         {% endif %}
 
         <div class="derafu-block-image__image">
-            <img src="{{ image }}" alt="{{ title }}" class="img-fluid">
+            <img src="{{ this.image }}" alt="{{ this.title }}" class="img-fluid">
         </div>
 
-        {% if description %}
-            <div class="derafu-block-image__description">
-                {{ description|raw }}
+        {% if this.content %}
+            <div class="derafu-block-image__content">
+                {{ this.content|raw }}
             </div>
         {% endif %}
 
-        {% if buttons|length > 0 %}
+        {% if this.buttons|length > 0 %}
             <div class="derafu-block-image__buttons">
-                {% for button in buttons %}
-                    <a href="{{ button.url }}" class="derafu-block-image__button">
+                {% for button in this.buttons %}
+                    <a href="{{ button.url }}" class="derafu-block-image__button {{ button.url ? '' : 'disabled' }}">
                         {{ button.text }}
                     </a>
                 {% endfor %}

@@ -6,7 +6,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-features-grid')]
 class FeaturesGridComponent extends AbstractComponent
@@ -20,34 +19,32 @@ class FeaturesGridComponent extends AbstractComponent
      * - features: Array of features:
      *   - icon: Font Awesome icon class
      *   - title: Feature title
-     *   - description: Feature description (supports HTML)
+     *   - content: Feature content (supports HTML)
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $blocks = [];
+    private array $blocks = [];
 
     /**
-     * Unique identifier for the features grid component.
+     * Gets the array of blocks.
      *
-     * @var string
+     * @return array The array of blocks with their configurations.
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function getBlocks(): array
+    {
+        return $this->blocks;
+    }
 
     /**
-     * Container class for the features grid component.
+     * Sets the array of blocks.
      *
-     * @var string|null
+     * @param array $blocks The array of blocks with their configurations.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function setBlocks(array $blocks): static
+    {
+        $this->blocks = $blocks;
 
-    /**
-     * Additional CSS classes for the features grid component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+        return $this;
+    }
 }

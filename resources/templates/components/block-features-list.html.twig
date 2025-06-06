@@ -1,16 +1,15 @@
 {# templates/components/block-features-list.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-features-list {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
->
+
+<div class="derafu-block-features-list {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     <div class="derafu-block-features-list__row">
         {# Left column #}
         <div class="derafu-block-features-list__column derafu-block-features-list__column--left">
-            {% for feature in features_left %}
+            {% for feature in this.featuresLeft %}
                 <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">{{ feature.title|raw }}</h3>
-                        <div class="derafu-block-features-list__description">
-                            {{ feature.description|raw }}
+                        <div class="derafu-block-features-list__content">
+                            {{ feature.content|raw }}
                         </div>
                     </div>
                     <div class="derafu-block-features-list__icon">
@@ -19,18 +18,17 @@
                 </div>
             {% endfor %}
         </div>
-
         {# Right column #}
         <div class="derafu-block-features-list__column derafu-block-features-list__column--right">
-            {% for feature in features_right %}
+            {% for feature in this.featuresRight %}
                 <div class="derafu-block-features-list__item derafu-block-features-list__item--left">
                     <div class="derafu-block-features-list__icon">
                         <i class="{{ feature.icon }}"></i>
                     </div>
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">{{ feature.title|raw }}</h3>
-                        <div class="derafu-block-features-list__description">
-                            {{ feature.description|raw }}
+                        <div class="derafu-block-features-list__content">
+                            {{ feature.content|raw }}
                         </div>
                     </div>
                 </div>

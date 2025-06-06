@@ -1,24 +1,21 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
-    <twig:block-accordion
-        class="mt-5"
-        :items="[
-            {
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim. <a href=\'https://derafu.org/\'>Link</a>',
-            },
-            {
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.',
-            }
-        ]"
-    />
-{% endfor %}
 
 <twig:block-accordion
-    class="my-5"
+    :items="[
+        {
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim. <a href=\'https://www.example.com/\' target=\'_blank\'>Link</a>',
+        },
+        {
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.',
+        }
+    ]"
+/>
+
+<twig:block-accordion
     :items="[
         {
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -31,4 +28,5 @@
         }
     ]"
 />
+
 {% endblock %}

@@ -14,11 +14,17 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-features-table')]
 class FeaturesTableComponent extends AbstractComponent
 {
+    /**
+     * Title of the features table
+     *
+     * @var string
+     */
+    private string $title = 'Features';
+
     /**
      * Features array containing the rows of the table
      *
@@ -26,7 +32,7 @@ class FeaturesTableComponent extends AbstractComponent
      * [
      *     'icon' => 'fa-solid fa-folder',
      *     'name' => 'Feature Name',
-     *     'description' => 'Optional description text',
+     *     'content' => 'Optional content text',
      *     'values' => [
      *         'Plan A' => true,                   // For boolean (check/cross).
      *         'Plan B' => '1,400',                // For text/numeric.
@@ -36,39 +42,51 @@ class FeaturesTableComponent extends AbstractComponent
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $features = [];
+    private array $features = [];
 
     /**
-     * Unique identifier for the features table component.
+     * Gets the title of the features table.
      *
-     * @var string
+     * @return string The title of the features table.
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
 
     /**
-     * Container class for the features table component.
-     * If null, defaults to 'container' when enabled.
+     * Sets the title of the features table.
      *
-     * @var string|null
+     * @param string $title The title of the features table.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
 
     /**
-     * Additional CSS classes for the features table component.
+     * Gets the array of features.
      *
-     * @var string|null
+     * @return array The array of features with their configurations.
      */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+    public function getFeatures(): array
+    {
+        return $this->features;
+    }
 
     /**
-     * Title of the features table
+     * Sets the array of features.
      *
-     * @var string
+     * @param array $features The array of features with their configurations.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public string $title = 'Features';
+    public function setFeatures(array $features): static
+    {
+        $this->features = $features;
+
+        return $this;
+    }
 }

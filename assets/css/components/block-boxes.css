@@ -40,13 +40,13 @@
     --boxes-title-margin-bottom: 1rem;
     --boxes-title-mobile-margin-bottom: 0.75rem;
 
-    /* Typography - Descriptions */
-    --boxes-description-font-size: 1rem;
-    --boxes-description-mobile-font-size: 0.9375rem;
-    --boxes-description-small-font-size: 0.875rem;
-    --boxes-description-line-height: 1.6;
-    --boxes-description-margin-bottom: 1.5rem;
-    --boxes-description-mobile-margin-bottom: 1.25rem;
+    /* Typography - Content */
+    --boxes-content-font-size: 1rem;
+    --boxes-content-mobile-font-size: 0.9375rem;
+    --boxes-content-small-font-size: 0.875rem;
+    --boxes-content-line-height: 1.6;
+    --boxes-content-margin-bottom: 1.5rem;
+    --boxes-content-mobile-margin-bottom: 1.25rem;
 
     /* Button Styles */
     --boxes-button-bg: var(--bs-primary, #0d6efd);
@@ -149,17 +149,17 @@
     line-height: 1.3;
 }
 
-.derafu-block-boxes__description {
-    margin-bottom: var(--boxes-description-margin-bottom);
-    font-size: var(--boxes-description-font-size);
-    line-height: var(--boxes-description-line-height);
+.derafu-block-boxes__content {
+    margin-bottom: var(--boxes-content-margin-bottom);
+    font-size: var(--boxes-content-font-size);
+    line-height: var(--boxes-content-line-height);
 }
 
-.derafu-block-boxes__description a {
+.derafu-block-boxes__content a {
     text-decoration: none;
 }
 
-.derafu-block-boxes__description a:hover {
+.derafu-block-boxes__content a:hover {
     text-decoration: underline;
 }
 
@@ -254,8 +254,6 @@
 }
 
 .derafu-block-boxes.container {
-    max-width: 1400px;
-    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--boxes-button-padding-x, 1.5rem);
@@ -301,8 +299,8 @@
         margin-bottom: var(--boxes-title-mobile-margin-bottom);
     }
 
-    .derafu-block-boxes__description {
-        margin-bottom: var(--boxes-description-mobile-margin-bottom);
+    .derafu-block-boxes__content {
+        margin-bottom: var(--boxes-content-mobile-margin-bottom);
     }
 
     /* Specific grid handling for tablets */
@@ -336,8 +334,8 @@
         text-align: center; /* Center text on mobile */
     }
 
-    .derafu-block-boxes__description {
-        font-size: var(--boxes-description-mobile-font-size);
+    .derafu-block-boxes__content {
+        font-size: var(--boxes-content-mobile-font-size);
         text-align: center; /* Center text on mobile */
     }
 
@@ -381,8 +379,8 @@
         font-size: var(--boxes-title-small-font-size);
     }
 
-    .derafu-block-boxes__description {
-        font-size: var(--boxes-description-small-font-size);
+    .derafu-block-boxes__content {
+        font-size: var(--boxes-content-small-font-size);
         line-height: 1.5;
     }
 }
@@ -395,7 +393,6 @@
 .derafu-block-boxes video,
 .derafu-block-boxes iframe,
 .derafu-block-boxes table {
-    max-width: 100%;
     height: auto;
 }
 

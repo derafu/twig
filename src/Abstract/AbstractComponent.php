@@ -12,70 +12,38 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Abstract;
 
+use Derafu\Twig\Exception\TwigComponentException;
 use ReflectionClass;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Abstract base class for Twig components.
  *
- * This class provides common functionality for all Twig components including:
- *
- *   - Unique ID generation.
- *   - Style management.
- *   - Container class handling.
+ * This class provides common functionality for all Twig components.
  */
 abstract class AbstractComponent
 {
     /**
-     * Prefix of the theme CSS class.
-     *
-     * @var string
-     */
-    protected const THEME_PREFIX = 'derafu-theme-';
-
-    /**
      * Unique identifier for the component instance.
      *
-     * Automatically generated in the constructor using the component's prefix.
-     *
      * @var string
      */
-    #[ExposeInTemplate]
-    protected string $id;
+    private string $id;
 
     /**
-     * CSS classes for styling the component instance.
+     * Gets the component's unique identifier.
      *
-     *  Can be a single class or multiple space-separated classes.
+     * Automatically generated if not set.
      *
-     * @var string|null
+     * @return string
      */
-    #[ExposeInTemplate]
-    protected ?string $class = null;
-
-    /**
-     * Container class for wrapping the component content.
-     *
-     * @var string|null
-     */
-    protected ?string $container = null;
-
-    /**
-     * Theme class for the component, without `derafu-theme-` prefix.
-     *
-     * @var string|null
-     */
-    protected ?string $theme = null;
-
-    /**
-     * Initializes a new instance of the component.
-     *
-     * Automatically generates a unique ID using the component's name.
-     */
-    public function __construct()
+    public function getId(): string
     {
-        $this->id = $this->generateUniqueId();
+        if (!isset($this->id)) {
+            $this->id = uniqid($this->getComponentName() . '--');
+        }
+
+        return $this->id;
     }
 
     /**
@@ -89,79 +57,6 @@ abstract class AbstractComponent
         $this->id = $id;
 
         return $this;
-    }
-
-    /**
-     * Gets the component's unique identifier.
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    /**
-     * Sets the component's CSS classes.
-     *
-     * @param string $class Space-separated CSS classes.
-     * @return static For method chaining.
-     */
-    public function setClass(string $class): static
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
-    /**
-     * Gets the component's CSS classes.
-     *
-     * @return string
-     */
-    public function getClass(): string
-    {
-        $theme = $this->theme ? (static::THEME_PREFIX . $this->theme) : '';
-
-        return trim($theme . ' ' . $this->container . ' ' . $this->class);
-    }
-
-    /**
-     * Sets the container class.
-     *
-     * @param string $container Container CSS class.
-     * @return static For method chaining.
-     */
-    public function setContainer(string $container): static
-    {
-        $this->container = $container;
-
-        return $this;
-    }
-
-    /**
-     * Sets the container theme.
-     *
-     * @param string $theme Container CSS theme class, without `derafu-theme-`.
-     * @return static For method chaining.
-     */
-    public function setTheme(string $theme): static
-    {
-        $this->theme = $theme;
-
-        return $this;
-    }
-
-    /**
-     * Generates a unique identifier for the component instance.
-     *
-     * Uses the component's prefix followed by a unique string.
-     *
-     * @return string
-     */
-    protected function generateUniqueId(): string
-    {
-        return uniqid($this->getComponentName() . '--');
     }
 
     /**
@@ -188,7 +83,28 @@ abstract class AbstractComponent
         return strtolower(basename(str_replace('\\', '__', get_class($this))));
     }
 
-    protected function getDefaultIcon(?string $type): string
+    /**
+     * Throws a component exception with the component name and message.
+     *
+     * @param string $message The error message.
+     * @return void
+     */
+    protected function error(string $message): void
+    {
+        throw new TwigComponentException(sprintf(
+            'Component %s: %s',
+            $this->getComponentName(),
+            $message
+        ));
+    }
+
+    /**
+     * Gets the default icon for a given type.
+     *
+     * @param string|null $type The icon type.
+     * @return string The default icon.
+     */
+    protected function getDefaultIcon(?string $type = null): string
     {
         return match($type) {
             'primary' => 'fa-solid fa-star text-primary fa-fw',

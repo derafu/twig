@@ -1,117 +1,117 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{% for theme, name in themes %}
-    <twig:block-comparison
-        class="mt-5"
-        :plans="[
-            {
-                title: 'Plan Alfa',
-                price: '$20<small>.000</small>',
-                period: '/mes',
-                features: [
-                    {
-                        text: 'Hasta <b>500</b> boletas mensuales',
-                        tooltip: 'Límite mensual de emisión o sincronización de boletas de honorario electrónicas (BHE).'
-                    },
-                    {
-                        text: 'Permite otros usuarios',
-                        value: false
-                    },
-                    {
-                        text: 'Emisión vía API',
-                        value: true
-                    }
-                ],
-                recommendation: 'Recomendado para contadores o médicos.',
-                button_text: 'Registrarme',
-                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=alfa'
-            },
-            {
-                title: 'Plan Beta',
-                price: '$40<small>.000</small>',
-                period: '/mes',
-                features: [
-                    {
-                        text: 'Hasta <b>2.000</b> boletas mensuales'
-                    },
-                    {
-                        text: 'Hasta <b>2 usuarios</b> pueden trabajar con el emisor'
-                    },
-                    {
-                        text: 'Emisión vía API',
-                        value: true
-                    }
-                ],
-                recommendation: 'Recomendado para sociedades de profesionales.',
-                button_text: 'Registrarme',
-                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=beta',
-                highlighted: true
-            },
-            {
-                title: 'Gamma',
-                price: '$ 80<small>.000</small>',
-                period: '/ mes',
-                features: [
-                    {
-                        text: 'Hasta <b>5.000</b> boletas mensuales'
-                    },
-                    {
-                        text: 'Hasta <b>3 usuarios</b> pueden trabajar con el emisor'
-                    },
-                    {
-                        text: 'Emisión vía API',
-                        value: true
-                    }
-                ],
-                recommendation: 'Recomendado para notarías.',
-                button_text: 'Registrarme',
-                button_url: 'https://bhexpress.cl/usuarios/registrar?plan=gamma'
-            }
-        ]"
-    />
 
-    <twig:block-comparison
-        class="my-5"
-        :plans="[
-            {
-                title: 'Android',
-                price_icon: 'fa-brands fa-android fa-2x',
-                features: [
-                    {
-                        text: 'Utiliza la aplicación con múltiples <a href=\'https://www.libredte.cl\;\'>empresas</a>'
-                    },
-                    {
-                        text: 'Emite boletas, facturas y guías de despachos'
-                    },
-                    {
-                        text: 'Punto de venta boleta fácil y de retail'
-                    }
-                ],
-                recommendation: 'Convierte tu dispositivo Android en un Punto de Venta con LibreDTE.',
-                button_text: 'Instalación desde Google Play hasta Android 9',
-                button_url: '#'
-            },
-            {
-                title: 'iOS',
-                price_icon: 'fa-brands fa-apple fa-2x',
-                features: [
-                    {
-                        text: 'Utiliza la aplicación con múltiples empresas'
-                    },
-                    {
-                        text: 'Emite boletas, facturas y guías de despachos'
-                    },
-                    {
-                        text: 'Punto de venta boleta fácil y de retail'
-                    }
-                ],
-                recommendation: 'Revisa tu empresa y emite documentos tributarios fácilmente.',
-                button_text: 'Instalación desde App Store',
-                button_url: '#',
-                highlighted: true
-            }
-        ]"
-    />
-{% endfor %}
+<twig:block-comparison
+    class="my-4"
+    :plans="[
+        {
+            title: 'Alpha Plan',
+            price: '$20<small>.000</small>',
+            period: '/month',
+            features: [
+                {
+                    text: 'Up to <b>500</b> monthly receipts',
+                    tooltip: 'Monthly limit for issuing or synchronizing electronic honorarium receipts (EHR).'
+                },
+                {
+                    text: 'Allows other users',
+                    value: false
+                },
+                {
+                    text: 'API issuance',
+                    value: true
+                }
+            ],
+            note: 'Recommended for accountants or doctors.',
+            buttonText: 'Sign up',
+            buttonUrl: 'https://bhexpress.cl/usuarios/registrar?plan=alfa'
+        },
+        {
+            title: 'Beta Plan',
+            price: '$40<small>.000</small>',
+            period: '/month',
+            features: [
+                {
+                    text: 'Up to <b>2,000</b> monthly receipts'
+                },
+                {
+                    text: 'Up to <b>2 users</b> can work with the issuer'
+                },
+                {
+                    text: 'API issuance',
+                    value: true
+                }
+            ],
+            note: 'Recommended for professional societies.',
+            buttonText: 'Sign up',
+            buttonUrl: 'https://bhexpress.cl/usuarios/registrar?plan=beta',
+            highlighted: true
+        },
+        {
+            title: 'Gamma',
+            price: '$ 80<small>.000</small>',
+            period: '/ month',
+            features: [
+                {
+                    text: 'Up to <b>5,000</b> monthly receipts'
+                },
+                {
+                    text: 'Up to <b>3 users</b> can work with the issuer'
+                },
+                {
+                    text: 'API issuance',
+                    value: true
+                }
+            ],
+            note: 'Recommended for notaries.',
+            buttonText: 'Sign up',
+            buttonUrl: 'https://bhexpress.cl/usuarios/registrar?plan=gamma'
+        }
+    ]"
+/>
+
+<twig:block-comparison
+    class="my-4"
+    :plans="[
+        {
+            title: 'Android',
+            priceIcon: 'fa-brands fa-android fa-2x',
+            features: [
+                {
+                    text: 'Use the application with multiple <a href=\'https://www.example.com/\' target=\'_blank\'>companies</a>'
+                },
+                {
+                    text: 'Issue receipts, invoices and shipping guides'
+                },
+                {
+                    text: 'Easy receipt and retail point of sale'
+                }
+            ],
+            note: 'Turn your Android device into a Point of Sale.',
+            buttonText: 'Install from Google Play up to Android 9',
+            buttonUrl: '#'
+        },
+        {
+            title: 'iOS',
+            priceIcon: 'fa-brands fa-apple fa-2x',
+            features: [
+                {
+                    text: 'Use the application with multiple companies'
+                },
+                {
+                    text: 'Issue receipts, invoices and shipping guides'
+                },
+                {
+                    text: 'Easy receipt and retail point of sale'
+                }
+            ],
+            note: 'Check your company and issue tax documents easily.',
+            buttonText: 'Install from App Store',
+            buttonUrl: '#',
+            highlighted: true
+        }
+    ]"
+/>
+
 {% endblock %}

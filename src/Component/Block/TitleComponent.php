@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Title Component for displaying customizable headings.
@@ -26,50 +25,152 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class TitleComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the text-image component.
+     * The title text (supports HTML).
+     *
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public string $id;
+    private string $title;
 
     /**
-     * Additional CSS classes for the text-image component.
+     * Optional subtitle text (supports HTML).
+     *
+     * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+    private ?string $subtitle = null;
 
     /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     * Heading level (1-6 => h1-h6).
+     *
+     * @var int
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    private int $level = 2;
 
     /**
-     * The title text (supports HTML)
+     * Text alignment (left, center, right).
+     *
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public string $title;
+    private string $align = 'center';
 
     /**
-     * Optional subtitle text (supports HTML)
+     * Show bottom border.
+     *
+     * @var bool
      */
-    #[ExposeInTemplate()]
-    public ?string $subtitle = null;
+    private bool $border = false;
 
     /**
-     * Heading level (1-6 => h1-h6)
+     * Gets the title text.
+     *
+     * @return string The title text.
      */
-    #[ExposeInTemplate()]
-    public int $level = 2;
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
 
     /**
-     * Text alignment (left, center, right)
+     * Sets the title text.
+     *
+     * @param string $title The title text.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public string $align = 'center';
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
 
     /**
-     * Show bottom border
+     * Gets the subtitle text.
+     *
+     * @return string|null The subtitle text.
      */
-    #[ExposeInTemplate()]
-    public bool $bottomBorder = true;
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * Sets the subtitle text.
+     *
+     * @param string|null $subtitle The subtitle text.
+     * @return static
+     */
+    public function setSubtitle(?string $subtitle): static
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    /**
+     * Gets the heading level.
+     *
+     * @return int The heading level.
+     */
+    public function getLevel(): int
+    {
+        return $this->level;
+    }
+
+    /**
+     * Sets the heading level.
+     *
+     * @param int $level The heading level.
+     * @return static
+     */
+    public function setLevel(int $level): static
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Gets the text alignment.
+     *
+     * @return string The text alignment.
+     */
+    public function getAlign(): string
+    {
+        return $this->align;
+    }
+
+    /**
+     * Sets the text alignment.
+     *
+     * @param string $align The text alignment.
+     * @return static
+     */
+    public function setAlign(string $align): static
+    {
+        $this->align = $align;
+
+        return $this;
+    }
+
+    /**
+     * Gets whether bottom border is shown.
+     *
+     * @return bool Whether bottom border is shown.
+     */
+    public function getBorder(): bool
+    {
+        return $this->border;
+    }
+
+    /**
+     * Sets whether bottom border is shown.
+     *
+     * @param bool $border Whether to show bottom border.
+     * @return static
+     */
+    public function setBorder(bool $border): static
+    {
+        $this->border = $border;
+
+        return $this;
+    }
 }

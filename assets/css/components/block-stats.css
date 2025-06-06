@@ -46,7 +46,6 @@
     background-color: var(--stats-bg);
     border-radius: 8px;
     margin: 2rem auto;
-    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -56,7 +55,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
     margin-bottom: 2rem;
 }
 
@@ -75,7 +73,7 @@
     position: relative;
 }
 
-.derafu-block-stats__number {
+.derafu-block-stats__value {
     color: var(--stats-number-color);
     font-size: var(--stats-number-font-size);
     font-weight: var(--stats-number-font-weight);
@@ -91,7 +89,6 @@
     font-size: var(--stats-text-font-size);
     line-height: var(--stats-text-line-height);
     opacity: var(--stats-text-opacity);
-    max-width: 150px;
     margin: 0 auto;
 }
 
@@ -129,7 +126,7 @@
         justify-self: center;
     }
 
-    .derafu-block-stats__number {
+    .derafu-block-stats__value {
         font-size: 2.3rem;
         line-height: 1.2;
         margin-bottom: 0.5rem;
@@ -152,7 +149,7 @@
             padding: 1.25rem;
         }
 
-        .derafu-block-stats__number {
+        .derafu-block-stats__value {
             font-size: 2.2rem;
         }
     }
@@ -167,7 +164,7 @@
             padding: 1rem;
         }
 
-        .derafu-block-stats__number {
+        .derafu-block-stats__value {
             font-size: 2.1rem;
         }
 
@@ -187,7 +184,7 @@
             padding: 0.75rem;
         }
 
-        .derafu-block-stats__number {
+        .derafu-block-stats__value {
             font-size: 2rem;
             margin-bottom: 0.3rem;
         }
@@ -201,7 +198,7 @@
 
 /* Existing Responsive Styles */
 @media (max-width: 991px) {
-    .derafu-block-stats__number {
+    .derafu-block-stats__value {
         font-size: var(--stats-tablet-number-font-size);
     }
 
@@ -215,7 +212,7 @@
         padding: var(--stats-spacing) var(--stats-mobile-horizontal-margin);
     }
 
-    .derafu-block-stats__number {
+    .derafu-block-stats__value {
         font-size: var(--stats-mobile-number-font-size);
     }
 
@@ -247,7 +244,7 @@
         margin-bottom: 0;
     }
 
-    .derafu-block-stats__number {
+    .derafu-block-stats__value {
         font-size: var(--stats-small-number-font-size);
     }
 

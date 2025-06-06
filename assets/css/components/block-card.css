@@ -22,8 +22,8 @@
   --card-title-font-size: var(--font-size-lg);
   --card-title-font-weight: var(--font-weight-bold, 700);
   --card-title-margin-bottom: var(--spacing-sm);
-  --card-description-font-size: var(--font-size-sm);
-  --card-description-line-height: 1.6;
+  --card-content-font-size: var(--font-size-sm);
+  --card-content-line-height: 1.6;
 
   /* Card - Footer */
   --card-footer-padding: var(--spacing-md);
@@ -42,7 +42,7 @@
   --card-tablet-content-padding: 1.25rem;
   --card-mobile-content-padding: 1rem;
   --card-mobile-title-font-size: 1.1rem;
-  --card-mobile-description-font-size: 0.85rem;
+  --card-mobile-content-font-size: 0.85rem;
   --card-mobile-button-padding-y: 0.5rem;
   --card-mobile-hover-transform: translateY(-3px);
 }
@@ -112,10 +112,10 @@
   line-height: 1.3;
 }
 
-.derafu-block-card-grid__description {
+.derafu-block-card-grid__content {
   color: var(--card-text);
-  font-size: var(--card-description-font-size);
-  line-height: var(--card-description-line-height);
+  font-size: var(--card-content-font-size);
+  line-height: var(--card-content-line-height);
   flex-grow: 1;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -155,7 +155,6 @@
 /* Card Grid con diferentes columnas */
 .derafu-block-card-grid--cols-1 .derafu-block-card-grid__container {
   grid-template-columns: 1fr;
-  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -172,7 +171,6 @@
 }
 
 .derafu-block-card.container {
-  max-width: 1400px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -180,11 +178,11 @@
   padding-right: 1.5rem;
 }
 
-.derafu-block-card-grid__description a {
+.derafu-block-card-grid__content a {
   text-decoration: none;
 }
 
-.derafu-block-card-grid__description a:hover {
+.derafu-block-card-grid__content a:hover {
   text-decoration: underline;
 }
 
@@ -233,8 +231,8 @@
     font-size: var(--card-mobile-title-font-size);
   }
 
-  .derafu-block-card-grid__description {
-    font-size: var(--card-mobile-description-font-size);
+  .derafu-block-card-grid__content {
+    font-size: var(--card-mobile-content-font-size);
   }
 
   .derafu-block-card-grid__footer {

@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Scrollspy Bootstrap Component
@@ -24,38 +23,6 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('block-scrollspy')]
 class ScrollspyComponent extends AbstractComponent
 {
-    /**
-     * Unique identifier for the scrollspy component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the scrollspy component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
-    /**
-     * Orientation of the scrollspy.
-     * Values: 'vertical', 'horizontal'.
-     */
-    #[ExposeInTemplate()]
-    public string $orientation = 'vertical';
-
-    /**
-     * Height of the scrollspy.
-     * Values: '100vh', '100%', 'auto'.
-     */
-    #[ExposeInTemplate()]
-    public string $height = '100vh';
-
     /**
      * Array of scrollspy sections.
      *
@@ -68,21 +35,145 @@ class ScrollspyComponent extends AbstractComponent
      *
      * @var array<int,array>
      */
-    #[ExposeInTemplate()]
-    public array $sections = [];
+    private array $sections = [];
+
+    /**
+     * Orientation of the scrollspy.
+     * Values: 'vertical', 'horizontal'.
+     */
+    private string $orientation = 'vertical';
+
+    /**
+     * Height of the scrollspy.
+     * Values: '100vh', '100%', 'auto'.
+     */
+    private string $height = '100vh';
 
     /**
      * Number of columns for the navigation list (1-11).
      * Content will automatically use the remaining columns.
      */
-    #[ExposeInTemplate()]
-    public int $cols = 4;
+    private int $cols = 4;
 
     /**
      * Custom inline styles to add to the component.
      */
-    #[ExposeInTemplate()]
-    public ?string $style = null;
+    private ?string $style = null;
+
+    /**
+     * Gets the scrollspy sections.
+     *
+     * @return array<int,array> The scrollspy sections
+     */
+    public function getSections(): array
+    {
+        return $this->sections;
+    }
+
+    /**
+     * Sets the scrollspy sections.
+     *
+     * @param array<int,array> $sections The scrollspy sections
+     * @return static
+     */
+    public function setSections(array $sections): static
+    {
+        $this->sections = $sections;
+
+        return $this;
+    }
+
+    /**
+     * Gets the scrollspy orientation.
+     *
+     * @return string The scrollspy orientation
+     */
+    public function getOrientation(): string
+    {
+        return $this->orientation;
+    }
+
+    /**
+     * Sets the scrollspy orientation.
+     *
+     * @param string $orientation The scrollspy orientation
+     * @return static
+     */
+    public function setOrientation(string $orientation): static
+    {
+        $this->orientation = $orientation;
+
+        return $this;
+    }
+
+    /**
+     * Gets the scrollspy height.
+     *
+     * @return string The scrollspy height
+     */
+    public function getHeight(): string
+    {
+        return $this->height;
+    }
+
+    /**
+     * Sets the scrollspy height.
+     *
+     * @param string $height The scrollspy height
+     * @return static
+     */
+    public function setHeight(string $height): static
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number of columns.
+     *
+     * @return int The number of columns
+     */
+    public function getCols(): int
+    {
+        return $this->cols;
+    }
+
+    /**
+     * Sets the number of columns.
+     *
+     * @param int $cols The number of columns
+     * @return static
+     */
+    public function setCols(int $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
+    }
+
+    /**
+     * Gets the custom inline styles.
+     *
+     * @return string|null The custom inline styles
+     */
+    public function getStyle(): ?string
+    {
+        return $this->style;
+    }
+
+    /**
+     * Sets the custom inline styles.
+     *
+     * @param string|null $style The custom inline styles
+     * @return static
+     */
+    public function setStyle(?string $style): static
+    {
+        $this->style = $style;
+
+        return $this;
+    }
 
     /**
      * Validate and prepare sections before rendering.

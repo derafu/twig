@@ -1,13 +1,42 @@
 {# templates/components/block-timeline.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-timeline {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+
+{# Contenido del evento #}
+{% macro eventContent(event, showFullDate, showMonthYear, dateFormat) %}
+<div class="derafu-block-timeline__content">
+    <i class="{{ event.icon }} derafu-block-timeline__icon"></i>
+    <div class="derafu-block-timeline__header">
+        <div class="derafu-block-timeline__title-row">
+            {% if event.title %}
+                <h3 class="derafu-block-timeline__title">{{ event.title }}</h3>
+            {% endif %}
+            {% if showFullDate %}
+                <span class="derafu-block-timeline__date">
+                    {{ event.date|date(dateFormat) }}
+                </span>
+            {% elseif showMonthYear %}
+                <span class="derafu-block-timeline__date">
+                    {{ event.date|date('m/Y') }}
+                </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="derafu-block-timeline__text">
+        {{ event.content|raw }}
+    </div>
+</div>
+{% endmacro %}
+
+<div
+    class="derafu-block-timeline {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
 >
-    <div class="derafu-block-timeline__container derafu-block-timeline__container--{{ line_position }}">
+    <div class="derafu-block-timeline__container derafu-block-timeline__container--{{ this.linePosition }}">
         <div class="derafu-block-timeline__line"></div>
 
         <div class="derafu-block-timeline__events">
             {% set currentYear = null %}
-            {% for event in events %}
+            {% for event in this.events %}
                 {% set year = event.date matches '/^\d{4}$/' ? event.date : event.date|date('Y') %}
                 {% set showFullDate = event.date matches '/^\d{4}-\d{2}-\d{2}$/' %}
                 {% set showMonthYear = event.date matches '/^\d{4}\d{2}$/' or event.date matches '/^\d{4}-\d{2}$/' %}
@@ -18,56 +47,30 @@
                     <div class="derafu-block-timeline__year">{{ year }}</div>
                 {% endif %}
 
-                {# Contenido del evento #}
-                {% macro eventContent(event, showFullDate, showMonthYear, dateFormat) %}
-                    <div class="derafu-block-timeline__content">
-                        <i class="{{ event.icon }} derafu-block-timeline__icon"></i>
-                        <div class="derafu-block-timeline__header">
-                            <div class="derafu-block-timeline__title-row">
-                                {% if event.title %}
-                                    <h3 class="derafu-block-timeline__title">{{ event.title }}</h3>
-                                {% endif %}
-                                {% if showFullDate %}
-                                    <span class="derafu-block-timeline__date">
-                                        {{ event.date|date(dateFormat) }}
-                                    </span>
-                                {% elseif showMonthYear %}
-                                    <span class="derafu-block-timeline__date">
-                                        {{ event.date|date('m/Y') }}
-                                    </span>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="derafu-block-timeline__description">
-                            {{ event.description|raw }}
-                        </div>
-                    </div>
-                {% endmacro %}
-
-                {# Para line_position=center, alternamos izquierda y derecha #}
-                {% if line_position == 'center' %}
+                {# Para linePosition=center, alternamos izquierda y derecha #}
+                {% if linePosition == 'center' %}
                     <div class="derafu-block-timeline__row">
                         {% if loop.index is odd %}
                             <div class="derafu-block-timeline__event derafu-block-timeline__event--left">
-                                {{ _self.eventContent(event, showFullDate, showMonthYear, date_format ?? 'd/m/Y') }}
+                                {{ _self.eventContent(event, showFullDate, showMonthYear, this.dateFormat ?? 'd/m/Y') }}
                             </div>
                             <div class="derafu-block-timeline__event derafu-block-timeline__event--right"></div>
                         {% else %}
                             <div class="derafu-block-timeline__event derafu-block-timeline__event--left"></div>
                             <div class="derafu-block-timeline__event derafu-block-timeline__event--right">
-                                {{ _self.eventContent(event, showFullDate, showMonthYear, date_format ?? 'd/m/Y') }}
+                                {{ _self.eventContent(event, showFullDate, showMonthYear, this.dateFormat ?? 'd/m/Y') }}
                             </div>
                         {% endif %}
                     </div>
                 {% else %}
                     <div class="derafu-block-timeline__row">
-                        {% if line_position == 'left' %}
+                        {% if linePosition == 'left' %}
                             <div class="derafu-block-timeline__event derafu-block-timeline__event--right">
-                                {{ _self.eventContent(event, showFullDate, showMonthYear, date_format ?? 'd/m/Y') }}
+                                {{ _self.eventContent(event, showFullDate, showMonthYear, this.dateFormat ?? 'd/m/Y') }}
                             </div>
                         {% else %}
                             <div class="derafu-block-timeline__event derafu-block-timeline__event--left">
-                                {{ _self.eventContent(event, showFullDate, showMonthYear, date_format ?? 'd/m/Y') }}
+                                {{ _self.eventContent(event, showFullDate, showMonthYear, this.dateFormat ?? 'd/m/Y') }}
                             </div>
                         {% endif %}
                     </div>

@@ -20,8 +20,8 @@
     --features-grid-feature-title-font-size: 1.1rem;
     --features-grid-feature-title-font-weight: bold;
     --features-grid-feature-title-margin-bottom: 0.5rem;
-    --features-grid-description-font-size: 0.9rem;
-    --features-grid-description-line-height: 1.5;
+    --features-grid-content-font-size: 0.9rem;
+    --features-grid-content-line-height: 1.5;
 
     /* Icon Styles */
     --features-grid-icon-size: 50px;
@@ -123,10 +123,10 @@
     text-decoration: underline;
 }
 
-.derafu-block-features-grid__description {
+.derafu-block-features-grid__content {
     color: var(--features-grid-text-color);
-    font-size: var(--features-grid-description-font-size);
-    line-height: var(--features-grid-description-line-height);
+    font-size: var(--features-grid-content-font-size);
+    line-height: var(--features-grid-content-line-height);
 }
 
 .derafu-block-features-grid__subtitle a {
@@ -137,16 +137,15 @@
     text-decoration: underline;
 }
 
-.derafu-block-features-grid__description a {
+.derafu-block-features-grid__content a {
     text-decoration: none;
 }
 
-.derafu-block-features-grid__description a:hover {
+.derafu-block-features-grid__content a:hover {
     text-decoration: underline;
 }
 
 .derafu-block-features-grid.container {
-    max-width: 1400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;

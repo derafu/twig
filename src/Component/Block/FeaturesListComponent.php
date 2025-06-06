@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-features-list')]
 class FeaturesListComponent extends AbstractComponent
@@ -25,12 +24,11 @@ class FeaturesListComponent extends AbstractComponent
      * Each feature contains:
      * - icon: Font Awesome icon class (e.g. "fa-solid fa-display")
      * - title: Feature title
-     * - description: Feature description (supports HTML)
+     * - content: Feature content (supports HTML)
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $features_left = [];
+    private array $features_left = [];
 
     /**
      * Array of features for the right side.
@@ -38,35 +36,55 @@ class FeaturesListComponent extends AbstractComponent
      * Each feature contains:
      * - icon: Font Awesome icon class (e.g. "fa-solid fa-display")
      * - title: Feature title
-     * - description: Feature description (supports HTML)
+     * - content: Feature content (supports HTML)
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $features_right = [];
+    private array $features_right = [];
 
     /**
-     * Unique identifier for the features list component.
+     * Gets the array of features for the left side.
      *
-     * @var string
+     * @return array The array of features with their configurations.
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function getFeaturesLeft(): array
+    {
+        return $this->features_left;
+    }
 
     /**
-     * Container class for the features list component.
-     * If null, defaults to 'container' when enabled.
+     * Sets the array of features for the left side.
      *
-     * @var string|null
+     * @param array $features_left The array of features with their configurations.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function setFeaturesLeft(array $features_left): static
+    {
+        $this->features_left = $features_left;
+
+        return $this;
+    }
 
     /**
-     * Additional CSS classes for the features list component.
+     * Gets the array of features for the right side.
      *
-     * @var string|null
+     * @return array The array of features with their configurations.
      */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+    public function getFeaturesRight(): array
+    {
+        return $this->features_right;
+    }
+
+    /**
+     * Sets the array of features for the right side.
+     *
+     * @param array $features_right The array of features with their configurations.
+     * @return static
+     */
+    public function setFeaturesRight(array $features_right): static
+    {
+        $this->features_right = $features_right;
+
+        return $this;
+    }
 }

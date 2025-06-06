@@ -14,62 +14,147 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-card')]
 class CardComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the card component.
-     *
-     * @var string
-     */
-    #[ExposeInTemplate()]
-    public string $id = '';
-
-    /**
-     * Container class for the card component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
-    /**
-     * Additional CSS classes for the card component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
      * Optional card image URL.
      */
-    #[ExposeInTemplate()]
-    public ?string $image = null;
+    private ?string $image = null;
 
     /**
      * Optional card title.
      */
-    #[ExposeInTemplate()]
-    public ?string $title = null;
+    private ?string $title = null;
 
     /**
-     * Optional card description.
+     * Optional card content.
      */
-    #[ExposeInTemplate()]
-    public ?string $description = null;
+    private ?string $content = null;
 
     /**
      * Optional button text.
      */
-    #[ExposeInTemplate()]
-    public ?string $buttonText = null;
+    private ?string $buttonText = null;
 
     /**
      * Optional button URL (required if buttonText is present).
      */
-    #[ExposeInTemplate()]
-    public ?string $buttonUrl = null;
+    private ?string $buttonUrl = null;
+
+    /**
+     * Gets the card image URL.
+     *
+     * @return string|null The card image URL.
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * Sets the card image URL.
+     *
+     * @param string|null $image The card image URL.
+     * @return static
+     */
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets the card title.
+     *
+     * @return string|null The card title.
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * Sets the card title.
+     *
+     * @param string|null $title The card title.
+     * @return static
+     */
+    public function setTitle(?string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets the card content.
+     *
+     * @return string|null The card content.
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Sets the card content.
+     *
+     * @param string|null $content The card content.
+     * @return static
+     */
+    public function setContent(?string $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets the button text.
+     *
+     * @return string|null The button text.
+     */
+    public function getButtonText(): ?string
+    {
+        return $this->buttonText;
+    }
+
+    /**
+     * Sets the button text.
+     *
+     * @param string|null $buttonText The button text.
+     * @return static
+     */
+    public function setButtonText(?string $buttonText): static
+    {
+        $this->buttonText = $buttonText;
+
+        return $this;
+    }
+
+    /**
+     * Gets the button URL.
+     *
+     * @return string|null The button URL.
+     */
+    public function getButtonUrl(): ?string
+    {
+        return $this->buttonUrl;
+    }
+
+    /**
+     * Sets the button URL.
+     *
+     * @param string|null $buttonUrl The button URL.
+     * @return static
+     */
+    public function setButtonUrl(?string $buttonUrl): static
+    {
+        $this->buttonUrl = $buttonUrl;
+
+        return $this;
+    }
 }

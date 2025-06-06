@@ -14,35 +14,16 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Table Component for displaying tabular data.
  *
- * This component creates a Bootstrap-based table that can be themed and
- * configured with different headers and row data.
+ * This component creates a Bootstrap-based table that can be configured with
+ * different headers and row data.
  */
 #[AsTwigComponent('block-table')]
 class TableComponent extends AbstractComponent
 {
-    /**
-     * Unique identifier for the table component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the table component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
     /**
      * Table header configuration.
      *
@@ -58,8 +39,7 @@ class TableComponent extends AbstractComponent
      *
      * @var array[][] Array of rows, each containing array of cells.
      */
-    #[ExposeInTemplate()]
-    public array $headers = [];
+    private array $headers = [];
 
     /**
      * Table rows data.
@@ -68,16 +48,14 @@ class TableComponent extends AbstractComponent
      *
      * @var array[][]
      */
-    #[ExposeInTemplate()]
-    public array $rows = [];
+    private array $rows = [];
 
     /**
      * Footer rows configuration (same structure as headers).
      *
      * @var array[][]
      */
-    #[ExposeInTemplate()]
-    public array $footer = [];
+    private array $footer = [];
 
     /**
      * Actions menu items.
@@ -91,8 +69,7 @@ class TableComponent extends AbstractComponent
      *
      * @var array[]
      */
-    #[ExposeInTemplate()]
-    public array $actions = [];
+    private array $actions = [];
 
     /**
      * Column configurations.
@@ -111,8 +88,7 @@ class TableComponent extends AbstractComponent
      *     class?: string
      * }>
      */
-    #[ExposeInTemplate()]
-    public array $columns = [];
+    private array $columns = [];
 
     /**
      * Row classes based on column values
@@ -121,48 +97,395 @@ class TableComponent extends AbstractComponent
      *
      * @var array<int, array<string, string>>
      */
-    #[ExposeInTemplate()]
-    public array $rowClasses = [];
+    private array $rowClasses = [];
 
     /**
      * Table caption (optional).
      */
-    #[ExposeInTemplate()]
-    public ?string $caption = null;
+    private ?string $caption = null;
 
     /**
      * Maximum height for table container in pixels.
      */
-    #[ExposeInTemplate()]
-    public ?int $maxHeight = null;
+    private ?int $maxHeight = null;
 
     /**
      * Show/hide toggle buttons.
      */
-    #[ExposeInTemplate()]
-    public bool $toggleable = false;
+    private bool $toggleable = false;
 
     /**
      * Initial visibility state if toggleable.
      */
-    #[ExposeInTemplate()]
-    public bool $visible = true;
+    private bool $visible = true;
 
     /**
      * Hide empty columns.
      */
-    #[ExposeInTemplate()]
-    public bool $hideEmptyCols = false;
+    private bool $hideEmptyCols = false;
 
-    #[ExposeInTemplate()]
-    public bool $striped = false;
+    /**
+     * Add striped background to rows.
+     */
+    private bool $striped = false;
 
-    #[ExposeInTemplate()]
-    public bool $bordered = true;
+    /**
+     * Add border to table cells.
+     */
+    private bool $bordered = true;
 
-    #[ExposeInTemplate()]
-    public bool $hover = true;
+    /**
+     * Add hover effect to rows.
+     */
+    private bool $hover = true;
 
-    #[ExposeInTemplate()]
-    public bool $small = false;
+    /**
+     * Make table smaller.
+     */
+    private bool $small = false;
+
+    /**
+     * Get table headers configuration.
+     *
+     * @return array[][] Array of rows, each containing array of cells.
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
+    /**
+     * Set table headers configuration.
+     *
+     * @param array[][] $headers Array of rows, each containing array of cells.
+     * @return static
+     */
+    public function setHeaders(array $headers): static
+    {
+        $this->headers = $headers;
+
+        return $this;
+    }
+
+    /**
+     * Get table rows data.
+     *
+     * @return array[][] Array of rows with column data.
+     */
+    public function getRows(): array
+    {
+        return $this->rows;
+    }
+
+    /**
+     * Set table rows data.
+     *
+     * @param array[][] $rows Array of rows with column data.
+     * @return static
+     */
+    public function setRows(array $rows): static
+    {
+        $this->rows = $rows;
+
+        return $this;
+    }
+
+    /**
+     * Get footer rows configuration.
+     *
+     * @return array[][] Array of footer rows configuration.
+     */
+    public function getFooter(): array
+    {
+        return $this->footer;
+    }
+
+    /**
+     * Set footer rows configuration.
+     *
+     * @param array[][] $footer Array of footer rows configuration.
+     * @return static
+     */
+    public function setFooter(array $footer): static
+    {
+        $this->footer = $footer;
+
+        return $this;
+    }
+
+    /**
+     * Get actions menu items.
+     *
+     * @return array[] Array of action items.
+     */
+    public function getActions(): array
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Set actions menu items.
+     *
+     * @param array[] $actions Array of action items.
+     * @return static
+     */
+    public function setActions(array $actions): static
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
+    /**
+     * Get column configurations.
+     *
+     * @return array<int, array{width?: string, align?: string, class?: string}> Column configurations indexed by column number.
+     */
+    public function getColumns(): array
+    {
+        return $this->columns;
+    }
+
+    /**
+     * Set column configurations.
+     *
+     * @param array<int, array{width?: string, align?: string, class?: string}> $columns Column configurations indexed by column number.
+     * @return static
+     */
+    public function setColumns(array $columns): static
+    {
+        $this->columns = $columns;
+
+        return $this;
+    }
+
+    /**
+     * Get row classes based on column values.
+     *
+     * @return array<int, array<string, string>> Row classes configuration.
+     */
+    public function getRowClasses(): array
+    {
+        return $this->rowClasses;
+    }
+
+    /**
+     * Set row classes based on column values.
+     *
+     * @param array<int, array<string, string>> $rowClasses Row classes configuration.
+     * @return static
+     */
+    public function setRowClasses(array $rowClasses): static
+    {
+        $this->rowClasses = $rowClasses;
+
+        return $this;
+    }
+
+    /**
+     * Get table caption.
+     *
+     * @return string|null Table caption or null if not set.
+     */
+    public function getCaption(): ?string
+    {
+        return $this->caption;
+    }
+
+    /**
+     * Set table caption.
+     *
+     * @param string|null $caption Table caption or null to remove.
+     * @return static
+     */
+    public function setCaption(?string $caption): static
+    {
+        $this->caption = $caption;
+
+        return $this;
+    }
+
+    /**
+     * Get maximum height for table container.
+     *
+     * @return int|null Maximum height in pixels or null if not set.
+     */
+    public function getMaxHeight(): ?int
+    {
+        return $this->maxHeight;
+    }
+
+    /**
+     * Set maximum height for table container.
+     *
+     * @param int|null $maxHeight Maximum height in pixels or null to remove.
+     * @return static
+     */
+    public function setMaxHeight(?int $maxHeight): static
+    {
+        $this->maxHeight = $maxHeight;
+
+        return $this;
+    }
+
+    /**
+     * Get toggleable state.
+     *
+     * @return bool Whether toggle buttons are shown.
+     */
+    public function getToggleable(): bool
+    {
+        return $this->toggleable;
+    }
+
+    /**
+     * Set toggleable state.
+     *
+     * @param bool $toggleable Whether to show toggle buttons.
+     * @return static
+     */
+    public function setToggleable(bool $toggleable): static
+    {
+        $this->toggleable = $toggleable;
+
+        return $this;
+    }
+
+    /**
+     * Get visibility state.
+     *
+     * @return bool Whether table is initially visible.
+     */
+    public function getVisible(): bool
+    {
+        return $this->visible;
+    }
+
+    /**
+     * Set visibility state.
+     *
+     * @param bool $visible Whether table is initially visible.
+     * @return static
+     */
+    public function setVisible(bool $visible): static
+    {
+        $this->visible = $visible;
+
+        return $this;
+    }
+
+    /**
+     * Get hide empty columns setting.
+     *
+     * @return bool Whether empty columns are hidden.
+     */
+    public function getHideEmptyCols(): bool
+    {
+        return $this->hideEmptyCols;
+    }
+
+    /**
+     * Set hide empty columns setting.
+     *
+     * @param bool $hideEmptyCols Whether to hide empty columns.
+     * @return static
+     */
+    public function setHideEmptyCols(bool $hideEmptyCols): static
+    {
+        $this->hideEmptyCols = $hideEmptyCols;
+
+        return $this;
+    }
+
+    /**
+     * Get striped background setting.
+     *
+     * @return bool Whether striped background is enabled.
+     */
+    public function getStriped(): bool
+    {
+        return $this->striped;
+    }
+
+    /**
+     * Set striped background setting.
+     *
+     * @param bool $striped Whether to add striped background to rows.
+     * @return static
+     */
+    public function setStriped(bool $striped): static
+    {
+        $this->striped = $striped;
+
+        return $this;
+    }
+
+    /**
+     * Get bordered setting.
+     *
+     * @return bool Whether table borders are enabled.
+     */
+    public function getBordered(): bool
+    {
+        return $this->bordered;
+    }
+
+    /**
+     * Set bordered setting.
+     *
+     * @param bool $bordered Whether to add border to table cells.
+     * @return static
+     */
+    public function setBordered(bool $bordered): static
+    {
+        $this->bordered = $bordered;
+
+        return $this;
+    }
+
+    /**
+     * Get hover effect setting.
+     *
+     * @return bool Whether hover effect is enabled.
+     */
+    public function getHover(): bool
+    {
+        return $this->hover;
+    }
+
+    /**
+     * Set hover effect setting.
+     *
+     * @param bool $hover Whether to add hover effect to rows.
+     * @return static
+     */
+    public function setHover(bool $hover): static
+    {
+        $this->hover = $hover;
+
+        return $this;
+    }
+
+    /**
+     * Get small table setting.
+     *
+     * @return bool Whether table is rendered in small size.
+     */
+    public function getSmall(): bool
+    {
+        return $this->small;
+    }
+
+    /**
+     * Set small table setting.
+     *
+     * @param bool $small Whether to make table smaller.
+     * @return static
+     */
+    public function setSmall(bool $small): static
+    {
+        $this->small = $small;
+
+        return $this;
+    }
 }

@@ -1,41 +1,35 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-video
-    class="mt-2"
-    :video="[
+    class="my-4"
+    size="normal"
+    align="center"
+    title="Lorem ipsum dolor sit amet"
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <a href=https://www.billmysales.com/>nulla pariatur.</a>"
+    :buttons="[
         {
-            title: 'Lorem ipsum dolor sit amet',
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <a href=https://www.billmysales.com/>nulla pariatur.</a>',
-            buttons: [
-                {
-                    text: 'Ver más',
-                    url: '#'
-                }
-            ],
-            size: 'normal',
-            align: 'center'
+            text: 'Learn more',
+            url: '#'
         }
     ]"
 />
 
 <twig:block-video
-    class="my-2"
-    :video="[
+    class="my-4"
+    size="small"
+    align="center"
+    title="Lorem ipsum dolor sit amet"
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    :buttons="[
         {
-            title: 'Lorem ipsum dolor sit amet',
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-            buttons: [
-                {
-                    text: 'Ver más',
-                    url: '#'
-                }
-            ],
-            size: 'small',
-            align: 'center'
+            text: 'Learn more',
+            url: '#'
         }
     ]"
 />
+
 {% endblock %}

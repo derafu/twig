@@ -14,70 +14,149 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Toast Component for displaying notification messages.
  *
- * This component creates Bootstrap-based toast notifications that can be themed
- * and configured with different types, titles, content and icons.
+ * This component creates Bootstrap-based toast notifications that can be
+ * configured with different types, titles, content and icons.
  */
 #[AsTwigComponent('block-toast')]
 class ToastComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the text-image component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the text-image component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
-    /**
-     * Toast type (primary, secondary, tertiary)
+     * Toast type (primary, secondary, tertiary).
+     *
      * Default: 'primary'
+     *
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public string $type = 'primary';
+    private string $type = 'primary';
 
     /**
-     * Toast title
+     * Toast title.
+     *
+     * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $title = null;
+    private ?string $title = null;
 
     /**
-     * Toast content/message
+     * Toast content/message.
+     *
+     * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $content = null;
+    private ?string $content = null;
 
     /**
-     * Time display (e.g., "2 mins ago")
+     * Time display (e.g., "2 mins ago").
+     *
+     * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $time = null;
+    private ?string $time = null;
 
     /**
      * Optional Font Awesome icon class
      */
-    #[ExposeInTemplate()]
-    protected ?string $icon = null;
+    private ?string $icon = null;
 
     /**
-     * Get the value of icon.
+     * Gets the toast type.
+     *
+     * @return string The toast type.
      */
-    public function getIcon()
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Sets the toast type.
+     *
+     * @param string $type The toast type.
+     * @return static
+     */
+    public function setType(string $type): static
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets the toast title.
+     *
+     * @return string|null The toast title.
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * Sets the toast title.
+     *
+     * @param string|null $title The toast title.
+     * @return static
+     */
+    public function setTitle(?string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets the toast content.
+     *
+     * @return string|null The toast content.
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Sets the toast content.
+     *
+     * @param string|null $content The toast content.
+     * @return static
+     */
+    public function setContent(?string $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets the time display.
+     *
+     * @return string|null The time display.
+     */
+    public function getTime(): ?string
+    {
+        return $this->time;
+    }
+
+    /**
+     * Sets the time display.
+     *
+     * @param string|null $time The time display.
+     * @return static
+     */
+    public function setTime(?string $time): static
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * Gets the icon class.
+     *
+     * @return string|null The icon class.
+     */
+    public function getIcon(): ?string
     {
         if (!isset($this->icon)) {
             $this->icon = $this->getDefaultIcon($this->type);
@@ -87,11 +166,12 @@ class ToastComponent extends AbstractComponent
     }
 
     /**
-     * Set the value of icon.
+     * Sets the icon class.
      *
-     * @return  self
+     * @param string|null $icon The icon class.
+     * @return static
      */
-    public function setIcon($icon)
+    public function setIcon(?string $icon): static
     {
         $this->icon = $icon;
 

@@ -1,66 +1,64 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-boxes
-    class="mt-5"
-    :boxes="[
-        {
-            icon: 'fa-solid fa-search',
-            title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur <a href=\'https://derafu.org/\'>adipiscing elit.</a>',
-            button_text: 'Lorem ipsum',
-            button_url: '#'
-        }
-    ]"
+    class="my-4"
     cols="1"
-/>
-
-<twig:block-boxes
-    class="my-5"
     :boxes="[
         {
             icon: 'fa-solid fa-search',
             title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            button_text: 'Lorem ipsum',
-            button_url: '#'
-        },
-        {
-            icon: 'fa-solid fa-file',
-            title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            button_text: 'Lorem ipsum',
-            button_url: '#',
-            button_disabled: true
+            content: 'Lorem ipsum dolor sit amet, consectetur <a href=\'https://www.example.com/\' target=\'_blank\'>adipiscing elit.</a>',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
         }
     ]"
 />
 
 <twig:block-boxes
-    class="mb-5"
+    class="my-4"
     :boxes="[
         {
             icon: 'fa-solid fa-search',
             title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            button_text: '',
-            button_url: '#'
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
         },
         {
             icon: 'fa-solid fa-file',
             title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            button_text: 'Lorem ipsum',
-            button_url: '#'
-        },
-        {
-            icon: 'fa-solid fa-file',
-            title: 'Lorem ipsum dolor sit amet',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            button_text: 'Lorem ipsum',
-            button_url: '#'
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
         }
     ]"
+/>
+
+<twig:block-boxes
+    class="my-4"
     cols="3"
+    :boxes="[
+        {
+            icon: 'fa-solid fa-search',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+        {
+            icon: 'fa-solid fa-file',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
+        },
+        {
+            icon: 'fa-solid fa-file',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
+        }
+    ]"
 />
+
 {% endblock %}

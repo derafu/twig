@@ -30,13 +30,13 @@
     --cta-title-small-font-size: 1.125rem;
     --cta-title-line-height: 1.3;
 
-    /* Description Typography */
-    --cta-description-margin-bottom: 0;
-    --cta-description-font-size: 1rem;
-    --cta-description-mobile-font-size: 0.9375rem;
-    --cta-description-small-font-size: 0.875rem;
-    --cta-description-line-height: 1.6;
-    --cta-description-mobile-line-height: 1.5;
+    /* Content Typography */
+    --cta-content-margin-bottom: 0;
+    --cta-content-font-size: 1rem;
+    --cta-content-mobile-font-size: 0.9375rem;
+    --cta-content-small-font-size: 0.875rem;
+    --cta-content-line-height: 1.6;
+    --cta-content-mobile-line-height: 1.5;
 
     /* Action Alignment */
     --cta-action-text-align: right;
@@ -57,7 +57,7 @@
     --cta-button-font-size: 1rem;
     --cta-button-mobile-font-size: 0.9375rem;
 
-    /* Links in Description */
+    /* Links in Content */
     --cta-link-color: var(--bs-warning, #ffc107);
     --cta-link-hover-color: var(--bs-light, #f8f9fa);
     --cta-link-font-weight: 500;
@@ -77,8 +77,6 @@
 }
 
 .derafu-block-cta__container {
-    width: 100%;
-    max-width: 100%;
     margin: 0 auto;
     padding: 0 0.5rem;
 }
@@ -92,7 +90,6 @@
 }
 
 .derafu-block-cta.container {
-    max-width: 1400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -119,15 +116,15 @@
     line-height: var(--cta-title-line-height);
 }
 
-.derafu-block-cta__description {
-    margin-bottom: var(--cta-description-margin-bottom);
+.derafu-block-cta__content {
+    margin-bottom: var(--cta-content-margin-bottom);
     color: inherit;
-    font-size: var(--cta-description-font-size);
-    line-height: var(--cta-description-line-height);
+    font-size: var(--cta-content-font-size);
+    line-height: var(--cta-content-line-height);
 }
 
-/* Links in description */
-.derafu-block-cta__description a {
+/* Links in content */
+.derafu-block-cta__content a {
     color: var(--cta-link-color);
     text-decoration: none;
     font-weight: var(--cta-link-font-weight);
@@ -135,7 +132,7 @@
     word-break: break-word;
 }
 
-.derafu-block-cta__description a:hover {
+.derafu-block-cta__content a:hover {
     color: var(--cta-link-hover-color);
     text-decoration: underline;
 }
@@ -182,12 +179,6 @@
 /* ======================================
    Responsive Styles
    ====================================== */
-/* Large Screens (≥ 992px) */
-@media (min-width: 992px) {
-    .derafu-block-cta__container {
-        max-width: 960px;
-    }
-}
 
 /* Tablets (≤ 768px) */
 @media (max-width: 768px) {
@@ -240,9 +231,9 @@
         line-height: 1.25;
     }
 
-    .derafu-block-cta__description {
-        font-size: var(--cta-description-mobile-font-size);
-        line-height: var(--cta-description-mobile-line-height);
+    .derafu-block-cta__content {
+        font-size: var(--cta-content-mobile-font-size);
+        line-height: var(--cta-content-mobile-line-height);
     }
 
     .derafu-block-cta__button {
@@ -268,8 +259,8 @@
         line-height: 1.2;
     }
 
-    .derafu-block-cta__description {
-        font-size: var(--cta-description-small-font-size);
+    .derafu-block-cta__content {
+        font-size: var(--cta-content-small-font-size);
         line-height: 1.4;
     }
 

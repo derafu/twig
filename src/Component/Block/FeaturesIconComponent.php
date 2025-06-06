@@ -6,7 +6,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-features-icon')]
 class FeaturesIconComponent extends AbstractComponent
@@ -17,35 +16,32 @@ class FeaturesIconComponent extends AbstractComponent
      * Each feature contains:
      * - icon: Font Awesome icon class (e.g. "fa-solid fa-display")
      * - title: Feature title
-     * - description: Feature description (supports HTML)
+     * - content: Feature content (supports HTML)
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $features = [];
+    private array $features = [];
 
     /**
-     * Unique identifier for the features icon component.
+     * Gets the array of features.
      *
-     * @var string
+     * @return array The array of features with their configurations.
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function getFeatures(): array
+    {
+        return $this->features;
+    }
 
     /**
-     * Container class for the features icon component.
-     * If null, defaults to 'container' when enabled.
+     * Sets the array of features.
      *
-     * @var string|null
+     * @param array $features The array of features with their configurations.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function setFeatures(array $features): static
+    {
+        $this->features = $features;
 
-    /**
-     * Additional CSS classes for the features icon component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+        return $this;
+    }
 }

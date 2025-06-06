@@ -1,7 +1,6 @@
 {# templates/components/block-footer.html.twig #}
-<footer class="{{ container ?? 'container-fluid' }} derafu-block-footer {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
->
+
+<footer class="derafu-block-footer {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     <div {% if fullWidth is empty %}class="container"{% endif %}>
         <div class="row">
             {# Column 1 #}

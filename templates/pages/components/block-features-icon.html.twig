@@ -1,109 +1,111 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{# Caso 4 elementos (una fila de 4) #}
+
+{# Case 4 elements (one row of 4) #}
 <twig:block-features-icon
-    class="mt-5"
+    class="my-4"
     :features="[
         {
             icon: 'fa-solid fa-cloud',
             title: 'Software as a Service',
-            description: 'LibreDTE es un software en la nube, requieres acceso a Internet para <a href=https://derafu.org/>poder utilizarlo.</a>'
+            content: 'We are a cloud software, you need Internet access to <a href=\'https://www.example.com/\' target=\'_blank\'>use it.</a>'
         },
         {
             icon: 'fa-solid fa-money-bill',
-            title: '<a href=https://derafu.org/>Precio</a> por empresa',
-            description: 'El precio del Servicio Plus es por empresa. Si tienes 3 empresas, deberás pagar 3 Servicios Plus.'
+            title: '<a href=\'https://www.example.com/\' target=\'_blank\'>Price</a> per company',
+            content: 'The Plus Service price is per company. If you have 3 companies, you will need to pay for 3 Plus Services.'
         },
         {
             icon: 'fa-solid fa-arrows-left-right',
-            title: 'Sincronización con SII',
-            description: 'Tus documentos tributarios son enviados inmediatamente al SII y monitoreamos su estado.'
-        },
-        {
-            icon: 'fa-solid fa-check',
-            title: 'Característica 4',
-            description: 'Descripción de la característica 4.'
-        }
-    ]"
-/>
-
-{# Caso 5 elementos (fila de 3 + fila de 2) #}
-<twig:block-features-icon
-    class="my-5"
-    :features="[
-        {
-            icon: 'fa-solid fa-cloud',
-            title: 'Feature 1',
-            description: 'Descripción 1'
-        },
-        {
-            icon: 'fa-solid fa-money-bill',
-            title: 'Feature 2',
-            description: 'Descripción 2'
-        },
-        {
-            icon: 'fa-solid fa-arrows-left-right',
-            title: 'Feature 3',
-            description: 'Descripción 3'
+            title: 'SII Synchronization',
+            content: 'Your tax documents are immediately sent to SII and we monitor their status.'
         },
         {
             icon: 'fa-solid fa-check',
             title: 'Feature 4',
-            description: 'Descripción 4'
-        },
-        {
-            icon: 'fa-solid fa-star',
-            title: 'Feature 5',
-            description: 'Descripción 5'
+            content: 'Content of feature 4.'
         }
     ]"
 />
 
-{# Caso 8 elementos (dos filas de 4) #}
+{# Case 5 elements (row of 3 + row of 2) #}
 <twig:block-features-icon
-    class="mb-5"
+    class="my-4"
     :features="[
         {
             icon: 'fa-solid fa-cloud',
             title: 'Feature 1',
-            description: 'Descripción 1'
+            content: 'Content 1'
         },
         {
             icon: 'fa-solid fa-money-bill',
             title: 'Feature 2',
-            description: 'Descripción 2'
+            content: 'Content 2'
         },
         {
             icon: 'fa-solid fa-arrows-left-right',
             title: 'Feature 3',
-            description: 'Descripción 3'
+            content: 'Content 3'
         },
         {
             icon: 'fa-solid fa-check',
             title: 'Feature 4',
-            description: 'Descripción 4'
+            content: 'Content 4'
         },
         {
             icon: 'fa-solid fa-star',
             title: 'Feature 5',
-            description: 'Descripción 5'
+            content: 'Content 5'
+        }
+    ]"
+/>
+
+{# Case 8 elements (two rows of 4) #}
+<twig:block-features-icon
+    class="my-4"
+    :features="[
+        {
+            icon: 'fa-solid fa-cloud',
+            title: 'Feature 1',
+            content: 'Content 1'
+        },
+        {
+            icon: 'fa-solid fa-money-bill',
+            title: 'Feature 2',
+            content: 'Content 2'
+        },
+        {
+            icon: 'fa-solid fa-arrows-left-right',
+            title: 'Feature 3',
+            content: 'Content 3'
+        },
+        {
+            icon: 'fa-solid fa-check',
+            title: 'Feature 4',
+            content: 'Content 4'
+        },
+        {
+            icon: 'fa-solid fa-star',
+            title: 'Feature 5',
+            content: 'Content 5'
         },
         {
             icon: 'fa-solid fa-heart',
             title: 'Feature 6',
-            description: 'Descripción 6'
+            content: 'Content 6'
         },
         {
             icon: 'fa-solid fa-bell',
             title: 'Feature 7',
-            description: 'Descripción 7'
+            content: 'Content 7'
         },
         {
             icon: 'fa-solid fa-user',
             title: 'Feature 8',
-            description: 'Descripción 8'
+            content: 'Content 8'
         }
     ]"
 />
+
 {% endblock %}

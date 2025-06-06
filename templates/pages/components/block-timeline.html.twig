@@ -1,96 +1,98 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-timeline
-    class="mt-5"
+    class="my-4"
+    linePosition="center"
     :events="[
         {
             date: '2023-06-15',
-            title: 'Partnership Oficial',
-            description: 'Nos volvemos Partner Oficial de Odoo en Chile.',
-            icon: 'fa-solid fa-handshake'
+            title: 'Official Partnership',
+            content: 'We become Official Odoo Partner in Chile.',
+            icon: 'fa-solid fa-handshake fa-fw'
         },
         {
             date: '2022-11',
-            title: 'Expansión Internacional',
-            description: 'Empezamos a recibir solicitudes de clientes fuera de Chile.',
-            icon: 'fa-solid fa-globe'
+            title: 'International Expansion',
+            content: 'We started receiving requests from clients outside Chile.',
+            icon: 'fa-solid fa-globe fa-fw'
         },
         {
             date: '2022-06',
-            title: 'Proyecto Internacional',
-            description: 'Desarrollo de producto para clientes fuera de Chile.',
-            icon: 'fa-solid fa-globe'
+            title: 'International Project',
+            content: 'Product development for clients outside Chile.',
+            icon: 'fa-solid fa-globe fa-fw'
         },
         {
             date: '2021-05',
-            title: 'Nuevos Productos',
-            description: 'Creación de BHExpress, ContaFi y <a href=https://www.billmysales.com>BillMySales</a>.',
-            icon: 'fa-solid fa-briefcase'
+            title: 'New Products',
+            content: 'Creation of BHExpress, ContaFi and <a href=https://www.billmysales.com>BillMySales</a>.',
+            icon: 'fa-solid fa-briefcase fa-fw'
         }
     ]"
-    line_position="center"
 />
 
 <twig:block-timeline
-    class="my-5"
+    class="my-4"
+    linePosition="left"
     :events="[
         {
             date: '2023-06-15',
-            title: 'Partnership Oficial',
-            description: 'Nos volvemos Partner Oficial de Odoo en Chile.',
-            icon: 'fa-solid fa-handshake'
+            title: 'Official Partnership',
+            content: 'We become Official Odoo Partner in Chile.',
+            icon: 'fa-solid fa-handshake fa-fw'
         },
         {
             date: '2022-11',
-            title: 'Expansión Internacional',
-            description: 'Empezamos a recibir solicitudes de clientes fuera de Chile.',
-            icon: 'fa-solid fa-globe'
+            title: 'International Expansion',
+            content: 'We started receiving requests from clients outside Chile.',
+            icon: 'fa-solid fa-globe fa-fw'
         },
         {
             date: '2022-06',
-            title: 'Proyecto Internacional',
-            description: 'Desarrollo de producto para clientes fuera de Chile.',
+            title: 'International Project',
+            content: 'Product development for clients outside Chile.',
             icon: 'fa-solid fa-globe'
         },
         {
             date: '2021-05',
-            title: 'Nuevos Productos',
-            description: 'Creación de BHExpress, ContaFi y BillMySales.',
+            title: 'New Products',
+            content: 'Creation of BHExpress, ContaFi and BillMySales.',
             icon: 'fa-solid fa-briefcase'
         }
     ]"
-    line_position="left"
 />
 
 <twig:block-timeline
-    class="mb-5"
+    class="my-4"
+    linePosition="right"
     :events="[
         {
             date: '2023-06-15',
-            title: 'Partnership Oficial',
-            description: 'Nos volvemos Partner Oficial de Odoo en Chile.',
+            title: 'Official Partnership',
+            content: 'We become Official Odoo Partner in Chile.',
             icon: 'fa-solid fa-handshake'
         },
         {
             date: '2022-11',
-            title: 'Expansión Internacional',
-            description: 'Empezamos a recibir solicitudes de clientes fuera de Chile.',
+            title: 'International Expansion',
+            content: 'We started receiving requests from clients outside Chile.',
             icon: 'fa-solid fa-globe'
         },
         {
             date: '2022-06',
-            title: 'Proyecto Internacional',
-            description: 'Desarrollo de producto para clientes fuera de Chile.',
-            icon: 'fa-solid fa-globe'
+            title: 'International Project',
+            content: 'Product development for clients outside Chile.',
+            icon: 'fa-solid fa-globe fa-fw'
         },
         {
             date: '2021-05',
-            title: 'Nuevos Productos',
-            description: 'Creación de BHExpress, ContaFi y BillMySales.',
-            icon: 'fa-solid fa-briefcase'
+            title: 'New Products',
+            content: 'Creation of BHExpress, ContaFi and BillMySales.',
+            icon: 'fa-solid fa-briefcase fa-fw'
         }
     ]"
-    line_position="right"
 />
+
 {% endblock %}

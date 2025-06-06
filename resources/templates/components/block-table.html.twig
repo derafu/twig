@@ -24,11 +24,13 @@
 
 {% import _self as renderer %}
 
-<div class="{{ container ?? 'container' }} derafu-block-table {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
+<div
+    class="derafu-block-table {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
 >
    {# Actions Menu #}
-   {% if actions|length > 0 %}
+   {% if this.actions|length > 0 %}
        <div class="derafu-block-table__actions mb-3 text-end">
            <div class="dropdown">
                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
@@ -36,7 +38,7 @@
                    <span class="ms-1">Acciones</span>
                </button>
                <ul class="dropdown-menu dropdown-menu-end">
-                   {% for action in actions %}
+                   {% for action in this.actions %}
                        {% if action.type == 'divider' %}
                            <li><hr class="dropdown-divider"></li>
                        {% else %}
@@ -55,9 +57,9 @@
                </ul>
            </div>
 
-           {% if toggleable %}
+           {% if this.toggleable %}
                <button type="button" class="btn btn-primary ms-2"
-                       onclick="document.getElementById('table-{{ id }}').classList.toggle('d-none')">
+                       onclick="document.getElementById('table-{{ this.id }}').classList.toggle('d-none')">
                    <i class="fas fa-eye"></i>
                </button>
            {% endif %}
@@ -65,22 +67,22 @@
    {% endif %}
 
    {# Table Container #}
-   <div class="table-responsive" {% if maxHeight %}style="max-height: {{ maxHeight }}px"{% endif %}>
-       <table id="table-{{ id }}"
-              class="table {{ striped ? 'table-striped' : '' }}
-                     {{ bordered ? 'table-bordered' : '' }}
-                     {{ hover ? 'table-hover' : '' }}
-                     {{ small ? 'table-sm' : '' }}
-                     {% if not visible %}d-none{% endif %}">
+   <div class="table-responsive" {% if this.maxHeight %}style="max-height: {{ this.maxHeight }}px"{% endif %}>
+       <table id="table-{{ this.id }}"
+              class="table {{ this.striped ? 'table-striped' : '' }}
+                     {{ this.bordered ? 'table-bordered' : '' }}
+                     {{ this.hover ? 'table-hover' : '' }}
+                     {{ this.small ? 'table-sm' : '' }}
+                     {% if not this.visible %}d-none{% endif %}">
 
-           {% if caption %}
-               <caption>{{ caption }}</caption>
+           {% if this.caption %}
+               <caption>{{ this.caption }}</caption>
            {% endif %}
 
            {# Headers #}
-           {% if headers|length > 0 %}
+           {% if this.headers|length > 0 %}
                <thead>
-                   {% for headerRow in headers %}
+                   {% for headerRow in this.headers %}
                        <tr>
                            {% for cell in headerRow %}
                                <th {% if cell.scope %}scope="{{ cell.scope }}"{% endif %}
@@ -98,7 +100,7 @@
 
            {# Body #}
            <tbody>
-               {% for row in rows %}
+               {% for row in this.rows %}
                    <tr>
                        {% for cell in row %}
                            <td class="{{ renderer.render_cell_classes(loop.index0, columns, cell, rowClasses) }}">
@@ -110,9 +112,9 @@
            </tbody>
 
            {# Footer #}
-           {% if footer|length > 0 %}
+           {% if this.footer|length > 0 %}
                <tfoot>
-                   {% for footerRow in footer %}
+                   {% for footerRow in this.footer %}
                        <tr>
                            {% for cell in footerRow %}
                                <td {% if cell.colspan %}colspan="{{ cell.colspan }}"{% endif %}

@@ -1,54 +1,56 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-video-grid
-    class="mt-2"
-    :videos="[
-        {
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            title: 'Lorem ipsum',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore <a href=https://www.billmysales.com/>magna aliqua.</a>',
-            button_text: 'Ver más',
-            button_url: '#'
-        },
-        {
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            title: 'Lorem ipsum',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            button_text: 'Ver más',
-            button_url: ''
-        },
-        {
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I',
-            title: 'Lorem ipsum',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            button_text: 'Ver más',
-            button_url: '#'
-        }
-    ]"
+    class="my-4"
     :cols="3"
-/>
-
-<twig:block-video-grid
-    class="my-5"
     :videos="[
         {
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I'
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            title: 'Lorem ipsum',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore <a href=https://www.billmysales.com/>magna aliqua.</a>',
+            buttonText: 'Learn more',
+            buttonUrl: '#'
         },
         {
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I'
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            title: 'Lorem ipsum',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttonText: 'Learn more',
+            buttonUrl: ''
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            title: 'Lorem ipsum',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttonText: 'Learn more',
+            buttonUrl: '#'
         }
     ]"
-    :cols="2"
 />
 
 <twig:block-video-grid
-    class="mb-5"
+    class="my-4"
+    :cols="2"
     :videos="[
         {
-            video: 'https://www.youtube.com/watch?v=v96l-cezK8I'
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w'
         }
     ]"
-    :cols="1"
 />
+
+<twig:block-video-grid
+    class="my-4"
+    :cols="1"
+    :videos="[
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w'
+        }
+    ]"
+/>
+
 {% endblock %}

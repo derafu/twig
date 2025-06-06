@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Quote Component for displaying testimonials, citations, or quotes.
@@ -26,52 +25,122 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 class QuoteComponent extends AbstractComponent
 {
     /**
-     * Unique identifier for the quote component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the quote component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
-    /**
-     * The quote text.
+     * The quote content.
      *
-     * @var string|null
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public ?string $quote = null;
+    private string $content;
 
     /**
      * The quote author name.
      *
-     * @var string|null
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public ?string $author = null;
-
-    /**
-     * The quote source or reference.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $source = null;
+    private string $author;
 
     /**
      * The author image URL.
      *
      * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $image = null;
+    private ?string $image = null;
+
+    /**
+     * The quote note or reference.
+     *
+     * @var string|null
+     */
+    private ?string $note = null;
+
+    /**
+     * Gets the quote content.
+     *
+     * @return string The quote content
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Sets the quote content.
+     *
+     * @param string $content The quote content
+     * @return static
+     */
+    public function setContent(string $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets the quote author name.
+     *
+     * @return string The quote author name
+     */
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    /**
+     * Sets the quote author name.
+     *
+     * @param string $author The quote author name
+     * @return static
+     */
+    public function setAuthor(string $author): static
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Gets the author image URL.
+     *
+     * @return string|null The author image URL
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * Sets the author image URL.
+     *
+     * @param string|null $image The author image URL
+     * @return static
+     */
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets the quote note or reference.
+     *
+     * @return string|null The quote note or reference
+     */
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    /**
+     * Sets the quote note or reference.
+     *
+     * @param string|null $note The quote note or reference
+     * @return static
+     */
+    public function setNote(?string $note): static
+    {
+        $this->note = $note;
+
+        return $this;
+    }
 }

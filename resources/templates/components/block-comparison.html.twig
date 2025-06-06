@@ -1,7 +1,6 @@
 {# templates/components/block-comparison.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-comparison {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
->
+
+<div class="derafu-block-comparison {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     <div class="row g-4">
         {% for plan in plans %}
             <div class="col-12 {% if plans|length == 2 %}col-lg-6
@@ -17,8 +16,8 @@
                     {# Price section #}
                     <div class="derafu-block-comparison__price-section">
                         <div class="derafu-block-comparison__price">
-                            {% if plan.price_icon %}
-                                    <i class="{{ plan.price_icon }}"></i>
+                            {% if plan.priceIcon %}
+                                    <i class="{{ plan.priceIcon }}"></i>
                             {% else %}
                                 {{ plan.price|raw }}
                             {% endif %}
@@ -50,11 +49,11 @@
 
                     {# Footer #}
                     <div class="derafu-block-comparison__footer">
-                        {% if plan.recommendation %}
-                            <div class="derafu-block-comparison__recommendation">{{ plan.recommendation }}</div>
+                        {% if plan.note %}
+                            <div class="derafu-block-comparison__note">{{ plan.note }}</div>
                         {% endif %}
-                        <a href="{{ plan.button_url }}" class="derafu-block-comparison__button">
-                            {{ plan.button_text }}
+                        <a href="{{ plan.buttonUrl }}" class="derafu-block-comparison__button">
+                            {{ plan.buttonText }}
                         </a>
                     </div>
                 </div>

@@ -1,105 +1,106 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-stats
-    class="mt-5"
+    class="my-4"
     :stats="[
         {
-            number: '$40.000',
-            text: 'Precio base hasta cuota de 2.000 <a href=https://derafu.org/>documentos</a href>'
+            value: '$40.000',
+            text: 'Base price up to quota of 2.000 <a href=\'https://www.example.com/\' target=\'_blank\'>documents</a>'
         },
         {
-            number: '$15',
-            text: 'Precio por cada documento extra sobre la cuota'
+            value: '$15',
+            text: 'Price per extra document above quota'
         },
         {
-            number: '24/7',
-            text: 'Soporte técnico disponible'
+            value: '24/7',
+            text: 'Technical support available'
         },
         {
-            number: '99.9%',
-            text: 'Uptime garantizado'
+            value: '99.9%',
+            text: 'Guaranteed uptime'
         }
     ]"
 />
 
 <twig:block-stats
-    class="my-5"
+    class="my-4"
     :stats="[
         {
-            number: '$40.000',
-            text: 'Precio base hasta cuota de 2.000 documentos'
+            value: '$40.000',
+            text: 'Base price up to quota of 2.000 documents'
         },
         {
-            number: '$15',
-            text: 'Precio por cada documento extra sobre la cuota'
+            value: '$15',
+            text: 'Price per extra document above quota'
         },
         {
-            number: '24/7',
-            text: 'Soporte técnico disponible'
+            value: '24/7',
+            text: 'Technical support available'
         },
         {
-            number: '99.9%',
-            text: 'Uptime garantizado'
+            value: '99.9%',
+            text: 'Guaranteed uptime'
         }
     ]"
-    text_position="top"
+    textPosition="top"
 />
 
 <twig:block-stats
-    class="my-5"
+    class="my-4"
     :stats="[
         {
-            number: '$40.000',
-            text: 'Precio base hasta cuota de 2.000 documentos'
+            value: '$40.000',
+            text: 'Base price up to quota of 2.000 documents'
         },
         {
-            number: '$15',
-            text: 'Precio por cada documento extra sobre la cuota'
+            value: '$15',
+            text: 'Price per extra document above quota'
         },
         {
-            number: '24/7',
-            text: 'Soporte técnico disponible'
+            value: '24/7',
+            text: 'Technical support available'
         },
         {
-            number: '99.9%',
-            text: 'Uptime garantizado'
+            value: '99.9%',
+            text: 'Guaranteed uptime'
         },
         {
-            number: '99.9%',
-            text: 'Uptime garantizado'
+            value: '99.9%',
+            text: 'Guaranteed uptime'
         }
     ]"
 />
 
 <twig:block-stats
-    class="mb-5"
+    class="my-4"
     :stats="[
         {
-            number: '1.000',
-            text: 'Clientes'
+            value: '1.000',
+            text: 'Customers'
         },
         {
-            number: '10',
-            text: 'Años'
+            value: '10',
+            text: 'Years'
         },
         {
-            number: '8/5',
-            text: 'Soporte técnico'
+            value: '8/5',
+            text: 'Technical support'
         },
         {
-            number: '99.9%',
+            value: '99.9%',
             text: 'Uptime'
         },
         {
-            number: '5',
-            text: 'Productos'
+            value: '5',
+            text: 'Products'
         },
         {
-            number: '3',
-            text: 'Países'
+            value: '3',
+            text: 'Countries'
         }
     ]"
-
 />
+
 {% endblock %}

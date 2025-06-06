@@ -14,50 +14,223 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 /**
  * Video Component for displaying embedded videos with additional content.
  *
  * This component creates customizable video blocks that can include
- * title, description, action buttons and various display options.
+ * title, content, action buttons and various display options.
  */
 #[AsTwigComponent('block-video')]
 class VideoComponent extends AbstractComponent
 {
     /**
-     * Configuration array for video content.
+     * Video title.
      *
-     * Structure:
-     * - title: Video title (required)
-     * - video: Video URL (required, supports YouTube URLs)
-     * - description: Video description (optional, supports HTML)
-     * - buttons: Array of action buttons (optional)
-     *   - text: Button text
-     *   - url: Button URL
-     * - size: Video size (normal, small, default: normal)
-     * - align: Video alignment (left, center, right, default: center)
+     * @var string
+     */
+    private string $title;
+
+    /**
+     * Video URL.
+     *
+     * @var string
+     */
+    private string $video;
+
+    /**
+     * Video content.
+     *
+     * @var string
+     */
+    private string $content;
+
+    /**
+     * Array of action buttons.
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $video = [];
+    private array $buttons;
 
     /**
-     * Unique identifier for the text-image component.
+     * Video size.
+     *
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public string $id;
+    private string $size;
 
     /**
-     * Additional CSS classes for the text-image component.
+     * Video alignment.
+     *
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+    private string $align;
 
     /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
+     * Video aspect ratio.
+     *
+     * @var string
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    private string $aspectRatio;
+
+    /**
+     * Gets the video title.
+     *
+     * @return string The video title.
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * Sets the video title.
+     *
+     * @param string $title The video title.
+     * @return static
+     */
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets the video URL.
+     *
+     * @return string The video URL.
+     */
+    public function getVideo(): string
+    {
+        return $this->video;
+    }
+
+    /**
+     * Sets the video URL.
+     *
+     * @param string $video The video URL.
+     * @return static
+     */
+    public function setVideo(string $video): static
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Gets the video content.
+     *
+     * @return string The video content.
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Sets the video content.
+     *
+     * @param string $content The video content.
+     * @return static
+     */
+    public function setContent(string $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets the array of action buttons.
+     *
+     * @return array The array of action buttons.
+     */
+    public function getButtons(): array
+    {
+        return $this->buttons;
+    }
+
+    /**
+     * Sets the array of action buttons.
+     *
+     * @param array $buttons The array of action buttons.
+     * @return static
+     */
+    public function setButtons(array $buttons): static
+    {
+        $this->buttons = $buttons;
+
+        return $this;
+    }
+
+    /**
+     * Gets the video size.
+     *
+     * @return string The video size.
+     */
+    public function getSize(): string
+    {
+        return $this->size;
+    }
+
+    /**
+     * Sets the video size.
+     *
+     * @param string $size The video size.
+     * @return static
+     */
+    public function setSize(string $size): static
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets the video alignment.
+     *
+     * @return string The video alignment.
+     */
+    public function getAlign(): string
+    {
+        return $this->align;
+    }
+
+    /**
+     * Sets the video alignment.
+     *
+     * @param string $align The video alignment.
+     * @return static
+     */
+    public function setAlign(string $align): static
+    {
+        $this->align = $align;
+
+        return $this;
+    }
+
+    /**
+     * Gets the video aspect ratio.
+     *
+     * @return string The video aspect ratio.
+     */
+    public function getAspectRatio(): string
+    {
+        return $this->aspectRatio;
+    }
+
+    /**
+     * Sets the video aspect ratio.
+     *
+     * @param string $aspectRatio The video aspect ratio.
+     * @return static
+     */
+    public function setAspectRatio(string $aspectRatio): static
+    {
+        $this->aspectRatio = $aspectRatio;
+
+        return $this;
+    }
 }

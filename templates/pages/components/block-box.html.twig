@@ -1,18 +1,20 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-box
-    class="mt-5"
-    title="Box con esquinas curvas"
-    content='Lorem ipsum dolor sit amet, consectetur adipiscing "<a href="https://derafu.org/">elit</a>".'
-    :rounded="true"
-    container="container"
+    class="rounded"
+    title="Box with rounded corners"
+    content='Lorem ipsum dolor sit amet, consectetur adipiscing <a href="https://www.example.com/" target="_blank">elit</a>.'
 />
 
 <twig:block-box
-    class="my-5"
-    title="Lorem ipsum dolor"
-    content="Este box tiene margen superior reducido y margen inferior aumentado. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    :rounded="false"
+    title="Box without rounded corners"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 />
+
+<twig:block-box
+    title="Box without content"
+/>
+
 {% endblock %}

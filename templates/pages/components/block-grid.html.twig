@@ -4,17 +4,17 @@
 
 {% set grid_item_1 %}
     <h2>Item 1</h2>
-    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://derafu.org/">tempus gravida.</a></p>
+    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://www.example.com/" target="_blank">tempus gravida.</a></p>
 {% endset %}
 
 {% set grid_item_2 %}
     <twig:block-image
-        title="¿Qué es Twig?"
+        title="What is Twig?"
         image="{{ base_path }}/img/block-hero.jpeg"
-        description="<p>Una ramita.</p>"
+        content="<p>A small branch.</p>"
         :buttons="[
             {
-                text: 'Aprende sobre Twig',
+                text: 'Learn about Twig',
                 url: 'https://twig.symfony.com/'
             }
         ]"
@@ -25,7 +25,7 @@
     <twig:block-image
         title="Lorem ipsum"
         image="{{ base_path }}/img/block-hero.jpeg"
-        description="<p>Dolor sit amet</p>"
+        content="<p>Dolor sit amet</p>"
         :buttons="[
             {
                 text: 'Consectetur',
@@ -35,18 +35,18 @@
     />
 {% endset %}
 
-{# Ejemplo 1: Grid sin columnas especificadas #}
+{# Example 1: Grid without specified columns #}
 <twig:block-grid
-    class="mt-5"
+    class="my-4"
     :items="[
         grid_item_1,
         grid_item_2,
     ]"
 />
 
-{# Ejemplo 2: Grid con 4 columnas #}
+{# Example 2: Grid with 4 columns #}
 <twig:block-grid
-    class="my-5"
+    class="my-4"
     cols="4"
     :items="[
         grid_item_1,
@@ -55,4 +55,5 @@
         grid_item_2,
     ]"
 />
+
 {% endblock %}

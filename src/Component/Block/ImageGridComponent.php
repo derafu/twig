@@ -14,35 +14,10 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-image-grid')]
 class ImageGridComponent extends AbstractComponent
 {
-    /**
-     * Unique identifier for the image grid component.
-     *
-     * @var string
-     */
-    #[ExposeInTemplate()]
-    public string $id = '';
-
-    /**
-     * Container class for the image grid component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
-    /**
-     * Additional CSS classes for the image grid component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
     /**
      * Array of images with their configurations.
      *
@@ -53,14 +28,58 @@ class ImageGridComponent extends AbstractComponent
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $images = [];
+    private array $images = [];
 
     /**
      * Number of columns in the grid layout (4 or 6).
      *
      * @var int
      */
-    #[ExposeInTemplate()]
-    public int $cols = 6;
+    private int $cols = 6;
+
+    /**
+     * Gets the array of images.
+     *
+     * @return array The array of images with their configurations.
+     */
+    public function getImages(): array
+    {
+        return $this->images;
+    }
+
+    /**
+     * Sets the array of images.
+     *
+     * @param array $images The array of images with their configurations.
+     * @return static
+     */
+    public function setImages(array $images): static
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number of columns in the grid layout.
+     *
+     * @return int The number of columns in the grid layout.
+     */
+    public function getCols(): int
+    {
+        return $this->cols;
+    }
+
+    /**
+     * Sets the number of columns in the grid layout.
+     *
+     * @param int $cols The number of columns in the grid layout.
+     * @return static
+     */
+    public function setCols(int $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
+    }
 }

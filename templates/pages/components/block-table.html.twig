@@ -1,47 +1,45 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
-{# Tabla básica #}
-{% for theme, name in themes %}
-    <twig:block-table
-        class="mt-5"
-        caption="Theme: {{ name }}"
-        :headers="[
-            [
-                {'text': 'ID', 'scope': 'col', 'align': 'center'},
-                {'text': 'Nombre', 'scope': 'col'},
-                {'text': 'Email', 'scope': 'col'},
-                {'text': 'Estado', 'scope': 'col', 'align': 'center'}
-            ]
-        ]"
-        :rows="[
-            ['1', '<a href=https://derafu.org/>Juan Pérez</a>', 'juan@example.com', 'Activo'],
-            ['2', 'María López', 'maria@example.com', 'Inactivo'],
-            ['3', 'Carlos Ruiz', 'carlos@example.com', 'Pendiente']
-        ]"
-        :columns="[
-            {'index': 0, 'width': '80px', 'align': 'center'},
-            {'index': 3, 'align': 'center', 'class': 'fw-bold'}
-        ]"
-        :rowClasses="[
-            {'col': 3, 'values': {
-                'Activo': 'table-success',
-                'Inactivo': 'table-danger',
-                'Pendiente': 'table-warning'
-            }}
-        ]"
 
-    />
-{% endfor %}
-
-{# Tabla con headers complejos y footer #}
+{# Basic table #}
 <twig:block-table
-    class="my-5"
-    caption="Reporte de Ventas 2024"
+    class="my-4"
+    caption="Table"
     :headers="[
         [
-            {text: 'Región', scope: 'col', rowspan: '2'},
-            {text: 'Ventas por Trimestre', scope: 'col', colspan: '4', class: 'text-center'},
+            {'text': 'ID', 'scope': 'col', 'align': 'center'},
+            {'text': 'Name', 'scope': 'col'},
+            {'text': 'Email', 'scope': 'col'},
+            {'text': 'Status', 'scope': 'col', 'align': 'center'}
+        ]
+    ]"
+    :rows="[
+        ['1', '<a href=\'https://www.example.com/\' target=\'_blank\'>John Smith</a>', 'john@example.com', 'Active'],
+        ['2', 'Mary Johnson', 'mary@example.com', 'Inactive'],
+        ['3', 'Charles Brown', 'charles@example.com', 'Pending']
+    ]"
+    :columns="[
+        {'index': 0, 'width': '80px', 'align': 'center'},
+        {'index': 3, 'align': 'center', 'class': 'fw-bold'}
+    ]"
+    :rowClasses="[
+        {'col': 3, 'values': {
+            'Active': 'table-success',
+            'Inactive': 'table-danger',
+            'Pending': 'table-warning'
+        }}
+    ]"
+/>
+
+{# Table with complex headers and footer #}
+<twig:block-table
+    class="my-4"
+    caption="Sales Report 2024"
+    :headers="[
+        [
+            {text: 'Region', scope: 'col', rowspan: '2'},
+            {text: 'Quarterly Sales', scope: 'col', colspan: '4', class: 'text-center'},
         ],
         [
             {text: 'Q1', scope: 'col', align: 'end'},
@@ -51,9 +49,9 @@
         ]
     ]"
     :rows="[
-        ['Norte', '10,500', '12,300', '11,800', '13,200'],
-        ['Sur', '8,900', '9,200', '9,800', '10,100'],
-        ['Este', '11,200', '11,500', '12,100', '12,800']
+        ['North', '10,500', '12,300', '11,800', '13,200'],
+        ['South', '8,900', '9,200', '9,800', '10,100'],
+        ['East', '11,200', '11,500', '12,100', '12,800']
     ]"
     :footer="[
         [
@@ -74,39 +72,38 @@
     :bordered="true"
     :striped="true"
     :hover="false"
-
 />
 
-{# Tabla con acciones y toggle #}
+{# Table with actions and toggle #}
 <twig:block-table
-    class="my-5"
+    class="my-4"
     :headers="[
         [
-            {text: 'Producto', scope: 'col'},
-            {text: 'Categoría', scope: 'col'},
+            {text: 'Product', scope: 'col'},
+            {text: 'Category', scope: 'col'},
             {text: 'Stock', scope: 'col', align: 'center'},
-            {text: 'Precio', scope: 'col', align: 'end'}
+            {text: 'Price', scope: 'col', align: 'end'}
         ]
     ]"
     :rows="[
-        ['Laptop XPS', 'Computadoras', '15', '$1,299.99'],
-        ['Mouse Wireless', 'Accesorios', '45', '$29.99'],
-        ['Monitor 27\'\'', 'Pantallas', '8', '$299.99']
+        ['Laptop XPS', 'Computers', '15', '$1,299.99'],
+        ['Wireless Mouse', 'Accessories', '45', '$29.99'],
+        ['Monitor 27\'\'', 'Displays', '8', '$299.99']
     ]"
     :actions="[
         {
-            text: 'Exportar a Excel',
+            text: 'Export to Excel',
             icon: 'fas fa-file-excel',
-            url: '/exportar/excel'
+            url: '/export/excel'
         },
         {
-            text: 'Exportar a PDF',
+            text: 'Export to PDF',
             icon: 'fas fa-file-pdf',
-            url: '/exportar/pdf'
+            url: '/export/pdf'
         },
         {type: 'divider'},
         {
-            text: 'Imprimir',
+            text: 'Print',
             icon: 'fas fa-print',
             onclick: 'window.print()'
         }
@@ -117,25 +114,26 @@
     :hover="false"
 />
 
-{# Tabla minimalista responsiva #}
+{# Minimalist responsive table #}
 <twig:block-table
-    class="mb-5"
+    class="my-4"
     :headers="[
         [
             {text: '#', scope: 'col'},
-            {text: 'Título', scope: 'col'},
-            {text: 'Fecha', scope: 'col'},
-            {text: 'Estado', scope: 'col'}
+            {text: 'Title', scope: 'col'},
+            {text: 'Date', scope: 'col'},
+            {text: 'Status', scope: 'col'}
         ]
     ]"
     :rows="[
-        ['1', 'Documento 1', '2024-02-22', '<span class=\'badge bg-success\'>Aprobado</span>'],
-        ['2', 'Documento 2', '2024-02-21', '<span class=\'badge bg-warning\'>Pendiente</span>'],
-        ['3', 'Documento 3', '2024-02-20', '<span class=\'badge bg-danger\'>Rechazado</span>']
+        ['1', 'Document 1', '2024-02-22', '<span class=\'badge bg-success\'>Approved</span>'],
+        ['2', 'Document 2', '2024-02-21', '<span class=\'badge bg-warning\'>Pending</span>'],
+        ['3', 'Document 3', '2024-02-20', '<span class=\'badge bg-danger\'>Rejected</span>']
     ]"
     :small="true"
     :striped="false"
     :bordered="false"
     :hover="false"
 />
+
 {% endblock %}

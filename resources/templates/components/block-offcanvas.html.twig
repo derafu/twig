@@ -1,28 +1,29 @@
 {# templates/components/block-offcanvas.html.twig #}
-<div class="{{ container ?? 'container' }} offcanvas offcanvas-{{ position }} {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
-    tabindex="-1"
-    aria-labelledby="{{ id }}-label"
-    {% if not backdrop %}data-bs-backdrop="false"{% endif %}
-    {% if scroll %}data-bs-scroll="true"{% endif %}>
 
-    {% if title or showClose %}
+<div
+    class="offcanvas offcanvas-{{ this.position }} {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
+    tabindex="-1"
+    aria-labelledby="{{ this.id }}-label"
+    {% if not this.backdrop %}data-bs-backdrop="false"{% endif %}
+    {% if this.scroll %}data-bs-scroll="true"{% endif %}
+>
+    {% if this.title or this.showClose %}
         <div class="offcanvas-header">
-            {% if title %}
-                <h5 class="offcanvas-title" id="{{ id }}-label">{{ title }}</h5>
+            {% if this.title %}
+                <h5 class="offcanvas-title" id="{{ this.id }}-label">{{ this.title }}</h5>
             {% endif %}
-            {% if showClose %}
+            {% if this.showClose %}
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             {% endif %}
         </div>
     {% endif %}
-
     <div class="offcanvas-body">
-        {{ content|raw }}
-
-        {% if buttons|length > 0 %}
+        {{ this.content|raw }}
+        {% if this.buttons|length > 0 %}
             <div class="derafu-block-offcanvas__buttons">
-                {% for button in buttons %}
+                {% for button in this.buttons %}
                     <button type="button"
                         class="btn btn-{{ button.type|default('secondary') }}"
                         {% if button.dismiss|default(false) %}data-bs-dismiss="offcanvas"{% endif %}

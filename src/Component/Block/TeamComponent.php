@@ -14,29 +14,10 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-team')]
 class TeamComponent extends AbstractComponent
 {
-    /**
-     * Unique identifier for the team component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the team component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
     /**
      * Array of team members configurations.
      *
@@ -52,22 +33,92 @@ class TeamComponent extends AbstractComponent
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $members = [];
+    private array $members = [];
 
     /**
      * Number of columns in the grid layout (1, 2, 3, 4, or 6).
      *
      * @var int
      */
-    #[ExposeInTemplate()]
-    public int $cols = 4;
+    private int $cols = 4;
 
     /**
      * Content alignment (left, center, right).
      *
      * @var string
      */
-    #[ExposeInTemplate()]
-    public string $align = 'center';
+    private string $align = 'center';
+
+    /**
+     * Gets the array of team members.
+     *
+     * @return array<int,array> The array of team members.
+     */
+    public function getMembers(): array
+    {
+        return $this->members;
+    }
+
+    /**
+     * Sets the array of team members.
+     *
+     * @param array<int,array> $members The array of team members.
+     * @return static
+     */
+    public function setMembers(array $members): static
+    {
+        $this->members = $members;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number of columns in the grid layout.
+     *
+     * @return int The number of columns.
+     */
+    public function getCols(): int
+    {
+        return $this->cols;
+    }
+
+    /**
+     * Sets the number of columns in the grid layout.
+     *
+     * @param int $cols The number of columns.
+     * @return static
+     */
+    public function setCols(int $cols): static
+    {
+        if (!in_array($cols, [1, 2, 3, 4, 6], true)) {
+            $this->error('Invalid number of columns. Must be 1, 2, 3, 4, or 6.');
+        }
+
+        $this->cols = $cols;
+
+        return $this;
+    }
+
+    /**
+     * Gets the content alignment.
+     *
+     * @return string The content alignment.
+     */
+    public function getAlign(): string
+    {
+        return $this->align;
+    }
+
+    /**
+     * Sets the content alignment.
+     *
+     * @param string $align The content alignment.
+     * @return static
+     */
+    public function setAlign(string $align): static
+    {
+        $this->align = $align;
+
+        return $this;
+    }
 }

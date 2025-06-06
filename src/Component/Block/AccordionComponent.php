@@ -14,10 +14,9 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-accordion')]
-class AccordionComponent extends AbstractComponent
+final class AccordionComponent extends AbstractComponent
 {
     /**
      * Array of accordion items.
@@ -30,30 +29,40 @@ class AccordionComponent extends AbstractComponent
      *
      * @var array<int,array>
      */
-    #[ExposeInTemplate()]
-    public array $items = [];
+    private array $items = [];
 
     /**
-     * Container class for the accordion.
+     * Gets the accordion items.
      *
-     * @var string|null
+     * @return array<int,array>
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function getItems(): array
+    {
+        return $this->items;
+    }
 
     /**
-     * Unique identifier for the accordion component.
+     * Sets the accordion items.
      *
-     * @var string
+     * @param array<int,array> $items The accordion items.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function setItems(array $items): static
+    {
+        foreach ($items as &$item) {
+            if (empty($item['title'])) {
+                $this->error('Item title is required.');
+            }
 
-    /**
-     * Additional CSS classes for the accordion component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+            if (empty($item['content'])) {
+                $this->error('Item content is required.');
+            }
+
+            $item['active'] = $item['active'] ?? false;
+        }
+
+        $this->items = $items;
+
+        return $this;
+    }
 }

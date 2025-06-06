@@ -23,8 +23,8 @@
     --video-grid-title-font-size: 1.25rem;
     --video-grid-title-font-weight: 700;
     --video-grid-title-margin-bottom: 1rem;
-    --video-grid-description-font-size: 0.9rem;
-    --video-grid-description-line-height: 1.6;
+    --video-grid-content-font-size: 0.9rem;
+    --video-grid-content-line-height: 1.6;
 
     /* Video Grid - Media */
     --video-grid-aspect-ratio: 16/9;
@@ -45,8 +45,8 @@
     --video-grid-title-font-size-mobile: 1rem;
     --video-grid-title-margin-bottom-mobile: 0.75rem;
 
-    --video-grid-description-font-size-mobile: 0.85rem;
-    --video-grid-description-line-height-mobile: 1.5;
+    --video-grid-content-font-size-mobile: 0.85rem;
+    --video-grid-content-line-height-mobile: 1.5;
 
     --video-grid-button-padding-y-mobile: 0.625rem;
     --video-grid-button-padding-x-mobile: 1.25rem;
@@ -121,20 +121,20 @@
     line-height: 1.3;
 }
 
-.derafu-block-video-grid__description {
+.derafu-block-video-grid__content {
     color: var(--video-grid-card-text);
-    font-size: var(--video-grid-description-font-size);
-    line-height: var(--video-grid-description-line-height);
+    font-size: var(--video-grid-content-font-size);
+    line-height: var(--video-grid-content-line-height);
     flex: 1;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
-.derafu-block-video-grid__description a {
+.derafu-block-video-grid__content a {
     text-decoration: none;
 }
 
-.derafu-block-video-grid__description a:hover {
+.derafu-block-video-grid__content a:hover {
     text-decoration: underline;
 }
 
@@ -203,9 +203,9 @@
         margin-bottom: var(--video-grid-title-margin-bottom-mobile);
     }
 
-    .derafu-block-video-grid__description {
-        font-size: var(--video-grid-description-font-size-mobile);
-        line-height: var(--video-grid-description-line-height-mobile);
+    .derafu-block-video-grid__content {
+        font-size: var(--video-grid-content-font-size-mobile);
+        line-height: var(--video-grid-content-line-height-mobile);
     }
 
     .derafu-block-video-grid__footer {

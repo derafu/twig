@@ -1,101 +1,101 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block content %}
+
 <twig:block-steps
-    class="mt-5"
+    class="my-4"
     :steps="[
         {
             icon: 'fa-solid fa-list',
-            title: 'Set de pruebas',
-            description: 'Se envían al <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> los DTE estándares que ellos piden validar del set solicitado.'
+            title: 'Test Set',
+            content: 'Standard DTE documents requested by the <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> are sent for validation.'
         },
         {
             icon: 'fa-solid fa-file-lines',
-            title: 'Simulación',
-            description: 'Se envían al SII ejemplos de DTE reales que la empresa emitirá en producción.'
+            title: 'Simulation',
+            content: 'Real DTE examples that the company will issue in production are sent to the SII.'
         },
         {
             icon: 'fa-solid fa-arrows-left-right',
-            title: 'Intercambio',
-            description: 'Se envían al SII los XML asociados a la respuesta a un intercambio de DTE.'
+            title: 'Exchange',
+            content: 'XML files associated with the response to a DTE exchange are sent to the SII.'
         },
         {
             icon: 'fa-solid fa-file-pdf',
-            title: 'Muestras de PDF',
-            description: 'Se envían al SII los PDF de todos los DTE del set de pruebas y simulación. <a href=\'#\' class=\'btn btn-primary\'>Link</a>'
+            title: 'PDF Samples',
+            content: 'PDFs of all DTE documents from the test set and simulation are sent to the SII. <a href=\'#\' class=\'btn btn-primary\'>Link</a>'
         }
     ]"
-    arrow_type="straight"
+    arrowType="straight"
 />
 
 <twig:block-steps
-    class="my-5"
+    class="my-4"
     :steps="[
         {
             icon: 'fa-solid fa-list',
-            title: 'Set de pruebas',
-            description: 'Se envían al <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> los DTE estándares que ellos piden validar del set solicitado.'
+            title: 'Test Set',
+            content: 'Standard DTE documents requested by the <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> are sent for validation.'
         },
         {
             icon: 'fa-solid fa-file-lines',
-            title: 'Simulación',
-            description: 'Se envían al SII ejemplos de DTE reales que la empresa emitirá en producción.'
+            title: 'Simulation',
+            content: 'Real DTE examples that the company will issue in production are sent to the SII.'
         },
         {
             icon: 'fa-solid fa-arrows-left-right',
-            title: 'Intercambio',
-            description: 'Se envían al SII los XML asociados a la respuesta a un intercambio de DTE.'
+            title: 'Exchange',
+            content: 'XML files associated with the response to a DTE exchange are sent to the SII.'
         },
         {
             icon: 'fa-solid fa-file-pdf',
-            title: 'Muestras de PDF',
-            description: 'Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.'
+            title: 'PDF Samples',
+            content: 'PDFs of all DTE documents from the test set and simulation are sent to the SII.'
         }
     ]"
 />
 
 <twig:block-steps
-    class="my-5"
+    class="my-4"
     :steps="[
         {
             icon: 'fa-solid fa-list',
-            title: 'Set de pruebas',
-            description: 'Se envían al <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> los DTE estándares que ellos piden validar del set solicitado.'
+            title: 'Test Set',
+            content: 'Standard DTE documents requested by the <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> are sent for validation.'
         },
         {
             icon: 'fa-solid fa-arrows-left-right',
-            title: 'Intercambio',
-            description: 'Se envían al SII los XML asociados a la respuesta a un intercambio de DTE.'
+            title: 'Exchange',
+            content: 'XML files associated with the response to a DTE exchange are sent to the SII.'
         },
         {
             icon: 'fa-solid fa-file-pdf',
-            title: 'Muestras de PDF',
-            description: 'Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.'
+            title: 'PDF Samples',
+            content: 'PDFs of all DTE documents from the test set and simulation are sent to the SII.'
         }
     ]"
-    arrow_type="straight"
-
+    arrowType="straight"
 />
 
 <twig:block-steps
-    class="mb-5"
+    class="my-4"
     :steps="[
         {
             icon: 'fa-solid fa-list',
-            title: 'Set de pruebas',
-            description: 'Se envían al <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> los DTE estándares que ellos piden validar del set solicitado.'
+            title: 'Test Set',
+            content: 'Standard DTE documents requested by the <a href=\'https://www.sii.cl/factura_electronica/factura_mercado/menu_certificacion.html\' target=\'_blank\'>SII</a> are sent for validation.'
         },
         {
             icon: 'fa-solid fa-arrows-left-right',
-            title: 'Intercambio',
-            description: 'Se envían al SII los XML asociados a la respuesta a un intercambio de DTE.'
+            title: 'Exchange',
+            content: 'XML files associated with the response to a DTE exchange are sent to the SII.'
         },
         {
             icon: 'fa-solid fa-file-pdf',
-            title: 'Muestras de PDF',
-            description: 'Se envían al SII los PDF de todos los DTE del set de pruebas y simulación.'
+            title: 'PDF Samples',
+            content: 'PDFs of all DTE documents from the test set and simulation are sent to the SII.'
         }
     ]"
-
 />
+
 {% endblock %}

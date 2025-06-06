@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-comparison')]
 class ComparisonComponent extends AbstractComponent
@@ -36,30 +35,28 @@ class ComparisonComponent extends AbstractComponent
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $plans = [];
+    private array $plans = [];
 
     /**
-     * Unique identifier for the comparison component.
+     * Gets the array of plans.
      *
-     * @var string
+     * @return array The array of plans with their configurations.
      */
-    #[ExposeInTemplate()]
-    public string $id = '';
+    public function getPlans(): array
+    {
+        return $this->plans;
+    }
 
     /**
-     * Container class for the comparison component.
+     * Sets the array of plans.
      *
-     * @var string|null
+     * @param array $plans The array of plans with their configurations.
+     * @return static
      */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    public function setPlans(array $plans): static
+    {
+        $this->plans = $plans;
 
-    /**
-     * Additional CSS classes for the comparison component.
-     *
-     * @var string|null
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
+        return $this;
+    }
 }

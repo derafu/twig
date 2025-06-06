@@ -19,14 +19,14 @@
   --features-table-icon-bg: var(--bs-light, #f8f9fa);
   --features-table-icon-text: var(--bs-primary, #0d6efd);
   --features-table-feature-text: var(--bs-body-color, #212529);
-  --features-table-description-text: var(--bs-body-color, #212529);
+  --features-table-content-text: var(--bs-body-color, #212529);
   --features-table-check-color: var(--bs-success, #198754);
   --features-table-cross-color: var(--bs-danger, #dc3545);
 
   /* Features Table - Tipografía */
   --features-table-header-font-weight: bold;
   --features-table-feature-name-font-weight: bold;
-  --features-table-description-font-size: 0.875rem;
+  --features-table-content-font-size: 0.875rem;
   --features-table-icon-font-size: 1.2rem;
 
   /* Features Table - Responsive */
@@ -134,9 +134,9 @@
   color: var(--features-table-feature-text);
 }
 
-.derafu-block-features-table__feature-description {
-  color: var(--features-table-description-text);
-  font-size: var(--features-table-description-font-size);
+.derafu-block-features-table__feature-content {
+  color: var(--features-table-content-text);
+  font-size: var(--features-table-content-font-size);
 }
 
 /*
@@ -192,8 +192,6 @@
 }
 
 .derafu-block-features-table.container {
-  max-width: 1400px;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--spacing-md, 1.5rem);

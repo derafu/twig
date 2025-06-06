@@ -14,7 +14,6 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-timeline')]
 class TimelineComponent extends AbstractComponent
@@ -23,47 +22,95 @@ class TimelineComponent extends AbstractComponent
      * Array of timeline events configurations.
      *
      * Each event contains:
-     * - date: Event date (YYYY-MM-DD, YYYYMM, YYYY)
-     * - title: Event title (optional)
-     * - description: Event description (required)
-     * - icon: Font Awesome icon class (e.g. "fa-solid fa-check-circle")
+     * - date: Event date (YYYY-MM-DD, YYYYMM, YYYY).
+     * - title: Event title (optional).
+     * - content: Event content (required).
+     * - icon: Font Awesome icon class (e.g. "fa-solid fa-check-circle fa-fw").
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $events = [];
-
-    /**
-     * Unique identifier for the text-image component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the text-image component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
+    private array $events = [];
 
     /**
      * Position of the timeline line (center, left, right).
      *
      * @var string
      */
-    #[ExposeInTemplate()]
-    public string $line_position = 'center';
+    private string $linePosition = 'center';
 
     /**
      * Optional date format for event dates.
      *
      * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $date_format = null;
+    private ?string $dateFormat = null;
+
+    /**
+     * Gets the array of timeline events.
+     *
+     * @return array The array of timeline events.
+     */
+    public function getEvents(): array
+    {
+        return $this->events;
+    }
+
+    /**
+     * Sets the array of timeline events.
+     *
+     * @param array $events The array of timeline events.
+     * @return static
+     */
+    public function setEvents(array $events): static
+    {
+        $this->events = $events;
+
+        return $this;
+    }
+
+    /**
+     * Gets the position of the timeline line.
+     *
+     * @return string The line position.
+     */
+    public function getLinePosition(): string
+    {
+        return $this->linePosition;
+    }
+
+    /**
+     * Sets the position of the timeline line.
+     *
+     * @param string $linePosition The line position.
+     * @return static
+     */
+    public function setLinePosition(string $linePosition): static
+    {
+        $this->linePosition = $linePosition;
+
+        return $this;
+    }
+
+    /**
+     * Gets the date format for event dates.
+     *
+     * @return string|null The date format.
+     */
+    public function getDateFormat(): ?string
+    {
+        return $this->dateFormat;
+    }
+
+    /**
+     * Sets the date format for event dates.
+     *
+     * @param string|null $dateFormat The date format.
+     * @return static
+     */
+    public function setDateFormat(?string $dateFormat): static
+    {
+        $this->dateFormat = $dateFormat;
+
+        return $this;
+    }
 }

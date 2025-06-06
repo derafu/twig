@@ -1,7 +1,6 @@
 {# templates/components/block-features-table.html.twig #}
-<div class="{{ container ?? 'container' }} derafu-block-features-table {{ class ?? '' }}"
-    {% if id is not null and id != '' %}id="{{ id }}"{% endif %}
->
+
+<div class="derafu-block-features-table {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     <div class="table-responsive">
         <table class="derafu-block-features-table__table">
             <thead>
@@ -25,7 +24,7 @@
                                         <i class="{{ feature.icon }}"></i>
                                     </span>
                                     {% endif %}
-                                    <span class="derafu-block-features-table__section-title">{{ feature.name|raw }}</span>
+                                    <span class="derafu-block-features-table__section-title">{{ feature.title|raw }}</span>
                                 </div>
                             </td>
                         </tr>
@@ -40,9 +39,9 @@
                                     </span>
                                     {% endif %}
                                     <div class="derafu-block-features-table__feature-content">
-                                        <span class="derafu-block-features-table__feature-name">{{ feature.name|raw }}</span>
-                                        {% if feature.description is defined and feature.description %}
-                                            <small class="derafu-block-features-table__feature-description">{{ feature.description|raw }}</small>
+                                        <span class="derafu-block-features-table__feature-name">{{ feature.title|raw }}</span>
+                                        {% if feature.content is defined and feature.content %}
+                                            <small class="derafu-block-features-table__feature-content">{{ feature.content|raw }}</small>
                                         {% endif %}
                                     </div>
                                 </div>

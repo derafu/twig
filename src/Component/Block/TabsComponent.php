@@ -14,29 +14,10 @@ namespace Derafu\Twig\Component\Block;
 
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsTwigComponent('block-tabs')]
 class TabsComponent extends AbstractComponent
 {
-    /**
-     * Unique identifier for the tabs component.
-     */
-    #[ExposeInTemplate()]
-    public string $id;
-
-    /**
-     * Additional CSS classes for the tabs component.
-     */
-    #[ExposeInTemplate()]
-    public ?string $class = null;
-
-    /**
-     * Container wrapper class (e.g., 'container' or 'container-fluid').
-     */
-    #[ExposeInTemplate()]
-    public ?string $container = null;
-
     /**
      * Array of tab configurations.
      *
@@ -44,30 +25,118 @@ class TabsComponent extends AbstractComponent
      *
      * @var array
      */
-    #[ExposeInTemplate()]
-    public array $tabs = [];
+    private array $tabs = [];
 
     /**
      * Identifier of the active tab. First tab is active if null.
      *
      * @var string|null
      */
-    #[ExposeInTemplate()]
-    public ?string $activeTab = null;
+    private ?string $activeTab = null;
 
     /**
      * Layout orientation of tabs (horizontal, vertical).
      *
      * @var string
      */
-    #[ExposeInTemplate()]
-    public string $position = 'horizontal';
+    private string $position = 'horizontal';
 
     /**
      * Number of columns for vertical layout.
      *
      * @var int
      */
-    #[ExposeInTemplate()]
-    public int $cols = 2;
+    private int $cols = 2;
+
+    /**
+     * Gets the array of tabs.
+     *
+     * @return array The array of tabs.
+     */
+    public function getTabs(): array
+    {
+        return $this->tabs;
+    }
+
+    /**
+     * Sets the array of tabs.
+     *
+     * @param array $tabs The array of tabs.
+     * @return static
+     */
+    public function setTabs(array $tabs): static
+    {
+        $this->tabs = $tabs;
+
+        return $this;
+    }
+
+    /**
+     * Gets the identifier of the active tab.
+     *
+     * @return string|null The identifier of the active tab.
+     */
+    public function getActiveTab(): ?string
+    {
+        return $this->activeTab;
+    }
+
+    /**
+     * Sets the identifier of the active tab.
+     *
+     * @param string|null $activeTab The identifier of the active tab.
+     * @return static
+     */
+    public function setActiveTab(?string $activeTab): static
+    {
+        $this->activeTab = $activeTab;
+
+        return $this;
+    }
+
+    /**
+     * Gets the layout orientation of tabs.
+     *
+     * @return string The layout orientation of tabs.
+     */
+    public function getPosition(): string
+    {
+        return $this->position;
+    }
+
+    /**
+     * Sets the layout orientation of tabs.
+     *
+     * @param string $position The layout orientation of tabs.
+     * @return static
+     */
+    public function setPosition(string $position): static
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number of columns for vertical layout.
+     *
+     * @return int The number of columns for vertical layout.
+     */
+    public function getCols(): int
+    {
+        return $this->cols;
+    }
+
+    /**
+     * Sets the number of columns for vertical layout.
+     *
+     * @param int $cols The number of columns for vertical layout.
+     * @return static
+     */
+    public function setCols(int $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
+    }
 }
