@@ -21,52 +21,53 @@
             <div class="row">
                 <main class="col-md-9">
                                                                                                 <h1>Block Image Grid</h1>
-                            <p class="mb-4">Grid layout for image galleries.</p>
+                            <p class="mb-4"></p>
                                             
-                    <div class="container derafu-block-image-grid my-5"
-    id="block-image-grid--6840ab63aa9ba">
+                    
+
+<div class="derafu-block-image-grid my-4"  id="block-image-grid--68423ca2437ac">
     <div class="row g-4">
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
-                                            <a href="https://example1.com" class="derafu-block-image-grid__link" data-bs-toggle="tooltip" title="Empresa 1">
-                            <img src="../img/block-hero.jpeg" alt="Empresa 1" class="derafu-block-image-grid__image">
+                <div class="derafu-block-image-grid__item p-2">
+                                            <a href="https://www.example.com" class="derafu-block-image-grid__link" data-bs-toggle="tooltip" title="Company 1">
+                            <img src="../img/block-hero.jpeg" alt="Company 1" class="derafu-block-image-grid__image">
                         </a>
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
-                                            <img src="../img/block-hero.jpeg" alt="Empresa 2" class="derafu-block-image-grid__image" data-bs-toggle="tooltip" title="Empresa 2">
+                <div class="derafu-block-image-grid__item p-2">
+                                            <img src="../img/block-hero.jpeg" alt="Company 2" class="derafu-block-image-grid__image" data-bs-toggle="tooltip" title="Company 2">
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
+                <div class="derafu-block-image-grid__item p-2">
                                             <img src="../img/block-hero.jpeg" alt="" class="derafu-block-image-grid__image" >
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
+                <div class="derafu-block-image-grid__item p-2">
                                             <img src="../img/block-hero.jpeg" alt="" class="derafu-block-image-grid__image" >
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
-                                            <a href="https://example1.com" class="derafu-block-image-grid__link" data-bs-toggle="tooltip" title="Empresa 1">
-                            <img src="../img/block-hero.jpeg" alt="Empresa 1" class="derafu-block-image-grid__image">
+                <div class="derafu-block-image-grid__item p-2">
+                                            <a href="https://www.example.com" class="derafu-block-image-grid__link" data-bs-toggle="tooltip" title="Company 1">
+                            <img src="../img/block-hero.jpeg" alt="Company 1" class="derafu-block-image-grid__image">
                         </a>
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
-                                            <img src="../img/block-hero.jpeg" alt="Empresa 2" class="derafu-block-image-grid__image" data-bs-toggle="tooltip" title="Empresa 2">
+                <div class="derafu-block-image-grid__item p-2">
+                                            <img src="../img/block-hero.jpeg" alt="Company 2" class="derafu-block-image-grid__image" data-bs-toggle="tooltip" title="Company 2">
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
+                <div class="derafu-block-image-grid__item p-2">
                                             <img src="../img/block-hero.jpeg" alt="" class="derafu-block-image-grid__image" >
                                     </div>
             </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                <div class="derafu-block-image-grid__item">
+                <div class="derafu-block-image-grid__item p-2">
                                             <img src="../img/block-hero.jpeg" alt="" class="derafu-block-image-grid__image" >
                                     </div>
             </div>
@@ -74,13 +75,14 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
-    tooltipTriggerList.map(function(tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
+    document.addEventListener('DOMContentLoaded', function() {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+        tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
     });
-});
 </script>
+
 
 
                                                             <div class="mt-4 mb-4">
@@ -89,17 +91,19 @@ document.addEventListener('DOMContentLoaded', function() {
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
+
 &lt;twig:block-image-grid
-    class=&quot;my-5&quot;
+    class=&quot;my-4&quot;
+    :cols=&quot;4&quot;
     :images=&quot;[
         {
             image: &#039;../../img/block-hero.jpeg&#039;,
-            url: &#039;https://example1.com&#039;,
-            tooltip: &#039;Empresa 1&#039;
+            url: &#039;https://www.example.com&#039;,
+            tooltip: &#039;Company 1&#039;
         },
         {
             image: &#039;../../img/block-hero.jpeg&#039;,
-            tooltip: &#039;Empresa 2&#039;
+            tooltip: &#039;Company 2&#039;
         },
         {
             image: &#039;../../img/block-hero.jpeg&#039;,
@@ -109,12 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             image: &#039;../../img/block-hero.jpeg&#039;,
-            url: &#039;https://example1.com&#039;,
-            tooltip: &#039;Empresa 1&#039;
+            url: &#039;https://www.example.com&#039;,
+            tooltip: &#039;Company 1&#039;
         },
         {
             image: &#039;../../img/block-hero.jpeg&#039;,
-            tooltip: &#039;Empresa 2&#039;
+            tooltip: &#039;Company 2&#039;
         },
         {
             image: &#039;../../img/block-hero.jpeg&#039;,
@@ -123,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
             image: &#039;../../img/block-hero.jpeg&#039;,
         }
     ]&quot;
-    :cols=&quot;4&quot;
 /&gt;
+
 {% endblock %}
 </code></pre>
                     </div>
@@ -174,109 +178,109 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
                         </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="Collapsible content sections.">
+                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="">
                                 Accordion
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="Alert messages for user feedback.">
+                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="">
                                 Alert
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="Large box display for information.">
+                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="">
                                 Big Boxes
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="Simple box container for content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="">
                                 Box
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="Call-to-action component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="">
                                 CTA
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="Card component for content display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="">
                                 Card
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple cards.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="">
                                 Card Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="Side-by-side comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="">
                                 Comparison
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="Grid layout for key features.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="">
                                 Features Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="Icon-based feature display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="">
                                 Features Icon
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="List-style feature presentation.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="">
                                 Features List
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="Tabular feature comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="">
                                 Features Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="Page footer component with various layouts.">
+                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="">
                                 Footer
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="Basic grid layout system for organizing content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="">
                                 Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="Page header component with navigation options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="">
                                 Header
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="Eye-catching hero section for landing pages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="">
                                 Hero
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="Enhanced image display component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="">
                                 Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action active" href="block-image-grid.html" data-bs-toggle="tooltip" title="Grid layout for image galleries.">
+                                                    <a class="list-group-item list-group-item-action active" href="block-image-grid.html" data-bs-toggle="tooltip" title="">
                                 Image Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="Popup dialog windows.">
+                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="">
                                 Modal
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="Hidden sidebars.">
+                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="">
                                 Offcanvas
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="">
                                 Quote
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="Navigation aid that highlights content sections as users scroll through the page.">
+                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="">
                                 Scrollspy
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
+                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="">
                                 Stats
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="Step-by-step guide component with variable steps and arrow design.">
+                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="">
                                 Steps
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="Data table component with styling options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="">
                                 Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="Tabbed content interface, with horizontal and vertical layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="">
                                 Tabs
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="Showcase of team members.">
+                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="">
                                 Team
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="Display of testimonials or opinions.">
+                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="">
                                 Testimonials
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="Combined text and image layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="">
                                 Text Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="Combined text and video layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="">
                                 Text Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="Chronological event display with configurable alignment.">
+                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="">
                                 Timeline
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="Customizable title component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="">
                                 Title
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="Notification messages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="">
                                 Toast
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="Video player component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="">
                                 Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple videos.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="">
                                 Video Grid
                             </a>
                                             </div>

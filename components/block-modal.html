@@ -21,15 +21,20 @@
             <div class="row">
                 <main class="col-md-9">
                                                                                                 <h1>Block Modal</h1>
-                            <p class="mb-4">Popup dialog windows.</p>
+                            <p class="mb-4"></p>
                                             
-                    <div class="mb-4">
+                    
+<div class="mb-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-1">
-        Abrir Modal Simple
+        Open simple modal
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-1"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-1"
+    tabindex="-1"
     aria-labelledby="modal-1-label"
     aria-hidden="true"
     >
@@ -39,22 +44,22 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-1-label">Título del Modal</h5>
+                                            <h5 class="modal-title" id="modal-1-label">Modal Title</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                Este es un modal básico con título y <a href=https://derafu.org/>botón de cerrar.</a>
+                This is a basic modal with title and <a href='https://www.example.com/' target='_blank'>close button.</a>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"                            >
-                            Cerrar
+                            Close
                         </button>
                                             <button type="button"
                             class="btn btn-primary"
                                                         >
-                            Guardar Cambios
+                            Save Changes
                         </button>
                                     </div>
                     </div>
@@ -64,14 +69,17 @@
 
 <div class="mt-2 mb-3">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-2">
-        Abrir Modal Complejo
+        Open complex modal
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-2"    tabindex="-1"
+
+<div
+    class="modal fade "
+     withBackdrop
+    id="modal-2"
+    tabindex="-1"
     aria-labelledby="modal-2-label"
     aria-hidden="true"
-            data-bs-backdrop="static" data-bs-keyboard="false"
     >
     <div class="modal-dialog
         modal-lg
@@ -79,22 +87,22 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-2-label">Confirmación Requerida</h5>
+                                            <h5 class="modal-title" id="modal-2-label">Confirmation Required</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                <p>Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?</p>
+                <p>This action cannot be undone. Are you sure you want to continue?</p>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-light"
                             data-bs-dismiss="modal"                            >
-                            Cancelar
+                            Cancel
                         </button>
                                             <button type="button"
                             class="btn btn-danger"
                                                         onclick='handleConfirmation()'>
-                            Sí, continuar
+                            Yes, continue
                         </button>
                                     </div>
                     </div>
@@ -104,11 +112,15 @@
 
 <div class="mt-3 mb-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-3">
-        Abrir Modal fullscreen con contenido scrollable
+        Open fullscreen modal with scrollable content
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-3"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-3"
+    tabindex="-1"
     aria-labelledby="modal-3-label"
     aria-hidden="true"
     >
@@ -118,17 +130,17 @@
         modal-dialog-scrollable">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-3-label">Términos y Condiciones</h5>
+                                            <h5 class="modal-title" id="modal-3-label">Terms and Conditions</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                <div style='height: 1000px'>Contenido muy largo...</div>
+                <div style='height: 1000px'>Very long content...</div>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-success"
                                                         >
-                            Aceptar
+                            Accept
                         </button>
                                     </div>
                     </div>
@@ -138,11 +150,15 @@
 
 <div class="mt-0">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-basic">
-        Abrir Modal Básico
+        Open basic modal
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-basic"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-basic"
+    tabindex="-1"
     aria-labelledby="modal-basic-label"
     aria-hidden="true"
     >
@@ -152,17 +168,17 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-basic-label">Modal Básico</h5>
+                                            <h5 class="modal-title" id="modal-basic-label">Basic Modal</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                <p>Este es un modal simple con título y botón de cerrar.</p>
+                <p>This is a simple modal with title and close button.</p>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"                            >
-                            Cerrar
+                            Close
                         </button>
                                     </div>
                     </div>
@@ -172,11 +188,15 @@
 
 <div class="mt-2 mb-2">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-no-close">
-        Modal sin X
+        Modal without X
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-no-close"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-no-close"
+    tabindex="-1"
     aria-labelledby="modal-no-close-label"
     aria-hidden="true"
     >
@@ -186,16 +206,16 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-no-close-label">No puedes cerrarme fácilmente</h5>
+                                            <h5 class="modal-title" id="modal-no-close-label">You can&#039;t close me easily</h5>
                                                         </div>
                         <div class="modal-body">
-                <p>Este modal no tiene el botón X para cerrar.</p>
+                <p>This modal doesn't have the X button to close.</p>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-warning"
                             data-bs-dismiss="modal"                            >
-                            Entendido
+                            Got it
                         </button>
                                     </div>
                     </div>
@@ -205,14 +225,17 @@
 
 <div class="mt-3 mb-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-static">
-        Modal que no se Cierra
+        Modal that does not close
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-static"    tabindex="-1"
+
+<div
+    class="modal fade "
+     withBackdrop
+    id="modal-static"
+    tabindex="-1"
     aria-labelledby="modal-static-label"
     aria-hidden="true"
-            data-bs-backdrop="static" data-bs-keyboard="false"
     >
     <div class="modal-dialog
         
@@ -220,22 +243,22 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-static-label">Debes tomar una decisión</h5>
+                                            <h5 class="modal-title" id="modal-static-label">You must make a decision</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                <p>Este modal no se cerrará al hacer clic fuera de él. Debes usar uno de los botones.</p>
+                <p>This modal won't close when clicking outside. You must use one of the buttons.</p>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-light"
                             data-bs-dismiss="modal"                            >
-                            Cancelar
+                            Cancel
                         </button>
                                             <button type="button"
                             class="btn btn-danger"
                             data-bs-dismiss="modal"                            >
-                            Aceptar
+                            Accept
                         </button>
                                     </div>
                     </div>
@@ -243,13 +266,17 @@
 </div>
 
 
-<div class="mt-2">
+<div class="my-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-sm-centered">
-        Modal SM Centrado
+        Modal SM centered
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-sm-centered"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-sm-centered"
+    tabindex="-1"
     aria-labelledby="modal-sm-centered-label"
     aria-hidden="true"
     >
@@ -259,11 +286,11 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-sm-centered-label">Pequeño y Centrado</h5>
+                                            <h5 class="modal-title" id="modal-sm-centered-label">Small and Centered</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                <p>Un modal pequeño y centrado verticalmente.</p>
+                <p>A small modal centered vertically.</p>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
@@ -279,11 +306,15 @@
 
 <div class="mt-3 mb-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-lg-scroll">
-        Modal Grande con Scroll
+        Modal large with scroll
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-lg-scroll"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-lg-scroll"
+    tabindex="-1"
     aria-labelledby="modal-lg-scroll-label"
     aria-hidden="true"
     >
@@ -293,12 +324,12 @@
         modal-dialog-scrollable">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-lg-scroll-label">Términos y Condiciones</h5>
+                                            <h5 class="modal-title" id="modal-lg-scroll-label">Terms and Conditions</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
                 <div>
-        <h4>1. Introducción</h4>
+        <h4>1. Introduction</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
     </div>
             </div>
@@ -306,12 +337,12 @@
                                             <button type="button"
                             class="btn btn-light"
                             data-bs-dismiss="modal"                            >
-                            Rechazar
+                            Reject
                         </button>
                                             <button type="button"
                             class="btn btn-success"
                             data-bs-dismiss="modal"                            >
-                            Aceptar Términos
+                            Accept Terms
                         </button>
                                     </div>
                     </div>
@@ -321,11 +352,15 @@
 
 <div class="mt-2 mb-3">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-xl-form">
-        Formulario en Modal XL
+        Form in modal XL
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-xl-form"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-xl-form"
+    tabindex="-1"
     aria-labelledby="modal-xl-form-label"
     aria-hidden="true"
     >
@@ -335,14 +370,14 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-xl-form-label">Registro de Usuario</h5>
+                                            <h5 class="modal-title" id="modal-xl-form-label">User Registration</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
                 <form id='userForm'>
         <div class='row'>
             <div class='col-md-6 mb-3'>
-                <label for='firstName' class='form-label'>Nombre</label>
+                <label for='firstName' class='form-label'>Name</label>
                 <input type='text' class='form-control' id='firstName' required>
             </div>
         </div>
@@ -352,12 +387,12 @@
                                             <button type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"                            >
-                            Cancelar
+                            Cancel
                         </button>
                                             <button type="button"
                             class="btn btn-dark"
                                                         onclick=&quot;document.getElementById('userForm').submit()&quot;>
-                            Registrar
+                            Register
                         </button>
                                     </div>
                     </div>
@@ -367,11 +402,15 @@
 
 <div class="mt-3 mb-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-fullscreen">
-        Ver en Pantalla Completa
+        View in full screen
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-fullscreen"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-fullscreen"
+    tabindex="-1"
     aria-labelledby="modal-fullscreen-label"
     aria-hidden="true"
     >
@@ -381,20 +420,20 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-fullscreen-label">Modo Pantalla Completa</h5>
+                                            <h5 class="modal-title" id="modal-fullscreen-label">Fullscreen Mode</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
                 <div class='text-center'>
         <h1 class='display-1'>👋</h1>
-        <p class='lead'>Este modal ocupa toda la pantalla</p>
+        <p class='lead'>This modal takes up the entire screen</p>
     </div>
             </div>
                             <div class="modal-footer">
                                             <button type="button"
                             class="btn btn-outline-primary"
                             data-bs-dismiss="modal"                            >
-                            Salir
+                            Exit
                         </button>
                                     </div>
                     </div>
@@ -402,13 +441,17 @@
 </div>
 
 
-<div class="mt-2">
+<div class="my-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-no-footer">
-        Modal sin Footer
+        Modal without footer
     </button>
 </div>
-<div class="container modal fade "
-    id="modal-no-footer"    tabindex="-1"
+
+<div
+    class="modal fade "
+    
+    id="modal-no-footer"
+    tabindex="-1"
     aria-labelledby="modal-no-footer-label"
     aria-hidden="true"
     >
@@ -418,15 +461,16 @@
         ">
         <div class="modal-content">
                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modal-no-footer-label">Solo Contenido</h5>
+                                            <h5 class="modal-title" id="modal-no-footer-label">Content Only</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                         <div class="modal-body">
-                <p>Este modal no tiene botones en el footer, solo el botón de cerrar en el header.</p>
+                <p>This modal has no buttons in the footer, only the close button in the header.</p>
             </div>
                     </div>
     </div>
 </div>
+
 
 
                                                             <div class="mt-4 mb-4">
@@ -435,152 +479,153 @@
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
-{# Modal simple #}
+
+{# Simple modal #}
 &lt;div class=&quot;mb-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-1&quot;&gt;
-        Abrir Modal Simple
+        Open simple modal
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-1&quot;
-    title=&quot;Título del Modal&quot;
-    content=&quot;Este es un modal básico con título y &lt;a href=https://derafu.org/&gt;botón de cerrar.&lt;/a&gt;&quot;
+    title=&quot;Modal Title&quot;
+    content=&quot;This is a basic modal with title and &lt;a href=&#039;https://www.example.com/&#039; target=&#039;_blank&#039;&gt;close button.&lt;/a&gt;&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cerrar&#039;,
+            text: &#039;Close&#039;,
             type: &#039;secondary&#039;,
             dismiss: true
         },
         {
-            text: &#039;Guardar Cambios&#039;,
+            text: &#039;Save Changes&#039;,
             type: &#039;primary&#039;
         }
     ]&quot;
 /&gt;
 
-{# Modal más complejo #}
+{# Complex modal #}
 &lt;div class=&quot;mt-2 mb-3&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-2&quot;&gt;
-        Abrir Modal Complejo
+        Open complex modal
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-2&quot;
-    title=&quot;Confirmación Requerida&quot;
-    content=&quot;&lt;p&gt;Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?&lt;/p&gt;&quot;
+    title=&quot;Confirmation Required&quot;
+    content=&quot;&lt;p&gt;This action cannot be undone. Are you sure you want to continue?&lt;/p&gt;&quot;
     size=&quot;lg&quot;
-    centered=&quot;true&quot;
-    staticBackdrop=&quot;true&quot;
+    :centered=&quot;true&quot;
+    :withBackdrop=&quot;true&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cancelar&#039;,
+            text: &#039;Cancel&#039;,
             type: &#039;light&#039;,
             dismiss: true
         },
         {
-            text: &#039;Sí, continuar&#039;,
+            text: &#039;Yes, continue&#039;,
             type: &#039;danger&#039;,
             attributes: &#039;onclick=\&#039;handleConfirmation()\&#039;&#039;
         }
     ]&quot;
 /&gt;
 
-{# Modal fullscreen con contenido scrollable #}
+{# Fullscreen modal with scrollable content #}
 &lt;div class=&quot;mt-3 mb-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-3&quot;&gt;
-        Abrir Modal fullscreen con contenido scrollable
+        Open fullscreen modal with scrollable content
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-3&quot;
-    title=&quot;Términos y Condiciones&quot;
-    content=&quot;&lt;div style=&#039;height: 1000px&#039;&gt;Contenido muy largo...&lt;/div&gt;&quot;
+    title=&quot;Terms and Conditions&quot;
+    content=&quot;&lt;div style=&#039;height: 1000px&#039;&gt;Very long content...&lt;/div&gt;&quot;
     size=&quot;fullscreen&quot;
-    scrollable=&quot;true&quot;
+    :scrollable=&quot;true&quot;
     :buttons=&quot;[
         {
-            text: &#039;Aceptar&#039;,
+            text: &#039;Accept&#039;,
             type: &#039;success&#039;
         }
     ]&quot;
 /&gt;
 
-{# Modal básico #}
+{# Basic modal #}
 &lt;div class=&quot;mt-0&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-basic&quot;&gt;
-        Abrir Modal Básico
+        Open basic modal
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-basic&quot;
-    title=&quot;Modal Básico&quot;
-    content=&quot;&lt;p&gt;Este es un modal simple con título y botón de cerrar.&lt;/p&gt;&quot;
+    title=&quot;Basic Modal&quot;
+    content=&quot;&lt;p&gt;This is a simple modal with title and close button.&lt;/p&gt;&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cerrar&#039;,
+            text: &#039;Close&#039;,
             type: &#039;secondary&#039;,
             dismiss: true
         }
     ]&quot;
 /&gt;
 
-{# Modal sin botón de cerrar #}
+{# Modal without close button #}
 &lt;div class=&quot;mt-2 mb-2&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-no-close&quot;&gt;
-        Modal sin X
+        Modal without X
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-no-close&quot;
-    title=&quot;No puedes cerrarme fácilmente&quot;
-    content=&quot;&lt;p&gt;Este modal no tiene el botón X para cerrar.&lt;/p&gt;&quot;
+    title=&quot;You can&#039;t close me easily&quot;
+    content=&quot;&lt;p&gt;This modal doesn&#039;t have the X button to close.&lt;/p&gt;&quot;
     :showClose=&quot;false&quot;
     :buttons=&quot;[
         {
-            text: &#039;Entendido&#039;,
+            text: &#039;Got it&#039;,
             type: &#039;warning&#039;,
             dismiss: true
         }
     ]&quot;
 /&gt;
 
-{# Modal Static Backdrop #}
+{# Modal with static backdrop #}
 &lt;div class=&quot;mt-3 mb-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-static&quot;&gt;
-        Modal que no se Cierra
+        Modal that does not close
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-static&quot;
-    title=&quot;Debes tomar una decisión&quot;
-    content=&quot;&lt;p&gt;Este modal no se cerrará al hacer clic fuera de él. Debes usar uno de los botones.&lt;/p&gt;&quot;
-    staticBackdrop=&quot;true&quot;
+    title=&quot;You must make a decision&quot;
+    content=&quot;&lt;p&gt;This modal won&#039;t close when clicking outside. You must use one of the buttons.&lt;/p&gt;&quot;
+    :withBackdrop=&quot;true&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cancelar&#039;,
+            text: &#039;Cancel&#039;,
             type: &#039;light&#039;,
             dismiss: true
         },
         {
-            text: &#039;Aceptar&#039;,
+            text: &#039;Accept&#039;,
             type: &#039;danger&#039;,
             dismiss: true
         }
     ]&quot;
 /&gt;
 
-{# Modal Centrado con Tamaño Small #}
-&lt;div class=&quot;mt-2&quot;&gt;
+{# Modal centered with small size #}
+&lt;div class=&quot;my-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-sm-centered&quot;&gt;
-        Modal SM Centrado
+        Modal SM centered
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-sm-centered&quot;
-    title=&quot;Pequeño y Centrado&quot;
-    content=&quot;&lt;p&gt;Un modal pequeño y centrado verticalmente.&lt;/p&gt;&quot;
+    title=&quot;Small and Centered&quot;
+    content=&quot;&lt;p&gt;A small modal centered vertically.&lt;/p&gt;&quot;
     size=&quot;sm&quot;
-    centered=&quot;true&quot;
+    :centered=&quot;true&quot;
     :buttons=&quot;[
         {
             text: &#039;OK&#039;,
@@ -590,103 +635,105 @@
     ]&quot;
 /&gt;
 
-{# Modal Grande con Scroll #}
+{# Modal large with scroll #}
 &lt;div class=&quot;mt-3 mb-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-lg-scroll&quot;&gt;
-        Modal Grande con Scroll
+        Modal large with scroll
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-lg-scroll&quot;
-    title=&quot;Términos y Condiciones&quot;
+    title=&quot;Terms and Conditions&quot;
     content=&quot;&lt;div&gt;
-        &lt;h4&gt;1. Introducción&lt;/h4&gt;
+        &lt;h4&gt;1. Introduction&lt;/h4&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
     &lt;/div&gt;&quot;
     size=&quot;lg&quot;
-    scrollable=&quot;true&quot;
+    :scrollable=&quot;true&quot;
     :buttons=&quot;[
         {
-            text: &#039;Rechazar&#039;,
+            text: &#039;Reject&#039;,
             type: &#039;light&#039;,
             dismiss: true
         },
         {
-            text: &#039;Aceptar Términos&#039;,
+            text: &#039;Accept Terms&#039;,
             type: &#039;success&#039;,
             dismiss: true
         }
     ]&quot;
 /&gt;
 
-{# Modal Extra Large con Formulario #}
+{# Modal extra large with form #}
 &lt;div class=&quot;mt-2 mb-3&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-xl-form&quot;&gt;
-        Formulario en Modal XL
+        Form in modal XL
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-xl-form&quot;
-    title=&quot;Registro de Usuario&quot;
+    title=&quot;User Registration&quot;
     content=&quot;&lt;form id=&#039;userForm&#039;&gt;
         &lt;div class=&#039;row&#039;&gt;
             &lt;div class=&#039;col-md-6 mb-3&#039;&gt;
-                &lt;label for=&#039;firstName&#039; class=&#039;form-label&#039;&gt;Nombre&lt;/label&gt;
+                &lt;label for=&#039;firstName&#039; class=&#039;form-label&#039;&gt;Name&lt;/label&gt;
                 &lt;input type=&#039;text&#039; class=&#039;form-control&#039; id=&#039;firstName&#039; required&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/form&gt;&quot;
     size=&quot;xl&quot;
-    centered=&quot;true&quot;
+    :centered=&quot;true&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cancelar&#039;,
+            text: &#039;Cancel&#039;,
             type: &#039;secondary&#039;,
             dismiss: true
         },
         {
-            text: &#039;Registrar&#039;,
+            text: &#039;Register&#039;,
             type: &#039;dark&#039;,
             attributes: &#039;onclick=&amp;quot;document.getElementById(\&#039;userForm\&#039;).submit()&amp;quot;&#039;
         }
     ]&quot;
 /&gt;
 
-{# Modal Fullscreen #}
+{# Modal fullscreen #}
 &lt;div class=&quot;mt-3 mb-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-fullscreen&quot;&gt;
-        Ver en Pantalla Completa
+        View in full screen
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-fullscreen&quot;
-    title=&quot;Modo Pantalla Completa&quot;
+    title=&quot;Fullscreen Mode&quot;
     content=&quot;&lt;div class=&#039;text-center&#039;&gt;
         &lt;h1 class=&#039;display-1&#039;&gt;👋&lt;/h1&gt;
-        &lt;p class=&#039;lead&#039;&gt;Este modal ocupa toda la pantalla&lt;/p&gt;
+        &lt;p class=&#039;lead&#039;&gt;This modal takes up the entire screen&lt;/p&gt;
     &lt;/div&gt;&quot;
     size=&quot;fullscreen&quot;
     :buttons=&quot;[
         {
-            text: &#039;Salir&#039;,
+            text: &#039;Exit&#039;,
             type: &#039;outline-primary&#039;,
             dismiss: true
         }
     ]&quot;
 /&gt;
 
-{# Modal sin Footer #}
-&lt;div class=&quot;mt-2&quot;&gt;
+{# Modal without footer #}
+&lt;div class=&quot;my-4&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-light d-block&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#modal-no-footer&quot;&gt;
-        Modal sin Footer
+        Modal without footer
     &lt;/button&gt;
 &lt;/div&gt;
 &lt;twig:block-modal
     id=&quot;modal-no-footer&quot;
-    title=&quot;Solo Contenido&quot;
-    content=&quot;&lt;p&gt;Este modal no tiene botones en el footer, solo el botón de cerrar en el header.&lt;/p&gt;&quot;
+    title=&quot;Content Only&quot;
+    content=&quot;&lt;p&gt;This modal has no buttons in the footer, only the close button in the header.&lt;/p&gt;&quot;
 /&gt;
-{% endblock %}</code></pre>
+
+{% endblock %}
+</code></pre>
                     </div>
                                     </main>
                 <div class="col-md-3 py-4">
@@ -734,109 +781,109 @@
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
                         </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="Collapsible content sections.">
+                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="">
                                 Accordion
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="Alert messages for user feedback.">
+                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="">
                                 Alert
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="Large box display for information.">
+                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="">
                                 Big Boxes
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="Simple box container for content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="">
                                 Box
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="Call-to-action component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="">
                                 CTA
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="Card component for content display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="">
                                 Card
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple cards.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="">
                                 Card Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="Side-by-side comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="">
                                 Comparison
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="Grid layout for key features.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="">
                                 Features Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="Icon-based feature display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="">
                                 Features Icon
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="List-style feature presentation.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="">
                                 Features List
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="Tabular feature comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="">
                                 Features Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="Page footer component with various layouts.">
+                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="">
                                 Footer
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="Basic grid layout system for organizing content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="">
                                 Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="Page header component with navigation options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="">
                                 Header
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="Eye-catching hero section for landing pages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="">
                                 Hero
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="Enhanced image display component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="">
                                 Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="Grid layout for image galleries.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="">
                                 Image Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action active" href="block-modal.html" data-bs-toggle="tooltip" title="Popup dialog windows.">
+                                                    <a class="list-group-item list-group-item-action active" href="block-modal.html" data-bs-toggle="tooltip" title="">
                                 Modal
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="Hidden sidebars.">
+                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="">
                                 Offcanvas
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="">
                                 Quote
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="Navigation aid that highlights content sections as users scroll through the page.">
+                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="">
                                 Scrollspy
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
+                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="">
                                 Stats
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="Step-by-step guide component with variable steps and arrow design.">
+                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="">
                                 Steps
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="Data table component with styling options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="">
                                 Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="Tabbed content interface, with horizontal and vertical layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="">
                                 Tabs
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="Showcase of team members.">
+                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="">
                                 Team
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="Display of testimonials or opinions.">
+                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="">
                                 Testimonials
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="Combined text and image layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="">
                                 Text Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="Combined text and video layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="">
                                 Text Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="Chronological event display with configurable alignment.">
+                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="">
                                 Timeline
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="Customizable title component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="">
                                 Title
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="Notification messages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="">
                                 Toast
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="Video player component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="">
                                 Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple videos.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="">
                                 Video Grid
                             </a>
                                             </div>

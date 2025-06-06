@@ -21,56 +21,60 @@
             <div class="row">
                 <main class="col-md-9">
                                                                                                 <h1>Block Offcanvas</h1>
-                            <p class="mb-4">Hidden sidebars.</p>
+                            <p class="mb-4"></p>
                                             
-                    <div class="mb-4">
+                    
+<div class="mb-4">
     <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-left">
-        Menú Izquierdo
+        Left Menu
     </button>
 </div>
 
-<div class="container offcanvas offcanvas-start "
-    id="offcanvas-left"    tabindex="-1"
-    aria-labelledby="offcanvas-left-label"
-        >
 
+<div
+    class="offcanvas offcanvas-start "
+    
+    id="offcanvas-left"
+    tabindex="-1"
+    aria-labelledby="offcanvas-left-label"
+    data-bs-backdrop="false"    >
             <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvas-left-label">Menú de Navegación</h5>
+                            <h5 class="offcanvas-title" id="offcanvas-left-label">Navigation Menu</h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-    
-    <div class="offcanvas-body">
+        <div class="offcanvas-body">
         <ul class='nav flex-column'>
-        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Inicio</a></li>
-        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Productos</a></li>
-        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Servicios</a></li>
-        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Contacto</a></li>
+        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Home</a></li>
+        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Products</a></li>
+        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Services</a></li>
+        <li class='nav-item'><a class='nav-link' href='block-offcanvas.html#'>Contact</a></li>
     </ul>
-
             </div>
 </div>
 
 
 <div class="mt-2 mb-3">
     <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-right">
-        Editar Perfil
+        Edit Profile
     </button>
 </div>
 
-<div class="container offcanvas offcanvas-end "
-    id="offcanvas-right"    tabindex="-1"
-    aria-labelledby="offcanvas-right-label"
-        >
 
+<div
+    class="offcanvas offcanvas-end "
+    
+    id="offcanvas-right"
+    tabindex="-1"
+    aria-labelledby="offcanvas-right-label"
+    data-bs-backdrop="false"    >
             <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvas-right-label">Editar Perfil</h5>
+                            <h5 class="offcanvas-title" id="offcanvas-right-label">Edit Profile</h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-    
-    <div class="offcanvas-body">
+        <div class="offcanvas-body">
         <form id='profileForm'>
         <div class='mb-3'>
-            <label class='form-label'>Nombre</label>
+            <label class='form-label'>Name</label>
             <input type='text' class='form-control'>
         </div>
         <div class='mb-3'>
@@ -82,17 +86,16 @@
             <textarea class='form-control' rows='3'></textarea>
         </div>
     </form>
-
                     <div class="derafu-block-offcanvas__buttons">
                                     <button type="button"
                         class="btn btn-light"
                         data-bs-dismiss="offcanvas"                        >
-                        Cancelar
+                        Cancel
                     </button>
                                     <button type="button"
                         class="btn btn-success"
                                                 onclick=&quot;document.getElementById('profileForm').submit()&quot;>
-                        Guardar
+                        Save
                     </button>
                             </div>
             </div>
@@ -101,58 +104,58 @@
 
 <div class="mt-3 mb-4">
     <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-top">
-        Notificaciones
+        Notifications
     </button>
 </div>
 
-<div class="container offcanvas offcanvas-top "
-    id="offcanvas-top"    tabindex="-1"
-    aria-labelledby="offcanvas-top-label"
-        data-bs-scroll="true">
 
+<div
+    class="offcanvas offcanvas-top "
+    
+    id="offcanvas-top"
+    tabindex="-1"
+    aria-labelledby="offcanvas-top-label"
+    data-bs-backdrop="false"    >
             <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvas-top-label">Notificaciones</h5>
+                            <h5 class="offcanvas-title" id="offcanvas-top-label">Notifications</h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-    
-    <div class="offcanvas-body">
+        <div class="offcanvas-body">
         <div class='list-group'>
         <a href='block-offcanvas.html#' class='list-group-item list-group-item-action'>
             <div class='d-flex w-100 justify-content-between'>
-                <h6 class='mb-1'>Nuevo mensaje</h6>
+                <h6 class='mb-1'>New message</h6>
                 <small>3 mins ago</small>
             </div>
-            <p class='mb-1'>Tienes un nuevo mensaje de soporte.</p>
+            <p class='mb-1'>You have a new support message.</p>
         </a>
-        <!-- Más notificaciones... -->
+        <!-- More notifications... -->
     </div>
-
             </div>
 </div>
 
 
 <div class="mt-2 mb-3">
     <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-bottom">
-        Player de Música
+        Music Player
     </button>
 </div>
 
-<div class="container offcanvas offcanvas-bottom "
-    id="offcanvas-bottom"    tabindex="-1"
+
+<div
+    class="offcanvas offcanvas-bottom "
+    
+    id="offcanvas-bottom"
+    tabindex="-1"
     aria-labelledby="offcanvas-bottom-label"
     data-bs-backdrop="false"    >
-
-            <div class="offcanvas-header">
-                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-    
-    <div class="offcanvas-body">
+        <div class="offcanvas-body">
         <div class='d-flex align-items-center justify-content-between'>
         <div class='d-flex align-items-center'>
             <img src='../img/block-hero.jpeg' width='50' height='50' class='me-3'>
             <div>
-                <h6 class='mb-0'>Nombre de la Canción</h6>
-                <small>Artista</small>
+                <h6 class='mb-0'>Song Name</h6>
+                <small>Artist</small>
             </div>
         </div>
         <div class='btn-group'>
@@ -161,47 +164,48 @@
             <button class='btn btn-link'><i class='fas fa-forward'></i></button>
         </div>
     </div>
-
             </div>
 </div>
 
 
 <div class="mt-2 mb-3">
     <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll">
-        Documentación
+        Documentation
     </button>
 </div>
 
-<div class="container offcanvas offcanvas-end "
-    id="offcanvas-scroll"    tabindex="-1"
-    aria-labelledby="offcanvas-scroll-label"
-    data-bs-backdrop="false"    data-bs-scroll="true">
 
+<div
+    class="offcanvas offcanvas-end "
+    
+    id="offcanvas-scroll"
+    tabindex="-1"
+    aria-labelledby="offcanvas-scroll-label"
+    data-bs-backdrop="false"    >
             <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvas-scroll-label">Documentación</h5>
+                            <h5 class="offcanvas-title" id="offcanvas-scroll-label">Documentation</h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-    
-    <div class="offcanvas-body">
+        <div class="offcanvas-body">
         <div>
-        <h4>Introducción</h4>
+        <h4>Introduction</h4>
         <p>Lorem ipsum dolor sit amet...</p>
-        <h4>Guía de Inicio</h4>
+        <h4>Getting Started</h4>
         <p>Sed do eiusmod tempor incididunt...</p>
-        <h4>Configuración</h4>
+        <h4>Configuration</h4>
         <p>Ut enim ad minim veniam...</p>
-        <!-- Más contenido para demostrar scroll -->
+        <!-- More content to demonstrate scroll -->
     </div>
-
                     <div class="derafu-block-offcanvas__buttons">
                                     <button type="button"
                         class="btn btn-secondary"
                         data-bs-dismiss="offcanvas"                        >
-                        Cerrar
+                        Close
                     </button>
                             </div>
             </div>
 </div>
+
 
 
                                                             <div class="mt-4 mb-4">
@@ -210,39 +214,40 @@
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
-{# Offcanvas Izquierda (start) #}
+
+{# Left Offcanvas (start) #}
 &lt;div class=&quot;mb-4&quot;&gt;
     &lt;button class=&quot;btn btn-light d-block&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-left&quot;&gt;
-        Menú Izquierdo
+        Left Menu
     &lt;/button&gt;
 &lt;/div&gt;
 
 &lt;twig:block-offcanvas
     id=&quot;offcanvas-left&quot;
     position=&quot;start&quot;
-    title=&quot;Menú de Navegación&quot;
+    title=&quot;Navigation Menu&quot;
     content=&quot;&lt;ul class=&#039;nav flex-column&#039;&gt;
-        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Inicio&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Productos&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Servicios&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#039;nav-item&#039;&gt;&lt;a class=&#039;nav-link&#039; href=&#039;#&#039;&gt;Contact&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;&quot;
 /&gt;
 
-{# Offcanvas Derecha con Formulario #}
+{# Right Offcanvas with Form #}
 &lt;div class=&quot;mt-2 mb-3&quot;&gt;
     &lt;button class=&quot;btn btn-light d-block&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-right&quot;&gt;
-        Editar Perfil
+        Edit Profile
     &lt;/button&gt;
 &lt;/div&gt;
 
 &lt;twig:block-offcanvas
     id=&quot;offcanvas-right&quot;
     position=&quot;end&quot;
-    title=&quot;Editar Perfil&quot;
+    title=&quot;Edit Profile&quot;
     content=&quot;&lt;form id=&#039;profileForm&#039;&gt;
         &lt;div class=&#039;mb-3&#039;&gt;
-            &lt;label class=&#039;form-label&#039;&gt;Nombre&lt;/label&gt;
+            &lt;label class=&#039;form-label&#039;&gt;Name&lt;/label&gt;
             &lt;input type=&#039;text&#039; class=&#039;form-control&#039;&gt;
         &lt;/div&gt;
         &lt;div class=&#039;mb-3&#039;&gt;
@@ -256,60 +261,60 @@
     &lt;/form&gt;&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cancelar&#039;,
+            text: &#039;Cancel&#039;,
             type: &#039;light&#039;,
             dismiss: true
         },
         {
-            text: &#039;Guardar&#039;,
+            text: &#039;Save&#039;,
             type: &#039;success&#039;,
             attributes: &#039;onclick=&amp;quot;document.getElementById(\&#039;profileForm\&#039;).submit()&amp;quot;&#039;
         }
     ]&quot;
 /&gt;
 
-{# Offcanvas Superior #}
+{# Top Offcanvas #}
 &lt;div class=&quot;mt-3 mb-4&quot;&gt;
     &lt;button class=&quot;btn btn-light d-block&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-top&quot;&gt;
-        Notificaciones
+        Notifications
     &lt;/button&gt;
 &lt;/div&gt;
 
 &lt;twig:block-offcanvas
     id=&quot;offcanvas-top&quot;
     position=&quot;top&quot;
-    title=&quot;Notificaciones&quot;
-    scroll=&quot;true&quot;
+    title=&quot;Notifications&quot;
+    :scrollable=&quot;true&quot;
     content=&quot;&lt;div class=&#039;list-group&#039;&gt;
         &lt;a href=&#039;#&#039; class=&#039;list-group-item list-group-item-action&#039;&gt;
             &lt;div class=&#039;d-flex w-100 justify-content-between&#039;&gt;
-                &lt;h6 class=&#039;mb-1&#039;&gt;Nuevo mensaje&lt;/h6&gt;
+                &lt;h6 class=&#039;mb-1&#039;&gt;New message&lt;/h6&gt;
                 &lt;small&gt;3 mins ago&lt;/small&gt;
             &lt;/div&gt;
-            &lt;p class=&#039;mb-1&#039;&gt;Tienes un nuevo mensaje de soporte.&lt;/p&gt;
+            &lt;p class=&#039;mb-1&#039;&gt;You have a new support message.&lt;/p&gt;
         &lt;/a&gt;
-        &lt;!-- Más notificaciones... --&gt;
+        &lt;!-- More notifications... --&gt;
     &lt;/div&gt;&quot;
 /&gt;
 
-{# Offcanvas Inferior sin Backdrop #}
+{# Bottom Offcanvas without Backdrop #}
 &lt;div class=&quot;mt-2 mb-3&quot;&gt;
     &lt;button class=&quot;btn btn-light d-block&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-bottom&quot;&gt;
-        Player de Música
+        Music Player
     &lt;/button&gt;
 &lt;/div&gt;
 
 &lt;twig:block-offcanvas
     id=&quot;offcanvas-bottom&quot;
     position=&quot;bottom&quot;
-    :backdrop=&quot;false&quot;
-    showClose=&quot;false&quot;
+    :withBackdrop=&quot;false&quot;
+    :showClose=&quot;false&quot;
     content=&quot;&lt;div class=&#039;d-flex align-items-center justify-content-between&#039;&gt;
         &lt;div class=&#039;d-flex align-items-center&#039;&gt;
             &lt;img src=&#039;{{ base_path }}/img/block-hero.jpeg&#039; width=&#039;50&#039; height=&#039;50&#039; class=&#039;me-3&#039;&gt;
             &lt;div&gt;
-                &lt;h6 class=&#039;mb-0&#039;&gt;Nombre de la Canción&lt;/h6&gt;
-                &lt;small&gt;Artista&lt;/small&gt;
+                &lt;h6 class=&#039;mb-0&#039;&gt;Song Name&lt;/h6&gt;
+                &lt;small&gt;Artist&lt;/small&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#039;btn-group&#039;&gt;
@@ -320,37 +325,39 @@
     &lt;/div&gt;&quot;
 /&gt;
 
-{# Offcanvas con Scroll y Sin Backdrop #}
+{# Offcanvas with Scroll and No Backdrop #}
 &lt;div class=&quot;mt-2 mb-3&quot;&gt;
     &lt;button class=&quot;btn btn-light d-block&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-scroll&quot;&gt;
-        Documentación
+        Documentation
     &lt;/button&gt;
 &lt;/div&gt;
 
 &lt;twig:block-offcanvas
     id=&quot;offcanvas-scroll&quot;
     position=&quot;end&quot;
-    title=&quot;Documentación&quot;
-    scroll=&quot;true&quot;
-    :backdrop=&quot;false&quot;
+    title=&quot;Documentation&quot;
+    :scrollable=&quot;true&quot;
+    :withBackdrop=&quot;false&quot;
     content=&quot;&lt;div&gt;
-        &lt;h4&gt;Introducción&lt;/h4&gt;
+        &lt;h4&gt;Introduction&lt;/h4&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-        &lt;h4&gt;Guía de Inicio&lt;/h4&gt;
+        &lt;h4&gt;Getting Started&lt;/h4&gt;
         &lt;p&gt;Sed do eiusmod tempor incididunt...&lt;/p&gt;
-        &lt;h4&gt;Configuración&lt;/h4&gt;
+        &lt;h4&gt;Configuration&lt;/h4&gt;
         &lt;p&gt;Ut enim ad minim veniam...&lt;/p&gt;
-        &lt;!-- Más contenido para demostrar scroll --&gt;
+        &lt;!-- More content to demonstrate scroll --&gt;
     &lt;/div&gt;&quot;
     :buttons=&quot;[
         {
-            text: &#039;Cerrar&#039;,
+            text: &#039;Close&#039;,
             type: &#039;secondary&#039;,
             dismiss: true
         }
     ]&quot;
 /&gt;
-{% endblock %}</code></pre>
+
+{% endblock %}
+</code></pre>
                     </div>
                                     </main>
                 <div class="col-md-3 py-4">
@@ -398,109 +405,109 @@
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
                         </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="Collapsible content sections.">
+                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="">
                                 Accordion
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="Alert messages for user feedback.">
+                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="">
                                 Alert
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="Large box display for information.">
+                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="">
                                 Big Boxes
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="Simple box container for content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="">
                                 Box
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="Call-to-action component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="">
                                 CTA
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="Card component for content display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="">
                                 Card
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple cards.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="">
                                 Card Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="Side-by-side comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="">
                                 Comparison
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="Grid layout for key features.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="">
                                 Features Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="Icon-based feature display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="">
                                 Features Icon
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="List-style feature presentation.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="">
                                 Features List
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="Tabular feature comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="">
                                 Features Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="Page footer component with various layouts.">
+                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="">
                                 Footer
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="Basic grid layout system for organizing content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="">
                                 Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="Page header component with navigation options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="">
                                 Header
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="Eye-catching hero section for landing pages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="">
                                 Hero
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="Enhanced image display component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="">
                                 Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="Grid layout for image galleries.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="">
                                 Image Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="Popup dialog windows.">
+                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="">
                                 Modal
                             </a>
-                                                    <a class="list-group-item list-group-item-action active" href="block-offcanvas.html" data-bs-toggle="tooltip" title="Hidden sidebars.">
+                                                    <a class="list-group-item list-group-item-action active" href="block-offcanvas.html" data-bs-toggle="tooltip" title="">
                                 Offcanvas
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="">
                                 Quote
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="Navigation aid that highlights content sections as users scroll through the page.">
+                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="">
                                 Scrollspy
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
+                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="">
                                 Stats
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="Step-by-step guide component with variable steps and arrow design.">
+                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="">
                                 Steps
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="Data table component with styling options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="">
                                 Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="Tabbed content interface, with horizontal and vertical layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="">
                                 Tabs
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="Showcase of team members.">
+                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="">
                                 Team
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="Display of testimonials or opinions.">
+                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="">
                                 Testimonials
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="Combined text and image layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="">
                                 Text Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="Combined text and video layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="">
                                 Text Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="Chronological event display with configurable alignment.">
+                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="">
                                 Timeline
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="Customizable title component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="">
                                 Title
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="Notification messages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="">
                                 Toast
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="Video player component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="">
                                 Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple videos.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="">
                                 Video Grid
                             </a>
                                             </div>

@@ -21,50 +21,58 @@
             <div class="row">
                 <main class="col-md-9">
                                                                                                 <h1>Block Image</h1>
-                            <p class="mb-4">Enhanced image display component.</p>
+                            <p class="mb-4"></p>
                                             
-                    <div class="container derafu-block-image derafu-block-image--center derafu-block-image--medium mt-5"
-    id="block-image--6840ab63968d3">
+                    
+<div
+    class="derafu-block-image derafu-block-image-- derafu-block-image-- my-4"
+    
+    id="block-image--68423ca230a6b"
+>
     <div class="derafu-block-image__wrapper">
-                    <h2 class="derafu-block-image__title">¿Qué es Twig?</h2>
+                    <h2 class="derafu-block-image__title">What is Twig?</h2>
         
         <div class="derafu-block-image__image">
-            <img src="../img/block-hero.jpeg" alt="¿Qué es Twig?" class="img-fluid">
+            <img src="../img/block-hero.jpeg" alt="What is Twig?" class="img-fluid">
         </div>
 
-                    <div class="derafu-block-image__description">
-                Una <a href=https://derafu.org/>ramita</a>.
+                    <div class="derafu-block-image__content">
+                A <a href='https://www.example.com/' target='_blank'>small branch</a>.
             </div>
         
                     <div class="derafu-block-image__buttons">
-                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button">
-                        Aprende sobre Twig
+                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button ">
+                        Learn about Twig
                     </a>
                             </div>
             </div>
 </div>
 
 
-<div class="container derafu-block-image derafu-block-image--center derafu-block-image--small my-5"
-    id="block-image--6840ab639820f">
+<div
+    class="derafu-block-image derafu-block-image-- derafu-block-image--small my-4"
+    
+    id="block-image--68423ca230bcd"
+>
     <div class="derafu-block-image__wrapper">
-                    <h2 class="derafu-block-image__title">¿Qué es <a href=https://derafu.org/>Twig</a>?</h2>
+                    <h2 class="derafu-block-image__title">What is <a href='https://www.example.com/' target='_blank'>Twig</a>?</h2>
         
         <div class="derafu-block-image__image">
-            <img src="../img/block-hero.jpeg" alt="¿Qué es &lt;a href=https://derafu.org/&gt;Twig&lt;/a&gt;?" class="img-fluid">
+            <img src="../img/block-hero.jpeg" alt="What is &lt;a href=&#039;https://www.example.com/&#039; target=&#039;_blank&#039;&gt;Twig&lt;/a&gt;?" class="img-fluid">
         </div>
 
-                    <div class="derafu-block-image__description">
-                Una ramita
+                    <div class="derafu-block-image__content">
+                A small branch
             </div>
         
                     <div class="derafu-block-image__buttons">
-                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button">
-                        Aprende sobre Twig
+                                    <a href="https://twig.symfony.com/" class="derafu-block-image__button ">
+                        Learn about Twig
                     </a>
                             </div>
             </div>
 </div>
+
 
 
                                                             <div class="mt-4 mb-4">
@@ -73,32 +81,34 @@
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
+
 &lt;twig:block-image
-    class=&quot;mt-5&quot;
-    title=&quot;¿Qué es Twig?&quot;
+    class=&quot;my-4&quot;
+    title=&quot;What is Twig?&quot;
     image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
-    description=&quot;Una &lt;a href=https://derafu.org/&gt;ramita&lt;/a&gt;.&quot;
+    content=&quot;A &lt;a href=&#039;https://www.example.com/&#039; target=&#039;_blank&#039;&gt;small branch&lt;/a&gt;.&quot;
     :buttons=&quot;[
         {
-            text: &#039;Aprende sobre Twig&#039;,
+            text: &#039;Learn about Twig&#039;,
             url: &#039;https://twig.symfony.com/&#039;
         }
     ]&quot;
 /&gt;
 
 &lt;twig:block-image
-    class=&quot;my-5&quot;
-    title=&quot;¿Qué es &lt;a href=https://derafu.org/&gt;Twig&lt;/a&gt;?&quot;
+    class=&quot;my-4&quot;
+    size=&quot;small&quot;
+    title=&quot;What is &lt;a href=&#039;https://www.example.com/&#039; target=&#039;_blank&#039;&gt;Twig&lt;/a&gt;?&quot;
     image=&quot;{{ base_path }}/img/block-hero.jpeg&quot;
-    description=&quot;Una ramita&quot;
+    content=&quot;A small branch&quot;
     :buttons=&quot;[
         {
-            text: &#039;Aprende sobre Twig&#039;,
+            text: &#039;Learn about Twig&#039;,
             url: &#039;https://twig.symfony.com/&#039;
         }
     ]&quot;
-    size=&quot;small&quot;
 /&gt;
+
 {% endblock %}
 </code></pre>
                     </div>
@@ -148,109 +158,109 @@
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
                         </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="Collapsible content sections.">
+                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="">
                                 Accordion
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="Alert messages for user feedback.">
+                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="">
                                 Alert
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="Large box display for information.">
+                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="">
                                 Big Boxes
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="Simple box container for content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="">
                                 Box
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="Call-to-action component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="">
                                 CTA
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="Card component for content display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="">
                                 Card
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple cards.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="">
                                 Card Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="Side-by-side comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="">
                                 Comparison
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="Grid layout for key features.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="">
                                 Features Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="Icon-based feature display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="">
                                 Features Icon
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="List-style feature presentation.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-list.html" data-bs-toggle="tooltip" title="">
                                 Features List
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="Tabular feature comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="">
                                 Features Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="Page footer component with various layouts.">
+                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="">
                                 Footer
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="Basic grid layout system for organizing content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="">
                                 Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="Page header component with navigation options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="">
                                 Header
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="Eye-catching hero section for landing pages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="">
                                 Hero
                             </a>
-                                                    <a class="list-group-item list-group-item-action active" href="block-image.html" data-bs-toggle="tooltip" title="Enhanced image display component.">
+                                                    <a class="list-group-item list-group-item-action active" href="block-image.html" data-bs-toggle="tooltip" title="">
                                 Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="Grid layout for image galleries.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="">
                                 Image Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="Popup dialog windows.">
+                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="">
                                 Modal
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="Hidden sidebars.">
+                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="">
                                 Offcanvas
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="">
                                 Quote
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="Navigation aid that highlights content sections as users scroll through the page.">
+                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="">
                                 Scrollspy
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
+                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="">
                                 Stats
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="Step-by-step guide component with variable steps and arrow design.">
+                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="">
                                 Steps
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="Data table component with styling options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="">
                                 Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="Tabbed content interface, with horizontal and vertical layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="">
                                 Tabs
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="Showcase of team members.">
+                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="">
                                 Team
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="Display of testimonials or opinions.">
+                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="">
                                 Testimonials
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="Combined text and image layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="">
                                 Text Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="Combined text and video layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="">
                                 Text Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="Chronological event display with configurable alignment.">
+                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="">
                                 Timeline
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="Customizable title component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="">
                                 Title
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="Notification messages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="">
                                 Toast
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="Video player component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="">
                                 Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple videos.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="">
                                 Video Grid
                             </a>
                                             </div>

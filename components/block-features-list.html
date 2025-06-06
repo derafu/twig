@@ -21,77 +21,77 @@
             <div class="row">
                 <main class="col-md-9">
                                                                                                 <h1>Block Features List</h1>
-                            <p class="mb-4">List-style feature presentation.</p>
+                            <p class="mb-4"></p>
                                             
-                        <div class="container derafu-block-features-list my-5"
-    id="block-features-list--6840ab6309601">
+                    
+
+<div class="derafu-block-features-list my-4"  id="block-features-list--68423ca1990df">
     <div class="derafu-block-features-list__row">
                 <div class="derafu-block-features-list__column derafu-block-features-list__column--left">
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
                     <div class="derafu-block-features-list__content">
-                        <h3 class="derafu-block-features-list__title">Aplicación <a href=https://derafu.org/>Web.</a></h3>
-                        <div class="derafu-block-features-list__description">
-                            Con emisión de documentos en forma individual y <a href=https://derafu.org/>masiva.</a>
+                        <h3 class="derafu-block-features-list__title">Aplicación <a href='https://www.example.com/' target='_blank'>Web.</a></h3>
+                        <div class="derafu-block-features-list__content">
+                            Con emisión de documentos en forma individual y <a href='https://www.example.com/' target='_blank'>masiva.</a>
                         </div>
                     </div>
                     <div class="derafu-block-features-list__icon">
-                        <i class="fa-solid fa-laptop"></i>
+                        <i class="fa-solid fa-laptop fa-fw"></i>
                     </div>
                 </div>
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">Reportes</h3>
-                        <div class="derafu-block-features-list__description">
+                        <div class="derafu-block-features-list__content">
                             Gráficos y estadísticas para visualizar tus datos de manera sencilla.
                         </div>
                     </div>
                     <div class="derafu-block-features-list__icon">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-solid fa-chart-line fa-fw"></i>
                     </div>
                 </div>
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--right">
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">Configuración</h3>
-                        <div class="derafu-block-features-list__description">
+                        <div class="derafu-block-features-list__content">
                             Personaliza la aplicación según tus necesidades específicas.
                         </div>
                     </div>
                     <div class="derafu-block-features-list__icon">
-                        <i class="fa-solid fa-cogs"></i>
+                        <i class="fa-solid fa-cogs fa-fw"></i>
                     </div>
                 </div>
                     </div>
-
                 <div class="derafu-block-features-list__column derafu-block-features-list__column--right">
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--left">
                     <div class="derafu-block-features-list__icon">
-                        <i class="fa-solid fa-cubes"></i>
+                        <i class="fa-solid fa-cubes fa-fw"></i>
                     </div>
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">Productos y Servicios</h3>
-                        <div class="derafu-block-features-list__description">
+                        <div class="derafu-block-features-list__content">
                             Codifica tus productos y servicios para emitir rápidamente y sin errores.
                         </div>
                     </div>
                 </div>
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--left">
                     <div class="derafu-block-features-list__icon">
-                        <i class="fa-solid fa-cloud-download"></i>
+                        <i class="fa-solid fa-cloud-download fa-fw"></i>
                     </div>
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">Respaldo</h3>
-                        <div class="derafu-block-features-list__description">
+                        <div class="derafu-block-features-list__content">
                             Descarga tus datos cada vez que los requieras.
                         </div>
                     </div>
                 </div>
                             <div class="derafu-block-features-list__item derafu-block-features-list__item--left">
                     <div class="derafu-block-features-list__icon">
-                        <i class="fa-solid fa-shield"></i>
+                        <i class="fa-solid fa-shield fa-fw"></i>
                     </div>
                     <div class="derafu-block-features-list__content">
                         <h3 class="derafu-block-features-list__title">Seguridad</h3>
-                        <div class="derafu-block-features-list__description">
+                        <div class="derafu-block-features-list__content">
                             Tus datos están protegidos con los más altos estándares de seguridad.
                         </div>
                     </div>
@@ -108,46 +108,45 @@
 {% extends &#039;layouts/default.html.twig&#039; %}
 
 {% block content %}
-{% for theme, name in themes %}
-    &lt;twig:block-features-list
-        class=&quot;my-5&quot;
-        :features_left=&quot;[
-            {
-                icon: &#039;fa-solid fa-laptop&#039;,
-                title: &#039;Aplicación &lt;a href=https://derafu.org/&gt;Web.&lt;/a&gt;&#039;,
-                description: &#039;Con emisión de documentos en forma individual y &lt;a href=https://derafu.org/&gt;masiva.&lt;/a&gt;&#039;
-            },
-            {
-                icon: &#039;fa-solid fa-chart-line&#039;,
-                title: &#039;Reportes&#039;,
-                description: &#039;Gráficos y estadísticas para visualizar tus datos de manera sencilla.&#039;
-            },
-            {
-                icon: &#039;fa-solid fa-cogs&#039;,
-                title: &#039;Configuración&#039;,
-                description: &#039;Personaliza la aplicación según tus necesidades específicas.&#039;
-            }
-        ]&quot;
-        :features_right=&quot;[
-            {
-                icon: &#039;fa-solid fa-cubes&#039;,
-                title: &#039;Productos y Servicios&#039;,
-                description: &#039;Codifica tus productos y servicios para emitir rápidamente y sin errores.&#039;
-            },
-            {
-                icon: &#039;fa-solid fa-cloud-download&#039;,
-                title: &#039;Respaldo&#039;,
-                description: &#039;Descarga tus datos cada vez que los requieras.&#039;
-            },
-            {
-                icon: &#039;fa-solid fa-shield&#039;,
-                title: &#039;Seguridad&#039;,
-                description: &#039;Tus datos están protegidos con los más altos estándares de seguridad.&#039;
-            }
-        ]&quot;
-    /&gt;
 
-{% endfor %}
+&lt;twig:block-features-list
+    class=&quot;my-4&quot;
+    :featuresLeft=&quot;[
+        {
+            icon: &#039;fa-solid fa-laptop fa-fw&#039;,
+            title: &#039;Aplicación &lt;a href=\&#039;https://www.example.com/\&#039; target=\&#039;_blank\&#039;&gt;Web.&lt;/a&gt;&#039;,
+            content: &#039;Con emisión de documentos en forma individual y &lt;a href=\&#039;https://www.example.com/\&#039; target=\&#039;_blank\&#039;&gt;masiva.&lt;/a&gt;&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-chart-line fa-fw&#039;,
+            title: &#039;Reportes&#039;,
+            content: &#039;Gráficos y estadísticas para visualizar tus datos de manera sencilla.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-cogs fa-fw&#039;,
+            title: &#039;Configuración&#039;,
+            content: &#039;Personaliza la aplicación según tus necesidades específicas.&#039;
+        }
+    ]&quot;
+    :featuresRight=&quot;[
+        {
+            icon: &#039;fa-solid fa-cubes fa-fw&#039;,
+            title: &#039;Productos y Servicios&#039;,
+            content: &#039;Codifica tus productos y servicios para emitir rápidamente y sin errores.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-cloud-download fa-fw&#039;,
+            title: &#039;Respaldo&#039;,
+            content: &#039;Descarga tus datos cada vez que los requieras.&#039;
+        },
+        {
+            icon: &#039;fa-solid fa-shield fa-fw&#039;,
+            title: &#039;Seguridad&#039;,
+            content: &#039;Tus datos están protegidos con los más altos estándares de seguridad.&#039;
+        }
+    ]&quot;
+/&gt;
+
 {% endblock %}
 </code></pre>
                     </div>
@@ -197,109 +196,109 @@
                         <a class="list-group-item list-group-item-action " href="../components.html">
                             All the Components
                         </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="Collapsible content sections.">
+                                                    <a class="list-group-item list-group-item-action " href="block-accordion.html" data-bs-toggle="tooltip" title="">
                                 Accordion
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="Alert messages for user feedback.">
+                                                    <a class="list-group-item list-group-item-action " href="block-alert.html" data-bs-toggle="tooltip" title="">
                                 Alert
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="Large box display for information.">
+                                                    <a class="list-group-item list-group-item-action " href="block-boxes.html" data-bs-toggle="tooltip" title="">
                                 Big Boxes
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="Simple box container for content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-box.html" data-bs-toggle="tooltip" title="">
                                 Box
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="Call-to-action component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-cta.html" data-bs-toggle="tooltip" title="">
                                 CTA
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="Card component for content display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card.html" data-bs-toggle="tooltip" title="">
                                 Card
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple cards.">
+                                                    <a class="list-group-item list-group-item-action " href="block-card-grid.html" data-bs-toggle="tooltip" title="">
                                 Card Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="Side-by-side comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-comparison.html" data-bs-toggle="tooltip" title="">
                                 Comparison
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="Grid layout for key features.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-grid.html" data-bs-toggle="tooltip" title="">
                                 Features Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="Icon-based feature display.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-icon.html" data-bs-toggle="tooltip" title="">
                                 Features Icon
                             </a>
-                                                    <a class="list-group-item list-group-item-action active" href="block-features-list.html" data-bs-toggle="tooltip" title="List-style feature presentation.">
+                                                    <a class="list-group-item list-group-item-action active" href="block-features-list.html" data-bs-toggle="tooltip" title="">
                                 Features List
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="Tabular feature comparison.">
+                                                    <a class="list-group-item list-group-item-action " href="block-features-table.html" data-bs-toggle="tooltip" title="">
                                 Features Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="Page footer component with various layouts.">
+                                                    <a class="list-group-item list-group-item-action " href="block-footer.html" data-bs-toggle="tooltip" title="">
                                 Footer
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="Basic grid layout system for organizing content.">
+                                                    <a class="list-group-item list-group-item-action " href="block-grid.html" data-bs-toggle="tooltip" title="">
                                 Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="Page header component with navigation options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-header.html" data-bs-toggle="tooltip" title="">
                                 Header
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="Eye-catching hero section for landing pages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-hero.html" data-bs-toggle="tooltip" title="">
                                 Hero
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="Enhanced image display component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image.html" data-bs-toggle="tooltip" title="">
                                 Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="Grid layout for image galleries.">
+                                                    <a class="list-group-item list-group-item-action " href="block-image-grid.html" data-bs-toggle="tooltip" title="">
                                 Image Grid
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="Popup dialog windows.">
+                                                    <a class="list-group-item list-group-item-action " href="block-modal.html" data-bs-toggle="tooltip" title="">
                                 Modal
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="Hidden sidebars.">
+                                                    <a class="list-group-item list-group-item-action " href="block-offcanvas.html" data-bs-toggle="tooltip" title="">
                                 Offcanvas
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="Styled blockquote component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-quote.html" data-bs-toggle="tooltip" title="">
                                 Quote
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="Navigation aid that highlights content sections as users scroll through the page.">
+                                                    <a class="list-group-item list-group-item-action " href="block-scrollspy.html" data-bs-toggle="tooltip" title="">
                                 Scrollspy
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="Display of statistical data.">
+                                                    <a class="list-group-item list-group-item-action " href="block-stats.html" data-bs-toggle="tooltip" title="">
                                 Stats
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="Step-by-step guide component with variable steps and arrow design.">
+                                                    <a class="list-group-item list-group-item-action " href="block-steps.html" data-bs-toggle="tooltip" title="">
                                 Steps
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="Data table component with styling options.">
+                                                    <a class="list-group-item list-group-item-action " href="block-table.html" data-bs-toggle="tooltip" title="">
                                 Table
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="Tabbed content interface, with horizontal and vertical layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-tabs.html" data-bs-toggle="tooltip" title="">
                                 Tabs
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="Showcase of team members.">
+                                                    <a class="list-group-item list-group-item-action " href="block-team.html" data-bs-toggle="tooltip" title="">
                                 Team
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="Display of testimonials or opinions.">
+                                                    <a class="list-group-item list-group-item-action " href="block-testimonials.html" data-bs-toggle="tooltip" title="">
                                 Testimonials
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="Combined text and image layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-image.html" data-bs-toggle="tooltip" title="">
                                 Text Image
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="Combined text and video layout.">
+                                                    <a class="list-group-item list-group-item-action " href="block-text-video.html" data-bs-toggle="tooltip" title="">
                                 Text Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="Chronological event display with configurable alignment.">
+                                                    <a class="list-group-item list-group-item-action " href="block-timeline.html" data-bs-toggle="tooltip" title="">
                                 Timeline
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="Customizable title component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-title.html" data-bs-toggle="tooltip" title="">
                                 Title
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="Notification messages.">
+                                                    <a class="list-group-item list-group-item-action " href="block-toast.html" data-bs-toggle="tooltip" title="">
                                 Toast
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="Video player component.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video.html" data-bs-toggle="tooltip" title="">
                                 Video
                             </a>
-                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="Grid layout for multiple videos.">
+                                                    <a class="list-group-item list-group-item-action " href="block-video-grid.html" data-bs-toggle="tooltip" title="">
                                 Video Grid
                             </a>
                                             </div>
