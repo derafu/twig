@@ -20,7 +20,7 @@
         </div>
         {% if this.content %}
             <div class="toast-body">
-                {{ this.content }}
+                {{ this.content|raw }}
             </div>
         {% endif %}
     </div>

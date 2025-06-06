@@ -1,7 +1,7 @@
 /* Quote Component - Base Variables */
 :root {
     /* Structure */
-    --quote-padding: 2rem;
+    --quote-padding: 3rem;
     --quote-border-radius: 0.5rem;
     --quote-margin-bottom: 1.5rem;
     --quote-icon-size: 3rem;

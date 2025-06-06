@@ -5,8 +5,9 @@
 {% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
 {% for type in types %}
     <twig:block-alert
-        type="{{ type }}"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      class="my-4"
+      type="{{ type }}"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore <a href='https://www.example.com/' target='_blank'>magna aliqua.</a>"
     />
 {% endfor %}
 

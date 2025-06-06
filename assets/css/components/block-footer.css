@@ -80,6 +80,7 @@
 
   .derafu-block-footer__links a:hover {
     color: var(--footer-link-hover);
+    text-decoration: underline;
   }
 
   /*

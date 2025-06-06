@@ -8,7 +8,7 @@
                 {% elseif cols == 3 %}col-lg-4
                 {% elseif cols == 4 %}col-lg-3
                 {% else %}col-lg-2{% endif %}
-                {% if offset is not null %}offset-lg-{{ offset }}{% endif %}
+                {% if card.offset is not null %}offset-lg-{{ card.offset }}{% endif %}
             ">
                 <div class="derafu-block-card-grid__card">
                     {% if card.image %}
