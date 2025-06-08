@@ -50,7 +50,7 @@ class VideoComponent extends AbstractComponent
      *
      * @var array
      */
-    private array $buttons;
+    private array $buttons = [];
 
     /**
      * Video size.
@@ -76,11 +76,11 @@ class VideoComponent extends AbstractComponent
     /**
      * Gets the video title.
      *
-     * @return string The video title.
+     * @return string|null The video title.
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
-        return $this->title;
+        return $this->title ?? null;
     }
 
     /**
@@ -122,11 +122,11 @@ class VideoComponent extends AbstractComponent
     /**
      * Gets the video content.
      *
-     * @return string The video content.
+     * @return string|null The video content.
      */
-    public function getContent(): string
+    public function getContent(): ?string
     {
-        return $this->content;
+        return $this->content ?? null;
     }
 
     /**
