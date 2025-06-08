@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Component\Block;
 
+use DateTimeInterface;
 use Derafu\Twig\Abstract\AbstractComponent;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
@@ -46,6 +47,27 @@ class TimelineComponent extends AbstractComponent
     private ?string $dateFormat = null;
 
     /**
+     * Optional month format for event dates.
+     *
+     * @var string|null
+     */
+    private ?string $monthFormat = null;
+
+    /**
+     * Whether to show the full date of the event.
+     *
+     * @var bool|null
+     */
+    private ?bool $showFullDate = null;
+
+    /**
+     * Whether to show the month and year of the event.
+     *
+     * @var bool|null
+     */
+    private ?bool $showMonthYear = null;
+
+    /**
      * Gets the array of timeline events.
      *
      * @return array The array of timeline events.
@@ -64,6 +86,43 @@ class TimelineComponent extends AbstractComponent
     public function setEvents(array $events): static
     {
         $this->events = $events;
+
+        foreach ($this->events as &$event) {
+            // Determine the year of the event.
+            if ($event['date'] instanceof DateTimeInterface) {
+                $event['year'] = (int) $event['date']->format('Y');
+            } elseif (is_string($event['date'])) {
+                $event['year'] = (int) substr($event['date'], 0, 4);
+            } else {
+                $this->error(sprintf(
+                    'Invalid date format for event: %s',
+                    $event['date'] ?? 'N/A'
+                ));
+            }
+
+            // Determine if the full date should be shown.
+            if (
+                (!isset($this->showFullDate) || $this->showFullDate !== false)
+                && !isset($event['showFullDate'])
+            ) {
+                $event['showFullDate'] =
+                    $event['date'] instanceof DateTimeInterface
+                    || preg_match('/^\d{4}-\d{2}-\d{2}$/', $event['date'])
+                ;
+            }
+
+            // Determine if the month and year should be shown.
+            if (
+                (!isset($this->showMonthYear) || $this->showMonthYear !== false)
+                && !isset($event['showMonthYear'])
+            ) {
+                $event['showMonthYear'] =
+                    $event['date'] instanceof DateTimeInterface
+                    || preg_match('/^\d{4}\d{2}$/', $event['date'])
+                    || preg_match('/^\d{4}-\d{2}$/', $event['date'])
+                ;
+            }
+        }
 
         return $this;
     }
@@ -110,6 +169,75 @@ class TimelineComponent extends AbstractComponent
     public function setDateFormat(?string $dateFormat): static
     {
         $this->dateFormat = $dateFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets the month format for event dates.
+     *
+     * @return string|null The month format.
+     */
+    public function getMonthFormat(): ?string
+    {
+        return $this->monthFormat;
+    }
+
+    /**
+     * Sets the month format for event dates.
+     *
+     * @param string|null $monthFormat The month format.
+     * @return static
+     */
+    public function setMonthFormat(?string $monthFormat): static
+    {
+        $this->monthFormat = $monthFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets whether to show the full date of the event.
+     *
+     * @return bool|null The show full date.
+     */
+    public function getShowFullDate(): ?bool
+    {
+        return $this->showFullDate;
+    }
+
+    /**
+     * Sets whether to show the full date of the event.
+     *
+     * @param bool|null $showFullDate The show full date.
+     * @return static
+     */
+    public function setShowFullDate(?bool $showFullDate): static
+    {
+        $this->showFullDate = $showFullDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets whether to show the month and year of the event.
+     *
+     * @return bool|null The show month year.
+     */
+    public function getShowMonthYear(): ?bool
+    {
+        return $this->showMonthYear;
+    }
+
+    /**
+     * Sets whether to show the month and year of the event.
+     *
+     * @param bool|null $showMonthYear The show month year.
+     * @return static
+     */
+    public function setShowMonthYear(?bool $showMonthYear): static
+    {
+        $this->showMonthYear = $showMonthYear;
 
         return $this;
     }
