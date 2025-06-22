@@ -46,7 +46,6 @@
    */
   .derafu-block-header {
     background-color: var(--header-bg);
-    margin-bottom: 1rem;
   }
 
   .derafu-block-header .navbar-brand img {
@@ -167,11 +166,6 @@
    * Ajustes para móviles
    */
   @media (max-width: 991.98px) {
-    /* Estructura general */
-    .derafu-block-header {
-      margin-bottom: 2rem;
-    }
-
     /* Dropdowns y mega menús */
     .derafu-block-header .mega-dropdown {
       position: static;
