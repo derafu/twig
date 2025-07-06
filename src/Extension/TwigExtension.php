@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Extension;
 
+use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use Twig\Environment;
 
 /**
  * Twig extension to enable Twig rendering within templates.
