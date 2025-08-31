@@ -31,7 +31,7 @@ class ImageGridComponent extends AbstractComponent
     private array $images = [];
 
     /**
-     * Number of columns in the grid layout (4 or 6).
+     * Number of columns in the grid layout (3, 4 or 6).
      *
      * @var int
      */
