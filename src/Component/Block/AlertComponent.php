@@ -42,6 +42,13 @@ class AlertComponent extends AbstractComponent
     private string $icon;
 
     /**
+     * Whether the alert is dismissible.
+     *
+     * @var bool
+     */
+    private bool $dismissible = false;
+
+    /**
      * Gets the alert type.
      *
      * @return string
@@ -109,6 +116,29 @@ class AlertComponent extends AbstractComponent
     public function setIcon(string $icon): static
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Gets the dismissible flag.
+     *
+     * @return bool
+     */
+    public function getDismissible(): bool
+    {
+        return $this->dismissible;
+    }
+
+    /**
+     * Sets the dismissible flag.
+     *
+     * @param bool $dismissible The dismissible flag.
+     * @return static
+     */
+    public function setDismissible(bool $dismissible): static
+    {
+        $this->dismissible = $dismissible;
 
         return $this;
     }
