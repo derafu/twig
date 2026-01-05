@@ -41,18 +41,18 @@ class DirectoryComponentProvider implements ComponentProviderInterface
 
     public function getComponents(): array
     {
-        // Si no hay cache, escanear directamente.
+        // If there is no cache, scan the directory directly.
         if (!$this->cache) {
             return $this->scanDirectory();
         }
 
-        // Intentar obtener de cache.
+        // Try to get from cache.
         $item = $this->cache->getItem($this->cacheKey);
         if ($item->isHit()) {
             return $item->get();
         }
 
-        // Si no está en cache, escanear y guardar.
+        // If not in cache, scan and store.
         $components = $this->scanDirectory();
         $item->set($components);
         $this->cache->save($item);
@@ -95,18 +95,18 @@ class DirectoryComponentProvider implements ComponentProviderInterface
     {
         $content = file_get_contents($file);
 
-        // Obtener namespace.
+        // Get namespace.
         $namespace = '';
         if (preg_match('/namespace\s+([^;]+);/', $content, $matches)) {
             $namespace = $matches[1];
         }
 
-        // Obtener nombre de la clase.
+        // Get class name.
         if (preg_match('/class\s+(\w+)/', $content, $matches)) {
             $className = $matches[1];
             $fullClassName = $namespace ? $namespace . '\\' . $className : $className;
 
-            // Verificar que la clase existe y se puede cargar.
+            // Check that the class exists and can be loaded.
             if (class_exists($fullClassName)) {
                 return $fullClassName;
             }

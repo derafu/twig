@@ -35,8 +35,11 @@ class TwigExtension extends AbstractExtension
         ];
     }
 
-    public function renderTwig(Environment $twig, array $context, string $templateString): string
-    {
+    public function renderTwig(
+        Environment $twig,
+        array $context,
+        string $templateString
+    ): string {
         $template = $twig->createTemplate($templateString);
 
         return $template->render($context);

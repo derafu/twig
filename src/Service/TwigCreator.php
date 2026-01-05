@@ -25,7 +25,7 @@ use Twig\Loader\FilesystemLoader;
 class TwigCreator implements TwigCreatorInterface
 {
     /**
-     * Opciones para la creación de la instancia de twig.
+     * Options for creating the Twig instance.
      *
      * @var array
      */
@@ -34,9 +34,9 @@ class TwigCreator implements TwigCreatorInterface
     private ComponentRegistrarInterface $componentRegistrar;
 
     /**
-     * Constructor del servicio que crea instancia del renderizador Twig.
+     * Service constructor that creates a Twig renderer instance.
      *
-     * @param array $options Opciones para la construcción de la instancia Twig.
+     * @param array $options Options for constructing the Twig instance.
      * @param ComponentRegistrarInterface|null $componentRegistrar
      */
     public function __construct(
@@ -51,38 +51,38 @@ class TwigCreator implements TwigCreatorInterface
     }
 
     /**
-     * Crea, inicializa y retorna una nueva instancia de Twig.
+     * Create, initialize, and return a new Twig instance.
      *
      * @param array $options
      * @return Environment
      */
     public function create(array $options = []): Environment
     {
-        // Resolver las opciones para la creación.
+        // Resolve the options for creation.
         $options = $this->resolveOptions($options);
 
-        // Crear loader con los paths donde se buscarán las plantillas.
+        // Create loader with the paths where templates will be searched.
         $loader = new FilesystemLoader($options['paths']);
 
-        // Crear el renderizador de twig.
+        // Create the Twig renderer.
         $twig = new Environment($loader);
 
-        // Agregar las extensiones que estén registradas.
+        // Add the extensions that are registered.
         foreach ($options['extensions'] as $extension) {
             $twig->addExtension($extension);
         }
 
-        // Agregar las extensiones extra dependiendo de si están disponibles.
+        // Add extra extensions depending on availability.
         if ($options['extra']) {
             $this->addExtraExtensions($twig);
         }
 
-        // Registrar en Twig todo lo asociado a los componentes.
+        // Register everything related to components in Twig.
         if (!empty($options['components'])) {
             $this->componentRegistrar->register($twig, $options['components']);
         }
 
-        // Entregar la instancia de Twig.
+        // Return the Twig instance.
         return $twig;
     }
 
@@ -100,9 +100,9 @@ class TwigCreator implements TwigCreatorInterface
     }
 
     /**
-     * Carga las extensiones solo si sus dependencias están instaladas.
+     * Loads extensions only if their dependencies are installed.
      *
-     * @param Environment $twig Instancia de Twig donde agregar las extensiones.
+     * @param Environment $twig Twig instance where extensions will be added.
      * @return void
      */
     private function addExtraExtensions(Environment $twig): void

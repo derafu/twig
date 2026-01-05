@@ -21,21 +21,21 @@ use Twig\Loader\FilesystemLoader;
 class TwigService implements TwigServiceInterface
 {
     /**
-     * Renderizador de plantillas HTML con Twig.
+     * HTML template renderer with Twig.
      *
      * @var Environment
      */
     private Environment $twig;
 
     /**
-     * Creador de instancias de Twig.
+     * Twig instance creator.
      *
      * @var TwigCreatorInterface
      */
     private TwigCreatorInterface $twigCreator;
 
     /**
-     * Constructor del servicio.
+     * Service constructor.
      *
      * @param Environment|TwigCreatorInterface|array|null $twig
      */
@@ -60,10 +60,10 @@ class TwigService implements TwigServiceInterface
     {
         //$config = $data['options']['config']['html'] ?? [];
 
-        // Resolver plantilla.
+        // Resolve template.
         $template = $this->resolveTemplate($template);
 
-        // Renderizar la plantilla.
+        // Render the template.
         return $this->getTwig()->render($template, $data);
     }
 
@@ -82,30 +82,30 @@ class TwigService implements TwigServiceInterface
     }
 
     /**
-     * Resuelve la plantilla que se está solicitando.
+     * Resolves the requested template.
      *
-     * Se encarga de:
+     * Responsible for:
      *
-     *   - Agregar la extensión a la plantilla.
-     *   - Agregar el directorio si se pasó una ruta absoluta de la plantilla.
+     *   - Adding the extension to the template.
+     *   - Adding the directory if an absolute path was provided.
      *
      * @param string $template
      * @return string
      */
     private function resolveTemplate(string $template): string
     {
-        // Agregar extensión.
+        // Add extension if necessary.
         if (!str_ends_with($template, '.twig')) {
             $template .= '.html.twig';
         }
 
-        // Obtener el loader.
+        // Get the loader.
         $loader = $this->getTwig()->getLoader();
         if (!$loader instanceof FilesystemLoader) {
             return $template;
         }
 
-        // Agregar el directorio si se pasó una ruta absoluta.
+        // Add the directory if an absolute path was provided.
         $realpath = realpath($template);
         if ($realpath) {
             $dir = dirname($realpath);
@@ -115,7 +115,7 @@ class TwigService implements TwigServiceInterface
             $template = basename($realpath);
         }
 
-        // Entregar nombre de la plantilla.
+        // Return template name.
         return $template;
     }
 }

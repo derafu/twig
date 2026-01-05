@@ -17,19 +17,19 @@ use Twig\Environment;
 interface TwigServiceInterface
 {
     /**
-     * Renderiza una plantilla Twig en HTML.
+     * Renders a Twig template into HTML.
      *
-     * @param string $template Plantilla Twig a renderizar.
-     * @param array $data Datos que se pasarán a la plantilla Twig.
-     * @return string Código HTML con el renderizado de la plantilla Twig.
+     * @param string $template Twig template to render.
+     * @param array $data Data to be passed to the Twig template.
+     * @return string HTML code with the rendered Twig template.
      */
     public function render(string $template, array &$data = []): string;
 
     /**
-     * Entrega la instancia de Twig.
+     * Returns the Twig instance.
      *
-     * Este método evita crearla en el constructor y se crea solo cuando
-     * realmente se utiliza. Útil cuando se usan lazy services.
+     * This method avoids creating it in the constructor and only creates it
+     * when it is actually used. Useful when using lazy services.
      *
      * @return Environment
      */
