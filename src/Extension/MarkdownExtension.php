@@ -132,7 +132,6 @@ class MarkdownExtension extends AbstractExtension
      *
      * @return string The Markdown content with Twig tags safely replaced.
      */
-
     private function protectTwigBlocks(string $content, array &$store): string
     {
         return preg_replace_callback(
