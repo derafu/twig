@@ -25,21 +25,21 @@
         }
     },
     "require": {
-        "php": "^8.3",
-        "symfony/ux-twig-component": "^2.22",
-        "symfony/cache": "^7.2",
+        "php": "^8.5",
+        "symfony/ux-twig-component": "^2.32",
+        "symfony/cache": "^7.4",
         "psr/http-server-middleware": "^1.0"
     },
     "require-dev": {
         "ext-xdebug": "*",
-        "friendsofphp/php-cs-fixer": "^3.63",
+        "friendsofphp/php-cs-fixer": "^3.94",
         "phpstan/phpstan": "^1.12",
-        "phpunit/phpunit": "^11.4",
-        "twig/cssinliner-extra": "^3.19",
-        "twig/intl-extra": "^3.19",
-        "twig/string-extra": "^3.19",
-        "twig/inky-extra": "^3.19",
-        "symfony/string": "^7.2",
+        "phpunit/phpunit": "^11.5",
+        "twig/cssinliner-extra": "^3.23",
+        "twig/intl-extra": "^3.23",
+        "twig/string-extra": "^3.23",
+        "twig/inky-extra": "^3.23",
+        "symfony/string": "^7.4",
         "derafu/routing": "dev-main",
         "derafu/markdown": "dev-main"
     },

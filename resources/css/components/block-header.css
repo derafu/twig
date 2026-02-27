@@ -76,6 +76,7 @@
     width: 100%;
     left: 0;
     right: 0;
+    z-index: 9999;
     padding: var(--header-mega-padding);
   }
 
