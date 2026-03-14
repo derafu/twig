@@ -26,6 +26,18 @@ interface TwigServiceInterface
     public function render(string $template, array &$data = []): string;
 
     /**
+     * Renders a Twig template from a string.
+     *
+     * @param string $twigContent Twig template content to render.
+     * @param array $data Data to be passed to the Twig template.
+     * @return string HTML code with the rendered Twig template.
+     */
+    public function renderFromString(
+        string $twigContent,
+        array &$data = []
+    ): string;
+
+    /**
      * Returns the Twig instance.
      *
      * This method avoids creating it in the constructor and only creates it

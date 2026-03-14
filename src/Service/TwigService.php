@@ -70,6 +70,23 @@ class TwigService implements TwigServiceInterface
     /**
      * {@inheritDoc}
      */
+    public function renderFromString(
+        string $twigContent,
+        array &$data = []
+    ): string {
+        // TODO: This method requires to create a new Twig instance, so it is
+        // not efficient for large templates or multiple calls. Must be improved.
+
+        // Create a template from the content.
+        $template = $this->getTwig()->createTemplate($twigContent);
+
+        // Render the template.
+        return $template->render($data);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getTwig(): Environment
     {
         if (!isset($this->twig)) {
