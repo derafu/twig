@@ -27,7 +27,7 @@
     "require": {
         "php": "^8.5",
         "symfony/ux-twig-component": "^2.32",
-        "symfony/cache": "^7.4",
+        "symfony/cache": "^8.0",
         "psr/http-server-middleware": "^1.0"
     },
     "require-dev": {
@@ -39,7 +39,7 @@
         "twig/intl-extra": "^3.23",
         "twig/string-extra": "^3.23",
         "twig/inky-extra": "^3.23",
-        "symfony/string": "^7.4",
+        "symfony/string": "^8.0",
         "derafu/routing": "dev-main",
         "derafu/markdown": "dev-main"
     },
