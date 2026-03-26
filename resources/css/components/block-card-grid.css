@@ -56,6 +56,12 @@
     /* Card Image */
     --card-image-aspect-ratio: 16/9;
 
+    /* Card Icon */
+    --card-icon-padding: 2rem;
+    --card-icon-size: 2.5rem;
+    --card-icon-color: var(--bs-primary, #0d6efd);
+    --card-icon-bg: var(--bs-light, #f8f9fa);
+
     /* Card Content Spacing */
     --card-content-padding: var(--spacing-md, 1.5rem);
     --card-tablet-content-padding: 1.25rem;
@@ -152,6 +158,17 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+/* Linked card variant */
+.derafu-block-card-grid__card--linked {
+    text-decoration: none;
+    color: inherit;
+}
+
+.derafu-block-card-grid__card--linked:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* ======================================
    Card Image
    ====================================== */
@@ -162,7 +179,8 @@
     position: relative;
 }
 
-.derafu-block-card-grid__image img {
+.derafu-block-card-grid .derafu-block-card-grid__image img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -174,13 +192,38 @@
 }
 
 /* ======================================
-   Card Content
+   Card Icon
    ====================================== */
-.derafu-block-card-grid__content {
+.derafu-block-card-grid__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--card-icon-padding);
+    background-color: var(--card-icon-bg);
+}
+
+.derafu-block-card-grid__icon span {
+    font-size: var(--card-icon-size);
+    color: var(--card-icon-color);
+    line-height: 1;
+}
+
+/* ======================================
+   Card Body & Content
+   ====================================== */
+.derafu-block-card-grid__body {
     padding: var(--card-content-padding);
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.derafu-block-card-grid__label {
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color, #6c757d);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
 }
 
 .derafu-block-card-grid__title {
@@ -245,13 +288,7 @@
 /* ======================================
    Special Cases
    ====================================== */
-/* For cards without images */
-.derafu-block-card-grid__card:not(:has(.derafu-block-card-grid__image)) .derafu-block-card-grid__content {
-    padding-top: var(--card-content-padding);
-}
-
 /* Media content support */
-.derafu-block-card-grid img,
 .derafu-block-card-grid video,
 .derafu-block-card-grid iframe {
     height: auto;
@@ -300,7 +337,7 @@
         border-radius: var(--card-mobile-border-radius);
     }
 
-    .derafu-block-card-grid__content {
+    .derafu-block-card-grid__body {
         padding: var(--card-tablet-content-padding);
     }
 
@@ -346,7 +383,7 @@
         margin-bottom: 1rem;
     }
 
-    .derafu-block-card-grid__content {
+    .derafu-block-card-grid__body {
         padding: var(--card-mobile-content-padding);
     }
 
@@ -393,7 +430,7 @@
         border-radius: var(--card-small-border-radius);
     }
 
-    .derafu-block-card-grid__content {
+    .derafu-block-card-grid__body {
         padding: var(--card-small-content-padding);
     }
 

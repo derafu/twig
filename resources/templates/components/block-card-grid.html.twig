@@ -10,14 +10,29 @@
                 {% else %}col-lg-2{% endif %}
                 {% if card.offset is not null %}offset-lg-{{ card.offset }}{% endif %}
             ">
-                <div class="derafu-block-card-grid__card">
+                {% if card.url %}
+                    <a href="{{ card.url }}" class="derafu-block-card-grid__card derafu-block-card-grid__card--linked">
+                {% else %}
+                    <div class="derafu-block-card-grid__card">
+                {% endif %}
+
                     {% if card.image %}
                         <div class="derafu-block-card-grid__image">
-                            <img src="{{ card.image }}" alt="{{ card.title }}" class="img-fluid">
+                            <img src="{{ card.image }}" alt="{{ card.title }}">
                         </div>
                     {% endif %}
 
-                    <div class="derafu-block-card-grid__content">
+                    {% if card.icon %}
+                        <div class="derafu-block-card-grid__icon">
+                            <span class="{{ card.icon }}"></span>
+                        </div>
+                    {% endif %}
+
+                    <div class="derafu-block-card-grid__body">
+                        {% if card.label %}
+                            <p class="derafu-block-card-grid__label">{{ card.label }}</p>
+                        {% endif %}
+
                         {% if card.title %}
                             <h3 class="derafu-block-card-grid__title">{{ card.title|raw }}</h3>
                         {% endif %}
@@ -32,16 +47,21 @@
                     {% if card.buttonText %}
                         <div class="derafu-block-card-grid__footer">
                             <a href="{{ card.buttonUrl }}"
-                            class="btn w-100
-                                    {% if card.buttonColor is defined and card.buttonColor %}btn-{{ card.buttonColor }}{% else %}btn-primary{% endif %}
-                                    {% if card.buttonUrl is empty %}disabled{% endif %}"
-                            role="button"
-                            {% if card.buttonStyle is defined and card.buttonStyle %}style="{{ card.buttonStyle }}"{% endif %}>
+                               class="btn w-100
+                                       {% if card.buttonColor is defined and card.buttonColor %}btn-{{ card.buttonColor }}{% else %}btn-primary{% endif %}
+                                       {% if card.buttonUrl is empty %}disabled{% endif %}"
+                               role="button"
+                               {% if card.buttonStyle is defined and card.buttonStyle %}style="{{ card.buttonStyle }}"{% endif %}>
                                 {{ card.buttonText }}
                             </a>
                         </div>
                     {% endif %}
-                </div>
+
+                {% if card.url %}
+                    </a>
+                {% else %}
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
     </div>
