@@ -102,15 +102,18 @@
 /*
   * Grid Images
   */
-.derafu-block-image-grid__image {
+.derafu-block-image-grid .derafu-block-image-grid__image {
   max-height: 100%;
   object-fit: contain;
   filter: grayscale(var(--image-grid-image-grayscale));
   opacity: var(--image-grid-image-opacity);
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
   transition: all var(--image-grid-transition-duration) ease;
 }
 
-.derafu-block-image-grid__item:hover .derafu-block-image-grid__image {
+.derafu-block-image-grid .derafu-block-image-grid__item:hover .derafu-block-image-grid__image {
   filter: grayscale(var(--image-grid-image-hover-grayscale));
   opacity: var(--image-grid-image-hover-opacity);
 }

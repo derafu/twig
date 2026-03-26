@@ -1,1 +1,7 @@
 /* Empty. Just use the bootstrap classes. */
+
+.block-media-list .media-item-image img {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}

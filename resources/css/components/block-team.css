@@ -103,6 +103,8 @@
     height: var(--team-image-size-4);
     object-fit: cover;
     border-radius: var(--team-border-radius);
+    margin: 0;
+    box-shadow: none;
 }
 
 /* Column Number Adjustments */
