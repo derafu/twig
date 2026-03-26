@@ -31,12 +31,12 @@
     --bs-btn-primary-bg: var(--bs-primary, #0d6efd);
     --bs-btn-primary-border-color: var(--bs-primary, #0d6efd);
     --bs-btn-primary-hover-color: var(--bs-white, #fff);
-    --bs-btn-primary-hover-bg: var(--bs-btn-primary-hover-bg, #0b5ed7);
-    --bs-btn-primary-hover-border-color: var(--bs-btn-primary-hover-border-color, #0a58ca);
-    --bs-btn-primary-focus-shadow-rgb: var(--bs-btn-primary-focus-shadow-rgb, 49, 132, 253);
+    --bs-btn-primary-hover-bg: #0b5ed7;
+    --bs-btn-primary-hover-border-color: #0a58ca;
+    --bs-btn-primary-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-primary-active-color: var(--bs-white, #fff);
-    --bs-btn-primary-active-bg: var(--bs-btn-primary-active-bg, #0a58ca);
-    --bs-btn-primary-active-border-color: var(--bs-btn-primary-active-border-color, #0a53be);
+    --bs-btn-primary-active-bg: #0a58ca;
+    --bs-btn-primary-active-border-color: #0a53be;
 
     /* Dropdown Specific Styles */
     --bs-dropdown-link-hover-bg: var(--bs-gray-100, #f8f9fa);
