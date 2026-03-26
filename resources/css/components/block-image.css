@@ -101,6 +101,9 @@
     box-shadow: 0 4px 6px var(--image-shadow);
     height: auto;
     display: block;
+  }
+
+  .derafu-block-image--center .derafu-block-image__image img {
     margin: 0 auto;
   }
 
