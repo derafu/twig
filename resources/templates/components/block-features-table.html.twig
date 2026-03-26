@@ -6,13 +6,13 @@
             <thead>
                 <tr>
                     <th class="derafu-block-features-table__header derafu-block-features-table__header--feature">{{ this.title|raw }}</th>
-                    {% for plan in features|filter(feature => feature.values is defined)|first.values|keys %}
+                    {% for plan in this.features|filter(feature => feature.values is defined)|first.values|keys %}
                         <th class="derafu-block-features-table__header">{{ plan }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                {% for feature in features %}
+                {% for feature in this.features %}
                     {% if feature.isHeader %}
                         {# Esta es una fila de encabezado de sección #}
                         <tr class="derafu-block-features-table__row derafu-block-features-table__row--header">

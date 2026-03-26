@@ -57,21 +57,21 @@ class VideoComponent extends AbstractComponent
      *
      * @var string
      */
-    private string $size;
+    private string $size = 'normal';
 
     /**
      * Video alignment.
      *
      * @var string
      */
-    private string $align;
+    private string $align = 'center';
 
     /**
      * Video aspect ratio.
      *
      * @var string
      */
-    private string $aspectRatio;
+    private string $aspectRatio = '16:9';
 
     /**
      * Gets the video title.

@@ -29,11 +29,6 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(TwigCreator::class)]
 class TwigServiceTest extends TestCase
 {
-    public function testRender(): void
-    {
-        $this->markTestIncomplete('Implement testRender() method.');
-    }
-
     public function testRenderFromString(): void
     {
         $twigService = new TwigService(['extra' => false]);

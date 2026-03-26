@@ -1,16 +1,16 @@
 {# templates/components/block-grid.html.twig #}
 
 <div class="derafu-block-grid {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
-    {% if cols is not empty %}
-        <div style="display: grid; grid-template-columns: repeat({{ cols }}, 1fr); gap: 10px;">
-            {% for item in items %}
+    {% if this.cols is not empty %}
+        <div style="display: grid; grid-template-columns: repeat({{ this.cols }}, 1fr); gap: 10px;">
+            {% for item in this.items %}
                 <div class="derafu-block-grid__item">
                     {{ item|raw }}
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        {% set total = items|length %}
+        {% set total = this.items|length %}
 
         {# Determinar el tamaño base de filas #}
         {% set baseRowSize = 0 %}
@@ -49,7 +49,7 @@
 
                 <div class="derafu-block-grid__row">
                     {% for j in range(0, rowSize - 1) %}
-                        {% set item = items[offset + j] %}
+                        {% set item = this.items[offset + j] %}
                         <div class="derafu-block-grid__item derafu-block-grid__item--{{ rowSize }}">
                             {{ item|raw }}
                         </div>

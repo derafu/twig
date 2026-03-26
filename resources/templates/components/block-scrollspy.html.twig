@@ -10,10 +10,10 @@
     {# Navigation List - automatically adjusts based on device #}
     <div class="derafu-block-scrollspy__list col-md-{{ this.cols }} col-12">
         <div
-            id="{% if orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
+            id="{% if this.orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
             class="list-group {% if orientation != 'vertical' %}list-group-{{ orientation }}{% else %}list-group-horizontal-md d-md-block{% endif %}"
         >
-            {% for section in sections %}
+            {% for section in this.sections %}
                 <div class="derafu-block-scrollspy__list-item">
                     <a class="list-group-item list-group-item-action" href="#{{ section.id }}">
                         {% if section.icon %}<i class="fas {{ section.icon }} me-2"></i>{% endif %}
@@ -74,11 +74,11 @@
                 // On desktop: keep original configuration.
                 {% if this.orientation == 'horizontal' %}
                     scrollspyContent.setAttribute('data-bs-orientation', 'horizontal');
-                    scrollspyContent.style.height = '{{ height }}';
+                    scrollspyContent.style.height = '{{ this.height }}';
                     scrollspyContent.style.overflowY = 'scroll';
                 {% else %}
                     scrollspyContent.setAttribute('data-bs-orientation', 'vertical');
-                    scrollspyContent.style.height = '{{ height }}';
+                    scrollspyContent.style.height = '{{ this.height }}';
                     scrollspyContent.style.overflowY = 'scroll';
 
                     // Ensure the menu is vertical on desktop if configured.

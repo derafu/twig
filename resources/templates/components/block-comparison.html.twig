@@ -2,7 +2,7 @@
 
 <div class="derafu-block-comparison {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     <div class="row g-4">
-        {% for plan in plans %}
+        {% for plan in this.plans %}
             <div class="col-12 {% if plans|length == 2 %}col-lg-6
                 {% elseif plans|length == 3 %}col-lg-4
                 {% else %}col-lg-3{% endif %}">

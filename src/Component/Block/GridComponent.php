@@ -23,7 +23,7 @@ class GridComponent extends AbstractComponent
      *
      * @var array
      */
-    private array $items;
+    private array $items = [];
 
     /**
      * Number of columns in the grid layout.

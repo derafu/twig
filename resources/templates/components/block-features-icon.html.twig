@@ -1,7 +1,7 @@
 {# templates/components/block-features-icon.html.twig #}
 
 <div class="derafu-block-features-icon {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
-    {% set total = features|length %}
+    {% set total = this.features|length %}
 
     {# Primero determinamos el tamaño base de filas que usaremos #}
     {% set baseRowSize = 0 %}
@@ -40,7 +40,7 @@
 
             <div class="derafu-block-features-icon__row{% if rowSize < 3 %} derafu-block-features-icon__row--centered{% endif %}">
                 {% for j in range(0, rowSize - 1) %}
-                    {% set feature = features[offset + j] %}
+                    {% set feature = this.features[offset + j] %}
                     <div class="derafu-block-features-icon__item derafu-block-features-icon__item--{{ rowSize }}">
                         <div class="derafu-block-features-icon__icon">
                             <i class="{{ feature.icon }}"></i>
