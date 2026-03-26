@@ -10,7 +10,7 @@
                 <div class="derafu-block-comparison__plan {% if plan.highlighted %}derafu-block-comparison__plan--highlighted{% endif %}">
                     {# Title section #}
                     <div class="derafu-block-comparison__title-section {% if plan.highlighted %}derafu-block-comparison__title-section--highlighted{% endif %}">
-                        <h3 class="derafu-block-comparison__title">{{ plan.title }}</h3>
+                        <h3 class="derafu-block-comparison__title">{{ plan.title|raw }}</h3>
                     </div>
 
                     {# Price section #}

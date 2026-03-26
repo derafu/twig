@@ -19,7 +19,7 @@
 
                     <div class="derafu-block-card-grid__content">
                         {% if card.title %}
-                            <h3 class="derafu-block-card-grid__title">{{ card.title }}</h3>
+                            <h3 class="derafu-block-card-grid__title">{{ card.title|raw }}</h3>
                         {% endif %}
 
                         {% if card.content %}

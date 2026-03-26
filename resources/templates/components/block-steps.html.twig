@@ -12,7 +12,7 @@
                 <div class="derafu-block-steps__icon">
                     <i class="{{ step.icon }}"></i>
                 </div>
-                <h3 class="derafu-block-steps__title">{{ step.title }}</h3>
+                <h3 class="derafu-block-steps__title">{{ step.title|raw }}</h3>
                 <div class="derafu-block-steps__content">
                     {{ step.content|raw }}
                 </div>

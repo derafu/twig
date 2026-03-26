@@ -9,7 +9,7 @@
         {# Text Column #}
         <div class="col-md-{{ this.cols }} {% if this.imagePosition == 'left' %}order-md-2{% endif %}">
             <div class="derafu-block-text-image__content">
-                <h2 class="derafu-block-text-image__title">{{ this.title }}</h2>
+                <h2 class="derafu-block-text-image__title">{{ this.title|raw }}</h2>
                 <div class="derafu-block-text-image__text">
                     {{ this.content|raw }}
                 </div>

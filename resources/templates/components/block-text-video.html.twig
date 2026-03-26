@@ -9,7 +9,7 @@
         {# Text Column #}
         <div class="col-12 col-md-{{ this.cols }} {% if this.videoPosition == 'left' %}order-md-2{% endif %}">
             <div class="derafu-block-text-video__content">
-                <h2 class="derafu-block-text-video__title">{{ this.title }}</h2>
+                <h2 class="derafu-block-text-video__title">{{ this.title|raw }}</h2>
                 <div class="derafu-block-text-video__text">
                     {{ this.content|raw }}
                 </div>

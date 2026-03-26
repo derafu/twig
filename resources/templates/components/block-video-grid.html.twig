@@ -29,7 +29,7 @@
                     {% if video.title or video.content %}
                         <div class="derafu-block-video-grid__content">
                             {% if video.title %}
-                                <h3 class="derafu-block-video-grid__title">{{ video.title }}</h3>
+                                <h3 class="derafu-block-video-grid__title">{{ video.title|raw }}</h3>
                             {% endif %}
 
                             {% if video.content %}
