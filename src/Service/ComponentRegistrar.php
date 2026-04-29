@@ -92,7 +92,10 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         return [
             'propertyAccessor' => PropertyAccess::createPropertyAccessor(),
             'eventDispatcher' => new EventDispatcher(),
-            'templateFinder' => new ComponentTemplateFinder($twig, 'components'),
+            'templateFinder' => new ComponentTemplateFinder(
+                $twig->getLoader(),
+                'components'
+            ),
         ];
     }
 
