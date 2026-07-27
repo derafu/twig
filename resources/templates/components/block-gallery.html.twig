@@ -1,0 +1,165 @@
+{# templates/components/block-gallery.html.twig #}
+
+<div class="derafu-block-gallery derafu-block-gallery--columns-{{ this.cols }} {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
+    <div class="derafu-block-gallery__grid">
+        {% for item in this.items %}
+            <div
+                class="derafu-block-gallery__item"
+                data-bs-toggle="modal"
+                data-bs-target="#{{ this.id }}-lightbox"
+                data-index="{{ loop.index0 }}"
+                role="button"
+                tabindex="0"
+            >
+                {% if item.video is defined and item.video %}
+                    <div
+                        class="derafu-block-gallery__thumbnail derafu-block-gallery__thumbnail--video"
+                        {% if item.thumbnail %}style="background-image: url('{{ item.thumbnail }}');"{% endif %}
+                    >
+                        <span class="derafu-block-gallery__play-icon">
+                            <i class="fa-solid fa-play"></i>
+                        </span>
+                    </div>
+                {% else %}
+                    <img
+                        src="{{ item.thumbnail|default(item.image) }}"
+                        alt="{{ item.alt|default('') }}"
+                        class="derafu-block-gallery__thumbnail"
+                        {% if item.alt %}data-bs-toggle="tooltip" title="{{ item.alt }}"{% endif %}
+                    >
+                {% endif %}
+
+                {% if item.caption %}
+                    <div class="derafu-block-gallery__caption">{{ item.caption }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="modal fade derafu-block-gallery__modal" id="{{ this.id }}-lightbox" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-{{ this.size }} modal-dialog-centered">
+            <div class="modal-content">
+                <button
+                    type="button"
+                    class="btn-close derafu-block-gallery__close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+
+                <div
+                    id="{{ this.id }}-carousel"
+                    class="carousel slide derafu-block-gallery__carousel"
+                    data-bs-interval="false"
+                    tabindex="0"
+                >
+                    <div class="carousel-inner">
+                        {% for item in this.items %}
+                            <div class="carousel-item{% if loop.first %} active{% endif %}">
+                                <div class="derafu-block-gallery__slide">
+                                    {% if item.video is defined and item.video %}
+                                        <div class="derafu-block-gallery__media derafu-block-gallery__media--video">
+                                            <iframe
+                                                class="derafu-block-gallery__player"
+                                                data-src="{{ item.video|replace({'watch?v=': 'embed/'}) }}"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen
+                                            ></iframe>
+
+                                            {% if item.caption %}
+                                                <div class="derafu-block-gallery__carousel-caption">
+                                                    {{ item.caption|raw }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% else %}
+                                        <div class="derafu-block-gallery__media derafu-block-gallery__media--image">
+                                            <img
+                                                src="{{ item.image }}"
+                                                alt="{{ item.alt|default('') }}"
+                                                class="derafu-block-gallery__media-img"
+                                            >
+
+                                            {% if item.caption %}
+                                                <div class="derafu-block-gallery__carousel-caption">
+                                                    {{ item.caption|raw }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    {% if this.items|length > 1 %}
+                        <button class="carousel-control-prev" type="button" data-bs-target="#{{ this.id }}-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#{{ this.id }}-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const root = document.getElementById('{{ this.id }}');
+        if (!root) {
+            return;
+        }
+
+        const modalEl = document.getElementById('{{ this.id }}-lightbox');
+        const carouselEl = document.getElementById('{{ this.id }}-carousel');
+        if (!modalEl || !carouselEl) {
+            return;
+        }
+
+        const carousel = new bootstrap.Carousel(carouselEl, {
+            interval: false,
+            wrap: true,
+        });
+
+        function loadActiveVideo() {
+            const iframe = carouselEl.querySelector('.carousel-item.active iframe[data-src]');
+            if (iframe && !iframe.getAttribute('src')) {
+                iframe.setAttribute('src', iframe.getAttribute('data-src'));
+            }
+        }
+
+        function unloadVideos() {
+            carouselEl.querySelectorAll('iframe[data-src]').forEach(function (iframe) {
+                iframe.removeAttribute('src');
+            });
+        }
+
+        root.querySelectorAll('.derafu-block-gallery__item').forEach(function (item) {
+            item.addEventListener('click', function () {
+                carousel.to(parseInt(item.getAttribute('data-index'), 10));
+            });
+            item.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    item.click();
+                }
+            });
+        });
+
+        carouselEl.addEventListener('slide.bs.carousel', unloadVideos);
+        carouselEl.addEventListener('slid.bs.carousel', loadActiveVideo);
+
+        modalEl.addEventListener('shown.bs.modal', function () {
+            carouselEl.focus();
+            loadActiveVideo();
+        });
+        modalEl.addEventListener('hidden.bs.modal', unloadVideos);
+    });
+</script>
+{% endblock %}

@@ -113,6 +113,14 @@ class BlockComponentsTest extends TestCase
                 [],
                 'derafu-block-footer',
             ],
+            'gallery' => [
+                '<twig:block-gallery :items="items" />',
+                ['items' => [
+                    ['image' => '/img/test.jpg', 'caption' => 'Foto'],
+                    ['video' => 'https://www.youtube.com/watch?v=test', 'caption' => 'Video'],
+                ]],
+                'derafu-block-gallery',
+            ],
             'grid' => [
                 '<twig:block-grid :items="items" :cols="cols" />',
                 ['items' => ['<p>Item 1</p>', '<p>Item 2</p>'], 'cols' => 2],

@@ -176,6 +176,7 @@
    * Fullscreen Modal
    */
   .modal-dialog.modal-fullscreen {
+    max-width: none;
     margin: var(--modal-margin);
     padding: var(--modal-padding);
   }
