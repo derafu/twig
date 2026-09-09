@@ -28,13 +28,14 @@
         "php": "^8.5",
         "symfony/ux-twig-component": "^2.32",
         "symfony/cache": "^8.0",
-        "psr/http-server-middleware": "^1.0"
+        "psr/http-server-middleware": "^1.0",
+        "derafu/translation": "dev-main"
     },
     "require-dev": {
         "ext-xdebug": "*",
-        "friendsofphp/php-cs-fixer": "^3.94",
-        "phpstan/phpstan": "^1.12",
-        "phpunit/phpunit": "^11.5",
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^13.2",
         "twig/cssinliner-extra": "^3.23",
         "twig/intl-extra": "^3.23",
         "twig/string-extra": "^3.23",
