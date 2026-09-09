@@ -31,12 +31,14 @@ use Twig\TokenParser\AbstractTokenParser;
  * scanning the message text: they must always be passed explicitly through
  * `with`. This is deliberate, not a missing feature — see `TransNode`.
  *
- * Do not use this tag for an ICU message with a plural/select construct
- * (e.g. `{count, plural, ...}`): a literal `{#` in the message text is
- * lexed by Twig itself as a comment start, before this parser ever runs.
- * Use the `trans`/`t()` filter/function instead, whose message is a Twig
- * string literal and is never affected by this. See
- * `Derafu\Twig\Extension\TranslationExtension`.
+ * Never use the bare `#` ICU plural shorthand (e.g. `{count, plural, one
+ * {# item} ...}`) in any message here: a literal `{#` in raw template text
+ * is lexed by Twig itself as a comment start, before this parser ever
+ * runs. See the caveat on `Derafu\Twig\Extension\TranslationExtension` for
+ * the safe alternative (a second argument alias, not a literal `{count}`
+ * reference to the same plural argument — that fails too, just
+ * differently) — it applies here too, and in some cases to `trans`/`t()`
+ * as well.
  */
 final class TransTokenParser extends AbstractTokenParser
 {

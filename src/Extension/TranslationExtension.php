@@ -36,17 +36,40 @@ use Twig\TwigFunction;
  * keeps it compatible with simple ICU messages (`{name}`), unlike Symfony's
  * own text-scanning approach, which was never designed for ICU at all.
  *
- * The `{% trans %}` tag CANNOT be used for an ICU message containing a
- * plural/select construct (e.g. `{count, plural, one {# item} other {#
- * items}}`): Twig's own lexer treats a literal `{#` anywhere in template
- * text as the start of a `{# comment #}`, before this extension's code ever
- * runs, breaking the whole template (or worse, silently swallowing content
- * up to the next `#}`, if the message happens to contain one). This is not
- * a limitation of this extension: it applies to any raw template text, and
- * is unrelated to translation. It does not affect the `trans`/`t()` message
- * argument, since a Twig string literal is lexed literally and is not
- * scanned for `{{`/`{%`/`{#`. Any ICU message with a plural/select
- * construct must go through `trans`/`t()`, never through `{% trans %}`.
+ * A literal `{#` anywhere in raw template text (outside a string literal)
+ * is always lexed by Twig itself as the start of a `{# comment #}`, before
+ * this extension's code ever runs — so the `{% trans %}` tag CANNOT be used
+ * for an ICU message with a plural/select construct that uses the bare `#`
+ * shorthand (e.g. `{count, plural, one {# item} other {# items}}`): it
+ * breaks the whole template (or worse, silently swallows content up to the
+ * next `#}`, if the message happens to contain one). This is not a
+ * limitation of this extension; it is unrelated to translation.
+ *
+ * In an environment with only Twig's own extensions, a `{#` inside a
+ * *string literal* argument to `trans`/`t()` is safe (the string is lexed
+ * literally, not scanned for `{{`/`{%`/`{#`). **This safety does not
+ * necessarily hold once `symfony/ux-twig-component` is registered** (the
+ * runtime behind `<twig:...>` component tags): a real case was found where
+ * the exact same `{#` inside a `trans` filter's string argument, in a
+ * template that also uses a `<twig:...>` component and `{% extends %}`,
+ * produced `Twig\Error\SyntaxError: A template that extends another one
+ * cannot include content outside Twig blocks` — an unrelated-sounding
+ * error, with no `ux-twig-component`-specific message to point at the real
+ * cause. The exact mechanism inside `ux-twig-component` was not identified
+ * (it is a third-party dependency, not code in this package), but the
+ * trigger was confirmed by bisection to be exactly the `{#` substring.
+ *
+ * The fix is NOT to replace `#` with a literal `{count}` reference to the
+ * same plural argument: real ICU (via PHP's `MessageFormatter`, used by
+ * both the fallback and, through Symfony, by a real translator) throws
+ * `U_ARGUMENT_TYPE_MISMATCH` when the same argument name is used both as
+ * the plural selector and as a literal `{name}` reference inside a branch
+ * — `#` exists specifically to avoid that conflict, it is not
+ * interchangeable with a named reference. **The safe fix is to pass the
+ * same value under two different argument names**: one used only for
+ * plural selection, one only for display, e.g.
+ * `{count, plural, one {{n} item} other {{n} items}}` called as
+ * `trans({'count': value, 'n': value})`.
  *
  * When no translator is configured, `trans` falls back to
  * `TranslatableMessage::__toString()`, which still applies ICU formatting.
