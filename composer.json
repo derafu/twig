@@ -35,7 +35,7 @@
         "ext-xdebug": "*",
         "friendsofphp/php-cs-fixer": "^3.95",
         "phpstan/phpstan": "^2.2",
-        "phpunit/phpunit": "^13.2",
+        "phpunit/phpunit": "^13.4",
         "twig/cssinliner-extra": "^3.23",
         "twig/intl-extra": "^3.23",
         "twig/string-extra": "^3.23",
