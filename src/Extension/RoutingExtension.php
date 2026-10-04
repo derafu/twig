@@ -15,7 +15,7 @@ namespace Derafu\Twig\Extension;
 use Derafu\Routing\Contract\RouterInterface;
 use Derafu\Routing\Enum\UrlReferenceType;
 use Derafu\Routing\Exception\RouteNotFoundException;
-use LogicException;
+use Derafu\Translation\Exception\Core\TranslatableLogicException as LogicException;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

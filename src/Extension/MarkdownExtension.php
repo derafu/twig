@@ -14,7 +14,7 @@ namespace Derafu\Twig\Extension;
 
 use Derafu\Markdown\Contract\MarkdownServiceInterface;
 use Derafu\Markdown\Service\MarkdownService;
-use LogicException;
+use Derafu\Translation\Exception\Core\TranslatableLogicException as LogicException;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

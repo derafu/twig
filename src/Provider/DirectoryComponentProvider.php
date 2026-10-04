@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Provider;
 
+use Derafu\Translation\Exception\Logic\TranslatableInvalidArgumentException as InvalidArgumentException;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Contract\ComponentProviderInterface;
-use InvalidArgumentException;
 use Psr\Cache\CacheItemPoolInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -30,10 +30,10 @@ class DirectoryComponentProvider implements ComponentProviderInterface
         private string $cacheKey = 'derafu_twig_components_dir_%s'
     ) {
         if (!is_dir($directory)) {
-            throw new InvalidArgumentException(sprintf(
-                'Directory "%s" does not exist.',
-                $directory
-            ));
+            throw new InvalidArgumentException([
+                'Directory "{directory}" does not exist.',
+                'directory' => $directory,
+            ]);
         }
         $this->cache = $cache ?? new CacheItemPool();
         $this->cacheKey = sprintf($this->cacheKey, hash('sha256', $directory));

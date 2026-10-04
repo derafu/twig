@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Exception;
 
-use Exception;
+use Derafu\Translation\Exception\Core\TranslatableException;
 
 /**
  * Custom exception for Derafu Twig.
  */
-class TwigException extends Exception
+class TwigException extends TranslatableException
 {
 }

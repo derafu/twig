@@ -42,7 +42,11 @@
         "twig/inky-extra": "^3.23",
         "symfony/string": "^8.0",
         "derafu/routing": "dev-main",
-        "derafu/markdown": "dev-main"
+        "derafu/markdown": "dev-main",
+        "nikic/php-parser": "^5.9"
+    },
+    "suggest": {
+        "nikic/php-parser": "Required by the tests of the messages of the package (Derafu\\Translation\\Lint reads the code)."
     },
     "scripts": {
         "docs": "php tools/phpdocumentor run --config=phpdoc.xml",
