@@ -13,12 +13,19 @@ declare(strict_types=1);
 namespace Derafu\TestsTwig\Lint;
 
 use Derafu\Translation\Lint\MessageReference;
+use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Lint\TemplateFinder;
 use Derafu\Twig\Lint\TemplateMessageScanner;
+use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\Node\TransDefaultDomainNode;
 use Derafu\Twig\Node\TransNode;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
+use Derafu\Twig\Provider\AllComponentProvider;
+use Derafu\Twig\Provider\DirectoryComponentProvider;
+use Derafu\Twig\Service\ComponentRegistrar;
+use Derafu\Twig\Service\TwigCreator;
+use Derafu\Twig\Service\TwigService;
 use Derafu\Twig\TokenParser\TransDefaultDomainTokenParser;
 use Derafu\Twig\TokenParser\TransTokenParser;
 use LogicException;
@@ -42,6 +49,13 @@ use Twig\Loader\FilesystemLoader;
  */
 #[CoversClass(TemplateMessageScanner::class)]
 #[UsesClass(TemplateFinder::class)]
+#[UsesClass(TwigService::class)]
+#[UsesClass(TwigCreator::class)]
+#[UsesClass(ComponentRegistrar::class)]
+#[UsesClass(AllComponentProvider::class)]
+#[UsesClass(DirectoryComponentProvider::class)]
+#[UsesClass(CacheItemPool::class)]
+#[UsesClass(TemplateSource::class)]
 #[UsesClass(TranslationExtension::class)]
 #[UsesClass(TransNode::class)]
 #[UsesClass(TransDefaultDomainNode::class)]
@@ -77,6 +91,27 @@ final class TemplateMessageScannerTest extends TestCase
         }
 
         rmdir($path);
+    }
+
+    /**
+     * An environment with components (the code of the templates is written
+     * again before Twig parses it), over templates in a directory.
+     *
+     * @param array<string, string> $templates
+     */
+    private function componentsEnvironment(array $templates): Environment
+    {
+        $directory = sys_get_temp_dir() . '/derafu-twig-components-' . bin2hex(random_bytes(4));
+        mkdir($directory);
+        $this->directories[] = $directory;
+        foreach ($templates as $name => $source) {
+            file_put_contents($directory . '/' . $name, $source);
+        }
+
+        return (new TwigService([
+            'extra' => false,
+            'paths' => [$directory, (string) realpath(__DIR__ . '/../../../resources/templates')],
+        ]))->getTwig();
     }
 
     private function environment(string $source): Environment
@@ -281,6 +316,27 @@ final class TemplateMessageScannerTest extends TestCase
         $this->expectException(LogicException::class);
 
         (new TemplateMessageScanner(new Environment(new ArrayLoader(['t.twig' => 'text']))))->scanTemplate('t.twig');
+    }
+
+    public function testTheLineIsTheOneOfTheFileAlsoWithComponents(): void
+    {
+        $twig = $this->componentsEnvironment([
+            't.html.twig' => "<p>one</p>\n<twig:block-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<p>{{ 'Hello'|trans }}</p>\n<p>{{ text|trans }}</p>",
+        ]);
+
+        $references = (new TemplateMessageScanner($twig))->scanTemplate('t.html.twig');
+
+        $this->assertSame(['Hello', null], array_map(fn (MessageReference $r) => $r->id, $references));
+        $this->assertSame([6, 7], array_map(fn (MessageReference $r) => $r->line, $references));
+        $this->assertSame('t.html.twig: <p>{{ text|trans }}</p>', $references[1]->identity());
+    }
+
+    public function testAMessageThatTwigCopiesIsFoundOnce(): void
+    {
+        $references = $this->scan("{{ name|default('Hello'|trans) }}\n{{ name|default('Hello'|trans) }}");
+
+        $this->assertSame([['Hello', 'messages'], ['Hello', 'messages']], $this->messages($references));
+        $this->assertSame([1, 2], array_map(fn (MessageReference $r) => $r->line, $references));
     }
 
     public function testItScansADirectoryInOrderOfTemplate(): void

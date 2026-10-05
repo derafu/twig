@@ -19,6 +19,7 @@ use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Lint\RouteReference;
 use Derafu\Twig\Lint\RouteReferenceScanner;
 use Derafu\Twig\Lint\TemplateFinder;
+use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
 use Derafu\Twig\Provider\AllComponentProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
@@ -53,6 +54,7 @@ use Twig\TwigFunction;
 #[CoversClass(RouteReference::class)]
 #[UsesClass(RoutingExtension::class)]
 #[UsesClass(TemplateFinder::class)]
+#[UsesClass(TemplateSource::class)]
 #[UsesClass(TranslationExtension::class)]
 #[UsesClass(TranslationDefaultDomainNodeVisitor::class)]
 #[UsesClass(TransDefaultDomainTokenParser::class)]
@@ -201,6 +203,30 @@ final class RouteReferenceScannerTest extends TestCase
             ['in_filter', 'in_for', 'in_macro', 'in_set', 'inner', 'outer'],
             $names
         );
+    }
+
+    public function testTheLineIsTheOneOfTheFileAlsoWithComponents(): void
+    {
+        $directory = $this->directoryWith([
+            'page.html.twig' => "<p>one</p>\n<twig:block-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<a href=\"{{ path('docs') }}\">x</a>",
+        ]);
+
+        $service = new TwigService([
+            'extra' => false,
+            'paths' => [$directory, realpath(__DIR__ . '/../../../resources/templates')],
+            'extensions' => [new RoutingExtension(new Router())],
+        ]);
+
+        $references = (new RouteReferenceScanner($service->getTwig()))->scanTemplate('page.html.twig');
+
+        $this->assertSame([6], array_map(fn (RouteReference $r) => $r->line, $references));
+    }
+
+    public function testAReferenceThatTwigCopiesIsFoundOnce(): void
+    {
+        $references = $this->scan("{{ name|default(path('docs')) }}\n{{ name|default(path('docs')) }}");
+
+        $this->assertSame([['docs', 1], ['docs', 2]], array_map(fn (RouteReference $r) => [$r->name, $r->line], $references));
     }
 
     public function testItAcceptsTheNameAsANamedArgument(): void

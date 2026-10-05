@@ -63,6 +63,9 @@ final class TwigTranslationAudit
      * environment, or `null` if it has none (`messages`).
      * @param list<string> $allowedTexts Texts that the templates write and are
      * allowed to not be translated, by the whole text.
+     * @param list<string> $textFormats The formats of the templates whose texts
+     * are read (see `TemplateTextScanner`): the templates of other formats
+     * (Markdown, XML) are not HTML. The messages are read in all of them.
      * @throws \InvalidArgumentException If a directory does not exist.
      * @throws \PhpParser\Error If a file of the code can not be parsed.
      * @throws \Twig\Error\Error If a template can not be loaded or parsed.
@@ -76,7 +79,8 @@ final class TwigTranslationAudit
         array $allowedThrowables = [],
         array $messageMethods = [],
         ?string $defaultDomain = null,
-        array $allowedTexts = []
+        array $allowedTexts = [],
+        array $textFormats = TemplateTextScanner::FORMATS
     ): TwigTranslationAuditReport {
         // The catalogues are read twice, by this and by the audit of the code.
         $providers = $providers instanceof TranslationResourceProviderInterface
@@ -87,7 +91,7 @@ final class TwigTranslationAudit
 
         $references = (new TemplateMessageScanner($twig, $defaultDomain))->scanDirectory($templates);
         $texts = array_values(array_filter(
-            (new TemplateTextScanner($twig))->scanDirectory($templates),
+            (new TemplateTextScanner($twig, formats: $textFormats))->scanDirectory($templates),
             fn (TemplateText $text) => !in_array($text->text, $allowedTexts, true)
         ));
 

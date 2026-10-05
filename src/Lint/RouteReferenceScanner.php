@@ -55,12 +55,12 @@ final class RouteReferenceScanner
     {
         $functions = $this->routingFunctions();
 
-        $source = $this->twig->getLoader()->getSourceContext($name);
-        $ast = $this->twig->parse($this->twig->tokenize($source));
+        $template = TemplateSource::load($this->twig, $name);
 
-        $references = [];
-        $this->collect($ast, $name, $functions, $references);
+        $found = [];
+        $this->collect($template->ast, $template, $functions, $found);
 
+        $references = array_values($found);
         usort($references, fn (RouteReference $a, RouteReference $b) => $a->line <=> $b->line);
 
         return $references;
@@ -122,16 +122,22 @@ final class RouteReferenceScanner
 
     /**
      * @param list<string> $functions
-     * @param list<RouteReference> $references
+     * @param array<string, RouteReference> $references
      */
-    private function collect(Node $node, string $template, array $functions, array &$references): void
+    private function collect(Node $node, TemplateSource $template, array $functions, array &$references): void
     {
         if ($node instanceof FunctionExpression && in_array($node->getAttribute('name'), $functions, true)) {
-            $references[] = new RouteReference(
+            $parsedLine = $node->getTemplateLine();
+            $name = $this->routeName($node);
+
+            // Twig can have more than one node for what the template writes
+            // once (it copies the node of a filter that it uses twice): it is
+            // the same reference, in the same place.
+            $references[$parsedLine . "\0" . $node->getAttribute('name') . "\0" . $name] ??= new RouteReference(
                 $node->getAttribute('name'),
-                $this->routeName($node),
-                $template,
-                $node->getTemplateLine()
+                $name,
+                $template->name,
+                $template->line($parsedLine)
             );
         }
 

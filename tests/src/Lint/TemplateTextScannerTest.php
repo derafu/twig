@@ -12,13 +12,20 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwig\Lint;
 
+use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Lint\TemplateFinder;
+use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\Lint\TemplateText;
 use Derafu\Twig\Lint\TemplateTextScanner;
 use Derafu\Twig\Node\TransDefaultDomainNode;
 use Derafu\Twig\Node\TransNode;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
+use Derafu\Twig\Provider\AllComponentProvider;
+use Derafu\Twig\Provider\DirectoryComponentProvider;
+use Derafu\Twig\Service\ComponentRegistrar;
+use Derafu\Twig\Service\TwigCreator;
+use Derafu\Twig\Service\TwigService;
 use Derafu\Twig\TokenParser\TransDefaultDomainTokenParser;
 use Derafu\Twig\TokenParser\TransTokenParser;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -41,6 +48,13 @@ use Twig\Loader\FilesystemLoader;
 #[CoversClass(TemplateTextScanner::class)]
 #[CoversClass(TemplateText::class)]
 #[UsesClass(TemplateFinder::class)]
+#[UsesClass(TwigService::class)]
+#[UsesClass(TwigCreator::class)]
+#[UsesClass(ComponentRegistrar::class)]
+#[UsesClass(AllComponentProvider::class)]
+#[UsesClass(DirectoryComponentProvider::class)]
+#[UsesClass(CacheItemPool::class)]
+#[UsesClass(TemplateSource::class)]
 #[UsesClass(TranslationExtension::class)]
 #[UsesClass(TransNode::class)]
 #[UsesClass(TransDefaultDomainNode::class)]
@@ -76,6 +90,27 @@ final class TemplateTextScannerTest extends TestCase
         }
 
         rmdir($path);
+    }
+
+    /**
+     * An environment with components (the code of the templates is written
+     * again before Twig parses it), over templates in a directory.
+     *
+     * @param array<string, string> $templates
+     */
+    private function componentsEnvironment(array $templates): Environment
+    {
+        $directory = sys_get_temp_dir() . '/derafu-twig-components-' . bin2hex(random_bytes(4));
+        mkdir($directory);
+        $this->directories[] = $directory;
+        foreach ($templates as $name => $source) {
+            file_put_contents($directory . '/' . $name, $source);
+        }
+
+        return (new TwigService([
+            'extra' => false,
+            'paths' => [$directory, (string) realpath(__DIR__ . '/../../../resources/templates')],
+        ]))->getTwig();
     }
 
     /**
@@ -280,6 +315,57 @@ final class TemplateTextScannerTest extends TestCase
         $this->scan('{% trans %}{{ not_plain }}{% endtrans %}');
     }
 
+    public function testTheLineIsTheOneOfTheFileAlsoWithComponents(): void
+    {
+        $twig = $this->componentsEnvironment([
+            't.html.twig' => "<p>one</p>\n<twig:block-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<p>two</p>\n{{ x }}\n<i aria-label=\"three\"></i>",
+        ]);
+
+        $texts = (new TemplateTextScanner($twig))->scanTemplate('t.html.twig');
+
+        $this->assertSame(
+            [['one', 1], ['two', 6], ['three', 8]],
+            array_map(fn (TemplateText $t) => [$t->text, $t->line], $texts)
+        );
+    }
+
+    /**
+     * @return array<string, array{string, bool}>
+     */
+    public static function provideTemplateNames(): array
+    {
+        return [
+            'html' => ['page.html.twig', true],
+            'pdf' => ['page.pdf.twig', true],
+            'format in capitals' => ['page.HTML.twig', true],
+            'without format' => ['page.twig', true],
+            'a name with dots and html' => ['my.page.html.twig', true],
+            'markdown' => ['page.md.twig', false],
+            'xml' => ['feed.xml.twig', false],
+            'text' => ['mail.txt.twig', false],
+            'a name with dots and markdown' => ['my.page.md.twig', false],
+        ];
+    }
+
+    #[DataProvider('provideTemplateNames')]
+    public function testOnlyTheTemplatesOfAnHtmlFormatAreRead(string $name, bool $read): void
+    {
+        $twig = new Environment(new ArrayLoader([$name => '<p>Hello</p>']));
+        $twig->addExtension(new TranslationExtension());
+
+        $this->assertSame($read ? ['Hello'] : [], array_map(fn (TemplateText $t) => $t->text, (new TemplateTextScanner($twig))->scanTemplate($name)));
+    }
+
+    public function testTheFormatsThatAreReadCanBeChosen(): void
+    {
+        $twig = new Environment(new ArrayLoader(['a.html.twig' => '<p>Html</p>', 'b.md.twig' => '<p>Markdown</p>']));
+        $twig->addExtension(new TranslationExtension());
+        $scanner = new TemplateTextScanner($twig, formats: ['md']);
+
+        $this->assertSame([], $scanner->scanTemplate('a.html.twig'));
+        $this->assertSame(['Markdown'], array_map(fn (TemplateText $t) => $t->text, $scanner->scanTemplate('b.md.twig')));
+    }
+
     public function testItScansADirectoryInOrderOfTemplate(): void
     {
         $directory = sys_get_temp_dir() . '/derafu-twig-texts-' . bin2hex(random_bytes(4));
@@ -289,6 +375,7 @@ final class TemplateTextScannerTest extends TestCase
         file_put_contents($directory . '/a.twig', '<p>A</p>');
         file_put_contents($directory . '/sub/c.twig', '<p>C</p>');
         file_put_contents($directory . '/ignored.txt', '<p>D</p>');
+        file_put_contents($directory . '/skipped.md.twig', '<p>E</p>');
 
         $twig = new Environment(new FilesystemLoader($directory));
         $twig->addExtension(new TranslationExtension());

@@ -57,6 +57,12 @@ final class TemplateTextScanner
     ];
 
     /**
+     * The formats of the templates that write HTML (`pdf` is HTML that is made a
+     * PDF).
+     */
+    public const FORMATS = ['html', 'pdf'];
+
+    /**
      * What stands for what a template prints, while the HTML is read.
      */
     private const HOLE = "\x00";
@@ -64,10 +70,16 @@ final class TemplateTextScanner
     /**
      * @param Environment $twig The environment the templates are written for.
      * @param list<string> $attributes The attributes whose value a person reads.
+     * @param list<string> $formats The formats of the templates that are read:
+     * the one a template says in its name before `.twig` (`page.html.twig` is
+     * `html`). A template of another format (`list.md.twig`, `feed.xml.twig`) is
+     * not HTML, so its text can not be read in this way and it is skipped. A
+     * template that does not say its format is read.
      */
     public function __construct(
         private readonly Environment $twig,
-        private readonly array $attributes = self::ATTRIBUTES
+        private readonly array $attributes = self::ATTRIBUTES,
+        private readonly array $formats = self::FORMATS
     ) {
     }
 
@@ -75,30 +87,44 @@ final class TemplateTextScanner
      * Finds the texts of a template, in order of line.
      *
      * @param string $name Name of the template, as the loader knows it.
-     * @return list<TemplateText>
+     * @return list<TemplateText> Nothing, if the template is not of a format
+     * that is read.
      * @throws \Twig\Error\Error If the template can not be loaded or parsed with
      * this environment. It is not hidden: a template that can not be read would
      * look like one with no texts.
      */
     public function scanTemplate(string $name): array
     {
-        $source = $this->twig->getLoader()->getSourceContext($name);
-        $ast = $this->twig->parse($this->twig->tokenize($source));
+        if (!$this->isRead($name)) {
+            return [];
+        }
+
+        $template = TemplateSource::load($this->twig, $name);
 
         $html = '';
         $lines = [];
-        $this->flatten($ast, $html, $lines);
-
-        $file = $source->getPath() !== '' ? $source->getPath() : $name;
+        $this->flatten($template->ast, $html, $lines);
 
         $texts = [];
         foreach ($this->read($html) as [$text, $kind, $offset]) {
-            $texts[] = new TemplateText($text, $kind, $name, $file, $lines[$offset] ?? 1);
+            $texts[] = new TemplateText($text, $kind, $name, $template->file, $template->line($lines[$offset] ?? 1));
         }
 
         usort($texts, fn (TemplateText $a, TemplateText $b) => $a->line <=> $b->line);
 
         return $texts;
+    }
+
+    /**
+     * Whether the template writes a format that is read.
+     */
+    private function isRead(string $name): bool
+    {
+        if (preg_match('/\.([a-z0-9]+)\.twig$/i', $name, $match) !== 1) {
+            return true;
+        }
+
+        return in_array(strtolower($match[1]), $this->formats, true);
     }
 
     /**

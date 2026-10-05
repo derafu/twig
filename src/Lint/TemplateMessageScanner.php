@@ -82,15 +82,12 @@ final class TemplateMessageScanner
             ]);
         }
 
-        $source = $this->twig->getLoader()->getSourceContext($name);
-        $ast = $this->twig->parse($this->twig->tokenize($source));
+        $template = TemplateSource::load($this->twig, $name);
 
-        $lines = explode("\n", $source->getCode());
-        $file = $source->getPath() !== '' ? $source->getPath() : $name;
+        $found = [];
+        $this->collect($template->ast, $template, $found);
 
-        $references = [];
-        $this->collect($ast, $name, $file, $lines, $references);
-
+        $references = array_values($found);
         usort($references, fn (MessageReference $a, MessageReference $b) => $a->line <=> $b->line);
 
         return $references;
@@ -118,10 +115,9 @@ final class TemplateMessageScanner
     }
 
     /**
-     * @param list<string> $lines
-     * @param list<MessageReference> $references
+     * @param array<string, MessageReference> $references
      */
-    private function collect(Node $node, string $name, string $file, array $lines, array &$references): void
+    private function collect(Node $node, TemplateSource $template, array &$references): void
     {
         $reference = match (true) {
             $node instanceof FilterExpression && $this->isFilter($node) => $this->fromFilter($node),
@@ -132,21 +128,25 @@ final class TemplateMessageScanner
 
         if ($reference !== null) {
             [$id, $domain] = $reference;
-            $line = $node->getTemplateLine();
+            $parsedLine = $node->getTemplateLine();
+            $dynamic = $id === null || $domain === null;
 
-            $references[] = new MessageReference(
+            // Twig can have more than one node for what the template writes
+            // once (it copies the node of a filter that it uses twice): it is
+            // the same message, in the same place.
+            $references[$parsedLine . "\0" . $id . "\0" . $domain] ??= new MessageReference(
                 $id,
                 $domain,
                 TranslatableMessage::class,
-                $file,
-                $line,
-                $id === null || $domain === null ? $name : null,
-                $id === null || $domain === null ? trim($lines[$line - 1] ?? '') : null
+                $template->file,
+                $template->line($parsedLine),
+                $dynamic ? $template->name : null,
+                $dynamic ? $template->text($parsedLine) : null
             );
         }
 
         foreach ($node as $child) {
-            $this->collect($child, $name, $file, $lines, $references);
+            $this->collect($child, $template, $references);
         }
     }
 

@@ -17,6 +17,7 @@ use Derafu\Twig\Exception\TwigException;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Lint\TemplateFinder;
 use Derafu\Twig\Lint\TemplateMessageScanner;
+use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\Lint\TemplateText;
 use Derafu\Twig\Lint\TemplateTextScanner;
 use Derafu\Twig\Lint\TwigTranslationAudit;
@@ -45,6 +46,7 @@ use Twig\Loader\FilesystemLoader;
 #[UsesClass(TemplateTextScanner::class)]
 #[UsesClass(TemplateText::class)]
 #[UsesClass(TemplateFinder::class)]
+#[UsesClass(TemplateSource::class)]
 #[UsesClass(TwigException::class)]
 #[UsesClass(TranslationExtension::class)]
 #[UsesClass(TransNode::class)]
