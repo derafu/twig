@@ -15,6 +15,7 @@ namespace Derafu\Twig\Service;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
 use Derafu\Twig\Contract\TwigCreatorInterface;
 use Derafu\Twig\Extension\MarkdownExtension;
+use Derafu\Twig\Extension\TranslationExtension;
 use Twig\Environment;
 use Twig\Extra\CssInliner\CssInlinerExtension;
 use Twig\Extra\Inky\InkyExtension;
@@ -70,6 +71,13 @@ class TwigCreator implements TwigCreatorInterface
         // Add the extensions that are registered.
         foreach ($options['extensions'] as $extension) {
             $twig->addExtension($extension);
+        }
+
+        // The templates of the package are translated, so the translation
+        // extension is always there. If the application registered its own (with
+        // its translator), that one is used.
+        if (!$twig->hasExtension(TranslationExtension::class)) {
+            $twig->addExtension(new TranslationExtension());
         }
 
         // Add extra extensions depending on availability.

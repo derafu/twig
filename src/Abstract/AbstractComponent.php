@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Abstract;
 
+use Derafu\Translation\TranslatableMessage;
 use Derafu\Twig\Exception\TwigComponentException;
 use ReflectionClass;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
@@ -86,16 +87,22 @@ abstract class AbstractComponent
     /**
      * Throws a component exception with the component name and message.
      *
-     * @param string $message The error message.
+     * The message goes inside a sentence of its own that names the component, so
+     * both are translated, each one by its own entry.
+     *
+     * @param string $message The error message, in English, as the id of its
+     * translation.
+     * @param array<string, mixed> $parameters The values of the parameters of
+     * the message.
      * @return void
      */
-    protected function error(string $message): void
+    protected function error(string $message, array $parameters = []): void
     {
-        throw new TwigComponentException(sprintf(
-            'Component %s: %s',
-            $this->getComponentName(),
-            $message
-        ));
+        throw new TwigComponentException([
+            'Component {component}: {message}',
+            'component' => $this->getComponentName(),
+            'message' => new TranslatableMessage($message, $parameters, 'errors'),
+        ]);
     }
 
     /**

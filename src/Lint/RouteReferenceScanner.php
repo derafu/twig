@@ -13,11 +13,7 @@ declare(strict_types=1);
 namespace Derafu\Twig\Lint;
 
 use Derafu\Translation\Exception\Core\TranslatableLogicException as LogicException;
-use Derafu\Translation\Exception\Logic\TranslatableInvalidArgumentException as InvalidArgumentException;
 use Derafu\Twig\Extension\RoutingExtension;
-use FilesystemIterator;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use Twig\Environment;
 use Twig\Node\Expression\ConstantExpression;
 use Twig\Node\Expression\FunctionExpression;
@@ -83,25 +79,7 @@ final class RouteReferenceScanner
      */
     public function scanDirectory(string $directory, string $extension = 'twig'): array
     {
-        if (!is_dir($directory)) {
-            throw new InvalidArgumentException([
-                'The directory {directory} does not exist.',
-                'directory' => $directory,
-            ]);
-        }
-
-        $root = rtrim(realpath($directory) ?: $directory, '/');
-
-        $templates = [];
-        $files = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($root, FilesystemIterator::SKIP_DOTS)
-        );
-        foreach ($files as $file) {
-            if ($file->isFile() && $file->getExtension() === $extension) {
-                $templates[] = substr($file->getPathname(), strlen($root) + 1);
-            }
-        }
-        sort($templates);
+        $templates = (new TemplateFinder())->find($directory, $extension);
 
         $references = [];
         foreach ($templates as $template) {

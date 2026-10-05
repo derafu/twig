@@ -15,13 +15,18 @@ namespace Derafu\TestsTwig\Lint;
 use Derafu\Routing\Router;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Extension\RoutingExtension;
+use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Lint\RouteReference;
 use Derafu\Twig\Lint\RouteReferenceScanner;
+use Derafu\Twig\Lint\TemplateFinder;
+use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
 use Derafu\Twig\Provider\AllComponentProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
 use Derafu\Twig\Service\TwigService;
+use Derafu\Twig\TokenParser\TransDefaultDomainTokenParser;
+use Derafu\Twig\TokenParser\TransTokenParser;
 use InvalidArgumentException;
 use LogicException;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -47,6 +52,11 @@ use Twig\TwigFunction;
 #[CoversClass(RouteReferenceScanner::class)]
 #[CoversClass(RouteReference::class)]
 #[UsesClass(RoutingExtension::class)]
+#[UsesClass(TemplateFinder::class)]
+#[UsesClass(TranslationExtension::class)]
+#[UsesClass(TranslationDefaultDomainNodeVisitor::class)]
+#[UsesClass(TransDefaultDomainTokenParser::class)]
+#[UsesClass(TransTokenParser::class)]
 #[UsesClass(TwigService::class)]
 #[UsesClass(TwigCreator::class)]
 #[UsesClass(ComponentRegistrar::class)]

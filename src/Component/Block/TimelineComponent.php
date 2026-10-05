@@ -94,10 +94,9 @@ class TimelineComponent extends AbstractComponent
             } elseif (is_string($event['date'])) {
                 $event['year'] = (int) substr($event['date'], 0, 4);
             } else {
-                $this->error(sprintf(
-                    'Invalid date format for event: %s',
-                    $event['date'] ?? 'N/A'
-                ));
+                $this->error('Invalid date format for event: {date}', [
+                    'date' => (string) ($event['date'] ?? 'N/A'),
+                ]);
             }
 
             // Determine if the full date should be shown.
