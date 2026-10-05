@@ -17,6 +17,10 @@ return [
     'MarkdownExtension requires Derafu\\Markdown to be installed. Run "composer require derafu/markdown" to enable this extension.' =>
         'MarkdownExtension requiere que Derafu\\Markdown esté instalado. Ejecuta "composer require derafu/markdown" para habilitar esta extensión.',
 
+    // Translations.
+    'The "trans" filter does not take parameters for a message that is already translatable: they are the ones of the message.' =>
+        'El filtro "trans" no recibe parámetros para un mensaje que ya es traducible: son los del mensaje.',
+
     // Components.
     'Component {component}: {message}' =>
         'Componente {component}: {message}',

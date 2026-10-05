@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwig\Extension;
 
+use Derafu\Translation\Exception\Core\TranslatableRuntimeException;
 use Derafu\Translation\TranslatableMessage;
+use Derafu\Twig\Exception\TwigException;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Node\TransDefaultDomainNode;
 use Derafu\Twig\Node\TransNode;
@@ -20,14 +22,18 @@ use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
 use Derafu\Twig\TokenParser\TransDefaultDomainTokenParser;
 use Derafu\Twig\TokenParser\TransTokenParser;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 use Symfony\Component\Translation\Translator;
 use Twig\Environment;
+use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Loader\ArrayLoader as TwigArrayLoader;
+use Twig\Markup;
 
 #[CoversClass(TranslationExtension::class)]
+#[UsesClass(TwigException::class)]
 #[CoversClass(TransDefaultDomainNode::class)]
 #[CoversClass(TransDefaultDomainTokenParser::class)]
 #[CoversClass(TranslationDefaultDomainNodeVisitor::class)]
@@ -269,5 +275,148 @@ class TranslationExtensionTest extends TestCase
         $this->expectExceptionMessage('must be plain text');
 
         $twig->render('bad.html.twig', ['who' => 'Juan']);
+    }
+
+    public function testATranslatableValueIsTranslatedWithItsOwnDomain(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            '{{ message|trans }}|{{ other|trans }}',
+            [
+                'message' => new TranslatableMessage('Save'),
+                'other' => new TranslatableMessage('Bye {name}!', ['name' => 'Ana'], 'other+intl-icu'),
+            ],
+            $extension
+        );
+
+        $this->assertSame('Guardar|Chau Ana!', $html);
+    }
+
+    public function testWhatTFunctionMadeIsTranslatedWithTheDomainOfTheFunction(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            "{{ t('Save')|trans }}|{{ t('Bye {name}!', {'name': 'Ana'}, 'other+intl-icu')|trans }}",
+            [],
+            $extension
+        );
+
+        $this->assertSame('Guardar|Chau Ana!', $html);
+    }
+
+    public function testTheDomainOfTheTemplateDoesNotChangeTheOneOfATranslatableValue(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            "{% trans_default_domain 'other+intl-icu' %}{{ message|trans }}|{{ 'Bye {name}!'|trans({'name': 'Ana'}) }}",
+            ['message' => new TranslatableMessage('Save')],
+            $extension
+        );
+
+        $this->assertSame('Guardar|Chau Ana!', $html);
+    }
+
+    public function testTheLocaleIsUsedForATranslatableValue(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            "{{ message|trans({}, null, 'fr') }}",
+            ['message' => new TranslatableMessage('Hello {name}!', ['name' => 'Juan'])],
+            $extension
+        );
+
+        $this->assertSame('Bonjour Juan!', $html);
+    }
+
+    public function testATranslatableValueWithoutATranslatorIsItsText(): void
+    {
+        $extension = new TranslationExtension();
+
+        $html = $this->render(
+            "{{ message|trans }}|{{ t('Hello {name}!', {'name': 'Ana'})|trans }}",
+            ['message' => new TranslatableMessage('Save')],
+            $extension
+        );
+
+        $this->assertSame('Save|Hello Ana!', $html);
+    }
+
+    /**
+     * A translatable exception is translated like any translatable value, and
+     * without a translator it is its message: never the dump that PHP makes of an
+     * exception, with its file, line and trace.
+     */
+    public function testATranslatableExceptionIsItsMessageAndNeverItsDump(): void
+    {
+        $exception = new TranslatableRuntimeException(['Cannot read {file}.', 'file' => 'a.txt']);
+
+        $withoutTranslator = $this->render('{{ error|trans }}', ['error' => $exception], new TranslationExtension());
+        $this->assertSame('Cannot read a.txt.', $withoutTranslator);
+
+        $translator = new Translator('es');
+        $translator->addLoader('array', new ArrayLoader());
+        $translator->addResource('array', ['Cannot read {file}.' => 'No se puede leer {file}.'], 'es', 'errors+intl-icu');
+        $withTranslator = $this->render('{{ error|trans }}', ['error' => $exception], new TranslationExtension($translator));
+        $this->assertSame('No se puede leer a.txt.', $withTranslator);
+    }
+
+    public function testNothingAndAnEmptyTextAreAnEmptyText(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $this->assertSame('', $extension->trans(null));
+        $this->assertSame('', $extension->trans(''));
+        $this->assertSame('[]', $this->render("[{{ nothing|trans }}{{ ''|trans }}]", ['nothing' => null], $extension));
+    }
+
+    public function testATextThatIsStringableIsTranslatedAsText(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render('{{ text|trans }}', ['text' => new Markup('Save', 'UTF-8')], $extension);
+
+        $this->assertSame('Guardar', $html);
+    }
+
+    public function testParametersCanNotBeGivenForATranslatableValue(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $this->expectException(TwigException::class);
+
+        $extension->trans(new TranslatableMessage('Save'), ['name' => 'Ana']);
+    }
+
+    public function testTheErrorOfTheParametersOfATranslatableValueIsReportedByTheTemplate(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        try {
+            $this->render("{{ message|trans({'name': 'Ana'}) }}", ['message' => new TranslatableMessage('Save')], $extension);
+            $this->fail('The parameters of a translatable value were accepted.');
+        } catch (RuntimeError $e) {
+            $this->assertInstanceOf(TwigException::class, $e->getPrevious());
+        }
+    }
+
+    /**
+     * What is a parameter of a text, and is translatable, is accepted: it is a
+     * message inside the message, and it is translated too.
+     */
+    public function testATranslatableValueIsAcceptedAsAParameterOfAText(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            "{{ 'Hello {name}!'|trans({'name': name}, 'messages+intl-icu') }}",
+            ['name' => new TranslatableMessage('Save')],
+            $extension
+        );
+
+        $this->assertSame('Hola Guardar!', $html);
     }
 }

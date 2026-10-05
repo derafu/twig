@@ -12,11 +12,15 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Extension;
 
+use Derafu\Translation\Contract\TranslatableInterface;
 use Derafu\Translation\TranslatableMessage;
+use Derafu\Twig\Exception\TwigException;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
 use Derafu\Twig\TokenParser\TransDefaultDomainTokenParser;
 use Derafu\Twig\TokenParser\TransTokenParser;
+use Stringable;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Throwable;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -149,7 +153,17 @@ final class TranslationExtension extends AbstractExtension
     /**
      * Translates a message.
      *
-     * @param string $message The message to translate.
+     * The message is a text, which is its own translation id, or a translatable
+     * value (a `TranslatableMessage`, the result of `t()`, a translatable
+     * exception), which brings its own id, parameters and domain: it is
+     * translated as it is. Without a translator a translatable value is
+     * formatted as its text (the message of an exception, never the dump that PHP
+     * makes of it). Like in Symfony, parameters can not be given for a message
+     * that is a translatable value, because they would not be used. The domain is
+     * not checked: the `trans_default_domain` tag puts one in every call.
+     *
+     * @param string|Stringable|TranslatableInterface|null $message The message
+     * to translate. `null` and an empty text are an empty text.
      * @param array<string, mixed> $parameters Parameters for translation
      * placeholders.
      * @param string|null $domain The translation domain, or `null` to use
@@ -157,15 +171,32 @@ final class TranslationExtension extends AbstractExtension
      * @param string|null $locale The locale to translate to, or `null` to
      * use this extension's default locale.
      * @return string The translated message.
+     * @throws TwigException If parameters are given for a translatable value.
      */
     public function trans(
-        string $message,
+        string|Stringable|TranslatableInterface|null $message,
         array $parameters = [],
         ?string $domain = null,
         ?string $locale = null
     ): string {
+        if ($message instanceof TranslatableInterface) {
+            if ($parameters !== []) {
+                throw new TwigException(
+                    'The "trans" filter does not take parameters for a message that is already translatable: they are the ones of the message.'
+                );
+            }
+
+            if ($this->translator === null) {
+                return $message instanceof Throwable
+                    ? $message->getMessage()
+                    : (string) $message;
+            }
+
+            return $message->trans($this->translator, $locale ?? $this->locale);
+        }
+
         $translatable = $this->createTranslatable(
-            $message,
+            (string) $message,
             $parameters,
             $domain,
             $locale

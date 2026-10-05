@@ -120,7 +120,9 @@ final class TemplateMessageScanner
     private function collect(Node $node, TemplateSource $template, array &$references): void
     {
         $reference = match (true) {
-            $node instanceof FilterExpression && $this->isFilter($node) => $this->fromFilter($node),
+            $node instanceof FilterExpression && $this->isFilter($node) => $this->isTranslatedFunction($node)
+                ? null
+                : $this->fromFilter($node),
             $node instanceof FunctionExpression && $this->isFunction($node) => $this->fromFunction($node),
             $node instanceof TransNode => $this->fromTag($node),
             default => null,
@@ -155,6 +157,18 @@ final class TemplateMessageScanner
         $filter = $node->hasAttribute('twig_callable') ? $node->getAttribute('twig_callable') : null;
 
         return $filter instanceof TwigFilter && $this->isTranslationCallable($filter->getCallable(), 'trans');
+    }
+
+    /**
+     * Whether a `trans` filter translates what `t()` made, as in
+     * `t('Close')|trans`. Its message is the one of `t()`, which is found as the
+     * call that it is: the filter is not another message.
+     */
+    private function isTranslatedFunction(FilterExpression $node): bool
+    {
+        $input = $node->getNode('node');
+
+        return $input instanceof FunctionExpression && $this->isFunction($input);
     }
 
     private function isFunction(FunctionExpression $node): bool

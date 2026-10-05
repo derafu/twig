@@ -318,6 +318,23 @@ final class TemplateMessageScannerTest extends TestCase
         (new TemplateMessageScanner(new Environment(new ArrayLoader(['t.twig' => 'text']))))->scanTemplate('t.twig');
     }
 
+    public function testWhatTFunctionMadeAndTheFilterTranslatesIsOneMessage(): void
+    {
+        $references = $this->scan(
+            "{{ t('Close', {}, 'a')|trans }}{{ t('Open')|trans({}, 'other') }}{{ t('Save')|trans }}"
+        );
+
+        $this->assertSame([['Close', 'a'], ['Open', 'messages'], ['Save', 'messages']], $this->messages($references));
+    }
+
+    public function testAFunctionThatIsNotALiteralIsOneDynamicMessageAlsoWithTheFilter(): void
+    {
+        $references = $this->scan("{{ t(text)|trans }}");
+
+        $this->assertCount(1, $references);
+        $this->assertTrue($references[0]->isDynamic());
+    }
+
     public function testTheLineIsTheOneOfTheFileAlsoWithComponents(): void
     {
         $twig = $this->componentsEnvironment([
