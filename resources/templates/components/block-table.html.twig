@@ -1,4 +1,5 @@
 {# templates/components/block-table.html.twig #}
+{% trans_default_domain 'twig+intl-icu' %}
 {% macro render_cell_classes(columnIndex, colConfig, rowData, rowClasses) %}
     {% set classes = [] %}
 
@@ -35,7 +36,7 @@
            <div class="dropdown">
                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                    <i class="fas fa-ellipsis-v"></i>
-                   <span class="ms-1">Actions</span>
+                   <span class="ms-1">{{ 'Actions'|trans }}</span>
                </button>
                <ul class="dropdown-menu dropdown-menu-end">
                    {% for action in this.actions %}

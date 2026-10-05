@@ -1,4 +1,5 @@
 {# templates/components/block-toast.html.twig #}
+{% trans_default_domain 'twig+intl-icu' %}
 
 <div
     class="derafu-block-toast {{ attributes.render('class') }}"
@@ -16,7 +17,7 @@
             {% if this.time %}
                 <small class="text-body-secondary">{{ this.time }}</small>
             {% endif %}
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="{{ 'Close'|trans }}"></button>
         </div>
         {% if this.content %}
             <div class="toast-body">

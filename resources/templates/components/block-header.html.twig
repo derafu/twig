@@ -1,3 +1,4 @@
+{% trans_default_domain 'twig+intl-icu' %}
 {% macro render_menu_items(items, isRight = false) %}
     {% for item in items %}
         {% if item.type == 'link' %}
@@ -125,7 +126,7 @@
         {# Logo Section #}
         <a class="navbar-brand d-flex align-items-center" href="{{ this.logoUrl }}">
             {% if this.logoImage %}
-                <img src="{{ this.logoImage }}" alt="Logo" style="max-width: {{ this.logoMaxWidth }}px;">
+                <img src="{{ this.logoImage }}" alt="{{ 'Logo'|trans }}" style="max-width: {{ this.logoMaxWidth }}px;">
             {% endif %}
             {% if this.logoText %}
                 <span class="ms-2">{{ this.logoText|raw }}</span>
