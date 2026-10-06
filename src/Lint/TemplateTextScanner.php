@@ -229,6 +229,14 @@ final class TemplateTextScanner
                 continue;
             }
 
+            // The doctype is a declaration, not a text.
+            if (preg_match('/\G<!doctype[^>]*>/i', $html, $doctype, 0, $tag)) {
+                $this->add($found, substr($html, $start, $tag - $start), 'text', $start);
+                $position = $start = $tag + strlen($doctype[0]);
+
+                continue;
+            }
+
             if (!preg_match('/\G<(\/?)([A-Za-z][A-Za-z0-9:-]*)((?:[^>"\']|"[^"]*"|\'[^\']*\')*)>?/', $html, $match, PREG_OFFSET_CAPTURE, $tag)) {
                 // A "<" that does not start a tag is part of the text.
                 $position = $tag + 1;

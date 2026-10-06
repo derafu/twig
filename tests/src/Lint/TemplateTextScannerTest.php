@@ -217,6 +217,19 @@ final class TemplateTextScannerTest extends TestCase
         );
     }
 
+    public function testItIgnoresTheDoctype(): void
+    {
+        $this->assertSame(
+            [['Hello', 'text']],
+            $this->texts('<!DOCTYPE html><html><body><p>Hello</p></body></html>')
+        );
+        // In any case, and with the legacy form.
+        $this->assertSame(
+            [['Hello', 'text']],
+            $this->texts('<!doctype html PUBLIC "-//W3C//DTD HTML 4.01//EN"><p>Hello</p>')
+        );
+    }
+
     public function testItReadsTheTextAfterAScriptWithAnAttribute(): void
     {
         $this->assertSame([['After', 'text']], $this->texts('<script src="a.js" async></script><p>After</p>'));
