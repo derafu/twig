@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -16,10 +16,16 @@ use Derafu\Twig\Contract\ComponentProviderInterface;
 
 class ArrayComponentProvider implements ComponentProviderInterface
 {
+    /**
+     * @param array<class-string> $components
+     */
     public function __construct(private array $components)
     {
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getComponents(): array
     {
         return $this->components;

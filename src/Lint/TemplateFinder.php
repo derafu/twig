@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2026 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -16,6 +16,7 @@ use Derafu\Translation\Exception\Logic\TranslatableInvalidArgumentException as I
 use FilesystemIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use SplFileInfo;
 
 /**
  * Finds the templates of a directory, by their name relative to it, as the
@@ -48,7 +49,7 @@ final class TemplateFinder
             new RecursiveDirectoryIterator($root, FilesystemIterator::SKIP_DOTS)
         );
         foreach ($files as $file) {
-            if ($file->isFile() && $file->getExtension() === $extension) {
+            if ($file instanceof SplFileInfo && $file->isFile() && $file->getExtension() === $extension) {
                 $templates[] = substr($file->getPathname(), strlen($root) + 1);
             }
         }

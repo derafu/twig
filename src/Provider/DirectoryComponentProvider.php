@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Provider;
 
+use Derafu\Translation\Exception\Core\TranslatableRuntimeException as RuntimeException;
 use Derafu\Translation\Exception\Logic\TranslatableInvalidArgumentException as InvalidArgumentException;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Contract\ComponentProviderInterface;
@@ -19,14 +20,16 @@ use Psr\Cache\CacheItemPoolInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
-use ReflectionException;
+use SplFileInfo;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 class DirectoryComponentProvider implements ComponentProviderInterface
 {
+    private readonly CacheItemPoolInterface $cache;
+
     public function __construct(
         private readonly string $directory,
-        private ?CacheItemPoolInterface $cache = null,
+        ?CacheItemPoolInterface $cache = null,
         private string $cacheKey = 'derafu_twig_components_dir_%s'
     ) {
         if (!is_dir($directory)) {
@@ -39,17 +42,22 @@ class DirectoryComponentProvider implements ComponentProviderInterface
         $this->cacheKey = sprintf($this->cacheKey, hash('sha256', $directory));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getComponents(): array
     {
-        // If there is no cache, scan the directory directly.
-        if (!$this->cache) {
-            return $this->scanDirectory();
-        }
-
         // Try to get from cache.
         $item = $this->cache->getItem($this->cacheKey);
-        if ($item->isHit()) {
-            return $item->get();
+        if ($item->isHit() && is_array($cached = $item->get())) {
+            $components = [];
+            foreach ($cached as $class) {
+                if (is_string($class) && class_exists($class)) {
+                    $components[] = $class;
+                }
+            }
+
+            return $components;
         }
 
         // If not in cache, scan and store.
@@ -60,6 +68,9 @@ class DirectoryComponentProvider implements ComponentProviderInterface
         return $components;
     }
 
+    /**
+     * @return list<class-string>
+     */
     private function scanDirectory(): array
     {
         $components = [];
@@ -75,6 +86,9 @@ class DirectoryComponentProvider implements ComponentProviderInterface
         return $components;
     }
 
+    /**
+     * @return list<string>
+     */
     private function findPhpFiles(): array
     {
         $files = [];
@@ -83,17 +97,30 @@ class DirectoryComponentProvider implements ComponentProviderInterface
         );
 
         foreach ($iterator as $file) {
-            if ($file->isFile() && $file->getExtension() === 'php') {
-                $files[] = $file->getRealPath();
+            if ($file instanceof SplFileInfo && $file->isFile() && $file->getExtension() === 'php') {
+                $realPath = $file->getRealPath();
+                if ($realPath !== false) {
+                    $files[] = $realPath;
+                }
             }
         }
 
         return $files;
     }
 
+    /**
+     * @return class-string|null
+     * @throws RuntimeException If the file can not be read.
+     */
     private function getClassFromFile(string $file): ?string
     {
-        $content = file_get_contents($file);
+        $content = is_readable($file) ? file_get_contents($file) : false;
+        if ($content === false) {
+            throw new RuntimeException([
+                'The file {file} can not be read.',
+                'file' => $file,
+            ]);
+        }
 
         // Get namespace.
         $namespace = '';
@@ -115,13 +142,11 @@ class DirectoryComponentProvider implements ComponentProviderInterface
         return null;
     }
 
+    /**
+     * @param class-string $class
+     */
     private function isTwigComponent(string $class): bool
     {
-        try {
-            $reflection = new ReflectionClass($class);
-            return !empty($reflection->getAttributes(AsTwigComponent::class));
-        } catch (ReflectionException $e) {
-            return false;
-        }
+        return !empty((new ReflectionClass($class))->getAttributes(AsTwigComponent::class));
     }
 }

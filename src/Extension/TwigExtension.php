@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -24,6 +24,9 @@ use Twig\TwigFilter;
  */
 class TwigExtension extends AbstractExtension
 {
+    /**
+     * @return array<int,TwigFilter>
+     */
     public function getFilters(): array
     {
         return [
@@ -35,6 +38,14 @@ class TwigExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * Renders a string as a Twig template, with the context of the caller.
+     *
+     * @param Environment $twig The Twig environment.
+     * @param array<string,mixed> $context Context to pass to the Twig template.
+     * @param string $templateString The Twig template.
+     * @return string The rendered template.
+     */
     public function renderTwig(
         Environment $twig,
         array $context,

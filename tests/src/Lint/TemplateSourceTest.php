@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2026 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -12,17 +12,18 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwig\Lint;
 
+use Derafu\TestsTwig\Fixture\ComponentsTwig;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\Node\TransDefaultDomainNode;
 use Derafu\Twig\Node\TransNode;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
-use Derafu\Twig\Provider\AllComponentProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
 use Derafu\Twig\Service\TwigService;
+use Derafu\Twig\Support\ProjectDirectory;
 use Derafu\Twig\TokenParser\TransDefaultDomainTokenParser;
 use Derafu\Twig\TokenParser\TransTokenParser;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -40,8 +41,8 @@ use Twig\Loader\ArrayLoader;
 #[CoversClass(TemplateSource::class)]
 #[UsesClass(TwigCreator::class)]
 #[UsesClass(TwigService::class)]
+#[UsesClass(ProjectDirectory::class)]
 #[UsesClass(ComponentRegistrar::class)]
-#[UsesClass(AllComponentProvider::class)]
 #[UsesClass(DirectoryComponentProvider::class)]
 #[UsesClass(CacheItemPool::class)]
 #[UsesClass(TranslationExtension::class)]
@@ -79,9 +80,9 @@ final class TemplateSourceTest extends TestCase
         $this->directories[] = $directory;
         file_put_contents($directory . '/t.html.twig', $source);
 
-        return (new TwigService([
+        return (ComponentsTwig::service([
             'extra' => false,
-            'paths' => [$directory, (string) realpath(__DIR__ . '/../../../resources/templates')],
+            'paths' => [$directory, ComponentsTwig::TEMPLATES],
         ]))->getTwig();
     }
 
@@ -107,13 +108,13 @@ final class TemplateSourceTest extends TestCase
     {
         $template = TemplateSource::load($this->environment(
             "<p>one</p>\n"                       // 1
-            . "<twig:block-alert\n"              // 2
+            . "<twig:test-alert\n"              // 2
             . "    content=\"A\"\n"              // 3
             . "    type=\"info\"\n"              // 4
             . "/>\n"                             // 5
             . "<p>two</p>\n"                     // 6
             . "{{ three }}\n"                    // 7
-            . "<twig:block-alert\n"              // 8
+            . "<twig:test-alert\n"              // 8
             . "    content=\"B\"\n"              // 9
             . "/>\n"                             // 10
             . "{{ four }}"                       // 11
@@ -130,7 +131,7 @@ final class TemplateSourceTest extends TestCase
     public function testTheTextOfALineIsTheOneThatTwigParsed(): void
     {
         $template = TemplateSource::load($this->environment(
-            "<twig:block-alert\n    content=\"A\"\n/>\n{{ 'Close'|trans }}"
+            "<twig:test-alert\n    content=\"A\"\n/>\n{{ 'Close'|trans }}"
         ), 't.html.twig');
 
         $this->assertStringContainsString("{{ 'Close'|trans }}", $template->text(2));
@@ -138,12 +139,12 @@ final class TemplateSourceTest extends TestCase
 
     public function testItGivesTheFileOfTheTemplate(): void
     {
-        $directory = (string) realpath(__DIR__ . '/../../../resources/templates');
+        $directory = (string) realpath(ComponentsTwig::TEMPLATES);
         $twig = (new TwigCreator())->create(['extra' => false, 'paths' => [$directory]]);
 
-        $template = TemplateSource::load($twig, 'components/block-alert.html.twig');
+        $template = TemplateSource::load($twig, 'components/test-alert.html.twig');
 
-        $this->assertSame($directory . '/components/block-alert.html.twig', $template->file);
+        $this->assertSame($directory . '/components/test-alert.html.twig', $template->file);
     }
 
     public function testATemplateThatCanNotBeParsedIsNotHidden(): void
@@ -151,5 +152,17 @@ final class TemplateSourceTest extends TestCase
         $this->expectException(SyntaxError::class);
 
         TemplateSource::load($this->plain('{% trans %}{{ not_plain }}{% endtrans %}'), 't.html.twig');
+    }
+
+    public function testATemplateTooLargeToAlignKeepsTheLinesThatTwigGives(): void
+    {
+        // The tag of three lines is one line for Twig, so the line after it is the
+        // second one: the fourth of the file when the lines are aligned.
+        $source = "<twig:test-alert\n    content=\"A\"\n/>\n" . str_repeat("<p>x</p>\n", 2100);
+        $small = TemplateSource::load($this->environment("<twig:test-alert\n    content=\"A\"\n/>\n<p>x</p>\n"), 't.html.twig');
+
+        $this->assertSame(4, $small->line(2));
+        // With too many lines to compare, the lines are the ones of Twig.
+        $this->assertSame(2, TemplateSource::load($this->environment($source), 't.html.twig')->line(2));
     }
 }

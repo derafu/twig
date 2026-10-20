@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -20,7 +20,7 @@ interface TwigServiceInterface
      * Renders a Twig template into HTML.
      *
      * @param string $template Twig template to render.
-     * @param array $data Data to be passed to the Twig template.
+     * @param array<string,mixed> $data Data to be passed to the Twig template.
      * @return string HTML code with the rendered Twig template.
      */
     public function render(string $template, array &$data = []): string;
@@ -29,7 +29,7 @@ interface TwigServiceInterface
      * Renders a Twig template from a string.
      *
      * @param string $twigContent Twig template content to render.
-     * @param array $data Data to be passed to the Twig template.
+     * @param array<string,mixed> $data Data to be passed to the Twig template.
      * @return string HTML code with the rendered Twig template.
      */
     public function renderFromString(

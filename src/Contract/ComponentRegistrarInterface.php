@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -16,5 +16,11 @@ use Twig\Environment;
 
 interface ComponentRegistrarInterface
 {
-    public function register(Environment $twig, array $components): Environment;
+    /**
+     * @param ComponentProviderInterface|iterable<class-string|object> $components
+     */
+    public function register(
+        Environment $twig,
+        ComponentProviderInterface|iterable $components
+    ): Environment;
 }

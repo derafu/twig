@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -12,11 +12,14 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Service;
 
+use Derafu\Twig\Contract\ComponentProviderInterface;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
 use Derafu\Twig\Contract\TwigCreatorInterface;
 use Derafu\Twig\Extension\MarkdownExtension;
 use Derafu\Twig\Extension\TranslationExtension;
+use Derafu\Twig\Support\ProjectDirectory;
 use Twig\Environment;
+use Twig\Extension\ExtensionInterface;
 use Twig\Extra\CssInliner\CssInlinerExtension;
 use Twig\Extra\Inky\InkyExtension;
 use Twig\Extra\Intl\IntlExtension;
@@ -28,7 +31,7 @@ class TwigCreator implements TwigCreatorInterface
     /**
      * Options for creating the Twig instance.
      *
-     * @var array
+     * @var array{paths: array<string>, extensions: iterable<ExtensionInterface>, components: ComponentProviderInterface|iterable<class-string|object>, extra: bool, ...}
      */
     private array $options;
 
@@ -37,7 +40,7 @@ class TwigCreator implements TwigCreatorInterface
     /**
      * Service constructor that creates a Twig renderer instance.
      *
-     * @param array $options Options for constructing the Twig instance.
+     * @param array{paths?: string|array<string>, extensions?: iterable<ExtensionInterface>, components?: ComponentProviderInterface|iterable<class-string|object>, extra?: bool, ...} $options Options for constructing the Twig instance.
      * @param ComponentRegistrarInterface|null $componentRegistrar
      */
     public function __construct(
@@ -54,7 +57,7 @@ class TwigCreator implements TwigCreatorInterface
     /**
      * Create, initialize, and return a new Twig instance.
      *
-     * @param array $options
+     * @param array{paths?: string|array<string>, extensions?: iterable<ExtensionInterface>, components?: ComponentProviderInterface|iterable<class-string|object>, extra?: bool, ...} $options
      * @return Environment
      */
     public function create(array $options = []): Environment
@@ -94,17 +97,34 @@ class TwigCreator implements TwigCreatorInterface
         return $twig;
     }
 
+    /**
+     * @param array{paths?: string|array<string>, extensions?: iterable<ExtensionInterface>, components?: ComponentProviderInterface|iterable<class-string|object>, extra?: bool, ...} $options
+     * @return array{paths: array<string>, extensions: iterable<ExtensionInterface>, components: ComponentProviderInterface|iterable<class-string|object>, extra: bool, ...}
+     */
     private function resolveOptions(array $options): array
     {
         $options = array_merge($this->options ?? [], $options);
 
-        $paths = $options['paths'] ?? [realpath(__DIR__ . '/../../templates')];
+        $paths = $options['paths'] ?? $this->defaultPaths();
         $options['paths'] = is_string($paths) ? [$paths] : $paths;
         $options['extensions'] = $options['extensions'] ?? [];
         $options['components'] = $options['components'] ?? [];
         $options['extra'] = $options['extra'] ?? true;
 
         return $options;
+    }
+
+    /**
+     * The paths of the templates when they are not given: the `templates`
+     * directory of the project that is running, if it has one.
+     *
+     * @return array<string>
+     */
+    private function defaultPaths(): array
+    {
+        $templates = ProjectDirectory::path() . '/templates';
+
+        return is_dir($templates) ? [$templates] : [];
     }
 
     /**

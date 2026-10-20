@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -39,7 +39,7 @@ class RoutingExtension extends AbstractExtension
     /**
      * Registers custom Twig functions.
      *
-     * @return array List of functions provided by this extension.
+     * @return array<int,TwigFunction> List of functions provided by this extension.
      */
     public function getFunctions(): array
     {
@@ -54,7 +54,7 @@ class RoutingExtension extends AbstractExtension
      * Generates a relative path for a route.
      *
      * @param string $name The name of the route
-     * @param array $parameters Parameters to pass to the route
+     * @param array<string,mixed> $parameters Parameters to pass to the route
      * @return string The generated URL
      * @throws RouteNotFoundException If the route doesn't exist
      */
@@ -71,7 +71,7 @@ class RoutingExtension extends AbstractExtension
      * Generates an absolute URL for a route.
      *
      * @param string $name The name of the route
-     * @param array $parameters Parameters to pass to the route
+     * @param array<string,mixed> $parameters Parameters to pass to the route
      * @param bool $schemeRelative Whether to make the URL scheme-relative
      * @return string The generated absolute URL
      * @throws RouteNotFoundException If the route doesn't exist
@@ -100,7 +100,7 @@ class RoutingExtension extends AbstractExtension
      * Checks if the current path matches the given route.
      *
      * @param string $name The name of the route.
-     * @param array $parameters Parameters to pass to the route.
+     * @param array<string,mixed> $parameters Parameters to pass to the route.
      * @param bool $partial Whether to check for partial match.
      * @return bool True if the current path matches the route, false otherwise.
      */

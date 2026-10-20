@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2026 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Derafu\TestsTwig\Lint;
 
 use Derafu\Routing\Router;
+use Derafu\TestsTwig\Fixture\ComponentsTwig;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Extension\RoutingExtension;
 use Derafu\Twig\Extension\TranslationExtension;
@@ -21,7 +22,6 @@ use Derafu\Twig\Lint\RouteReferenceScanner;
 use Derafu\Twig\Lint\TemplateFinder;
 use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
-use Derafu\Twig\Provider\AllComponentProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
@@ -62,7 +62,6 @@ use Twig\TwigFunction;
 #[UsesClass(TwigService::class)]
 #[UsesClass(TwigCreator::class)]
 #[UsesClass(ComponentRegistrar::class)]
-#[UsesClass(AllComponentProvider::class)]
 #[UsesClass(DirectoryComponentProvider::class)]
 #[UsesClass(CacheItemPool::class)]
 final class RouteReferenceScannerTest extends TestCase
@@ -208,12 +207,12 @@ final class RouteReferenceScannerTest extends TestCase
     public function testTheLineIsTheOneOfTheFileAlsoWithComponents(): void
     {
         $directory = $this->directoryWith([
-            'page.html.twig' => "<p>one</p>\n<twig:block-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<a href=\"{{ path('docs') }}\">x</a>",
+            'page.html.twig' => "<p>one</p>\n<twig:test-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<a href=\"{{ path('docs') }}\">x</a>",
         ]);
 
-        $service = new TwigService([
+        $service = ComponentsTwig::service([
             'extra' => false,
-            'paths' => [$directory, realpath(__DIR__ . '/../../../resources/templates')],
+            'paths' => [$directory, ComponentsTwig::TEMPLATES],
             'extensions' => [new RoutingExtension(new Router())],
         ]);
 
@@ -322,6 +321,9 @@ final class RouteReferenceScannerTest extends TestCase
         $scanner->scanTemplate('bad.twig');
     }
 
+    /**
+     * @param array<string,string> $files
+     */
     private function directoryWith(array $files): string
     {
         $directory = sys_get_temp_dir() . '/twig-lint-' . uniqid();
@@ -371,17 +373,28 @@ final class RouteReferenceScannerTest extends TestCase
     public function testItParsesTheTemplatesThatUseComponents(): void
     {
         $directory = $this->directoryWith([
-            'page.html.twig' => '<twig:block-alert content="Hello" type="info" /><a href="{{ path(\'docs\') }}">x</a>',
+            'page.html.twig' => '<twig:test-alert content="Hello" type="info" /><a href="{{ path(\'docs\') }}">x</a>',
         ]);
 
-        $service = new TwigService([
+        $service = ComponentsTwig::service([
             'extra' => false,
-            'paths' => [$directory, realpath(__DIR__ . '/../../../resources/templates')],
+            'paths' => [$directory, ComponentsTwig::TEMPLATES],
             'extensions' => [new RoutingExtension(new Router())],
         ]);
 
         $references = (new RouteReferenceScanner($service->getTwig()))->scanTemplate('page.html.twig');
 
         $this->assertSame(['docs'], $this->names($references));
+    }
+
+    public function testACallWithoutTheNameOfTheRouteIsAReferenceWithoutName(): void
+    {
+        $scanner = new RouteReferenceScanner($this->environment(['t.twig' => '{{ path() }}']));
+
+        $references = $scanner->scanTemplate('t.twig');
+
+        $this->assertSame(['path'], array_map(fn (RouteReference $r) => $r->function, $references));
+        $this->assertSame([null], array_map(fn (RouteReference $r) => $r->name, $references));
+        $this->assertSame([1], array_map(fn (RouteReference $r) => $r->line, $references));
     }
 }

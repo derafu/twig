@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Middleware;
 
+use Derafu\Twig\Exception\TwigException;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as PsrRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -51,9 +52,14 @@ class SetTemplateCodeMiddleware implements MiddlewareInterface
         // Store template source code.
         $path = $request->getUri()->getPath();
         if (str_starts_with($path, '/components/')) {
-            $file = $this->params->get('kernel.project_dir')
-                . '/templates/pages' . $path . '.html.twig'
-            ;
+            $projectDir = $this->params->get('kernel.project_dir');
+            if (!is_string($projectDir)) {
+                throw new TwigException([
+                    'The parameter {parameter} must be a string.',
+                    'parameter' => 'kernel.project_dir',
+                ]);
+            }
+            $file = $projectDir . '/templates/pages' . $path . '.html.twig';
             $code = file_get_contents($file);
             $code = '{# derafu_twig:templates/pages' . $path . '.html.twig #}'
                 . "\n\n" . $code

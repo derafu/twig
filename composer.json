@@ -1,6 +1,6 @@
 {
     "name": "derafu/twig",
-    "description": "Derafu: Twig - UI Component and Extension Library",
+    "description": "Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP",
     "type": "library",
     "homepage": "https://www.derafu.dev/docs/ui/twig",
     "license": "MIT",
@@ -26,8 +26,14 @@
     },
     "require": {
         "php": "^8.5",
+        "composer-runtime-api": "^2.0",
+        "twig/twig": "^3.30",
         "symfony/ux-twig-component": "^2.36",
         "symfony/cache": "^8.1",
+        "symfony/dependency-injection": "^8.1",
+        "symfony/event-dispatcher": "^8.1",
+        "symfony/property-access": "^8.1",
+        "symfony/translation-contracts": "^3.7",
         "psr/http-server-middleware": "^1.0",
         "derafu/translation": "dev-main"
     },
@@ -35,17 +41,22 @@
         "ext-xdebug": "*",
         "friendsofphp/php-cs-fixer": "^3.95",
         "phpstan/phpstan": "^2.2",
+        "derafu/routing": "dev-main",
+        "derafu/markdown": "^2.1",
         "phpunit/phpunit": "^13.4",
         "twig/cssinliner-extra": "^3.26",
         "twig/intl-extra": "^3.30",
         "twig/string-extra": "^3.24",
         "twig/inky-extra": "^3.26",
-        "symfony/string": "^8.1",
-        "derafu/routing": "dev-main",
-        "derafu/markdown": "^2.0",
         "nikic/php-parser": "^5.9"
     },
     "suggest": {
+        "derafu/markdown": "Required by MarkdownExtension and by the extra extensions of the environment.",
+        "derafu/routing": "Required by RoutingExtension.",
+        "twig/cssinliner-extra": "Registered in the environment when it is installed.",
+        "twig/intl-extra": "Registered in the environment when it is installed.",
+        "twig/string-extra": "Registered in the environment when it is installed.",
+        "twig/inky-extra": "Registered in the environment when it is installed.",
         "nikic/php-parser": "Required by the tests of the messages of the package (Derafu\\Translation\\Lint reads the code)."
     },
     "scripts": {

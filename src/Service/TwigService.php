@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -12,10 +12,11 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Service;
 
+use Derafu\Twig\Contract\ComponentProviderInterface;
 use Derafu\Twig\Contract\TwigCreatorInterface;
 use Derafu\Twig\Contract\TwigServiceInterface;
-use Derafu\Twig\Provider\AllComponentProvider;
 use Twig\Environment;
+use Twig\Extension\ExtensionInterface;
 use Twig\Loader\FilesystemLoader;
 
 class TwigService implements TwigServiceInterface
@@ -37,7 +38,7 @@ class TwigService implements TwigServiceInterface
     /**
      * Service constructor.
      *
-     * @param Environment|TwigCreatorInterface|array|null $twig
+     * @param Environment|TwigCreatorInterface|array{paths?: string|array<string>, extensions?: iterable<ExtensionInterface>, components?: ComponentProviderInterface|iterable<class-string|object>, extra?: bool, ...}|null $twig
      */
     public function __construct(
         Environment|TwigCreatorInterface|array|null $twig = null,
@@ -90,9 +91,7 @@ class TwigService implements TwigServiceInterface
     public function getTwig(): Environment
     {
         if (!isset($this->twig)) {
-            $this->twig = $this->twigCreator->create([
-                'components' => new AllComponentProvider(),
-            ]);
+            $this->twig = $this->twigCreator->create();
         }
 
         return $this->twig;

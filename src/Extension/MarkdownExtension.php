@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -15,6 +15,7 @@ namespace Derafu\Twig\Extension;
 use Derafu\Markdown\Contract\MarkdownServiceInterface;
 use Derafu\Markdown\Service\MarkdownService;
 use Derafu\Translation\Exception\Core\TranslatableLogicException as LogicException;
+use Derafu\Translation\Exception\Core\TranslatableRuntimeException as RuntimeException;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -56,7 +57,7 @@ class MarkdownExtension extends AbstractExtension
     /**
      * Registers custom Twig filters.
      *
-     * @return array List of filters provided by this extension.
+     * @return array<int,TwigFilter> List of filters provided by this extension.
      */
     public function getFilters(): array
     {
@@ -74,7 +75,7 @@ class MarkdownExtension extends AbstractExtension
      *
      * @param Environment $twig Twig environment to render the Twig content
      * if it is included in the Markdown content.
-     * @param array $context Context to pass to the Twig template.
+     * @param array<string,mixed> $context Context to pass to the Twig template.
      * @param string $content The Markdown content to convert.
      * @param bool $hasTwig Whether the content includes Twig.
      * @return string The rendered HTML.
@@ -127,14 +128,16 @@ class MarkdownExtension extends AbstractExtension
      * content while preserving their exact syntax for a later Twig render pass.
      *
      * @param string $content The raw Markdown content.
-     * @param array  $store Reference array used to store the original Twig
+     * @param array<string,string>  $store Reference array used to store the original Twig
      * tags, indexed by their generated placeholder.
      *
      * @return string The Markdown content with Twig tags safely replaced.
+     * @throws RuntimeException If the content can not be processed (for example,
+     * when it is so large that the search of the tags exhausts the limits of PCRE).
      */
     private function protectTwigBlocks(string $content, array &$store): string
     {
-        return preg_replace_callback(
+        $protected = preg_replace_callback(
             '#<twig:(?:[^>"\']+|"[^"]*"|\'[^\']*\')*/>#',
             function ($m) use (&$store) {
                 $key = '<!--TWIG_BLOCK_' . count($store) . '-->';
@@ -143,6 +146,11 @@ class MarkdownExtension extends AbstractExtension
             },
             $content
         );
+
+        return $protected ?? throw new RuntimeException([
+            'The Markdown content could not be processed: {error}',
+            'error' => preg_last_error_msg(),
+        ]);
     }
 
     /**
@@ -153,7 +161,7 @@ class MarkdownExtension extends AbstractExtension
      * Twig tags, allowing the Twig rendering to be applied to the content.
      *
      * @param string $content The Markdown content with Twig tags safely replaced.
-     * @param array $store Reference array used to store the original Twig tags,
+     * @param array<string,string> $store Reference array used to store the original Twig tags,
      * indexed by their generated placeholder.
      *
      * @return string The Markdown content with Twig tags restored.

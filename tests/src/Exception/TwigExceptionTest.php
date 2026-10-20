@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2026 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Derafu\TestsTwig\Exception;
 
 use Derafu\Translation\Contract\TranslatableInterface;
-use Derafu\Twig\Exception\TwigComponentException;
 use Derafu\Twig\Exception\TwigException;
 use Exception;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -24,20 +23,14 @@ use PHPUnit\Framework\TestCase;
  * the packages.
  */
 #[CoversClass(TwigException::class)]
-#[CoversClass(TwigComponentException::class)]
 final class TwigExceptionTest extends TestCase
 {
-    public function testTheExceptionsAreTranslatable(): void
+    public function testTheExceptionIsTranslatable(): void
     {
-        foreach ([new TwigException('Failed.'), new TwigComponentException('Failed.')] as $exception) {
-            $this->assertInstanceOf(Exception::class, $exception);
-            $this->assertInstanceOf(TranslatableInterface::class, $exception);
-            $this->assertSame('Failed.', $exception->getMessage());
-        }
-    }
+        $exception = new TwigException('Failed.');
 
-    public function testTheComponentExceptionIsATwigException(): void
-    {
-        $this->assertInstanceOf(TwigException::class, new TwigComponentException('Failed.'));
+        $this->assertInstanceOf(Exception::class, $exception);
+        $this->assertInstanceOf(TranslatableInterface::class, $exception);
+        $this->assertSame('Failed.', $exception->getMessage());
     }
 }

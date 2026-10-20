@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -20,9 +20,11 @@ use ReflectionClass;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PostMount;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
+use Symfony\UX\TwigComponent\ComponentAttributes;
 use Symfony\UX\TwigComponent\ComponentFactory;
 use Symfony\UX\TwigComponent\ComponentProperties;
 use Symfony\UX\TwigComponent\ComponentRenderer;
@@ -32,6 +34,7 @@ use Symfony\UX\TwigComponent\Twig\ComponentExtension;
 use Symfony\UX\TwigComponent\Twig\ComponentLexer;
 use Symfony\UX\TwigComponent\Twig\ComponentRuntime;
 use Twig\Environment;
+use Twig\Runtime\EscaperRuntime;
 use Twig\RuntimeLoader\RuntimeLoaderInterface;
 
 /**
@@ -45,10 +48,13 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      * Constructor for ComponentRegistrar.
      *
      * @param CacheItemPoolInterface|null $cache The cache item pool interface.
-     * @param string $cacheKey The cache key for the component configuration.
+     * @param string $cacheKey The start of the cache key of the configuration;
+     * the rest is a hash of the components that it is for.
      */
+    private readonly CacheItemPoolInterface $cache;
+
     public function __construct(
-        private ?CacheItemPoolInterface $cache = null,
+        ?CacheItemPoolInterface $cache = null,
         private string $cacheKey = 'derafu_twig_components_config'
     ) {
         $this->cache = $cache ?? new CacheItemPool();
@@ -58,19 +64,20 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      * Register components with Twig.
      *
      * @param Environment $twig The Twig environment.
-     * @param ComponentProviderInterface|array $componentsProvider The component
-     * provider or an array of components.
+     * @param ComponentProviderInterface|iterable<class-string|object> $componentsProvider
+     * The component provider, or the components (their classes or instances,
+     * like the ones that `!tagged_iterator derafu_twig.component` gives).
      * @return Environment The Twig environment.
      */
     public function register(
         Environment $twig,
-        ComponentProviderInterface|array $componentsProvider
+        ComponentProviderInterface|iterable $componentsProvider
     ): Environment {
         $basicServices = $this->createBasicServices($twig);
 
-        $components = is_array($componentsProvider)
-            ? $componentsProvider
-            : $componentsProvider->getComponents();
+        $components = $componentsProvider instanceof ComponentProviderInterface
+            ? $componentsProvider->getComponents()
+            : $this->classesOf($componentsProvider);
 
         $componentServices = $this->createComponentServices(
             $twig,
@@ -82,10 +89,26 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     }
 
     /**
+     * The classes of the components, given as classes or as instances.
+     *
+     * @param iterable<class-string|object> $components
+     * @return array<int,class-string>
+     */
+    private function classesOf(iterable $components): array
+    {
+        $classes = [];
+        foreach ($components as $component) {
+            $classes[] = is_object($component) ? $component::class : $component;
+        }
+
+        return $classes;
+    }
+
+    /**
      * Create basic services for the component registrar.
      *
      * @param Environment $twig The Twig environment.
-     * @return array The basic services.
+     * @return array{propertyAccessor: PropertyAccessorInterface, eventDispatcher: EventDispatcher, templateFinder: ComponentTemplateFinder} The basic services.
      */
     private function createBasicServices(Environment $twig): array
     {
@@ -103,9 +126,9 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      * Create component services for the component registrar.
      *
      * @param Environment $twig The Twig environment.
-     * @param array $components The components.
-     * @param array $basicServices The basic services.
-     * @return array The component services.
+     * @param array<class-string> $components The components.
+     * @param array{propertyAccessor: PropertyAccessorInterface, eventDispatcher: EventDispatcher, templateFinder: ComponentTemplateFinder} $basicServices The basic services.
+     * @return array{serviceLocator: ServiceLocator<mixed>, factory: ComponentFactory, renderer: ComponentRenderer} The component services.
      */
     private function createComponentServices(
         Environment $twig,
@@ -136,8 +159,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Create a service locator for the component registrar.
      *
-     * @param array $components The components.
-     * @return ServiceLocator The service locator.
+     * @param array<class-string> $components The components.
+     * @return ServiceLocator<mixed> The service locator.
      */
     private function createServiceLocator(array $components): ServiceLocator
     {
@@ -154,9 +177,9 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      * Create a component factory for the component registrar.
      *
      * @param Environment $twig The Twig environment.
-     * @param array $components The components.
-     * @param ServiceLocator $serviceLocator The service locator.
-     * @param array $basicServices The basic services.
+     * @param array<class-string> $components The components.
+     * @param ServiceLocator<mixed> $serviceLocator The service locator.
+     * @param array{propertyAccessor: PropertyAccessorInterface, eventDispatcher: EventDispatcher, templateFinder: ComponentTemplateFinder} $basicServices The basic services.
      * @return ComponentFactory The component factory.
      */
     private function createComponentFactory(
@@ -179,18 +202,26 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Create a component config for the component registrar.
      *
-     * @param array $components The components.
-     * @return array The component config.
+     * @param array<class-string> $components The components.
+     * @return array<string,array<mixed>> The component config.
      */
     private function createComponentConfig(array $components): array
     {
-        if (!$this->cache) {
-            return $this->buildComponentConfig($components);
-        }
+        // The key depends on the components: other components, other configuration.
+        $sorted = $components;
+        sort($sorted);
+        $key = $this->cacheKey . '_' . hash('sha256', implode("\n", $sorted));
 
-        $item = $this->cache->getItem($this->cacheKey);
-        if ($item->isHit()) {
-            return $item->get();
+        $item = $this->cache->getItem($key);
+        if ($item->isHit() && is_array($cached = $item->get())) {
+            $config = [];
+            foreach ($cached as $name => $entry) {
+                if (is_string($name) && is_array($entry)) {
+                    $config[$name] = $entry;
+                }
+            }
+
+            return $config;
         }
 
         $config = $this->buildComponentConfig($components);
@@ -203,8 +234,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Build a component config for the component registrar.
      *
-     * @param array $components The components.
-     * @return array The component config.
+     * @param array<class-string> $components The components.
+     * @return array<string,array<string,mixed>> The component config.
      */
     private function buildComponentConfig(array $components): array
     {
@@ -252,8 +283,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Get the pre-mount methods for the component registrar.
      *
-     * @param ReflectionClass $reflection The reflection class.
-     * @return array The pre-mount methods.
+     * @param ReflectionClass<object> $reflection The reflection class.
+     * @return list<string> The pre-mount methods.
      */
     private function getPreMountMethods(ReflectionClass $reflection): array
     {
@@ -263,8 +294,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Get the post-mount methods for the component registrar.
      *
-     * @param ReflectionClass $reflection The reflection class.
-     * @return array The post-mount methods.
+     * @param ReflectionClass<object> $reflection The reflection class.
+     * @return list<string> The post-mount methods.
      */
     private function getPostMountMethods(ReflectionClass $reflection): array
     {
@@ -274,9 +305,9 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Get the methods with the attribute for the component registrar.
      *
-     * @param ReflectionClass $reflection The reflection class.
+     * @param ReflectionClass<object> $reflection The reflection class.
      * @param string $attributeClass The attribute class.
-     * @return array The methods with the attribute.
+     * @return list<string> The methods with the attribute.
      */
     private function getMethodsWithAttribute(
         ReflectionClass $reflection,
@@ -294,8 +325,8 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Create a component class map for the component registrar.
      *
-     * @param array $components The components.
-     * @return array The component class map.
+     * @param array<class-string> $components The components.
+     * @return array<class-string,string> The component class map.
      */
     private function createComponentClassMap(array $components): array
     {
@@ -313,7 +344,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      *
      * @param Environment $twig The Twig environment.
      * @param ComponentFactory $factory The component factory.
-     * @param array $basicServices The basic services.
+     * @param array{propertyAccessor: PropertyAccessorInterface, eventDispatcher: EventDispatcher, templateFinder: ComponentTemplateFinder} $basicServices The basic services.
      * @return ComponentRenderer The component renderer.
      */
     private function createComponentRenderer(
@@ -334,7 +365,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      * Register Twig extensions for the component registrar.
      *
      * @param Environment $twig The Twig environment.
-     * @param array $services The services.
+     * @param array{serviceLocator: ServiceLocator<mixed>, factory: ComponentFactory, renderer: ComponentRenderer} $services The services.
      * @return Environment The Twig environment.
      */
     private function registerTwigExtensions(
@@ -343,6 +374,10 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     ): Environment {
         // Register ComponentExtension.
         $twig->addExtension(new ComponentExtension());
+
+        // The attributes of a component are HTML that is already escaped: the
+        // templates write them as `{{ attributes }}`.
+        $twig->getRuntime(EscaperRuntime::class)->addSafeClass(ComponentAttributes::class, ['html']);
 
         // Register Runtime.
         $renderersLocator = new ServiceLocator([]);
@@ -360,7 +395,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
      * Create a runtime loader for the component registrar.
      *
      * @param ComponentRenderer $renderer The component renderer.
-     * @param ServiceLocator $renderers The renderers.
+     * @param ServiceLocator<mixed> $renderers The renderers.
      * @return RuntimeLoaderInterface The runtime loader.
      */
     private function createRuntimeLoader(
@@ -370,11 +405,12 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         return new class ($renderer, $renderers) implements RuntimeLoaderInterface {
             public function __construct(
                 private ComponentRenderer $renderer,
+                /** @var ServiceLocator<mixed> */
                 private ServiceLocator $renderers
             ) {
             }
 
-            public function load($class)
+            public function load(string $class)
             {
                 if ($class === ComponentRuntime::class) {
                     return new ComponentRuntime($this->renderer, $this->renderers);
@@ -387,7 +423,7 @@ class ComponentRegistrar implements ComponentRegistrarInterface
     /**
      * Get the component name for the component registrar.
      *
-     * @param string $componentClass The component class.
+     * @param class-string $componentClass The component class.
      * @return string The component name.
      */
     private function getComponentName(string $componentClass): string

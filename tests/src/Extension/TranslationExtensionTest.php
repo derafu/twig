@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -26,11 +26,13 @@ use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 use Symfony\Component\Translation\Translator;
+use Twig\Compiler;
 use Twig\Environment;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Loader\ArrayLoader as TwigArrayLoader;
 use Twig\Markup;
+use Twig\Node\Expression\ConstantExpression;
 
 #[CoversClass(TranslationExtension::class)]
 #[UsesClass(TwigException::class)]
@@ -73,6 +75,9 @@ class TranslationExtensionTest extends TestCase
         return $translator;
     }
 
+    /**
+     * @param array<string,mixed> $context
+     */
     private function render(string $template, array $context, TranslationExtension $extension): string
     {
         $twig = new Environment(new TwigArrayLoader(['t.html.twig' => $template]));
@@ -418,5 +423,54 @@ class TranslationExtensionTest extends TestCase
         );
 
         $this->assertSame('Hola Guardar!', $html);
+    }
+
+    public function testTheDefaultDomainGoesInAFilterThatUsesNamedArguments(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            "{% trans_default_domain 'other+intl-icu' %}{{ 'Bye {name}!'|trans(parameters: {'name': who}) }}",
+            ['who' => 'Juan'],
+            $extension
+        );
+
+        $this->assertSame('Chau Juan!', $html);
+    }
+
+    public function testTheDomainThatIsGivenByNameIsNotChangedByTheDefaultOne(): void
+    {
+        $extension = new TranslationExtension($this->createTranslator());
+
+        $html = $this->render(
+            "{% trans_default_domain 'other+intl-icu' %}{{ 'Hello {name}!'|trans(parameters: {'name': who}, domain: 'messages+intl-icu') }}",
+            ['who' => 'Juan'],
+            $extension
+        );
+
+        $this->assertSame('Hola Juan!', $html);
+    }
+
+    public function testTransTagRejectsAKeywordThatDoesNotExist(): void
+    {
+        $twig = new Environment(new TwigArrayLoader([
+            'bad.html.twig' => '{% trans onto %}Hello{% endtrans %}',
+        ]));
+        $twig->addExtension(new TranslationExtension());
+
+        $this->expectException(SyntaxError::class);
+        $this->expectExceptionMessage('Twig was looking for the "with", "from", or "into" keyword');
+
+        $twig->render('bad.html.twig');
+    }
+
+    public function testTheMarkerOfTheDefaultDomainCompilesToNothing(): void
+    {
+        $twig = new Environment(new TwigArrayLoader());
+        $compiler = new Compiler($twig);
+
+        $source = $compiler->compile(new TransDefaultDomainNode(new ConstantExpression('domain', 1), 1))->getSource();
+
+        $this->assertSame('', $source);
     }
 }

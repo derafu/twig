@@ -3,6 +3,15 @@
 #
 #   imports:
 #       - { resource: '../vendor/derafu/twig/resources/config/twig-services.yaml' }
+#
+# The components that the Twig environment registers are the services tagged
+# `derafu_twig.component` (the ones of derafu/twig-components, for example). The
+# one that creates the environment takes them in its `components` option:
+#
+#   components: !tagged_iterator derafu_twig.component
+#
+# The tag is explicit because _instanceof does not propagate across imported
+# files, so it can't be shipped here to autotag services declared in your file.
 
 services:
 

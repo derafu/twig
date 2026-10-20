@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2026 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwig\Lint;
 
+use Derafu\TestsTwig\Fixture\ComponentsTwig;
 use Derafu\Translation\Lint\MessageReference;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Extension\TranslationExtension;
@@ -21,7 +22,6 @@ use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\Node\TransDefaultDomainNode;
 use Derafu\Twig\Node\TransNode;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
-use Derafu\Twig\Provider\AllComponentProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
@@ -52,7 +52,6 @@ use Twig\Loader\FilesystemLoader;
 #[UsesClass(TwigService::class)]
 #[UsesClass(TwigCreator::class)]
 #[UsesClass(ComponentRegistrar::class)]
-#[UsesClass(AllComponentProvider::class)]
 #[UsesClass(DirectoryComponentProvider::class)]
 #[UsesClass(CacheItemPool::class)]
 #[UsesClass(TemplateSource::class)]
@@ -108,9 +107,9 @@ final class TemplateMessageScannerTest extends TestCase
             file_put_contents($directory . '/' . $name, $source);
         }
 
-        return (new TwigService([
+        return (ComponentsTwig::service([
             'extra' => false,
-            'paths' => [$directory, (string) realpath(__DIR__ . '/../../../resources/templates')],
+            'paths' => [$directory, ComponentsTwig::TEMPLATES],
         ]))->getTwig();
     }
 
@@ -338,7 +337,7 @@ final class TemplateMessageScannerTest extends TestCase
     public function testTheLineIsTheOneOfTheFileAlsoWithComponents(): void
     {
         $twig = $this->componentsEnvironment([
-            't.html.twig' => "<p>one</p>\n<twig:block-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<p>{{ 'Hello'|trans }}</p>\n<p>{{ text|trans }}</p>",
+            't.html.twig' => "<p>one</p>\n<twig:test-alert\n    content=\"A\"\n    type=\"info\"\n/>\n<p>{{ 'Hello'|trans }}</p>\n<p>{{ text|trans }}</p>",
         ]);
 
         $references = (new TemplateMessageScanner($twig))->scanTemplate('t.html.twig');

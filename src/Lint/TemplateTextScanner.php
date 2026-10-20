@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2026 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -277,7 +277,7 @@ final class TemplateTextScanner
                 continue;
             }
 
-            $value = isset($match[3]) && $match[3][1] >= 0 ? $match[3] : $match[2];
+            $value = isset($match[3]) && $match[3][1] >= 0 ? $match[3] : ($match[2] ?? ['', -1]);
             $this->add($found, $value[0], $name, $offset + $value[1]);
         }
     }

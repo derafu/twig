@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Derafu: Twig - UI Component and Extension Library.
+ * Derafu: Twig - Twig Environment, Extensions and Lint Tools for PHP.
  *
  * Copyright (c) 2025 Esteban De La Fuente Rubio / Derafu <https://www.derafu.dev>
  * Licensed under the MIT License.
@@ -52,7 +52,7 @@ final class TranslationDefaultDomainNodeVisitor implements NodeVisitorInterface
      * (template/block). `null` means no default domain is active at that
      * level.
      *
-     * @var array<int, AbstractExpression|null>
+     * @var list<AbstractExpression|null>
      */
     private array $domainStack = [null];
 
@@ -63,14 +63,14 @@ final class TranslationDefaultDomainNodeVisitor implements NodeVisitorInterface
     {
         if ($node instanceof BlockNode || $node instanceof ModuleNode) {
             // Inherit the domain active in the enclosing scope.
-            $this->domainStack[] = end($this->domainStack);
+            $this->domainStack[] = $this->currentDomain();
         }
 
         if ($node instanceof TransDefaultDomainNode) {
             return $this->replaceWithDomainAssignment($node);
         }
 
-        $domain = end($this->domainStack);
+        $domain = $this->currentDomain();
 
         if ($domain === null) {
             return $node;
@@ -112,6 +112,27 @@ final class TranslationDefaultDomainNodeVisitor implements NodeVisitorInterface
     }
 
     /**
+     * The domain expression active in the current scope.
+     *
+     * The stack always has the level of the template, so it is never empty.
+     */
+    private function currentDomain(): ?AbstractExpression
+    {
+        $domain = end($this->domainStack);
+
+        return $domain === false ? null : $domain;
+    }
+
+    /**
+     * Replaces the domain expression of the current scope.
+     */
+    private function replaceCurrentDomain(AbstractExpression $domain): void
+    {
+        array_pop($this->domainStack);
+        $this->domainStack[] = $domain;
+    }
+
+    /**
      * Records the domain expression carried by a `trans_default_domain`
      * marker node into the current scope.
      *
@@ -133,7 +154,7 @@ final class TranslationDefaultDomainNodeVisitor implements NodeVisitorInterface
         $expr = $node->getNode('expr');
 
         if ($expr instanceof ConstantExpression) {
-            $this->domainStack[array_key_last($this->domainStack)] = $expr;
+            $this->replaceCurrentDomain($expr);
 
             return $node;
         }
@@ -141,8 +162,7 @@ final class TranslationDefaultDomainNodeVisitor implements NodeVisitorInterface
         $variable = '__derafu_trans_default_domain_'
             . hash('xxh128', $node->getTemplateName() . ':' . $node->getTemplateLine());
 
-        $this->domainStack[array_key_last($this->domainStack)] =
-            new ContextVariable($variable, $node->getTemplateLine());
+        $this->replaceCurrentDomain(new ContextVariable($variable, $node->getTemplateLine()));
 
         return new SetNode(
             false,
