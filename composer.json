@@ -44,6 +44,8 @@
         "derafu/routing": "dev-main",
         "derafu/markdown": "^2.1",
         "phpunit/phpunit": "^13.4",
+        "symfony/config": "^8.1",
+        "symfony/yaml": "^8.1",
         "twig/cssinliner-extra": "^3.26",
         "twig/intl-extra": "^3.30",
         "twig/string-extra": "^3.24",
