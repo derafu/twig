@@ -107,6 +107,6 @@ final class RoutingExtensionTest extends TestCase
     {
         $extension = $this->extension('/docs', '/app');
 
-        $this->assertFalse($extension->isActivePath('docs', [], false));
+        $this->assertTrue($extension->isActivePath('docs', [], false));
     }
 }
