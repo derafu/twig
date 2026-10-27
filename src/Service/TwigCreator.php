@@ -15,6 +15,7 @@ namespace Derafu\Twig\Service;
 use Derafu\Twig\Contract\ComponentProviderInterface;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
 use Derafu\Twig\Contract\ExtensionProviderInterface;
+use Derafu\Twig\Contract\TemplatePathProviderInterface;
 use Derafu\Twig\Contract\TwigCreatorInterface;
 use Derafu\Twig\Provider\DefaultExtensionProvider;
 use Derafu\Twig\Support\ProjectDirectory;
@@ -27,7 +28,7 @@ class TwigCreator implements TwigCreatorInterface
     /**
      * Options for creating the Twig instance.
      *
-     * @var array{paths: array<string>, extensions: iterable<ExtensionInterface>, components: ComponentProviderInterface|iterable<class-string|object>, extra: bool, ...}
+     * @var array{paths?: string|array<string>, extensions?: iterable<ExtensionInterface>, components?: ComponentProviderInterface|iterable<class-string|object>, extra?: bool, ...}
      */
     private array $options;
 
@@ -40,15 +41,17 @@ class TwigCreator implements TwigCreatorInterface
      * @param ComponentRegistrarInterface|null $componentRegistrar
      * @param iterable<ExtensionProviderInterface> $extensionProviders Highest priority first; the first extension of each class wins.
      * @param iterable<ComponentProviderInterface> $componentProviders Providers of component classes.
+     * @param TemplatePathProviderInterface|null $templatePathProvider Domain-owned template directories.
      */
     public function __construct(
         array $options = [],
         ?ComponentRegistrarInterface $componentRegistrar = null,
         private readonly iterable $extensionProviders = [],
         private readonly iterable $componentProviders = [],
+        private readonly ?TemplatePathProviderInterface $templatePathProvider = null,
     ) {
         if (!empty($options)) {
-            $this->options = $this->resolveOptions($options);
+            $this->options = $options;
         }
 
         $this->componentRegistrar = $componentRegistrar ?? new ComponentRegistrar();
@@ -109,8 +112,10 @@ class TwigCreator implements TwigCreatorInterface
     {
         $options = array_merge($this->options ?? [], $options);
 
-        $paths = $options['paths'] ?? $this->defaultPaths();
-        $options['paths'] = is_string($paths) ? [$paths] : $paths;
+        $providedPaths = $this->templatePathProvider?->getPaths() ?? [];
+        $paths = $options['paths'] ?? ($providedPaths === [] ? $this->defaultPaths() : []);
+        $paths = is_string($paths) ? [$paths] : $paths;
+        $options['paths'] = array_values(array_unique([...$paths, ...$providedPaths]));
         $options['extensions'] = $options['extensions'] ?? [];
         $options['components'] = $options['components'] ?? [];
         $options['extra'] = $options['extra'] ?? true;

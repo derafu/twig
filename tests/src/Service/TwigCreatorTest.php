@@ -17,6 +17,7 @@ use Derafu\TestsTwig\Fixture\Component\GreetingComponent;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
 use Derafu\Twig\Contract\ExtensionProviderInterface;
+use Derafu\Twig\Contract\TemplatePathProviderInterface;
 use Derafu\Twig\Extension\MarkdownExtension;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Extension\TwigExtension;
@@ -179,5 +180,34 @@ final class TwigCreatorTest extends TestCase
         $explicit = new TranslationExtension();
         $creator = new TwigCreator(['extra' => false, 'extensions' => [$explicit]]);
         self::assertSame($explicit, $creator->create()->getExtension(TranslationExtension::class));
+    }
+
+    public function testPathProvidersAreDeferredUntilTheEnvironmentIsCreated(): void
+    {
+        $provider = new class () implements TemplatePathProviderInterface {
+            public int $calls = 0;
+
+            public function getPaths(): array
+            {
+                ++$this->calls;
+                return [__DIR__];
+            }
+        };
+        $creator = new TwigCreator(['extra' => false], templatePathProvider: $provider);
+        self::assertSame(0, $provider->calls);
+        self::assertSame([__DIR__], $this->paths($creator->create()));
+        self::assertSame(1, $provider->calls);
+    }
+
+    public function testExplicitPathsPrecedeContributedPathsWithoutRepeatingThem(): void
+    {
+        $provider = new class () implements TemplatePathProviderInterface {
+            public function getPaths(): array
+            {
+                return [__DIR__, dirname(__DIR__)];
+            }
+        };
+        $creator = new TwigCreator(['extra' => false], templatePathProvider: $provider);
+        self::assertSame([dirname(__DIR__), __DIR__], $this->paths($creator->create(['paths' => dirname(__DIR__)])));
     }
 }

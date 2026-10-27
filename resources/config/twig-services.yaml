@@ -23,6 +23,12 @@ services:
             $componentRegistrar: '@Derafu\Twig\Contract\ComponentRegistrarInterface'
             $extensionProviders: !tagged_iterator derafu_twig.extension_provider
             $componentProviders: !tagged_iterator derafu_twig.component_provider
+            $templatePathProvider: '@Derafu\Twig\Contract\TemplatePathProviderInterface'
+
+    Derafu\Twig\Contract\TemplatePathProviderInterface:
+        class: Derafu\Twig\Provider\ChainTemplatePathProvider
+        arguments:
+            $providers: !tagged_iterator derafu_twig.template_path_provider
 
     Derafu\Twig\Contract\TwigServiceInterface:
         class: Derafu\Twig\Service\TwigService
