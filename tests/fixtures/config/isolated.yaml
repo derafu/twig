@@ -1,0 +1,17 @@
+imports:
+    - { resource: consumer.yaml }
+
+services:
+    Derafu\Twig\Contract\TwigCreatorInterface $isolated:
+        parent: Derafu\Twig\Contract\TwigCreatorInterface
+        arguments:
+            $options:
+                paths: ['%fixture.isolated_templates%']
+                extra: false
+            $extensionProviders: !tagged_iterator fixture.isolated.extension_provider
+            $componentProviders: !tagged_iterator fixture.isolated.component_provider
+
+    Derafu\Twig\Contract\TwigServiceInterface $isolated:
+        parent: Derafu\Twig\Contract\TwigServiceInterface
+        arguments:
+            $twig: '@Derafu\Twig\Contract\TwigCreatorInterface $isolated'

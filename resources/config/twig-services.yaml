@@ -1,29 +1,47 @@
-# Optional wiring for apps using symfony/dependency-injection.
-# Import it from your own services.yaml:
-#
-#   imports:
-#       - { resource: '../vendor/derafu/twig/resources/config/twig-services.yaml' }
-#
-# The components that the Twig environment registers are the services tagged
-# `derafu_twig.component` (the ones of derafu/twig-components, for example). The
-# one that creates the environment takes them in its `components` option:
-#
-#   components: !tagged_iterator derafu_twig.component
-#
-# The tag is explicit because _instanceof does not propagate across imported
-# files, so it can't be shipped here to autotag services declared in your file.
+# Default standalone Twig composition. Consumers may supply an existing
+# Twig\Environment to TwigServiceInterface instead, without modifying it.
+parameters:
+    derafu.twig.options: {}
+    derafu.twig.component_registrar.cache_key: derafu_twig_components_config
 
 services:
-
     _defaults:
         autowire: true
         autoconfigure: true
         public: false
 
-    # Feeds resources/translations into the consuming app's Translator (the
-    # app must pass $resourceProviders: !tagged_iterator
-    # derafu_translation.resource_provider to TranslatorFactory::create(),
-    # see derafu/translation's translation-services.yaml). The tag is
-    # explicit because _instanceof does not propagate across imported files.
+    Derafu\Twig\Contract\ComponentRegistrarInterface:
+        class: Derafu\Twig\Service\ComponentRegistrar
+        arguments:
+            $cache: '@?Psr\Cache\CacheItemPoolInterface'
+            $cacheKey: '%derafu.twig.component_registrar.cache_key%'
+
+    Derafu\Twig\Contract\TwigCreatorInterface:
+        class: Derafu\Twig\Service\TwigCreator
+        arguments:
+            $options: '%derafu.twig.options%'
+            $componentRegistrar: '@Derafu\Twig\Contract\ComponentRegistrarInterface'
+            $extensionProviders: !tagged_iterator derafu_twig.extension_provider
+            $componentProviders: !tagged_iterator derafu_twig.component_provider
+
+    Derafu\Twig\Contract\TwigServiceInterface:
+        class: Derafu\Twig\Service\TwigService
+        arguments:
+            $twig: '@Derafu\Twig\Contract\TwigCreatorInterface'
+
+    # Existing packages may tag their component classes individually.
+    Derafu\Twig\Provider\IterableComponentProvider:
+        arguments:
+            $components: !tagged_iterator derafu_twig.component
+        tags: ['derafu_twig.component_provider']
+
+    # Consumer providers normally have priority 0 and precede these defaults.
+    Derafu\Twig\Provider\DefaultExtensionProvider:
+        arguments:
+            $translator: '@?Symfony\Contracts\Translation\TranslatorInterface'
+        tags:
+            - name: derafu_twig.extension_provider
+              priority: -1000
+
     Derafu\Twig\Translation\TwigTranslationResourceProvider:
         tags: ['derafu_translation.resource_provider']

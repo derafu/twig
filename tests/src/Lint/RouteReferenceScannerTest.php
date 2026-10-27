@@ -22,6 +22,7 @@ use Derafu\Twig\Lint\RouteReferenceScanner;
 use Derafu\Twig\Lint\TemplateFinder;
 use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
+use Derafu\Twig\Provider\DefaultExtensionProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
@@ -64,6 +65,7 @@ use Twig\TwigFunction;
 #[UsesClass(ComponentRegistrar::class)]
 #[UsesClass(DirectoryComponentProvider::class)]
 #[UsesClass(CacheItemPool::class)]
+#[UsesClass(DefaultExtensionProvider::class)]
 final class RouteReferenceScannerTest extends TestCase
 {
     /**

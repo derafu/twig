@@ -1,0 +1,21 @@
+imports:
+    - { resource: '../../../resources/config/twig-services.yaml' }
+
+parameters:
+    derafu.twig.options:
+        paths: ['%fixture.templates%', '%fixture.components%']
+        extra: false
+
+services:
+    Derafu\TestsTwig\Fixture\GreetingExtensionProvider:
+        arguments:
+            $twig: '@Derafu\Twig\Contract\TwigServiceInterface'
+        tags: ['derafu_twig.extension_provider']
+
+    Derafu\Twig\Provider\ArrayComponentProvider:
+        arguments:
+            $components: [Derafu\TestsTwig\Fixture\Component\AlertComponent]
+        tags: ['derafu_twig.component_provider']
+
+    Psr\Cache\CacheItemPoolInterface:
+        class: Symfony\Component\Cache\Adapter\ArrayAdapter

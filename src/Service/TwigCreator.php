@@ -14,16 +14,12 @@ namespace Derafu\Twig\Service;
 
 use Derafu\Twig\Contract\ComponentProviderInterface;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
+use Derafu\Twig\Contract\ExtensionProviderInterface;
 use Derafu\Twig\Contract\TwigCreatorInterface;
-use Derafu\Twig\Extension\MarkdownExtension;
-use Derafu\Twig\Extension\TranslationExtension;
+use Derafu\Twig\Provider\DefaultExtensionProvider;
 use Derafu\Twig\Support\ProjectDirectory;
 use Twig\Environment;
 use Twig\Extension\ExtensionInterface;
-use Twig\Extra\CssInliner\CssInlinerExtension;
-use Twig\Extra\Inky\InkyExtension;
-use Twig\Extra\Intl\IntlExtension;
-use Twig\Extra\String\StringExtension;
 use Twig\Loader\FilesystemLoader;
 
 class TwigCreator implements TwigCreatorInterface
@@ -42,10 +38,14 @@ class TwigCreator implements TwigCreatorInterface
      *
      * @param array{paths?: string|array<string>, extensions?: iterable<ExtensionInterface>, components?: ComponentProviderInterface|iterable<class-string|object>, extra?: bool, ...} $options Options for constructing the Twig instance.
      * @param ComponentRegistrarInterface|null $componentRegistrar
+     * @param iterable<ExtensionProviderInterface> $extensionProviders Highest priority first; the first extension of each class wins.
+     * @param iterable<ComponentProviderInterface> $componentProviders Providers of component classes.
      */
     public function __construct(
         array $options = [],
-        ?ComponentRegistrarInterface $componentRegistrar = null
+        ?ComponentRegistrarInterface $componentRegistrar = null,
+        private readonly iterable $extensionProviders = [],
+        private readonly iterable $componentProviders = [],
     ) {
         if (!empty($options)) {
             $this->options = $this->resolveOptions($options);
@@ -76,21 +76,25 @@ class TwigCreator implements TwigCreatorInterface
             $twig->addExtension($extension);
         }
 
-        // The templates of the package are translated, so the translation
-        // extension is always there. If the application registered its own (with
-        // its translator), that one is used.
-        if (!$twig->hasExtension(TranslationExtension::class)) {
-            $twig->addExtension(new TranslationExtension());
+        // Defer iterating providers until environment creation. This allows an
+        // extension to depend on a service which uses this Twig service.
+        $hasProviders = false;
+        foreach ($this->extensionProviders as $provider) {
+            $hasProviders = true;
+            $this->addProviderExtensions($twig, $provider, $options);
+        }
+        if (!$hasProviders) {
+            $this->addProviderExtensions($twig, new DefaultExtensionProvider(), $options);
         }
 
-        // Add extra extensions depending on availability.
-        if ($options['extra']) {
-            $this->addExtraExtensions($twig);
+        $components = $options['components'] instanceof ComponentProviderInterface
+            ? $options['components']->getComponents()
+            : [...$options['components']];
+        foreach ($this->componentProviders as $provider) {
+            $components = [...$components, ...$provider->getComponents()];
         }
-
-        // Register everything related to components in Twig.
-        if (!empty($options['components'])) {
-            $this->componentRegistrar->register($twig, $options['components']);
+        if ($components !== []) {
+            $this->componentRegistrar->register($twig, $components);
         }
 
         // Return the Twig instance.
@@ -128,29 +132,17 @@ class TwigCreator implements TwigCreatorInterface
     }
 
     /**
-     * Loads extensions only if their dependencies are installed.
-     *
-     * @param Environment $twig Twig instance where extensions will be added.
-     * @return void
+     * @param array{extra?: bool, ...} $options
      */
-    private function addExtraExtensions(Environment $twig): void
-    {
-        $twig->addExtension(new MarkdownExtension());
-
-        if (class_exists(CssInlinerExtension::class)) {
-            $twig->addExtension(new CssInlinerExtension());
-        }
-
-        if (class_exists(IntlExtension::class)) {
-            $twig->addExtension(new IntlExtension());
-        }
-
-        if (class_exists(StringExtension::class)) {
-            $twig->addExtension(new StringExtension());
-        }
-
-        if (class_exists(InkyExtension::class)) {
-            $twig->addExtension(new InkyExtension());
+    private function addProviderExtensions(
+        Environment $twig,
+        ExtensionProviderInterface $provider,
+        array $options
+    ): void {
+        foreach ($provider->getExtensions($options) as $extension) {
+            if (!$twig->hasExtension($extension::class)) {
+                $twig->addExtension($extension);
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ use Derafu\Twig\Lint\TemplateSource;
 use Derafu\Twig\Node\TransDefaultDomainNode;
 use Derafu\Twig\Node\TransNode;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
+use Derafu\Twig\Provider\DefaultExtensionProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
@@ -61,6 +62,7 @@ use Twig\Loader\FilesystemLoader;
 #[UsesClass(TranslationDefaultDomainNodeVisitor::class)]
 #[UsesClass(TransTokenParser::class)]
 #[UsesClass(TransDefaultDomainTokenParser::class)]
+#[UsesClass(DefaultExtensionProvider::class)]
 final class TemplateMessageScannerTest extends TestCase
 {
     /**

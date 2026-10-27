@@ -18,6 +18,7 @@ use Derafu\Twig\Contract\TwigCreatorInterface;
 use Derafu\Twig\Extension\MarkdownExtension;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
+use Derafu\Twig\Provider\DefaultExtensionProvider;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
@@ -45,6 +46,7 @@ use Twig\Loader\FilesystemLoader;
 #[UsesClass(TranslationDefaultDomainNodeVisitor::class)]
 #[UsesClass(TransTokenParser::class)]
 #[UsesClass(TransDefaultDomainTokenParser::class)]
+#[UsesClass(DefaultExtensionProvider::class)]
 class TwigServiceTest extends TestCase
 {
     public function testRenderFromString(): void

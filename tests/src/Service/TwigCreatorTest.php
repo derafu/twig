@@ -13,11 +13,15 @@ declare(strict_types=1);
 namespace Derafu\TestsTwig\Service;
 
 use Derafu\TestsTwig\Fixture\Component\AlertComponent;
+use Derafu\TestsTwig\Fixture\Component\GreetingComponent;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
+use Derafu\Twig\Contract\ExtensionProviderInterface;
 use Derafu\Twig\Extension\MarkdownExtension;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Extension\TwigExtension;
+use Derafu\Twig\Provider\ArrayComponentProvider;
+use Derafu\Twig\Provider\DefaultExtensionProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
 use Derafu\Twig\Service\TwigCreator;
 use Derafu\Twig\Support\ProjectDirectory;
@@ -41,6 +45,8 @@ use Twig\Loader\FilesystemLoader;
 #[UsesClass(ComponentRegistrar::class)]
 #[UsesClass(CacheItemPool::class)]
 #[UsesClass(ProjectDirectory::class)]
+#[UsesClass(ArrayComponentProvider::class)]
+#[UsesClass(DefaultExtensionProvider::class)]
 final class TwigCreatorTest extends TestCase
 {
     /**
@@ -128,5 +134,50 @@ final class TwigCreatorTest extends TestCase
         $registrar->expects($this->never())->method('register');
 
         (new TwigCreator([], $registrar))->create(['paths' => __DIR__, 'extra' => false]);
+    }
+
+    public function testComponentProvidersAreCombinedWithExplicitComponents(): void
+    {
+        $registrar = $this->createMock(ComponentRegistrarInterface::class);
+        $registrar->expects(self::once())->method('register')->with(
+            self::isInstanceOf(Environment::class),
+            [AlertComponent::class, GreetingComponent::class]
+        )->willReturnArgument(0);
+        $creator = new TwigCreator(
+            ['extra' => false, 'components' => new ArrayComponentProvider([AlertComponent::class])],
+            $registrar,
+            componentProviders: [new ArrayComponentProvider([GreetingComponent::class])]
+        );
+        $creator->create();
+    }
+
+    public function testExtensionProvidersAreDeferredAndReceiveTheEnvironmentOptions(): void
+    {
+        $extension = new TwigExtension();
+        $provider = new class ($extension) implements ExtensionProviderInterface {
+            public int $calls = 0;
+
+            public function __construct(private readonly TwigExtension $extension)
+            {
+            }
+
+            public function getExtensions(array $options = []): iterable
+            {
+                ++$this->calls;
+                TestCase::assertSame(false, $options['extra'] ?? null);
+                yield $this->extension;
+            }
+        };
+        $creator = new TwigCreator(['extra' => false], extensionProviders: [$provider]);
+        self::assertSame(0, $provider->calls);
+        self::assertSame($extension, $creator->create()->getExtension(TwigExtension::class));
+        self::assertSame(1, $provider->calls);
+    }
+
+    public function testExplicitExtensionsTakePrecedenceOverProviderExtensions(): void
+    {
+        $explicit = new TranslationExtension();
+        $creator = new TwigCreator(['extra' => false, 'extensions' => [$explicit]]);
+        self::assertSame($explicit, $creator->create()->getExtension(TranslationExtension::class));
     }
 }

@@ -1,0 +1,14 @@
+imports:
+    - { resource: '../../../resources/config/twig-services.yaml' }
+
+parameters:
+    derafu.twig.options:
+        paths: ['%fixture.templates%', '%fixture.components%']
+        extra: false
+
+services:
+    Derafu\TestsTwig\Fixture\Component\AlertComponent:
+        tags: ['derafu_twig.component']
+
+    Psr\Cache\CacheItemPoolInterface:
+        class: Symfony\Component\Cache\Adapter\ArrayAdapter

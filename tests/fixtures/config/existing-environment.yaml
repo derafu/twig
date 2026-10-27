@@ -1,0 +1,22 @@
+imports:
+    - { resource: '../../../resources/config/twig-services.yaml' }
+
+services:
+    Twig\Loader\LoaderInterface:
+        class: Twig\Loader\ArrayLoader
+        arguments:
+            $templates:
+                native.html.twig: 'Native {{ native }}'
+
+    # Twig exposes its existing environment as a concrete external API.
+    Twig\Environment:
+        arguments:
+            $loader: '@Twig\Loader\LoaderInterface'
+            $options: { strict_variables: true }
+        calls:
+            - [addGlobal, [native, preserved]]
+
+    Derafu\Twig\Contract\TwigServiceInterface:
+        class: Derafu\Twig\Service\TwigService
+        arguments:
+            $twig: '@Twig\Environment'

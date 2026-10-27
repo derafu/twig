@@ -12,9 +12,10 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwig;
 
+use Derafu\TestsTwig\Fixture\GreetingExtension;
 use Derafu\Translation\Exception\Logic\TranslatableInvalidArgumentException;
 use Derafu\Translation\TranslatableMessage;
-use Derafu\Translation\TranslatorFactory;
+use Derafu\Twig\Contract\TwigServiceInterface;
 use Derafu\Twig\Exception\TwigException;
 use Derafu\Twig\Extension\TranslationExtension;
 use Derafu\Twig\Provider\DirectoryComponentProvider;
@@ -22,10 +23,12 @@ use Derafu\Twig\Translation\TwigTranslationResourceProvider;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Translation\Translator;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 use Twig\Loader\ArrayLoader;
 
@@ -36,11 +39,16 @@ use Twig\Loader\ArrayLoader;
 #[CoversNothing]
 final class ServicesTest extends TestCase
 {
-    private function loadContainer(): ContainerBuilder
+    private function loadContainer(?string $consumer = null): ContainerBuilder
     {
         $container = new ContainerBuilder();
-        (new YamlFileLoader($container, new FileLocator(dirname(__DIR__, 2) . '/resources/config')))
-            ->load('twig-services.yaml');
+        $root = dirname(__DIR__, 2);
+        $container->setParameter('fixture.templates', $root . '/tests/fixtures/services');
+        $container->setParameter('fixture.components', $root . '/tests/fixtures/templates');
+        $container->setParameter('fixture.isolated_templates', $root . '/tests/fixtures/services/isolated');
+        (new YamlFileLoader($container, new FileLocator()))->load(
+            $consumer === null ? $root . '/resources/config/twig-services.yaml' : $root . '/tests/fixtures/config/' . $consumer
+        );
 
         return $container;
     }
@@ -60,17 +68,93 @@ final class ServicesTest extends TestCase
 
     private function consumerTranslator(): Translator
     {
-        $container = $this->loadContainer();
-        // The application chooses its own translator and locale. The package
-        // only contributes its resource provider through the declared tag.
-        $container->register('app.translator', Translator::class)
-            ->setFactory([TranslatorFactory::class, 'create'])
-            ->setArguments(['es', ['en'], new TaggedIteratorArgument('derafu_translation.resource_provider')]);
+        $container = $this->loadContainer('translation.yaml');
         $this->compile($container);
-        $translator = $container->get('app.translator');
+        $translator = $container->get(TranslatorInterface::class);
         self::assertInstanceOf(Translator::class, $translator);
 
         return $translator;
+    }
+
+    public function testTheDefaultYamlProvidesAWorkingTwigService(): void
+    {
+        $container = $this->loadContainer();
+        $this->compile($container);
+        $service = $container->get(TwigServiceInterface::class);
+        self::assertInstanceOf(TwigServiceInterface::class, $service);
+        $data = ['name' => 'Ada'];
+        self::assertSame('Hello Ada', $service->renderFromString('Hello {{ name }}', $data));
+    }
+
+    public function testTaggedProvidersReachTheEnvironmentUsedToRenderTemplates(): void
+    {
+        $container = $this->loadContainer('consumer.yaml');
+        $this->compile($container);
+        $service = $container->get(TwigServiceInterface::class);
+        self::assertInstanceOf(TwigServiceInterface::class, $service);
+        $data = ['name' => 'Ada'];
+        self::assertSame("Hello Ada\n", $service->render('greeting', $data));
+        $html = $service->render('component');
+        self::assertStringContainsString('From provider', $html);
+        self::assertStringContainsString('success', $html);
+        self::assertSame((string) spl_object_id($service->getTwig()), trim($service->render('identity')));
+    }
+
+    public function testIndividuallyTaggedComponentsAreAdaptedToAProvider(): void
+    {
+        $container = $this->loadContainer('tagged-components.yaml');
+        $this->compile($container);
+        $service = $container->get(TwigServiceInterface::class);
+        self::assertInstanceOf(TwigServiceInterface::class, $service);
+        $html = $service->render('component');
+        self::assertStringContainsString('From provider', $html);
+        self::assertStringContainsString('alert-success', $html);
+    }
+
+    public function testProviderCyclesRemainLazyInACompiledContainer(): void
+    {
+        $container = $this->loadContainer('consumer.yaml');
+        $this->compile($container);
+        $class = 'TwigProviderServicesTestContainer';
+        $code = '';
+        if (!class_exists($class, false)) {
+            $dump = (new PhpDumper($container))->dump(['class' => $class]);
+            self::assertIsString($dump);
+            $code = substr($dump, 5);
+        }
+        $compiled = eval($code . "\nreturn new " . $class . '();');
+        self::assertInstanceOf(ContainerInterface::class, $compiled);
+        $service = $compiled->get(TwigServiceInterface::class);
+        self::assertInstanceOf(TwigServiceInterface::class, $service);
+        self::assertSame((string) spl_object_id($service->getTwig()), trim($service->render('identity')));
+    }
+
+    public function testAnExistingEnvironmentIsPreservedByTheYamlOverride(): void
+    {
+        $container = $this->loadContainer('existing-environment.yaml');
+        $this->compile($container);
+        $environment = $container->get(Environment::class);
+        $service = $container->get(TwigServiceInterface::class);
+        self::assertInstanceOf(TwigServiceInterface::class, $service);
+        self::assertSame($environment, $service->getTwig());
+        self::assertTrue($service->getTwig()->isStrictVariables());
+        self::assertFalse($service->getTwig()->hasExtension(TranslationExtension::class));
+        self::assertSame('Native preserved', $service->render('native'));
+    }
+
+    public function testAnIsolatedEnvironmentDoesNotReplaceTheDefaultOne(): void
+    {
+        $container = $this->loadContainer('isolated.yaml');
+        $this->compile($container);
+        $default = $container->get(TwigServiceInterface::class);
+        $isolated = $container->get(TwigServiceInterface::class . ' $isolated');
+        self::assertInstanceOf(TwigServiceInterface::class, $default);
+        self::assertInstanceOf(TwigServiceInterface::class, $isolated);
+        self::assertNotSame($default->getTwig(), $isolated->getTwig());
+        self::assertSame("default\n", $default->render('source'));
+        self::assertSame("isolated\n", $isolated->render('source'));
+        self::assertFalse($isolated->getTwig()->hasExtension(GreetingExtension::class));
+        self::assertSame('Hello Ada', $default->renderFromString('{{ "Ada"|greet }}'));
     }
 
     public function testEveryConfiguredServiceCanBeConstructed(): void
