@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Service;
 
+use Derafu\Translation\Exception\Logic\TranslatableInvalidArgumentException as InvalidArgumentException;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Contract\ComponentProviderInterface;
 use Derafu\Twig\Contract\ComponentRegistrarInterface;
@@ -434,7 +435,17 @@ class ComponentRegistrar implements ComponentRegistrarInterface
         $attributes = $reflection->getAttributes(AsTwigComponent::class);
 
         if (!empty($attributes)) {
-            return $attributes[0]->getArguments()[0]
+            $arguments = $attributes[0]->getArguments();
+            $name = $arguments[0] ?? $arguments['name'] ?? null;
+            if ($name !== null && !is_string($name)) {
+                throw new InvalidArgumentException([
+                    'The name of Twig component {component} must be string|null; {type} given.',
+                    'component' => $componentClass,
+                    'type' => get_debug_type($name),
+                ]);
+            }
+
+            return $name
                 ?? strtolower(basename(str_replace('\\', '/', $componentClass)))
             ;
         }

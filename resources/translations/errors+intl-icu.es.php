@@ -11,6 +11,12 @@ declare(strict_types=1);
  */
 
 return [
+    'The message of a trans node must be a string; {type} given.' =>
+        'El mensaje de un nodo trans debe ser un string; se recibió {type}.',
+    'The data of a text node must be a string; {type} given.' =>
+        'Los datos de un nodo de texto deben ser un string; se recibió {type}.',
+    'The name of Twig component {component} must be string|null; {type} given.' =>
+        'El nombre del componente Twig {component} debe ser string|null; se recibió {type}.',
     // Extensions.
     'Routing context not set.' =>
         'El contexto de rutas no está definido.',

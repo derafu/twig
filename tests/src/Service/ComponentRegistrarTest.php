@@ -18,6 +18,7 @@ use Derafu\TestsTwig\Fixture\Component\GreetingComponent;
 use Derafu\TestsTwig\Fixture\Component\TagComponent;
 use Derafu\TestsTwig\Fixture\Component\UnnamedComponent;
 use Derafu\TestsTwig\Fixture\ComponentsTwig;
+use Derafu\TestsTwig\Fixture\NamedComponent;
 use Derafu\Twig\Cache\CacheItemPool;
 use Derafu\Twig\Provider\ArrayComponentProvider;
 use Derafu\Twig\Service\ComponentRegistrar;
@@ -148,6 +149,18 @@ final class ComponentRegistrarTest extends TestCase
         $html = $this->render('<twig:unnamedcomponent />', [UnnamedComponent::class]);
 
         $this->assertSame('<i>unnamed</i>', trim($html));
+    }
+
+    public function testNamedAndPositionalComponentNamesRenderWithFreshAndCachedConfiguration(): void
+    {
+        $cache = new ArrayAdapter();
+        $components = [NamedComponent::class, AlertComponent::class];
+        $template = '<twig:named-component /><twig:test-alert content="Hi" />';
+        $expected = "<i>unnamed</i>\n<div class=\"alert alert-info\">Hi</div>";
+
+        $this->assertSame($expected, trim($this->render($template, $components, $cache)));
+        $this->assertTrue($cache->getItem($this->key($components))->isHit());
+        $this->assertSame($expected, trim($this->render($template, $components, $cache)));
     }
 
     public function testAClassThatIsNotAComponentIsNotRegistered(): void

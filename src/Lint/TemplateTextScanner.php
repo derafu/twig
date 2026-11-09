@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\Twig\Lint;
 
+use Derafu\Translation\Exception\Core\TranslatableLogicException as LogicException;
 use Twig\Environment;
 use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Node;
@@ -159,8 +160,15 @@ final class TemplateTextScanner
     private function flatten(Node $node, string &$html, array &$lines): void
     {
         if ($node instanceof TextNode) {
+            $text = $node->getAttribute('data');
+            if (!is_string($text)) {
+                throw new LogicException([
+                    'The data of a text node must be a string; {type} given.',
+                    'type' => get_debug_type($text),
+                ]);
+            }
             $line = $node->getTemplateLine();
-            foreach (str_split($node->getAttribute('data')) as $character) {
+            foreach (str_split($text) as $character) {
                 $lines[strlen($html)] = $line;
                 $html .= $character;
                 if ($character === "\n") {

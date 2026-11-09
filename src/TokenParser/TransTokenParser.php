@@ -58,19 +58,19 @@ final class TransTokenParser extends AbstractTokenParser
             if ($stream->test('with')) {
                 // {% trans with {'name': user.name} %}
                 $stream->next();
-                $with = $this->parser->getExpressionParser()->parseExpression();
+                $with = $this->parser->parseExpression();
             }
 
             if ($stream->test('from')) {
                 // {% trans from 'content+intl-icu' %}
                 $stream->next();
-                $domain = $this->parser->getExpressionParser()->parseExpression();
+                $domain = $this->parser->parseExpression();
             }
 
             if ($stream->test('into')) {
                 // {% trans into 'fr' %}
                 $stream->next();
-                $locale = $this->parser->getExpressionParser()->parseExpression();
+                $locale = $this->parser->parseExpression();
             } elseif (!$stream->test(Token::BLOCK_END_TYPE)) {
                 throw new SyntaxError(
                     'Unexpected token. Twig was looking for the "with", "from", or "into" keyword.',

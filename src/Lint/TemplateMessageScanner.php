@@ -224,8 +224,16 @@ final class TemplateMessageScanner
      */
     private function fromTag(TransNode $node): array
     {
+        $message = $node->getAttribute('message');
+        if (!is_string($message)) {
+            throw new LogicException([
+                'The message of a trans node must be a string; {type} given.',
+                'type' => get_debug_type($message),
+            ]);
+        }
+
         return [
-            $node->getAttribute('message'),
+            $message,
             $node->hasNode('domain') ? $this->domain($node->getNode('domain')) : $this->defaultDomain ?? 'messages',
         ];
     }
